@@ -1,0 +1,41 @@
+{% load static %}
+ 
+
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg  navbar- sticky-top px-4 px-lg-5 py-lg-0" style="background-color: #cf3231;">
+ <ul><li><img src="{% static 'img/logo.jpg'%}" style="width: 50px; height: 50px;"></li></ul>
+   <a href="{% url 'index' %}" class="navbar-brand">
+      <h1 class="m-0 text-white" style="padding: 10px;"><i class=" me-3"></i>   les2pèresnoel</h1>
+   </a>
+   <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+       <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarCollapse">
+       <div class="navbar-nav mx-auto ">
+           <a href="{% url 'index' %}" class="nav-item nav-link text-white">Home</a>
+           <div class="nav-item dropdown">
+            <a href="" class="nav-link dropdown-toggle active text-white" data-bs-toggle="dropdown">A propos</a>
+            <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                <a href="{% url 'about' %}" class="dropdown-item ">A Propos</a>
+                <a href="{% static 'pdf/doc.pdf' %}" class="dropdown-item">Pourquoi 2 peres noels?</a>
+                <a href="{% static 'pdf/docA.pdf' %}" class="dropdown-item"> Why The 2 Santa Clauses?</a>
+               
+            </div>
+        </div>
+           
+           <div class="nav-item dropdown">
+            <a href="{% url 'boutique' %}" class="nav-link dropdown-toggle active text-white" data-bs-toggle="dropdown">Boutique</a>
+            <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                <a href="{% url 'boutique' %}" class="dropdown-item ">Boutique</a>
+                <a href="{% url 'livre' %}" class="dropdown-item ">Livres</a>
+                <a href="{% url 'video' %}" class="dropdown-item">Vidéo</a>
+                <a href="{% url 'musique' %}" class="dropdown-item ">Musiques</a>
+                </div></div>
+           <a href="{% url 'signup' %}" class="nav-item nav-link text-white">Connexion</a>
+           <a href="classes.html" class="nav-item nav-link text-white">Licence</a>
+       </div>
+       <a href="#contact" class="btn btn-lg bg-white text-danger rounded-pill px-3 d-none d-lg-block ">Contact<i class=""></i></a>
+   </div>
+</nav>
+<!-- Navbar End -->

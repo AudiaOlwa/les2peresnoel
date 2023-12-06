@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- Carousel Start -->
+  <div class="container-fluid p-0 mb-5">
+    <div class="owl-carousel header-carousel">
+        <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bague.jpg'%}') no-repeat; background-size: cover;">
+            <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8 text-white">
+                            <h6 class="display-2 text-white animated slideInDown mb-4">la boutique des 2 Pères noël 
+                                 </h6>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bg2.jpg'%}') no-repeat; background-size: cover;">
+            <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8 text-white">
+                            <h6 class="display-2 text-white animated slideInDown mb-4">la boutique des 2 Pères noël 
+                                 </h6>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+<!-- Carousel End -->
+<h1 class=" text-center wow fadeInUp" style="color: #cf3231;"> Livres,vidéos de chant et danse de noël en animation 3D
+</h1>
+
+ <!-- Classes Start -->
+ <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3 text-center" style="color: #bf8f52;">Livres & contes</h1>
+        </div>
+        <div class="row g-4">
+            {% for book in random_books %}
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+           
+                <div class="classes-item">
+                    <div class="bg-light">
+                       <a href="{% url 'livre' %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
+                    </div>
+                    <div class="bg-light rounded">
+                        <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ book.nom }}</a>
+                        
+                       
+                    </div>
+                </div>
+               
+            </div>
+            {% endfor %}
+               
+            </div>
+        </div>
+    </div>
+
+<!-- Classes End -->
+
+
+ <!-- Classes Start -->
+ <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3 text-center" style="color: #bf8f52;">Chants de Noel</h1>
+        </div>
+        <div class="row g-4">
+            {% for musik in random_musik %}
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="classes-item">
+                    <div class="bg-light">
+                        {% if musik.cover_image %}
+                        <a href="{% url 'musique' %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
+                        {% endif %}
+                    </div>
+                    <div class="bg-light rounded">
+                        <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ musik.nom }}</a>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+<!-- Classes End -->
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3 text-center" style="color: #bf8f52;">Video</h1>
+        </div>
+        <div class="row g-4">
+            {% for video in random_video %}
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="classes-item">
+                    <div class="bg-light">
+                       <a href="{% url 'video' %}"> <img class="img-fluid rounded" src="{{ video.file.url }}" alt=""></a>
+                    </div>
+                    <div class="bg-light rounded">
+                        <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ video.nom }}</a>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            </div>
+        </div>
+    </div>
+
+
+<div class="container-fluid p-0 mb-5 ">
+    <div class="owl-carousel header-carousel">
+        <div class="owl-carousel-item position-relative img-fluid mb-5" 
+        style="background-image: url({% static 'img/p4.jpg'%});">
+        <h1 class="display-2 animated slideInDown mb-5  text-center " style="color: lavender;" >Actualitées+</h1>
+
+      
+        </div>
+        </div>
+
+</div>
+
+
+
+
+<!-- Call To Action Start -->
+<div class="container-xxl py-5">
+    <div class="container wow fadeInUp" data-wow-delay="0.1s">
+        <h1 class="mb-3 text-center " style="color: #bf8f52;">Histoires</h1>
+        <div class="bg-light rounded">
+            <div class="row g-0">
+            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                      <a href="">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/h1.jpg'%}" style="object-fit: cover;"></a>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Call To Action End -->
+
+
+{% endblock content %}

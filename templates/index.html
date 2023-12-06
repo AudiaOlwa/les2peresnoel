@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-xxl bg-white p-0">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+ 
+ 
+
+              <!-- Carousel Start -->
+        <div class="container-fluid p-0 mb-5">
+            <div class="owl-carousel header-carousel">
+                <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bg.jpg'%}') no-repeat; background-size: cover;">
+                    <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8 text-white">
+                                    <h6 class="display-2 text-white animated slideInDown mb-4">Le site Les2pèresnoel présente 
+                                        l’histoire de l’évolution du Père noël 
+                                         </h6>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bg3.jpg'%}') no-repeat; background-size: cover;">
+                    <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8 text-white">
+                                    <h6 class="display-2 text-white animated slideInDown mb-4">la boutique des 2 Pères noël, 
+                                        vend les contes et les chansons de l’auteur
+                                       </h6>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <!-- Carousel End -->
+        <h1 class=" text-center wow fadeInUp" style="color: #bf8f52;">Nos Activités</h1>
+        <div class="container-xxl ">
+            <div class="container">
+<div class="row " style="display: flex; align-items: center; justify-content: center; height: 100vh;">   
+ 
+                <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item  rounded p-5">
+                        <div class="col-md-4 about-img wow fadeInUp" >
+                            <div class="" style="width: 25rem; height: 30rem;">
+                             <a href="{% url 'livre' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
+                              src="{% static 'img/livre.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
+                              <div class="card-body">
+                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Livres</h1>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="testimonial-item  rounded p-5">
+                        <div class="col-md-4 about-img wow fadeInUp">
+                            <div class="" style="width: 25rem; height: 30rem;">
+                             <a href="{% url 'musique' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
+                              src="{% static 'img/music.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
+                              <div class="card-body">
+                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Musiques</h1>
+                              </div>
+                            </div>
+                          </div> 
+                    </div>
+                    <div class="testimonial-item  rounded p-5">
+                        <div class="col-md-4 about-img wow fadeInUp">
+                            <div class="" style="width: 25rem; height: 30rem;">
+                             <a href="{% url 'boutique' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 400px; height: 250px; transition: transform 0.5s ease-in-out;" 
+                              src="{% static 'img/jeu.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
+                              <div class="card-body">
+                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Jeu</h1>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+</div>
+            </div>
+        </div>
+
+       
+        
+       
+            
+
+
+    
+
+
+     <!-- Call To Action Start -->
+     <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel">
+            <div class="owl-carousel-item position-relative img-fluid" 
+            style="background-color: #bf8f52">
+            <h1 class="display-2 animated slideInDown mb-5  text-center " style="color: lavender;" >Nouveautés sur les2peresnoels</h1>
+            <div>
+                <div class="row container-fluid">
+            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="classes-item">
+                    <div class="my-5 mb-5">
+                       <a href="{% url 'video' %}"> <img class="img-fluid rounded" src="{% static 'img/g4.jpg'%}" alt=""></a>
+                       <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">vidéos</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="classes-item">
+                        <div class="my-5 mb-5">
+                           <a href="#"> <img class="img-fluid rounded" src="{% static 'img/g3.jpg'%}" alt=""></a>
+                           <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">Nouvelles</a>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="my-5 mb-5">
+                               <a href="#"> <img class="img-fluid rounded" src="{% static 'img/p4.jpg'%}" alt=""></a>
+                               <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">Podcasts</a>
+                            </div>
+                            </div>
+                        </div>
+        </div>
+        </div>
+            </div>
+            </div>
+
+    </div>
+     <!-- Call To Action End -->
+
+
+ <!-- Call To Action Start -->
+ <div class="container-xxl py-5">
+    <div class="container wow fadeInUp" data-wow-delay="0.1s">
+        <h1 class="mb-3 text-center " style="color: #bf8f52;">Contes</h1>
+        <div class="bg-light rounded">
+            <div class="row g-0">
+            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                      <a href="{% url 'boutique' %}">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/h1.jpg'%}" style="object-fit: cover;"></a>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Call To Action End -->
+
+
+<div class="container-xxl py-5">
+    <div class="container wow fadeInUp">
+        <h1 class="mb-3 text-center " style="color: #bf8f52;">Videos & Chants </h1>
+       <div class=" rounded wow fadeInUp " data-wow-delay="0.1s">
+            <div class="row g-3">
+                 <div class="col-lg-6 wow fadeUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    {% for video in random_video %}
+                    <div class="position-relative h-100">
+                       <a href="{% url 'video' %}"> <img class="position-absolute w-100 h-100 rounded" src="{{ video.file.url }}" style="object-fit: cover;"></a> 
+                    </div>
+                    {% endfor %}
+                </div>
+
+                 <div class="col-lg-6 wow fadeUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    {% for musik in random_musik %}
+                    <div class="position-relative h-100">
+                        {% if musik.cover_image %}
+                        <a href="{% url 'musique' %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div> 
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+  <!-- Classes Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3 text-center" style="color: #bf8f52;">Livres & contes</h1>
+        </div>
+        <div class="row g-4">
+            {% for book in random_books %}
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+           
+                <div class="classes-item">
+                    <div class="bg-light">
+                       <a href="{% url 'livre' %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
+                    </div>
+                    <div class="bg-light rounded">
+                        <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ book.nom }}</a>
+                        
+                       
+                    </div>
+                </div>
+               
+            </div>
+            {% endfor %}
+               
+            </div>
+        </div>
+    </div>
+
+<!-- Classes End -->
+
+
+<!-- ---------------------------------Call To Action Start -->
+<div class="container-xxl py-5">
+    <div class="container wow fadeInUp" data-wow-delay="0.1s">
+        <h1 class="mb-3 text-center " style="color: #bf8f52;">Boutique</h1>
+        <div class="bg-light rounded">
+            <div class="row g-0">
+            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                      <a href="{% url 'boutique' %}">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/bague.jpg'%}" style="object-fit: cover;"></a>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Call To Action End -->
+
+   
+
+
+    
+
+
+   
+
+
+    
+     
+
+    
+      {% endblock content %} 
