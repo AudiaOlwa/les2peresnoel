@@ -13,6 +13,9 @@ urlpatterns = [
     path("musique", views.musique, name="musique"),
     path("video", views.video, name="video"),
     path("signup", views.signup, name="signup"),
+    path("evolution", views.evolution, name="evolution"),
+    path("prqw2pn", views.prqw2pn, name="prqw2pn"),
+    path("birth", views.birth, name="birth"),
     
 ]
 

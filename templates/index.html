@@ -20,7 +20,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8 text-white">
-                                    <h6 class="display-2 text-white animated slideInDown mb-4">Le site Les2pèresnoel présente 
+                                    <h6 class="display-2 text-white animated slideInDown mb-4">Le site Les2Pères noël présente 
                                         l’histoire de l’évolution du Père noël 
                                          </h6>
                                     <p></p>
@@ -34,7 +34,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8 text-white">
-                                    <h6 class="display-2 text-white animated slideInDown mb-4">la boutique des 2 Pères noël, 
+                                    <h6 class="display-2 text-white animated slideInDown mb-4">la boutique Les2Pères noël
                                         vend les contes et les chansons de l’auteur
                                        </h6>
                                 
@@ -62,7 +62,7 @@
                              <a href="{% url 'livre' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
                               src="{% static 'img/livre.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
                               <div class="card-body">
-                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Livres</h1>
+                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Contes</h1>
                               </div>
                             </div>
                           </div>
@@ -81,10 +81,10 @@
                     <div class="testimonial-item  rounded p-5">
                         <div class="col-md-4 about-img wow fadeInUp">
                             <div class="" style="width: 25rem; height: 30rem;">
-                             <a href="{% url 'boutique' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 400px; height: 250px; transition: transform 0.5s ease-in-out;" 
+                             <a href="{% url 'evolution' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 400px; height: 250px; transition: transform 0.5s ease-in-out;" 
                               src="{% static 'img/jeu.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
                               <div class="card-body">
-                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Jeu</h1>
+                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Images</h1>
                               </div>
                             </div>
                           </div>
@@ -108,7 +108,7 @@
         <div class="owl-carousel header-carousel">
             <div class="owl-carousel-item position-relative img-fluid" 
             style="background-color: #bf8f52">
-            <h1 class="display-2 animated slideInDown mb-5  text-center " style="color: lavender;" >Nouveautés sur les2peresnoels</h1>
+            <h1 class="display-2 animated slideInDown mb-5  text-center " style="color: lavender;" >Nouveautés sur les2Pèresnoël</h1>
             <div>
                 <div class="row container-fluid">
             <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
@@ -166,7 +166,7 @@
 
 <div class="container-xxl py-5">
     <div class="container wow fadeInUp">
-        <h1 class="mb-3 text-center " style="color: #bf8f52;">Videos & Chants </h1>
+        <h1 class="mb-3 text-center " style="color: #bf8f52;">Videos & Musiques </h1>
        <div class=" rounded wow fadeInUp " data-wow-delay="0.1s">
             <div class="row g-3">
                  <div class="col-lg-6 wow fadeUp" data-wow-delay="0.1s" style="min-height: 400px;">
@@ -199,7 +199,7 @@
   <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3 text-center" style="color: #bf8f52;">Livres & contes</h1>
+            <h1 class="mb-3 text-center" style="color: #bf8f52;">Livres</h1>
         </div>
         <div class="row g-4">
             {% for book in random_books %}

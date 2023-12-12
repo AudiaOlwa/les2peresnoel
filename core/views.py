@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Product, Document
 from .forms import SignUpForm
 import random
 
@@ -25,6 +25,16 @@ def index(request):
 
 def about(request):
 	return render(request, 'about.html')
+
+def evolution(request):
+	return render(request, 'evolution.html')
+def prqw2pn(request):
+	return render(request, 'prqw2pn.html')
+def birth(request):
+	return render(request, 'birth.html')
+def birth(request):
+	birth = Document.objects.all()
+	return render(request, 'birth.html', {'birth': birth})
 
 def boutique(request):
 	product_book_all = Product.objects.filter(type='L')

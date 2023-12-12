@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-xxl bg-white p-0">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+   
+
+    <!-- Page Header End -->
+   
+            
+       
+            <div class="owl-carousel header-carousel ">
+                <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bgb.jpg'%}') no-repeat; background-size: cover;">
+                    <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8 text-white">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">Pourquoi 2pèrenoël?</h1>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+       
+
+
+  
+
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-4" style="color: #bf8f52;">Concept des Pères Noël</h1>
+            <p>Le concept de l’évolution du Père Noël, convertit en deux Pères Noël
+                futuristes, a vu le jour pour trois raisons importantes : </p>
+            <p class="mb-4"> 1. Face à l’attrait de nos enfants pour les nouvelles technologies, il était
+                nécessaire de faire évoluer le mythe du Père Noël vers une histoire
+                crédible, plausible et mieux adaptée à notre ère. De nos jours, nous ne
+                pouvons pas continuer à leur dire que le Père Noël passe par la cheminée
+                ni qu’il fait le tour de la planète avec un petit traineau rempli de jouets en
+                une nuit, car l’histoire paraîtrait certainement saugrenue. </p>
+                  <p class="mb-4"> 2.Le problème de la« Paternatalophobie » qui
+                    se traduit par la peur du Père Noël qui touche les
+                    enfants comme les adultes. Plus d’infos sur ce lien:
+                    <a href="https://www.lci.fr/famille/paternatalophobie-comment-le-pere-noel-peut-il-faire-peur-a-certains-enfants-et-adultes-2107265.html">Cliquez ici</a>
+                   <p class="mb-4"> 3.L’imagerie du Père Noël des pays du sud
+                    au climat tropical ne convient pas au pays où la
+                    chaleur s’élève à 35° ou plus. Le déguisement
+                    apporte souffrance à ceux qui le porte en
+                    période de fêtes. Même, assis dans une salle
+                    climatisée des hypermarchés, ils ont besoin </p>
+                </div>
+                <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img class="img-fluid w-75 rounded-circle bg-light p-2 " src="{% static 'img//bague.jpg'%}" style="height: 100%; width: 100%;">
+                        </div>
+                        <div class="col-6 text-start" style="margin-top: -150px;">
+                            <img class="img-fluid w-100 rounded-circle bg-light p-2 mt-5" src="{% static 'img/bg.jpg'%}" alt="">
+                        </div>
+                        <div class="col-6 text-end" style="margin-top: -150px;">
+                            <img class="img-fluid w-100 rounded-circle bg-light p-2 mt-5" src="{% static 'img/bg3.jpg'%}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+
+   
+
+
+   
+
+
+    <!-- Back to Top -->
+</div>
+{% endblock content %} 
