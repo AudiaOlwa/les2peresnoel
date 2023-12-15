@@ -14,6 +14,7 @@
    <div class="collapse navbar-collapse" id="navbarCollapse">
        <div class="navbar-nav mx-auto ">
            <a href="{% url 'index' %}" class="nav-item nav-link text-white">Home</a>
+           <a href="{% url 'boutique' %}" class="nav-item nav-link text-white">Boutique</a>
            <div class="nav-item dropdown">
             <a href="" class="nav-link dropdown-toggle active text-white" data-bs-toggle="dropdown">A propos</a>
             <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
@@ -25,14 +26,6 @@
             </div>
         </div>
            
-           <div class="nav-item dropdown">
-            <a href="{% url 'boutique' %}" class="nav-link dropdown-toggle active text-white" data-bs-toggle="dropdown">Boutique</a>
-            <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                <a href="{% url 'boutique' %}" class="dropdown-item ">Boutique</a>
-                <a href="{% url 'livre' %}" class="dropdown-item ">Livres</a>
-                <a href="{% url 'video' %}" class="dropdown-item">Vidéo</a>
-                <a href="{% url 'musique' %}" class="dropdown-item ">Musiques</a>
-                </div></div>
            <a href="{% url 'signup' %}" class="nav-item nav-link text-white">Connexion</a>
            <a href="classes.html" class="nav-item nav-link text-white">Licence</a>
        </div>

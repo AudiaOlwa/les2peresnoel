@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
   <!-- Carousel Start -->
   <div class="container-fluid p-0 mb-5">
@@ -50,7 +51,7 @@
            
                 <div class="classes-item">
                     <div class="bg-light">
-                       <a href="{% url 'livre' %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
+                       <a href="{% url 'livre_detail' livre_id=book.id %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
                     </div>
                     <div class="bg-light rounded">
                         <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ book.nom }}</a>
@@ -81,7 +82,7 @@
                 <div class="classes-item">
                     <div class="bg-light">
                         {% if musik.cover_image %}
-                        <a href="{% url 'musique' %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
+                        <a href="{% url 'musique_detail' musik_id=musik.id %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
                         {% endif %}
                     </div>
                     <div class="bg-light rounded">
@@ -108,10 +109,11 @@
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="classes-item">
                     <div class="bg-light">
-                       <a href="{% url 'video' %}"> <img class="img-fluid rounded" src="{{ video.file.url }}" alt=""></a>
+                        <video class="w-60 h-60 container rounded" src="{{ video.file.url }}" controls autoplay>
+                        </video>
                     </div>
                     <div class="bg-light rounded">
-                        <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ video.nom }}</a>
+                        <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'video_detail' video.id %}" style="color: #bf8f52;">{{ video.nom }}</a>
                         
                        
                     </div>
@@ -119,12 +121,15 @@
             </div>
             {% endfor %}
             
+           
+
+
             </div>
         </div>
     </div>
 
 
-<div class="container-fluid p-0 mb-5 ">
+<div class="container-fluid p-0  ">
     <div class="owl-carousel header-carousel">
         <div class="owl-carousel-item position-relative img-fluid mb-5" 
         style="background-image: url({% static 'img/p4.jpg'%});">
@@ -140,22 +145,28 @@
 
 
 <!-- Call To Action Start -->
+
 <div class="container-xxl py-5">
-    <div class="container wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="mb-3 text-center " style="color: #bf8f52;">Histoires</h1>
+    
+    <div class="container wow fadeInUp " data-wow-delay="0.1s">
+        <h1 class="text-center " style="color: #bf8f52;">Histoires</h1>
+       
         <div class="bg-light rounded">
             <div class="row g-0">
-            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                      <a href="">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/h1.jpg'%}" style="object-fit: cover;"></a>
-                    </div>
+            <div class="col-lg-10 " data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative d-flex align-items-center justify-content-center" style="margin-left: 170px;">
+                 <video class="w-60 h-60 container rounded "  src="{% static 'vid/Tome-1-Kovani-2-pere-noel-francais.mp4' %}" controls autoplay muted >
+                      </video>  
+                   
+                  </div>
                 </div>
                
             </div>
         </div>
+   
     </div>
 </div>
-<!-- Call To Action End -->
 
+<!-- Call To Action End -->
 
 {% endblock content %}

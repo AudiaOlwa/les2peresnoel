@@ -59,7 +59,7 @@
                     <div class="testimonial-item  rounded p-5">
                         <div class="col-md-4 about-img wow fadeInUp" >
                             <div class="" style="width: 25rem; height: 30rem;">
-                             <a href="{% url 'livre' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
+                             <a href="{% url 'boutique' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
                               src="{% static 'img/livre.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
                               <div class="card-body">
                                 <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Contes</h1>
@@ -70,7 +70,7 @@
                     <div class="testimonial-item  rounded p-5">
                         <div class="col-md-4 about-img wow fadeInUp">
                             <div class="" style="width: 25rem; height: 30rem;">
-                             <a href="{% url 'musique' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
+                             <a href="{% url 'boutique' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
                               src="{% static 'img/music.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
                               <div class="card-body">
                                 <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">Musiques</h1>
@@ -114,7 +114,7 @@
             <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
                 <div class="classes-item">
                     <div class="my-5 mb-5">
-                       <a href="{% url 'video' %}"> <img class="img-fluid rounded" src="{% static 'img/g4.jpg'%}" alt=""></a>
+                       <a href="{% url 'boutique' %}"> <img class="img-fluid rounded" src="{% static 'img/g4.jpg'%}" alt=""></a>
                        <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">vidéos</a>
                     </div>
                     </div>
@@ -166,22 +166,31 @@
 
 <div class="container-xxl py-5">
     <div class="container wow fadeInUp">
-        <h1 class="mb-3 text-center " style="color: #bf8f52;">Videos & Musiques </h1>
+      
+           
+        
        <div class=" rounded wow fadeInUp " data-wow-delay="0.1s">
-            <div class="row g-3">
-                 <div class="col-lg-6 wow fadeUp" data-wow-delay="0.1s" style="min-height: 400px;">
+            <div class="row g-1">
+              
+                <div class="col-lg-6 wow fadeUp rounded" data-wow-delay="0.1s" style="min-height: 400px;">
                     {% for video in random_video %}
-                    <div class="position-relative h-100">
-                       <a href="{% url 'video' %}"> <img class="position-absolute w-100 h-100 rounded" src="{{ video.file.url }}" style="object-fit: cover;"></a> 
-                    </div>
+                    <h1 class="mb-3 text-center "> <a href="{% url 'video_detail' video.id %}" style="color: #bf8f52;" > Videos</a></h1>
+                        <a href="{% url 'video_detail' video.id %}">
+                            <div class="position-relative h-100">
+                                <video class="w-60 h-60 container rounded" src="{{ video.file.url }}" controls  muted>
+                                </video>
+                            </div>
+                        </a>
                     {% endfor %}
                 </div>
+                
 
                  <div class="col-lg-6 wow fadeUp" data-wow-delay="0.1s" style="min-height: 400px;">
                     {% for musik in random_musik %}
+                    <h1 class="mb-3 text-center" style="color: #bf8f52;"> Musiques </h1>
                     <div class="position-relative h-100">
                         {% if musik.cover_image %}
-                        <a href="{% url 'musique' %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
+                        <a href="{% url 'musique_detail' musik_id=musik.id %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
                         {% endif %}
                     </div>
                     {% endfor %}
@@ -206,14 +215,17 @@
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
            
                 <div class="classes-item">
+                   
                     <div class="bg-light">
-                       <a href="{% url 'livre' %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
+                        
+                       <a href="{% url 'livre_detail' livre_id=book.id %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
+                      
                     </div>
                     <div class="bg-light rounded">
                         <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ book.nom }}</a>
                         
+                       </div>
                        
-                    </div>
                 </div>
                
             </div>

@@ -3,8 +3,8 @@
 {% block content %}
 
 <div class="owl-carousel header-carousel ">
-    <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bgm.jpg'%}') no-repeat; background-size: cover;">
-        <div class="top-0 start-0 w-50 h-50 d-flex align-items-center">
+    <div class="owl-carousel-item position-relative img-fluid" style="background: url('{{ musik.cover_image.url }}') no-repeat; background-size: cover;">
+        <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
             <div class="container">
                 <div class="row justify-content-start">
                     <div class="col-10 col-lg-8 text-white">
@@ -31,7 +31,7 @@
                 <div class="classes-item">
                     <div class="bg-light">
                         {% if musik.cover_image %}
-                       <a href="{% url 'musique' %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
+                       <a href="{% url 'musique_detail' musik_id=musik.id %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
                        {% endif %}
                     </div>
                     <div class="bg-light rounded text-center ">

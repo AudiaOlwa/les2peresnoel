@@ -3,15 +3,9 @@
 {% block content %}
 
 <div class="owl-carousel header-carousel ">
-    <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bgb.jpg'%}') no-repeat; background-size: cover;">
+    <div class="owl-carousel-item position-relative img-fluid" style="background: url('{{ livre.file.url}}') no-repeat; background-size: cover;">
         <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
-            <div class="container">
-                <div class="row justify-content-start">
-                    <div class="col-10 col-lg-8 text-white">
-                        <h1 class="display-2 text-center animated slideInDown mb-4" style="color: #cf3231;">Livre & Contes de noël</h1>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
     </div>
@@ -19,9 +13,11 @@
 <!-- Carousel End -->
 
 
+
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="display-2 text-center animated slideInDown mb-4" style="color: #cf3231;">Livre & Contes de noël</h1>
             <h1 class="mb-3 text-center" style="color: #bf8f52;"> 
                 <a href="{% url 'boutique' %}" style="color: #cf3231;">Boutique</a> /Livres</h1>
         </div>
@@ -31,7 +27,7 @@
            
                 <div class="classes-item">
                     <div class="bg-light">
-                       <a href="{% url 'livre' %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
+                       <a href="{% url 'livre_detail' livre_id=book.id %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
                     </div>
                     <div class="bg-light rounded text-center">
                         <a class="d-block  h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ book.nom }}</a>

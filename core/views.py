@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product, Document
 from .forms import SignUpForm
 import random
@@ -46,17 +46,51 @@ def boutique(request):
 	return render(request, 'boutique.html', {'random_books': random_books, 'random_video': random_video, 'random_musik': random_musik})
 
 
-def livre(request):
-	product_book_all = Product.objects.filter(type='L')
-	random_books = random.sample(list(product_book_all), len(product_book_all))
-	return render(request, 'livre.html',{'random_books': random_books})
-def musique(request):
-	product_musik_all = Product.objects.filter(type='M')
-	random_musik = random.sample(list(product_musik_all), len(product_musik_all))
-	return render(request, 'musique.html',{'random_musik': random_musik})
-def video(request):
-	product_video_all = Product.objects.filter(type='V')
-	random_video = random.sample(list(product_video_all), len(product_video_all))
-	return render(request, 'video.html',{'random_video': random_video})
+#def livre(request):
+#	product_book_all = Product.objects.filter(type='L')
+#	random_books = random.sample(list(product_book_all), len(product_book_all))
+#	return render(request, 'livre.html',{'random_books': random_books})
+def livre(request, livre_id):
+    # Récupérer le livre spécifique en fonction de l'identifiant
+    livre = get_object_or_404(Product, id=livre_id)
+
+    # Récupérer tous les livres (similaire à la logique de product_book_all dans la vue livre)
+    product_book_all = Product.objects.filter(type='L')
+    random_books = random.sample(list(product_book_all), len(product_book_all))
+
+    # Passer le livre spécifique et les livres aléatoires à la vue
+    return render(request, 'livre.html', {'livre': livre, 'random_books': random_books})
+
+#def musique(request):
+#	product_musik_all = Product.objects.filter(type='M')
+#	random_musik = random.sample(list(product_musik_all), len(product_musik_all))
+#	return render(request, 'musique.html',{'random_musik': random_musik})
+def musique(request, musik_id):
+    # Récupérer la musique spécifique en fonction de l'identifiant
+    musik = get_object_or_404(Product, id=musik_id)
+
+    # Récupérer toutes les musiques (similaire à la logique de product_musik_all dans la vue musique)
+    product_musik_all = Product.objects.filter(type='M')
+    random_musik = random.sample(list(product_musik_all), len(product_musik_all))
+
+    # Passer la musique spécifique et les musiques aléatoires à la vue
+    return render(request, 'musique.html', {'musik': musik, 'random_musik': random_musik})
+
+#def video(request):
+#	product_video_all = Product.objects.filter(type='V')
+#	random_video = random.sample(list(product_video_all), len(product_video_all))
+#	return render(request, 'video.html',{'random_video': random_video})
+def video(request, video_id):
+    # Récupérer la vidéo spécifique en fonction de l'identifiant
+    video = get_object_or_404(Product, id=video_id)
+
+    # Récupérer toutes les vidéos
+    product_video_all = Product.objects.filter(type='V')
+
+    # Mélanger les vidéos (si nécessaire)
+    random_video = random.sample(list(product_video_all), len(product_video_all))
+
+    # Passer la vidéo spécifique et les vidéos aléatoires à la vue
+    return render(request, 'video.html', {'video': video, 'random_video': random_video})
 
 
