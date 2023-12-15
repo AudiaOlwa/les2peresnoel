@@ -13,6 +13,12 @@
                 </div>
             </div>
         </div>
+        <div class="audio-overlay">
+            <audio controls style="width: 100%;">
+                <source src="{{ musik.file.url }}" type="audio/mp3">
+                Télécharger
+            </audio>
+        </div>
     </div>
     </div>
 
@@ -27,23 +33,30 @@
         </div>
         <div class="row g-4">
             {% for musik in random_musik %}
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="classes-item">
-                    <div class="bg-light">
-                        {% if musik.cover_image %}
-                       <a href="{% url 'musique_detail' musik_id=musik.id %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
-                       {% endif %}
-                    </div>
-                    <div class="bg-light rounded text-center ">
-                        <a class="d-block h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ musik.nom }}</a>
-                        <p class="d-block h3 mt-3 mb-4" style="color: #bf8f52;">Pour:{{ musik.age }}</p>
-                              <a href="{{ book.file.url }}">Télécharger</a>
-                       
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="classes-item position-relative">
+                        <div class="bg-light" style="position: relative; overflow: hidden;">
+                            {% if musik.cover_image %}
+                                <a href="{% url 'musique_detail' musik_id=musik.id %}">
+                                    <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture">
+                                </a>
+                                <div class="audio-overlay">
+                                    <audio controls style="width: 100%;">
+                                        <source src="{{ musik.file.url }}" type="audio/mp3">
+                                        Télécharger
+                                    </audio>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="bg-light rounded text-center">
+                            <a class="d-block h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ musik.nom }}</a>
+                            <p class="d-block h3 mt-3 mb-4" style="color: #bf8f52;">Pour:{{ musik.age }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
-            </div>
+        </div>
+        
         </div>
     </div>
 

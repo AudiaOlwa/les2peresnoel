@@ -190,8 +190,17 @@
                     <h1 class="mb-3 text-center" style="color: #bf8f52;"> Musiques </h1>
                     <div class="position-relative h-100">
                         {% if musik.cover_image %}
-                        <a href="{% url 'musique_detail' musik_id=musik.id %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
+                        <a href="{% url 'musique_detail' musik_id=musik.id %}"> 
+                            <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture">
+                            <div class="audio-overlay">
+                                <audio controls style="width: 100%;">
+                                    <source src="{{ musik.file.url }}" type="audio/mp3">
+                                    Télécharger
+                                </audio>
+                            </div>
+                        </a>
                         {% endif %}
+                        
                     </div>
                     {% endfor %}
                 </div> 
