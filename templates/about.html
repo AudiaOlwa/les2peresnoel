@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 <div class="container-xxl bg-white p-0">
     <!-- Spinner Start -->
@@ -23,8 +24,8 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8 text-white">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">A propos</h1>
-                                    <p>NOBPRINT est une petite entreprise d’innovations diverses</p>
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">{% trans "A propos"%}</h1>
+                                    <p>{% trans "NOBPRINT est une petite entreprise d’innovations diverses "%}</p>
                                 </div>
                             </div>
                         </div>
@@ -39,21 +40,13 @@
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="mb-4" style="color: #bf8f52;">Background du projet</h1>
-                    <p>Le site les2pèresnoel résout le problème du mensonge qui associe les fêtes de Noël à la nativité. 
-                        Le site dévoile à travers l’histoire du Père noël ses vraies origines qui permettent de constater que
-                         l’histoire est laïque et non religieuse. Par ailleurs, les choses ayant évoluées, on ne peut plus raconter 
-                         aux enfants qu’un vieux monsieur de 120 kilos passe par la cheminée d’autant plus que les immeubles et la 
-                         plupart des nouvelles maisons n’ont plus de cheminée. </p>
-                    <p class="mb-4"> En outre, les 2 pères noël  actualisent  le personnage à travers ses moyens de locomotion
-                         qui sont les voitures volantes, les drones, les vaisseaux spatiaux que l’on retrouve dans le tome 2 du
-                          conte Kovani qui s’intitule « Kovani et le vaisseau spatial ». </p>
-                          <p class="mb-4"> Les 2 pères noël à travers leurs actions sociales durant toute l’année permettent 
-                            d’apporter du bonheur dans les familles en difficulté car une fois les choses bien mises en place, 
-                            une association sera constituée pour permettre de verser des sommes qui seront allouées aux familles 
-                            en difficulté, là ou les organismes de l’état n’interviennent pas.
-                            A travers les contes  et chansons vendus dans notre boutique les petits et adultes 
-                            s’approprieront l’évolution du Père noël.</p>
+                    <h1 class="mb-4" style="color: #bf8f52;">{% trans "Background du projet"%}</h1>
+
+                    <p>{% trans "Le site les2pèresnoel résout le problème du mensonge qui associe les fêtes de Noël à la nativité. Le site dévoile à travers l’histoire du Père noël ses vraies origines qui permettent de constater que l’histoire est laïque et non religieuse. Par ailleurs, les choses ayant évoluées, on ne peut plus raconter aux enfants qu’un vieux monsieur de 120 kilos passe par la cheminée d’autant plus que les immeubles et la plupart des nouvelles maisons n’ont plus de cheminée."%}</p>
+
+                    <p class="mb-4">{% trans "En outre, les 2 pères noël actualisent le personnage à travers ses moyens de locomotion qui sont les voitures volantes, les drones, les vaisseaux spatiaux que l’on retrouve dans le tome 2 du conte Kovani qui s’intitule «Kovani et le vaisseau spatial»."%}</p>
+
+                          <p class="mb-4">{% trans "Les 2 pères noël à travers leurs actions sociales durant toute l’année permettent d’apporter du bonheur dans les familles en difficulté car une fois les choses bien mises en place, une association sera constituée pour permettre de verser des sommes qui seront allouées aux familles en difficulté, là ou les organismes de l’état n’interviennent pas. A travers les contes et chansons vendus dans notre boutique les petits et adultes s’approprieront l’évolution du Père noël."%}</p>
                     
                 </div>
                 <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 <div class="container-xxl bg-white p-0">
     <!-- Spinner Start -->
@@ -23,7 +24,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8 text-white">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Découvrez l'évolution du père Noël</h1>
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">{% trans "Découvrez l'évolution du père Noël "%}</h1>
                                    
                                 </div>
                             </div>
@@ -38,31 +39,10 @@
                     <div class="container">
                         <div class="row g-5 align-items-center">
                             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <h1 class="mb-4" style="color: #bf8f52;">La renaissance d’une Légende</h1>
-                        <p>Le mythe naît d’un conte et
-                            il n’est point facile de le
-                            faire évoluer, lorsqu’il est
-                            déjà bien ancré dans les
-                            coutumes. Ainsi, l’auteure et
-                            innovatrice,
-                            Lyllah
-                            ROZ,
-                            contribue à le faire évoluer
-                            sous sa plume, tout comme
-                            l’a fait le pasteur Clément
-                            Clarke Moore en offrant aux
-                            enfants ainsi qu’aux adultes
-                            un conte en trois tomes. </p>
-                        <p class="mb-4"> Ce conte permet d’inclure les voitures électriques volantes, les drones, les
-                            vaisseaux spatiaux et biens d’autres éléments et personnages fantastiques
-                            dans la Légende. À travers ces contes, l’auteure associe l’imagerie du
-                            personnage fantastique au réel. Cette métamorphose permet d’ouvrir un
-                            segment de marché de différents produits (tenues, voitures, drones et
-                            autres produits dérivés). </p>
-                              <p class="mb-4"> Quant aux personnages et décors fantastiques,
-                                ils ont été étudiés pour la production
-                                cinématographique et les jeux vidéo pour
-                                occuper les tout petits et leur tenir compagnie.</p>
+                                <h1 class="mb-4" style="color: #bf8f52;">{% trans "La renaissance d’une Légende "%}</h1>
+                        <p>{% trans "Le mythe naît d’un conte et il n’est point facile de le faire évoluer, lorsqu’il est déjà bien ancré dans les coutumes. Ainsi, l’auteure et innovatrice, Lyllah ROZ, contribue à le faire évoluer sous sa plume, tout comme l’a fait le pasteur Clément Clarke Moore en offrant aux enfants ainsi qu’aux adultes un conte en trois tomes.  "%}</p>
+                        <p class="mb-4">{% trans " Ce conte permet d’inclure les voitures électriques volantes, les drones, les vaisseaux spatiaux et biens d’autres éléments et personnages fantastiques dans la Légende. À travers ces contes, l’auteure associe l’imagerie du personnage fantastique au réel. Cette métamorphose permet d’ouvrir un segment de marché de différents produits (tenues, voitures, drones et autres produits dérivés). "%}</p>
+                              <p class="mb-4">{% trans " Quant aux personnages et décors fantastiques, ils ont été étudiés pour la production cinématographique et les jeux vidéo pour occuper les tout petits et leur tenir compagnie."%}</p>
                                
                             </div>
                             <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">

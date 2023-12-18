@@ -61,6 +61,13 @@ TEMPLATES = [
     },
 ]
 
+
+
+LANGUAGES = [
+    ('fr', 'French'),
+    ('en', 'English'),
+]
+
 WSGI_APPLICATION = 'les2peresnoel.wsgi.application'
 
 

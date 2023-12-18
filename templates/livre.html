@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <div class="owl-carousel header-carousel ">
@@ -17,9 +18,9 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="display-2 text-center animated slideInDown mb-4" style="color: #cf3231;">Livre & Contes de noël</h1>
+            <h1 class="display-2 text-center animated slideInDown mb-4" style="color: #cf3231;">{% trans "Livre & Contes de noël"%}</h1>
             <h1 class="mb-3 text-center" style="color: #bf8f52;"> 
-                <a href="{% url 'boutique' %}" style="color: #cf3231;">Boutique</a> /Livres</h1>
+                <a href="{% url 'boutique' %}" style="color: #cf3231;">{% trans "Boutique</a> /Livres"%}</h1>
         </div>
         <div class="row g-4">
             {% for book in random_books %}

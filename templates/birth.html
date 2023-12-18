@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 <div class="container-xxl bg-white p-0">
     <!-- Spinner Start -->
@@ -23,7 +24,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8 text-white">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Naissance du père noël</h1>
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">{% trans "Naissance du père noël" %}</h1>
                                    
                                 </div>
                             </div>

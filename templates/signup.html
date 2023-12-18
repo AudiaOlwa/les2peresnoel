@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -293,23 +294,23 @@ html,body {
 <body>
 <div class="form-structor d-flex justify-content-center align-items-center my-5">
 	<div class="signup mt-5">
-		<h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+		<h2 class="form-title" id="signup"><span>or</span>{% trans "Sign up "%}</h2>
 		<div class="form-holder form-control  my-custom-margin">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="submit-btn btn-danger">Sign up</button>
+            <button class="submit-btn btn-danger">{% trans "Sign up "%}</button>
         </div>
         
 		
 	</div>
 	<div class="login slide-up" >
 		<div class="center" >
-			<h2 class="form-title" id="login"><span>or</span>Log in</h2>
+			<h2 class="form-title" id="login"><span>or</span>{% trans "Log in"%}</h2>
 			<div class="form-holder mt-5 my-custom" >
                 {% csrf_token %}
                 {{ form.as_p }}
                       
-                <button class="submit-btn mb-5">Log in</button>
+                <button class="submit-btn mb-5">{% trans "Log in"%}</button>
 			</div>
 			
 		</div>
