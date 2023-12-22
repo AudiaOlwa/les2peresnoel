@@ -32,6 +32,10 @@ def about(request):
 	message = _("Hello, world!")
 	activate('fr')
 	return render(request, 'about.html')
+def gallerie(request):
+	message = _("Hello, world!")
+	activate('fr')
+	return render(request, 'gallerie.html')
 
 def evolution(request):
 	message = _("Hello, world!")
@@ -81,6 +85,8 @@ def livre(request, livre_id):
 #	random_musik = random.sample(list(product_musik_all), len(product_musik_all))
 #	return render(request, 'musique.html',{'random_musik': random_musik})
 def musique(request, musik_id):
+    message = _("Hello, world!")
+    activate('fr')
 	
     # Récupérer la musique spécifique en fonction de l'identifiant
     musik = get_object_or_404(Product, id=musik_id)
@@ -97,6 +103,8 @@ def musique(request, musik_id):
 #	random_video = random.sample(list(product_video_all), len(product_video_all))
 #	return render(request, 'video.html',{'random_video': random_video})
 def video(request, video_id):
+    message = _("Hello, world!")
+    activate('fr')
 	
     # Récupérer la vidéo spécifique en fonction de l'identifiant
     video = get_object_or_404(Product, id=video_id)

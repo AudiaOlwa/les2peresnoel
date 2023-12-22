@@ -1,0 +1,275 @@
+
+{% load static %}
+{% load i18n %}
+  
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'gal/css/bootstrap.min.css'%}"/>
+	<link rel="stylesheet" href="{% static 'gal/css/font-awesome.min.css'%}"/>
+	<link rel="stylesheet" href="{% static 'gal/css/slicknav.min.css'%}"/>
+	<link rel="stylesheet" href="{% static 'gal/css/fresco.css'%}"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="{% static 'gal/css/style.css'%}"/>
+    
+	<link rel="stylesheet" href="{% static 'gal/css/slick.css'%}"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="{% static 'gal/css/style.css'%}"/>
+
+
+	<link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+	<!-- Page Preloder -->
+
+	<body>  
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg  navbar- sticky-top px-4 px-lg-5 py-lg-0" style="background-color: #cf3231;">
+	<ul><li><img src="{% static 'img/logo.jpg'%}" style="width: 50px; height: 50px;"></li></ul>
+	  <a href="{% url 'index' %}" class="navbar-brand">
+		 <h1 class="m-0 text-white" style="padding: 10px;"><i class=" me-3"></i>   les2Pèresnoël</h1>
+	  </a>
+	  <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+		  <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarCollapse">
+		  <div class="navbar-nav mx-auto ">
+			  <a href="{% url 'index' %}" class="nav-item nav-link text-white">{% trans "Home"%}</a>
+			  <a href="{% url 'boutique' %}" class="nav-item nav-link text-white">{% trans "Boutique "%}</a>
+			  <div class="nav-item dropdown">
+			   <a href="" class="nav-link dropdown-toggle active text-white" data-bs-toggle="dropdown">{% trans "A propos"%}</a>
+			   <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+				   <a href="{% url 'about' %}" class="dropdown-item ">{% trans "Background du projet"%}</a>
+				   <a href="{% url 'prqw2pn' %}" class="dropdown-item ">{% trans "Pourquoi 2 Pères noël?"%}</a>
+				   <a href="{% url 'birth' %}" class="dropdown-item">{% trans "Naissance du père noël"%}</a>
+				   <a href="{% url 'evolution' %}" class="dropdown-item"> {% trans "Evolution du père noël"%}</a>
+				  
+			   </div>
+		   </div>
+			  
+			  <a href="{% url 'signup' %}" class="nav-item nav-link text-white">{% trans "Connexion"%}</a>
+			  <a href="classes.html" class="nav-item nav-link text-white">{% trans "Licence"%}</a>
+		  </div>
+		  <a href="#contact" class="btn btn-lg bg-white text-danger rounded-pill px-3 d-none d-lg-block ">{% trans "Contact"%}<i class=""></i></a>
+	  </div>
+   </nav>
+   <!-- Navbar End -->
+
+<!-- Hero Section -->
+{% block content %}
+<section class="hero__section">
+    <div class="hero-slider">
+        <div class="slide-item">
+            <a class="fresco" href="{% static 'gal/img/2.png'%}" data-fresco-group="projects">
+                <img src="{% static 'gal/img/2.png'%}" alt="">
+            </a>
+        </div>
+        <div class="slide-item">
+            <a class="fresco" href="{% static 'gal/img/8.png'%}" data-fresco-group="projects">
+                <img src="{% static 'gal/img/8.png'%}" alt="">
+                </a>
+        </div>
+        <div class="slide-item">
+            <a class="fresco" href="{% static 'gal/img/16.png'%}" data-fresco-group="projects">
+                <img src="{% static 'gal/img/16.png'%}" alt="">
+            </a>	
+        </div>
+        <div class="slide-item">
+            <a class="fresco" href="{% static 'gal/img/25.png'%}" data-fresco-group="projects">
+                <img src="{% static 'gal/img/25.png'%}" alt="">
+            </a>	
+        </div>
+        <div class="slide-item">
+            <a class="fresco" href="{% static 'gal/img/30.png'%}" data-fresco-group="projects">
+                <img src="{% static 'gal/img/30.png'%}" alt="">
+            </a>	
+        </div>
+        <div class="slide-item">
+            <a class="fresco" href="{% static 'gal/img/36.png'%}" data-fresco-group="projects">
+                <img src="{% static 'gal/img/36.png'%}" alt="">
+            </a>	
+        </div>
+        <div class="slide-item">
+            <a class="fresco" href="{% static 'gal/img/21.png'%}" data-fresco-group="projects">
+                <img src="{% static 'gal/img/21.png'%}" alt="">
+            </a>	
+        </div>
+    </div>
+    <div class="hero-text-slider">
+       
+       
+        </div>
+    </div>
+</section>	
+
+	<!-- About Page -->
+	<div class="gallery__page ">
+		<div class="gallery__warp">
+			<div class="row">
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/3.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/3.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/9.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/9.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/15.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/15.png'%}" alt="">
+					</a>
+				</div>
+			
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/27.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/27.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/32.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/32.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/35.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/35.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/39.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/39.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/29.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/29.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/24.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/24.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/18.png'%}">
+						<img src="{% static 'gal/img/18.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/6.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/6.png'%}" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="gallery__item fresco" href="{% static 'gal/img/4.png'%}" data-fresco-group="gallery">
+						<img src="{% static 'gal/img/4.png'%}" alt="">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About Page end -->
+	<div id="contact" class="container-fluid  text-white-50 footer  wow fadeIn" style="background-color:#bf8f52;" data-wow-delay="0.1s">
+		<div class="container py-5 text-white">
+			<div class="row g-5">
+				<div class="col-lg-3 col-md-6">
+					<h3 class="text-white mb-4">{% trans "Contact"%}</h3>
+					<p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>NOBPRINT <br> ANTILLES INFO 
+					  <br> Acajou 2 – Rés. Bois d’Inde <br> Bât 7. P.66 <br> 97232 LAMENTIN</p>
+					
+					<div class="d-flex pt-2">
+					  <h3 class="text-white mb-4">{% trans "reseaux sociaux/"%}</h3>
+						<a class="btn btn-outline-light btn-social" href="https://www.facebook.com/les2peresnoel/"><i class="fab fa-facebook-f"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3 class="text-white mb-4">{% trans "Liens"%}</h3>
+					<a class="btn btn-link text-white-50" href="{% url 'about' %}">{% trans "A propos"%}</a>
+					<p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+ 596 596 502 343</p>
+					<p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+596 696 321 202</p>
+					<p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@les2peresnoel.com</p>
+					
+				   
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3 class="text-white mb-4"> <a href="{% url 'gallerie' %}"> {% trans "Gallerie Photo" %}</a> </h3>
+
+					<div class="row g-2 pt-2">
+						<div class="col-4">
+							<img class="img-fluid rounded bg-light p-1" src="{% static 'img/c1.jpg'%}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid rounded bg-light p-1" src="{% static 'img/g3.jpg'%}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid rounded bg-light p-1" src="{% static 'img/g4.jpg'%}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid rounded bg-light p-1" src="{% static 'img/g5.jpg'%}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid rounded bg-light p-1" src="{% static 'img/g6.jpg'%}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid rounded bg-light p-1" src="{% static 'img/h1.jpg'%}" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3 class="text-white mb-4">{% trans "Mails"%}</h3>
+					<p>{% trans "Envoyer-nous un petit email"%}</p>
+					<div class="position-relative mx-auto" style="max-width: 400px;">
+						<input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+						<button type="button" class="btn btn-white py-2 position-absolute top-0 end-0 mt-2 me-2">{%trans "SignUp"%}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	   
+	</div>
+	{% endblock %}
+
+	
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'gal/js/vendor/jquery-3.2.1.min.js'%}"></script>
+	<script src="{% static 'gal/js/jquery.slicknav.min.js'%}"></script>
+	<script src="{% static 'gal/js/slick.min.js'%}"></script>
+	<script src="{% static 'gal/js/fresco.min.js'%}"></script>
+	<script src="{% static 'gal/js/main.js'%}"></script>
+
+	 <!-- JavaScript Libraries -->
+	 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+	 <script src="{% static 'lib/wow/wow.min.js'%}"></script>
+	 <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+	 <script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+	 <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+   
+	 <!-- Template Javascript -->
+	 <script src="{% static 'js/main.js'%}"></script>
+	 
+</body>
+	</html> 

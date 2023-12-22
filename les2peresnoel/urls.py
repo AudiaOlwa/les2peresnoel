@@ -16,6 +16,7 @@ urlpatterns = [
     path("evolution", views.evolution, name="evolution"),
     path("prqw2pn", views.prqw2pn, name="prqw2pn"),
     path("birth", views.birth, name="birth"),
+    path("gallerie", views.gallerie, name="gallerie"),
     
 ]
 
