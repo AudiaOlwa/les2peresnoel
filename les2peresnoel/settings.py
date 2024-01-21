@@ -12,14 +12,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    "lesdeuxperesnoel.com",
-    "www.lesdeuxperesnoel.com",
-    "les2peresnoel.com",
-    "www.les2peresnoel.com",
-]
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]
+else:
+    ALLOWED_HOSTS = [
+        "lesdeuxperesnoel.com",
+        "www.lesdeuxperesnoel.com",
+        "les2peresnoel.com",
+        "www.les2peresnoel.com",
+        'localhost'
+    ]
 
 
 # Application definition
