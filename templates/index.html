@@ -104,44 +104,40 @@
 
 
      <!-- Call To Action Start -->
-     <div class="container-fluid p-0 mb-5">
-        <div class="owl-carousel header-carousel">
-            <div class="owl-carousel-item position-relative img-fluid" 
-            style="background-color: #bf8f52">
-            <h1 class="display-2 animated slideInDown mb-5  text-center " style="color: lavender;" >{% trans "Nouveautés sur les2Pèresnoël"%}</h1>
-            <div>
-                <div class="row container-fluid">
-            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="classes-item">
-                    <div class="my-5 mb-5">
+      <div class=" owl-carousel header-carousel ">
+       
+                <div class="row container-fluid col-lg-12  p-0 mb-5 owl-carousel 
+                position-relative"  
+                style="background-color: #bf8f52; margin-left: 0.2%;">
+                <h1 class="display-2 animated slideInDown mt-5  text-center " style="color: lavender;" >{% trans "Nouveautés sur les2Pèresnoël"%}</h1>
+            <div class="col-lg-4 col-md-6 col-sm-4 wow fadeIn" data-wow-delay="0.1s" >
+                <div class="classes-item" >
+                    <div class="my-5 mb-2" >
                        <a href="{% url 'boutique' %}"> <img class="img-fluid rounded" src="{% static 'img/g4.jpg'%}" alt=""></a>
                        <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "vidéos"%}</a>
                     </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="classes-item">
-                        <div class="my-5 mb-5">
+                        <div class="my-5 mb-2">
                            <a href="#"> <img class="img-fluid rounded" src="{% static 'img/g3.jpg'%}" alt=""></a>
                            <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Nouvelles"%}</a>
                         </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-lg-4 col-md-6 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="classes-item">
-                            <div class="my-5 mb-5">
+                            <div class="my-5 mb-2">
                                <a href="#"> <img class="img-fluid rounded" src="{% static 'img/p4.jpg'%}" alt=""></a>
                                <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Podcasts"%}</a>
                             </div>
                             </div>
                         </div>
         </div>
-        </div>
-            </div>
-            </div>
-
     </div>
+       
      <!-- Call To Action End -->
 
 
