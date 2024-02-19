@@ -21,7 +21,7 @@ def index(request):
  random_video = random.sample(list(product_video_all), 1)
 
  product_musik_all = Product.objects.filter(type='M')
- random_musik = random.sample(list(product_musik_all), 1)
+ random_musik = random.sample(list(product_musik_all), 2)
 
  return render(request, 'index.html', {'random_books': random_books, 'random_video': random_video, 'random_musik': random_musik})
 
@@ -45,6 +45,17 @@ def prqw2pn(request):
 	message = _("Hello, world!")
 	activate('fr')
 	return render(request, 'prqw2pn.html')
+
+def produits_noel(request):
+	message = _("Hello, world!")
+	activate('fr')
+	return render(request, 'produits_noel.html')
+
+def produits_horsnoel(request):
+	message = _("Hello, world!")
+	activate('fr')
+	return render(request, 'produits_horsnoel.html')
+
 
 def birth(request):
 	message = _("Hello, world!")
