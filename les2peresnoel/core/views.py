@@ -1,9 +1,11 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Product, Document
-from .forms import SignUpForm
 import random
-from django.utils.translation import gettext as _
+
+from django.shortcuts import get_object_or_404, render
 from django.utils.translation import activate
+from django.utils.translation import gettext as _
+
+from .forms import SignUpForm
+from .models import Document, Product
 
 
 # Create your views here.
@@ -146,3 +148,15 @@ def video(request, video_id):
 
     # Passer la vidéo spécifique et les vidéos aléatoires à la vue
     return render(request, "video.html", {"video": video, "random_video": random_video})
+
+
+def produits_noel(request):
+    message = _("Hello, world!")
+    activate("fr")
+    return render(request, "produits_noel.html")
+
+
+def produits_horsnoel(request):
+    message = _("Hello, world!")
+    activate("fr")
+    return render(request, "produits_horsnoel.html")

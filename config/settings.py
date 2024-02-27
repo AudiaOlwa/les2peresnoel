@@ -29,18 +29,26 @@ else:
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+]
+
+LOCAL_APPS = [
     "les2peresnoel.core.apps.CoreConfig",
     "les2peresnoel.marketplace.apps.MarketplaceConfig",
-    "ckeditor",
-    "ckeditor_uploader",
+    "les2peresnoel.users.apps.UsersConfig",
 ]
+
+
+THIRD_PARTY_APPS = ["ckeditor", "ckeditor_uploader", "sweetify"]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+
 USE_I18N = True
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -285,3 +293,4 @@ CKEDITOR_CONFIGS = {
         ),
     }
 }
+SWEETIFY_SWEETALERT_LIBRARY = "sweetalert2"

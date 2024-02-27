@@ -1,0 +1,17 @@
+asgiref==3.7.2
+cfgv==3.4.0
+distlib==0.3.8
+Django==5.0
+django-ckeditor==6.7.0
+django-js-asset==2.2.0
+django-sslserver==0.22
+filelock==3.13.1
+identify==2.5.35
+nodeenv==1.8.0
+Pillow==10.1.0
+platformdirs==4.2.0
+pre-commit==3.6.2
+PyYAML==6.0.1
+sqlparse==0.4.4
+sweetify==2.3.1
+virtualenv==20.25.1
