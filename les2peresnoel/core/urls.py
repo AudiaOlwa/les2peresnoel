@@ -1,11 +1,7 @@
-from django.conf import settings
-from django.conf.urls.static import static
-from core import views
-from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path("", views.index, name="index"),
     path("about", views.about, name="about"),
     path("boutique", views.boutique, name="boutique"),
@@ -17,9 +13,4 @@ urlpatterns = [
     path("prqw2pn", views.prqw2pn, name="prqw2pn"),
     path("birth", views.birth, name="birth"),
     path("gallerie", views.gallerie, name="gallerie"),
-    
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

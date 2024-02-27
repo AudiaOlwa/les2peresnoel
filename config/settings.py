@@ -4,6 +4,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+APP_DIR = os.path.join(BASE_DIR, "les2peresnoel")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -12,13 +13,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "lesdeuxperesnoel.com",
     "www.lesdeuxperesnoel.com",
     "les2peresnoel.com",
     "www.les2peresnoel.com",
+    "localhost",
 ]
 
 
@@ -31,7 +34,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "core",
+    "les2peresnoel.core.apps.CoreConfig",
     "ckeditor",
     "ckeditor_uploader",
 ]
@@ -48,7 +51,7 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = "les2peresnoel.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -72,7 +75,7 @@ LANGUAGES = [
     ("en", "English"),
 ]
 
-WSGI_APPLICATION = "les2peresnoel.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
@@ -122,7 +125,7 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join("static_root")
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
-print(MEDIA_ROOT)
+# print(MEDIA_ROOT)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
