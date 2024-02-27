@@ -13,28 +13,29 @@
               <!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
             <div class="owl-carousel header-carousel">
+                <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/p1.jpg'%}') no-repeat; width: 2000px; height: px;
+                background-size: cover; ">
+                    <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8 text-white">
+                                    <h6 class="display-2 text-danger animated slideInDown mb-4">
+                                        {% trans "La boutique des 2 Pères noël vend des produits pour toutes les saisons "%}
+                                       </h6>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bg.jpg'%}') no-repeat; background-size: cover;">
                     <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8 text-white">
                                     <h6 class="display-2 text-white animated slideInDown mb-4">
-                                        {% trans "Le site les2peresnoel présente l’histoire de l’évolution du Père noël "%}</h6>
+                                        {% trans "Les 2 Pères noël vous raconte la naissance du Père noël et son évolution "%}</h6>
                                     <p></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bg3.jpg'%}') no-repeat; background-size: cover;">
-                    <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8 text-white">
-                                    <h6 class="display-2 text-white animated slideInDown mb-4">
-                                        {% trans "La boutique des 2 Pères noël qui vend les contes et les chansons de l’auteur. "%}
-                                       </h6>
-                                
                                 </div>
                             </div>
                         </div>
@@ -44,8 +45,22 @@
                 
             </div>
         </div>
+        
         <!-- Carousel End -->
-        <h1 class=" text-center wow fadeInUp" style="color: #bf8f52;">{% trans "Nos Activités"%}</h1>
+        <h1 class=" text-center wow fadeInUp my-5 mt-5" style="color: #bf8f52; padding-top: 80px;">{% trans "Nos Produits"%}</h1>
+
+        <div class="text-center mx-auto mb-5 mt-5 fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px; ">
+            <h1 class="mb-3 text-center" style="color: #bf8f52; margin-top: 60px; padding-bottom: 50px; margin-left: 200px;"> 
+                <a href="{% url 'produits_noel' %}" style="color: #cf3231; font-size: 100px;">{% trans "Noel"%}</a>
+                <span style="margin: 0 50px;">&nbsp;</span>
+                <a href="{% url 'produits_horsnoel' %}" style="color: #cf3231; font-size: 100px;">{% trans " Hors Noël"%}</a>
+            </h1>
+        </div>
+      
+     
+        
+    <!--
+        
         <div class="container-xxl ">
             <div class="container">
 <div class="row " style="display: flex; align-items: center; justify-content: center; height: 100vh;">   
@@ -91,8 +106,8 @@
             </div>
         </div>
 
-       
-        
+-->        
+    
        
             
 
@@ -101,44 +116,40 @@
 
 
      <!-- Call To Action Start -->
-     <div class="container-fluid p-0 mb-5">
-        <div class="owl-carousel header-carousel">
-            <div class="owl-carousel-item position-relative img-fluid" 
-            style="background-color: #bf8f52">
-            <h1 class="display-2 animated slideInDown mb-5  text-center " style="color: lavender;" >{% trans "Nouveautés sur les2Pèresnoël"%}</h1>
-            <div>
-                <div class="row container-fluid">
-            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="classes-item">
-                    <div class="my-5 mb-5">
-                       <a href="{% url 'boutique' %}"> <img class="img-fluid rounded" src="{% static 'img/g4.jpg'%}" alt=""></a>
-                       <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "vidéos"%}</a>
+      <div class=" owl-carousel header-carousel ">
+       
+                <div class="row container-fluid col-lg-12  p-0 mb-5 owl-carousel 
+                position-relative"  
+                style="background-color: #bf8f52; margin-left: 0.2%;">
+                <h1 class="display-2 animated slideInDown mt-5  text-center " style="color: lavender;" >{% trans "Nouveautés sur les2Pèresnoël"%}</h1>
+            <div class="col-lg-4 col-md-6 col-sm-4 wow fadeIn" data-wow-delay="0.1s" >
+                <div class="classes-item" >
+                    <div class="my-5 mb-2" >
+                       <a href="{% url 'boutique' %}"> <img class="img-fluid rounded" src="{% static 'img/imgetoile.jpg'%}" alt=""></a>
+                       <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Pochette album"%}</a>
                     </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="classes-item">
-                        <div class="my-5 mb-5">
-                           <a href="#"> <img class="img-fluid rounded" src="{% static 'img/g3.jpg'%}" alt=""></a>
-                           <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Nouvelles"%}</a>
+                        <div class="my-5 mb-2">
+                           <a href="#"> <img class="img-fluid rounded" style="width: 500px; height: 600px;" src="{% static 'img/shirt.png'%}" alt=""></a>
+                           <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Tee-shirt personnalis"%}</a>
                         </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-lg-4 col-md-6 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="classes-item">
-                            <div class="my-5 mb-5">
-                               <a href="#"> <img class="img-fluid rounded" src="{% static 'img/p4.jpg'%}" alt=""></a>
-                               <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Podcasts"%}</a>
+                            <div class="my-5 mb-2">
+                               <a href="#"> <img class="img-fluid rounded" src="{% static 'img/bath.jpg'%}" alt=""></a>
+                               <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Serviette de bain personnalisée"%}</a>
                             </div>
                             </div>
                         </div>
         </div>
-        </div>
-            </div>
-            </div>
-
     </div>
+       
      <!-- Call To Action End -->
 
 
@@ -148,9 +159,9 @@
         <h1 class="mb-3 text-center " style="color: #bf8f52;">{% trans "Contes"%}</h1>
         <div class="bg-light rounded">
             <div class="row g-0">
-            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 400px;">
+            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 770px;">
                     <div class="position-relative h-100">
-                      <a href="{% url 'boutique' %}">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/h1.jpg'%}" style="object-fit: cover;"></a>
+                      <a href="{% url 'boutique' %}">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/imgconte.jpg'%}" style="object-fit: cover;"></a>
                     </div>
                 </div>
                
@@ -161,15 +172,11 @@
 <!-- Call To Action End -->
 
 
-<div class="container-xxl py-5">
+<!--div class="container-xxl py-5">
     <div class="container wow fadeInUp">
-      
-           
-        
-       <div class=" rounded wow fadeInUp " data-wow-delay="0.1s">
+      <div class=" rounded wow fadeInUp " data-wow-delay="0.1s">
             <div class="row g-1">
-              
-                <div class="col-lg-6 wow fadeUp rounded" data-wow-delay="0.1s" style="min-height: 400px;">
+              <div class="col-lg-6 wow fadeUp rounded" data-wow-delay="0.1s" style="min-height: 400px;">
                     {% for video in random_video %}
                     <h1 class="mb-3 text-center "> <a href="{% url 'video_detail' video.id %}" style="color: #bf8f52;" >{% trans " Videos "%}</a></h1>
                         <a href="{% url 'video_detail' video.id %}">
@@ -205,9 +212,35 @@
             </div>
         </div>
     </div>
-</div>
+</div-->
 
-
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3 text-center" style="color: #bf8f52;">{% trans "Musiques "%}</h1>
+        </div>
+        <div class="row g-4">
+            {% for musik in random_musik %}
+          <div class="col-lg-6 col-md-8 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="classes-item">
+                    <div class="bg-light">
+                        {% if musik.cover_image %}
+                        <a href="{% url 'musique_detail' musik_id=musik.id %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
+                        {% endif %}
+                        <div class="audio-overlay">
+                            <audio controls style="width: 100%;">
+                                <source src="{{ musik.file.url }}" type="audio/mp3">
+                                Télécharger
+                            </audio>
+                        </div> 
+                    </div>
+                   
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
 
 
   <!-- Classes Start -->
@@ -250,7 +283,7 @@
         <h1 class="mb-3 text-center " style="color: #bf8f52;">{% trans "Boutique"%}</h1>
         <div class="bg-light rounded">
             <div class="row g-0">
-            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 400px;">
+            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 500px;">
                     <div class="position-relative h-100">
                       <a href="{% url 'boutique' %}">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/angb.jpg'%}" style="object-fit: cover;"></a>
                     </div>
