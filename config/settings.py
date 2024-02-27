@@ -10,7 +10,7 @@ APP_DIR = os.path.join(BASE_DIR, "les2peresnoel")
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
+SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "les2peresnoel.core.apps.CoreConfig",
+    "les2peresnoel.marketplace.apps.MarketplaceConfig",
     "ckeditor",
     "ckeditor_uploader",
 ]
