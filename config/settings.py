@@ -45,7 +45,11 @@ LOCAL_APPS = [
 ]
 
 
-THIRD_PARTY_APPS = ["ckeditor", "ckeditor_uploader", "sweetify"]
+THIRD_PARTY_APPS = [
+    "ckeditor",
+    "ckeditor_uploader",
+    "sweetify",
+]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -294,3 +298,5 @@ CKEDITOR_CONFIGS = {
     }
 }
 SWEETIFY_SWEETALERT_LIBRARY = "sweetalert2"
+
+SWEETIFY_TOAST_TIMER = 3000
