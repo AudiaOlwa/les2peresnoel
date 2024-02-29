@@ -4,12 +4,13 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+APP_DIR = os.path.join(BASE_DIR, "les2peresnoel")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
+SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -22,23 +23,36 @@ else:
         "www.lesdeuxperesnoel.com",
         "les2peresnoel.com",
         "www.les2peresnoel.com",
-        'localhost'
+        "localhost",
     ]
 
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "core",
+]
+
+LOCAL_APPS = [
+    "les2peresnoel.core.apps.CoreConfig",
+    "les2peresnoel.marketplace.apps.MarketplaceConfig",
+    "les2peresnoel.users.apps.UsersConfig",
+]
+
+
+THIRD_PARTY_APPS = [
     "ckeditor",
     "ckeditor_uploader",
+    "sweetify",
 ]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+
 USE_I18N = True
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -52,7 +66,7 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = "les2peresnoel.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -76,7 +90,7 @@ LANGUAGES = [
     ("en", "English"),
 ]
 
-WSGI_APPLICATION = "les2peresnoel.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
@@ -126,7 +140,7 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join("static_root")
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
-print(MEDIA_ROOT)
+# print(MEDIA_ROOT)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
@@ -283,3 +297,6 @@ CKEDITOR_CONFIGS = {
         ),
     }
 }
+SWEETIFY_SWEETALERT_LIBRARY = "sweetalert2"
+
+SWEETIFY_TOAST_TIMER = 3000
