@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import SoftDeletableModel, TimeStampedModel
 
-from .managers import SoftDeletableManager
 from .models_abstract import Detail
 
 
@@ -10,7 +9,6 @@ from .models_abstract import Detail
 class Category(Detail, TimeStampedModel, SoftDeletableModel):
     slug = models.SlugField(max_length=100)
     parent = models.ForeignKey("self", on_delete=models.CASCADE, null=True, blank=True)
-    soft_objects = SoftDeletableManager()
 
     def __str__(self):
         return self.name
@@ -29,7 +27,7 @@ class Product(Detail, TimeStampedModel, SoftDeletableModel):
         return f"{self.name}-{self.category.name}"
 
 
-class ProductImage(models.Model):
+class ProductImage(TimeStampedModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="products/")
     external_link = models.URLField(help_text=_("Lien externe"))

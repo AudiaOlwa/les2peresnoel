@@ -203,3 +203,7 @@ def add_image_product(request, pk):
         "marketplace/products/add_image.html",
         context={"form": product_image_form},
     )
+
+
+def home(request):
+    return redirect("marketplace:products")

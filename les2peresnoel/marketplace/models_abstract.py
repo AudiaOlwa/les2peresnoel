@@ -8,7 +8,3 @@ class Detail(models.Model):
 
     class Meta:
         abstract = True
-
-
-class SoftDeletable(models.Model):
-    is_removed = models.BooleanField(default=False, editable=False)

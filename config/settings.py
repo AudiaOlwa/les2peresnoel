@@ -1,11 +1,14 @@
 import os
 from pathlib import Path
 
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+APPS_DIR = BASE_DIR / "les2peresnoel"
 
-APP_DIR = os.path.join(BASE_DIR, "les2peresnoel")
-
+env = environ.Env()
+environ.Env.read_env(BASE_DIR / ".env")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,7 +29,6 @@ else:
         "localhost",
     ]
 
-
 # Application definition
 
 DJANGO_APPS = [
@@ -43,7 +45,6 @@ LOCAL_APPS = [
     "les2peresnoel.marketplace.apps.MarketplaceConfig",
     "les2peresnoel.users.apps.UsersConfig",
 ]
-
 
 THIRD_PARTY_APPS = [
     "ckeditor",
@@ -65,7 +66,6 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
 ]
 
-
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
@@ -84,7 +84,6 @@ TEMPLATES = [
     },
 ]
 
-
 LANGUAGES = [
     ("fr", "French"),
     ("en", "English"),
@@ -92,17 +91,18 @@ LANGUAGES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
+DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///l2pn")}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -133,7 +133,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 STATIC_URL = "/static/"
 
 VENV_PATH = os.path.dirname(BASE_DIR)
@@ -146,7 +145,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
 # ------------------------------------------------
 
 
@@ -154,7 +152,6 @@ CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_UPLOAD_MAX_SIZE = "12MB"
 DATA_UPLOAD_MAX_MEMORY_SIZE = 12582912  # 12 MB
-
 
 CKEDITOR_CONFIGS = {
     "default": {

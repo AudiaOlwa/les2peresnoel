@@ -6,6 +6,7 @@ app_name = "marketplace"
 
 urlpatterns = [
     # Products
+    path("", views.home, name="home"),
     path("products", views.list_product, name="products"),
     path("products/create", views.create_product, name="create_product"),
     path("products/<int:pk>/update", views.update_product, name="update_product"),

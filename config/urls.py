@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 
 from les2peresnoel import core
 
@@ -9,6 +9,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("les2peresnoel.core.urls")),
     # path("core/", include("les2peresnoel.core.urls")),
+    path("marketplace/", include("les2peresnoel.marketplace.urls")),
 ]
 
 if settings.DEBUG:
