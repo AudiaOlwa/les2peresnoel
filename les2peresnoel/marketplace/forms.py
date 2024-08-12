@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, widgets
 
 from .models import Category, Product, ProductImage
 
@@ -12,7 +12,11 @@ class CategoryForm(ModelForm):
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        exclude = ("id", "created", "updated", "slug")
+        exclude = ("id", "created", "updated", "slug", "is_removed", "owner")
+        widgets = {
+            "category": widgets.CheckboxSelectMultiple(),
+            "description": widgets.Textarea(attrs={"rows": 3}),
+        }
 
 
 class ProductImageForm(ModelForm):

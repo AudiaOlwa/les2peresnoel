@@ -1,16 +1,64 @@
+from dj_shop_cart.cart import get_cart_class
 from django.conf import settings
+from django.contrib import messages
 from django.core.paginator import Paginator
+from django.http import HttpRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
+from django.views.decorators.http import require_POST
+from django_htmx.http import HttpResponseClientRedirect
 from sweetify import sweetify
 
+from ..utils import render_block
 from .forms import *
 from .models import *
+from .models import Product
 
 SWEETIFY_TOAST_TIMER = settings.SWEETIFY_TOAST_TIMER
 
 
 # Create your views here.
+
+
+Cart = get_cart_class()
+
+
+@require_POST
+def add_product(request: HttpRequest, product_id: int, from_cart=False):
+    product = get_object_or_404(Product.objects.all(), pk=product_id)
+    # breakpoint()
+    quantity = int(request.POST.get("quantity", default=1))
+    cart = Cart.new(request)
+    cart.add(product, quantity=quantity)
+    sweetify.toast(
+        request,
+        title="Produit ajouté",
+        icon="success",
+        text="Produit ajouté avec succès !",
+    )
+    messages.success(request, message="Produit ajouté avec succès !")
+    from_cart = eval(from_cart)
+    if from_cart:
+        return render_block("layouts/marketplace.html", "cart", context={"cart": cart})
+    return render_block(
+        "layouts/marketplace.html", "cart_count", context={"cart": cart}
+    )
+
+
+@require_POST
+def remove_product(request: HttpRequest):
+    breakpoint()
+    item_id = request.POST.get("item_id")
+    quantity = int(request.POST.get("quantity", default=1))
+    cart = Cart.new(request)
+    cart.remove(item_id=item_id, quantity=quantity)
+    return render_block("layouts/marketplace.html", "cart", context={"cart": cart})
+
+
+@require_POST
+def empty_cart(request: HttpRequest):
+    Cart.new(request).empty()
+    ...
 
 
 def list_category(request):
@@ -103,7 +151,7 @@ def delete_category(request, pk):
 
 
 def list_product(request):
-    products = Product.objects.all()
+    products = Product.objects.filter(user=request.user)
     # paginate by 20
     paginator = Paginator(products, 20)
     page = request.GET.get("page")
@@ -206,4 +254,24 @@ def add_image_product(request, pk):
 
 
 def home(request):
-    return redirect("marketplace:products")
+    _context = {
+        "categories": Category.objects.all(),
+        "products": Product.objects.all(),
+    }
+    return render(request, "marketplace/home.html", context=_context)
+
+
+def dashboard(request):
+    return render(request, "marketplace/admin/index.html")
+
+
+def update_cart_count(request):
+    cart = Cart.new(request)
+    return render_block(
+        "layouts/marketplace.html", "cart_details_count", {"cart": cart}
+    )
+
+
+def update_cart(request):
+    cart = Cart.new(request)
+    return render_block("layouts/marketplace.html", "cart", {"cart": cart})

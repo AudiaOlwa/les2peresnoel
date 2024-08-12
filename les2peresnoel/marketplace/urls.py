@@ -18,4 +18,12 @@ urlpatterns = [
     path("categories/<int:pk>/update", views.update_category, name="update_category"),
     path("categories/<int:pk>/delete", views.delete_category, name="delete_category"),
     path("categories/<int:pk>/detail", views.detail_category, name="detail_category"),
+    # DASHBOAD
+    path("dashboard/", views.dashboard, name="dashboard"),
+    path(
+        "add_to_cart/<product_id>/<from_cart>/", views.add_product, name="add_to_cart"
+    ),
+    path("update_cart_count", views.update_cart_count, name="update_cart_count"),
+    path("update_cart", views.update_cart, name="update_cart"),
+    path("remove_product", views.remove_product, name="remove_product"),
 ]

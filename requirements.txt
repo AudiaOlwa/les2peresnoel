@@ -2,6 +2,7 @@ asgiref==3.7.2
 cfgv==3.4.0
 distlib==0.3.8
 Django==5.0
+django-environ==0.9.0
 django-ckeditor==6.7.0
 django-js-asset==2.2.0
 django-model-utils==4.4.0
@@ -12,8 +13,15 @@ nodeenv==1.8.0
 Pillow==10.1.0
 platformdirs==4.2.0
 pre-commit==3.6.2
+psycopg2==2.9.5
 PyYAML==6.0.1
 setuptools==69.1.1
 sqlparse==0.4.4
 sweetify==2.3.1
 virtualenv==20.25.1
+django-allauth[socialaccount]
+dj-shop-cart
+django-baton
+django-crispy-forms
+django-render-block==0.10
+django-htmx==1.19.0

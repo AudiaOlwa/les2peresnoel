@@ -40,6 +40,8 @@
 
 .btn.btn-primary {
     color: #FFFFFF;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-square {
