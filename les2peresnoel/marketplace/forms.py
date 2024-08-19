@@ -1,6 +1,6 @@
 from django.forms import ModelForm, widgets
 
-from .models import Category, Product, ProductImage
+from .models import Category, Product, ProductImage, Checkout
 
 
 class CategoryForm(ModelForm):
@@ -33,3 +33,9 @@ class ProductImageSimpleForm(ModelForm):
     class Meta:
         model = ProductImage
         exclude = ("id", "created", "updated", "product")
+
+
+class CheckoutForm(ModelForm):
+    class Meta:
+        model = Checkout
+        exclude = ('id', 'created', 'updated')

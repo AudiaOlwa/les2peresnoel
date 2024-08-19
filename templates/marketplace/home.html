@@ -3,28 +3,28 @@
 {% load i18n %}
 
 {% block content %}
-    <div class="container py-5 mt-5 mb-lg-4 mb-xl-5">
+    <section class="container-fluid py-5 mt-5 mb-lg-4 mb-xl-5" >
         <!-- Breadcrumb -->
-        <nav aria-label="breadcrumb">
+        {% comment %} <nav aria-label="breadcrumb">
             <ol class="pt-lg-3 pb-2 breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="#"> {% translate 'Accueil' %} </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page"> {% translate 'Marketplace' %} </li>
             </ol>
-        </nav>
+        </nav> {% endcomment %}
 
         <!-- Banner -->
-        <section class="rounded-1 overflow-hidden mb-5" style="background-color: #e3e5e9;" data-bs-theme="light">
-            <div class="row align-items-center g-0">
+        <section class="rounded-1 overflow-hidden mb-5"  data-bs-theme="light" style="background-image: url({% static 'theme/img/hero-bg.png' %}); height: 40pc;">
+            <div class="row align-items-center pt-5 g-0" style="">
                 <div class="col-md-6 offset-xl-1 text-center text-md-start">
                     <div class="py-4 px-4 px-sm-5 pe-md-0 ps-xl-4">
-                        <p class="text-body fs-xs text-uppercase pt-3 pt-md-0 mb-3 mb-lg-4">{% translate "La marketplace du social" %}</p>
-                        <h2 class="h1 pb-2 pb-xl-3"> {% blocktranslate %}
+                        <p class="text-body fs-xs text-uppercase pt-3 pt-md-0 mb-3 mb-lg-4">{% translate "Le marketplace du social" %}</p>
+                        <h1 class="h1 pb-2 pb-xl-3"> {% blocktranslate %}
                            Bienvenue sur le marketplace des
                         {% endblocktranslate %}
                             <br>
-                            <span class="text-primary">{% blocktranslate %}
+                            <span style="color: #D71516 !important;">{% blocktranslate %}
                                 pères bonheur
                         {% endblocktranslate %}</span>
                         </h2>
@@ -32,20 +32,38 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-5 d-flex justify-content-end">
-                    <img src="{% static 'img/bgb.jpg' %}" width="491" alt="Banner">
+                    <img src="{% static 'img/bgb.jpg' %}" width="491" style="border-radius: 5px !important;" alt="Banner">
                 </div>
             </div>
         </section>
 
-
-        <!-- Page title -->
-        <div class="row pt-xl-3 mt-n1 mt-sm-0">
-            <div class="col-lg-9 offset-lg-3 pt-lg-3">
-                <h1 class="pb-2 pb-sm-3">{% translate 'Nos produits' %}</h1>
+        <div class="category-area2">
+            <div class="container">
+                <h2>{% translate "Nos Catégories" %}</h2>
+                <div class="row">
+                    {% for category in categories %}
+                        <div class="col">
+                            <a href="#">
+                                <div class="category-info">
+                                    <div class="icon">
+                                        <img src="{{category.cover}}" alt="">
+                                    </div>
+                                    <div class="content">
+                                    <h5 class="text-muted">{{category.name}}</h5>
+                                    {% comment %} <p>{{category.items_count}} {% translate "Articles" %}</p> {% endcomment %}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-        <div class="row pb-2 pb-sm-4">
 
+        
+        <h1 class="pb-2 pb-sm-3 text-center mt-5 mb-5">{% translate 'Nos produits' %}</h1>
+        <section class="container">
+            <div class=" row pb-2 pb-sm-4">
             <!-- Sidebar (offcanvas on sreens < 992px) -->
             <aside class="col-lg-3">
                 <div class="offcanvas-lg offcanvas-start" id="shopSidebar">
@@ -54,29 +72,24 @@
                         <button class="btn-close" type="button" data-bs-dismiss="offcanvas"
                                 data-bs-target="#shopSidebar" aria-label="Close"></button>
                     </div>
-
-                    <!-- Body -->
-                    <div class="offcanvas-body pt-2 pt-lg-0 pe-lg-4">
-
-                        <!-- Categories (accordion with checkboxes) -->
-                        <h3 class="h5">{% translate 'Catégories' %}</h3>
+                    <div class="offcanvas-body pt-2 pt-lg-0 pe-lg-4" style="background-color: whitesmoke; padding: 5%; border-radius: 2%;">
+                        <form  hx-get="{% url "marketplace:home" %}" hx-swap="innerHTML" hx-trigger="keyup delay:500ms, change" hx-indicator="#loader" hx-target="#product-list">
+                        <h3 class="h5">{% translate 'Catégories' %} <span class="spinner" id="loader"></span></h3>
                         <div class="pb-2">
                             {% for category in categories %}
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{ category.slug }}"
-                                           name="filter_category">
-                                    <label class="form-check-label d-flex align-items-center" for="brand1">
-                                        <span class="text-nav fw-medium">{{ category }}</span>
+                                    <input class="form-check-input" id="id_filter_category_{{forloop.counter}}" type="checkbox" value="{{ category.slug }}" name="filter_category_{{forloop.counter}}">
+                                    <label class="form-check-label d-flex align-items-center" for="id_filter_category">
+                                        <span class="text-nav fw-medium">{{ category.name }}</span>
                                         <span class="fs-xs text-body-secondary ms-auto">{{ category.items_count }}</span>
                                     </label>
                                 </div>
                             {% endfor %}
                         </div>
-                        <!-- Price (range slider + inputs) -->
                         <h3 class="h5">{% translate 'Prix' %}</h3>
-                        <div class="range-slider pb-3 mb-4" data-start-min="10" data-start-max="50" data-min="0"
-                             data-max="80" data-step="1" data-tooltip-prefix="€">
-                            <div class="range-slider-ui"></div>
+                        <div class="range-slider pb-3 mb-4" data-start-min="{{filter_datas.start_min_price}}" data-start-max="{{filter_datas.start_max_price}}" data-min="{{filter_datas.min_price}}"
+                             data-max="filter_datas.max_price" data-step="10" data-tooltip-prefix="€">
+                            {% comment %} <div class="range-slider-ui"></div> {% endcomment %}
                             <div class="d-flex">
                                 <div class="d-flex align-items-center w-50">
                                     <label class="form-label fs-xs me-2 mb-0"
@@ -92,13 +105,12 @@
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </aside>
 
-            <!-- Product grid -->
             <div class="col-lg-9">
-
                 <!-- Active filters + Sorting -->
                 <div class="d-flex align-items-start justify-content-between mb-4">
                     {% comment %}<div class="me-3">
@@ -152,32 +164,24 @@
                     </div>
                     {% endcomment %}
                 </div>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="product-list">
+                    {% block product_list %}
                     {% for product in products %}
                         <div class="col pb-2 pb-sm-3">
                             <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
-{#                                <span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">Sale</span>#}
+                                {#<span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">Sale</span>#}
                                 {% comment %}<button class="btn btn-icon btn-sm btn-light bg-light border-0 rounded-circle position-absolute top-0 end-0 mt-3 me-3 z-5 opacity-0"
                                         type="button" aria-label="Add to Favorites">
                                     <i class="ai-heart fs-xl text-nav"></i>
                                 </button>{% endcomment %}
-                                <div class="swiper swiper-nav-onhover"
-                                     data-swiper-options='{"loop": true, "navigation": {"prevEl": ".btn-prev", "nextEl": ".btn-next"}}'>
-                                    <a class="swiper-wrapper" href="{{ product.get_absolute_url }}">
-                                        <div class="swiper-slide p-2 p-xl-4">
+                                <div>
+                                    <a href="{{ product.get_absolute_url }}">
+                                        <div class="p-2 p-xl-4">
                                             <img class="d-block mx-auto" src="{{ product.image.url }}"
                                                  width="226" alt="Product">
                                         </div>
                                     </a>
-                                    <button class="btn btn-prev btn-icon btn-sm btn-light bg-light border-0 rounded-circle start-0"
-                                            type="button" aria-label="Prev">
-                                        <i class="ai-chevron-left fs-xl text-nav"></i>
-                                    </button>
-                                    <button class="btn btn-next btn-icon btn-sm btn-light bg-light border-0 rounded-circle end-0"
-                                            type="button" aria-label="Next">
-                                        <i class="ai-chevron-right fs-xl text-nav"></i>
-                                    </button>
+                                    
                                 </div>
                             </div>
                             <div class="d-flex mb-1">
@@ -215,22 +219,23 @@
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="me-2">{{ product.price }}€</span>
-{#                                <del class="fs-sm text-body-secondary">$35.00</del>#}
+                                {% comment %} <del class="fs-sm text-body-secondary">$35.00</del> {% endcomment %}
                                 <div class="nav ms-auto" data-bs-toggle="tooltip"
-                                     data-bs-template='<div class="tooltip fs-xs" role="tooltip"><div class="tooltip-inner bg-light text-body-secondary p-0"></div></div>'
-                                     data-bs-placement="left" title="Add to cart">
-                                    <a class="nav-link fs-lg py-2 px-1" href="#"
+                                     data-bs-template="<div class='tooltip fs-xs' role='tooltip'><div class='tooltip-inner bg-light text-body-secondary p-0'></div></div>"
+                                     data-bs-placement="left" title="{% translate 'Ajouter au panier' %}">
+                                    <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" href="#"
                                        aria-label="{% translate 'Ajouter au panier' %}"
-                                       hx-post="{% url 'marketplace:add_to_cart' product_id=product.pk from_cart=False%}"
+                                       hx-post="{% url 'marketplace:add_to_cart' product_id=product.pk %}"
                                        hx-target="#cart-count"
                                        hx-trigger="click" hx-swap="innerHTML">
-                                        <i class="ai-cart"></i>
+                                       <i class="ai-cart"> </i>
+                                       {% translate " Ajouter au panier" %}
                                     </a>
                                 </div>
                             </div>
                         </div>
                     {% endfor %}
-
+                    {% endblock product_list %}
                     {% comment %}                        <div class="col pb-2 pb-sm-3">
                             <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
                                 <button class="btn btn-icon btn-sm btn-light bg-light border-0 rounded-circle position-absolute top-0 end-0 mt-3 me-3 z-5 opacity-0"
@@ -275,9 +280,9 @@
 
                 <!-- Pagination -->
                 <div class="row gy-3 align-items-center pt-3 pt-sm-4 mt-md-2">
-                    <div class="col col-md-4 col-6 order-md-1 order-1">
+                    {% comment %} <div class="col col-md-4 col-6 order-md-1 order-1">
                         <div class="d-flex align-items-center">
-                            <span class="text-body-secondary fs-sm">Show</span>
+                            <span class="text-body-secondary fs-sm">{% translate "Afficher" %}</span>
                             <select class="form-select form-select-flush w-auto">
                                 <option value="12">12</option>
                                 <option value="18">18</option>
@@ -285,33 +290,44 @@
                                 <option value="30">30</option>
                             </select>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                     <div class="col col-md-4 col-12 order-md-2 order-3 text-center">
-                        <button class="btn btn-primary w-md-auto w-100" type="button">{% translate 'Voir plus de produits' %}</button>
+                        {% if products.has_next %}
+                        <a href="?page={{ products.next_page_number }}" class="btn btn-primary w-md-auto w-100" type="button">{% translate 'Voir plus' %}</a>
+                        {% endif %}
                     </div>
                     <div class="col col-md-4 col-6 order-md-3 order-2">
                         <nav aria-label="Page navigation">
                             <ul class="pagination pagination-sm justify-content-end">
-                                <li class="page-item active" aria-current="page">
-                                    <span class="page-link">1<span class="visually-hidden">(current)</span></span>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">4</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">5</a>
-                                </li>
+                                {% if products.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link bg-secondary text-white" href="?page={{ products.previous_page_number }}"><i class="bi bi-arrow-left"></i></a>
+                            </li>
+                        {% endif %}
+                        {% for num in products.paginator.page_range %}
+                            {% if products.number == num %}
+                                <li class="page-item page-active"><a class="page-link bg-primary text-white" href="?page={{ num }}" class="active">{{ num }}</a></li>
+                            {% elif num > products.number|add:'-3' and num < products.number|add:'3' %}
+                                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        <!-- Lien vers la page suivante -->
+                        {% if products.has_next %}
+                            <li class="page-item">
+                                <a class="page-link bg-secondary text-white"  href="?page={{ products.next_page_number }}"><i class="bi bi-arrow-right"></i></a>
+                            </li>
+                       {% comment %} {% else %}
+                            <li class="disabled"><span>Suivant &raquo;</span></li>{% endcomment %}
+                        {% endif %}
+                        
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        </section>
+        
+    </section>
 {% endblock %}

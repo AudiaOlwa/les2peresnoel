@@ -21,9 +21,35 @@ urlpatterns = [
     # DASHBOAD
     path("dashboard/", views.dashboard, name="dashboard"),
     path(
-        "add_to_cart/<product_id>/<from_cart>/", views.add_product, name="add_to_cart"
+        "add_to_cart/<product_id>", views.add_product, name="add_to_cart"
     ),
-    path("update_cart_count", views.update_cart_count, name="update_cart_count"),
-    path("update_cart", views.update_cart, name="update_cart"),
-    path("remove_product", views.remove_product, name="remove_product"),
+    path(
+        "update_cart_count", 
+        views.update_cart_count, 
+        name="update_cart_count"
+    ),
+    path(
+        "update_cart", 
+        views.update_cart, 
+        name="update_cart"
+    ),
+    path(
+        "remove_product",
+        views.remove_product, 
+        name="remove_product"
+    ),
+
+    # Checkout
+
+    path(
+        "checkout/",
+        views.CheckoutView.as_view(),
+        name="checkout"
+    ),
+    path(
+        "update_checkout",
+        views.update_checkout,
+        name="update_checkout"
+    )
+    
 ]

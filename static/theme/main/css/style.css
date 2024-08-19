@@ -20,7 +20,7 @@
 
 body {
 	/*background: #f0ebe5;*/
-	font-family: "Comic Sans MS";
+	font-family: "Ysabeau Office", sans-serif !important;
 }
 
 ul,
@@ -68,20 +68,20 @@ p {
 	line-height: 27px;
 }
 
-@font-face {
+/* @font-face {
 	src: url(../fonts/ClashDisplay-Bold.ttf);
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 }
 
 @font-face {
 	src: url(../fonts/ClashDisplay-Medium.ttf);
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 }
 
 @font-face {
 	src: url(../fonts/ClashDisplay-Regular.ttf);
-	font-family: cr;
-}
+	font-family: "Ysabeau Office", sans-serif;
+} */
 
 .mobile-v-show {
 	display: none;
@@ -280,7 +280,7 @@ p {
 
 .modal-title {
 	font-size: 25px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #d71515;
 }
@@ -299,7 +299,7 @@ p {
 
 .modal-content p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 	padding-right: 22px;
 	padding-bottom: 25px;
@@ -328,7 +328,7 @@ p {
 
 .contact-info h3 {
 	font-size: 24px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #010101;
 	padding: 12px 0 4px;
 }
@@ -354,7 +354,7 @@ p {
 .cart-item h4 {
 	position: relative;
 	font-size: 48px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -374,7 +374,7 @@ p {
 
 .cart-item span {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 	padding-bottom: 30px;
 	display: block;
@@ -382,7 +382,7 @@ p {
 
 .cart-item h3 {
 	font-size: 25px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #010101;
 }
 
@@ -420,7 +420,7 @@ p {
 	text-decoration: underline;
 	color: #d71515;
 	font-size: 18px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 }
 
 /* bookmark */
@@ -443,7 +443,7 @@ p {
 }
 
 .bookmark-item h3 {
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 25px;
 	text-transform: uppercase;
 	padding: 14px 0 4px;
@@ -492,7 +492,7 @@ p {
 .comic-detail-txt h3,
 .comic-detail-txt h4 {
 	font-size: 59px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #010101;
 }
@@ -503,7 +503,7 @@ p {
 }
 
 .comic-detail-txt span {
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 19px;
 	color: #d71515;
 }
@@ -511,7 +511,7 @@ p {
 .comic-detail-txt p,
 .comic-detail-txt .stars span {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 }
 
@@ -541,7 +541,7 @@ p {
 
 .navbar-brand {
 	font-size: 32px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #010101;
 	padding-top: 0;
@@ -552,10 +552,10 @@ p {
 }
 
 .navbar .navbar-nav .nav-link {
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 18px;
 	text-transform: uppercase;
-	font-weight: 200;
+	font-weight: 400;
 	margin: 0 10px;
 	color: #868686;
 }
@@ -570,7 +570,7 @@ p {
 	background: #333333;
 	padding: 14px 24px;
 	border-radius: 50px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 18px;
 	text-transform: uppercase;
 	-webkit-transition: all linear .3s;
@@ -609,7 +609,7 @@ p {
 	height: 20px;
 	line-height: 20px;
 	top: -12px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	left: -6px;
 }
 
@@ -679,7 +679,7 @@ p {
 
 .offcanvas-title {
 	font-size: 25px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #d71515;
 }
@@ -687,7 +687,7 @@ p {
 .offcanvas-body input {
 	height: 60px;
 	border: none;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 }
 
 .form-control:focus,
@@ -728,7 +728,7 @@ p {
 
 .social-media p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	padding-bottom: 8px;
 }
 
@@ -787,7 +787,7 @@ p {
 
 .banner-txt span {
 	font-size: 24px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #d71515;
 }
@@ -795,7 +795,7 @@ p {
 
 .banner-txt h3 {
 	font-size: 80px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #010101;
 }
@@ -809,7 +809,7 @@ p {
 .button-primary {
 	background: #d71515;
 	padding: 20px 40px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 21px;
 	color: white;
 	border-radius: 50px;
@@ -893,7 +893,7 @@ p {
 
 .banner-review p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 }
 
@@ -960,7 +960,7 @@ p {
 .text {
 	padding: 0 2rem;
 	white-space: nowrap;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 34px;
 	text-transform: uppercase;
 	color: white;
@@ -998,9 +998,9 @@ p {
 	color: #d71515;
 }
 
-/*===========================
-3.0 *** ABOUT AREA START ***
-=============================*/
+
+
+
 #about {
 	padding: 90px 0 55px;
 }
@@ -1010,7 +1010,7 @@ p {
 }
 
 .about-main img {
-	border-radius: 50%;
+	border-radius: 2%;
 	/*-webkit-filter: grayscale(100%);*/
 	/*filter: grayscale(100%);*/
 }
@@ -1041,7 +1041,7 @@ p {
 .about-main h3,
 .about-main span {
 	font-size: 58px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	color: white;
 	padding-top: 47px;
 }
@@ -1055,7 +1055,7 @@ p {
 
 .about-main p {
 	font-size: 16px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: white;
 	text-transform: capitalize;
 	padding: 0 30px;
@@ -1071,7 +1071,7 @@ p {
 
 .about-txt span {
 	font-size: 24px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #d71515;
 	position: relative;
@@ -1093,14 +1093,14 @@ p {
 
 .about-txt h3 {
 	font-size: 59px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #010101;
 }
 
 .about-txt p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 	padding-right: 130px;
 }
@@ -1119,7 +1119,7 @@ p {
 
 .button-circular {
 	font-size: 21px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #d71515;
 }
@@ -1176,7 +1176,7 @@ p {
 
 .section-title span {
 	font-size: 24px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #d71515;
 	position: relative;
@@ -1202,7 +1202,7 @@ p {
 
 .section-title h3 {
 	font-size: 59px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	text-transform: uppercase;
 	color: #010101;
 }
@@ -1243,7 +1243,7 @@ p {
 }
 
 .comic-item h3 {
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 25px;
 	text-transform: uppercase;
 	padding: 14px 0 4px;
@@ -1252,7 +1252,7 @@ p {
 
 .comic-item p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 }
 
@@ -1329,7 +1329,7 @@ p {
 
 #popular .section-title p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 	padding-right: 225px;
 	padding-bottom: 40px;
@@ -1337,7 +1337,7 @@ p {
 
 .popular-item p {
 	padding: 8px 0 4px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 19px;
 	color: #868686;
 	position: relative;
@@ -1369,7 +1369,7 @@ p {
 
 .popular-item a {
 	display: block;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 25px;
 	text-transform: uppercase;
 	padding: 14px 0 4px;
@@ -1440,14 +1440,14 @@ p {
 
 .team-item h3 {
 	font-size: 29px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	color: white;
 	padding-top: 30px;
 }
 
 .team-item p,
 .team-counter p {
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 18px;
 	color: white;
 }
@@ -1473,7 +1473,7 @@ p {
 .team-counter h3,
 .team-counter span {
 	font-size: 95px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	color: transparent !important;
 	-webkit-text-stroke-width: 2px;
 	-webkit-text-stroke-color: white;
@@ -1489,7 +1489,7 @@ p {
 
 #reviews .section-title p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 	padding-right: 120px;
 	padding-bottom: 40px;
@@ -1515,14 +1515,14 @@ p {
 
 .review-txt p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 	padding: 4px 0 8px;
 }
 
 .review-txt h3 {
 	font-size: 25px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #010101;
 	position: relative;
 	top: 25px;
@@ -1571,14 +1571,14 @@ p {
 }
 
 .price-item span {
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 21px;
 	color: #010101;
 }
 
 .price-item p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 	padding-bottom: 8px;
 }
@@ -1589,7 +1589,7 @@ p {
 }
 
 .price-item h3 {
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	font-size: 44px;
 	padding: 14px 0;
 }
@@ -1627,7 +1627,7 @@ p {
 
 .price-footer p {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #868686;
 }
 
@@ -1635,7 +1635,7 @@ p {
 	text-decoration: underline;
 	color: #d71515;
 	font-size: 18px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 }
 
 /*===========================
@@ -1656,7 +1656,7 @@ p {
 .blog-item h4 {
 	position: relative;
 	font-size: 115px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -1680,7 +1680,7 @@ p {
 
 .blog-item p {
 	font-size: 17px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	padding-right: 85px;
 }
 
@@ -1695,7 +1695,7 @@ p {
 
 .blog-item h3 {
 	font-size: 34px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #010101;
 	padding: 12px 120px 18px 0;
 }
@@ -1743,7 +1743,7 @@ p {
 
 .footer-logo a {
 	font-size: 46px;
-	font-family: cb;
+	font-family: "Ysabeau Office", sans-serif;
 	color: white;
 	text-transform: uppercase;
 }
@@ -1755,7 +1755,7 @@ p {
 .footer-menu h3,
 .footer-action h3 {
 	font-size: 24px;
-	font-family: cm;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #fff;
 	padding-top: 17px;
 	text-transform: uppercase;
@@ -1768,7 +1768,7 @@ p {
 .footer-menu a {
 	display: block;
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #a7a7a7;
 	margin-top: 15px;
 	-webkit-transition: all linear .3s;
@@ -1854,7 +1854,7 @@ p {
 .copyright-txt span,
 .copyright-txt a {
 	font-size: 18px;
-	font-family: cr;
+	font-family: "Ysabeau Office", sans-serif;
 	color: #a7a7a7;
 }
 

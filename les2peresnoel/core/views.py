@@ -192,3 +192,16 @@ def legend_rebirth(request):
 
 def sage(request):
     return render(request, "sage.html")
+
+
+def notify_user(email, subject, message, template="notification"):
+    send_templated_mail(
+        template_name=template,
+        from_email=settings.CONTACT_FROM_EMAIL,
+        recipient_list=[user.email],
+        context={
+            "subject": subject,
+            "message": message,
+        },
+        template_suffix="html",
+    )

@@ -1,15 +1,20 @@
+from django import forms
 from dj_shop_cart.cart import CartItem
 from dj_shop_cart.protocols import Numeric
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from model_utils.models import SoftDeletableModel, TimeStampedModel
+from model_utils.models import SoftDeletableModel, TimeStampedModel, UUIDModel, StatusModel
+from model_utils import Choices
+
+from django.db.transaction import atomic as atomic_transaction
 
 from les2peresnoel.utils import generate_unique_slug
 
 from .models_abstract import Detail
 
+from ..payments.models import ProviderRefund
 
 # Create your models here.
 class Category(Detail, TimeStampedModel, SoftDeletableModel):
@@ -93,3 +98,71 @@ class ProductImage(TimeStampedModel):
 
     def __str__(self):
         return self.product.name
+
+
+class Checkout(UUIDModel, TimeStampedModel):
+    last_name = models.CharField(max_length=50, verbose_name=_("Nom"))
+    first_name = models.CharField(max_length=50, verbose_name=_("Prénom(s)"))
+    address = models.CharField(max_length=100, verbose_name=_("Adresse"))
+    city = models.CharField(max_length=100, verbose_name=_("Ville"))
+    zip_code = models.CharField(max_length=20, verbose_name=_("Code Postal"))
+    country = models.CharField(max_length=50, verbose_name=_("Country"))
+    email = models.EmailField(max_length=50, blank=True, verbose_name=_("Adresse E-mail"))
+    phone_number = models.CharField(max_length=50, blank=True, verbose_name=_("Numero de téléphone"))
+    order_notes = models.TextField(blank=True)
+    payment_method = models.CharField(
+        choices=[('credit_card', 'Credit Card'), ('paypal', 'PayPal'),('cash', 'Cash')], verbose_name=_("Méthode de paiement"), max_length=12)
+    card_number = models.CharField(max_length=16, blank=True)
+    card_expiry = models.CharField(max_length=5, blank=True)
+    card_cvv = models.CharField(max_length=3, blank=True)
+    paypal_address = models.CharField(_("Adresse PayPal"), max_length=50, blank=True)
+    # pay_at_shipping = models.BooleanField(_("Paiement à la livraison"), default=False)
+
+
+
+class Order(UUIDModel, TimeStampedModel, StatusModel):
+    STATUS = Choices("pending", "processing", "completed")
+
+    last_name = models.CharField(_("Nom"), max_length=50, blank=True) 
+    first_name = models.CharField(_("Prénoms"), max_length=50, blank=True) 
+    email = models.EmailField(_("Adresse E-mail"), max_length=254, blank=True)
+    total_ht = models.FloatField(_("Total Hors-Taxe"), editable=False)
+    total_ttc = models.FloatField(_("Total TTC"), editable=False)
+    total_tva = models.FloatField(_("Total TVA"), editable=False)
+    shipping_amount = models.FloatField(_("Frais de livraison"), editable=False, default=0.0)
+    checkout = models.ForeignKey("Checkout", verbose_name=_("Checkout"), on_delete=models.SET_NULL, editable=False, null=True)
+    refund_generated = models.BooleanField(_("Redevance générée ?"), default=False, editable=False)
+
+    @property
+    def get_payment_url(self):
+        return reverse('payments:pay_tracked_order', kwargs={"order_pk": self.pk})
+
+    def generate_refund(self):
+        with atomic_transaction():
+            items = self.orderitem_set.all()
+            ProviderRefund.objects.bulk_create(
+                [
+                    ProviderRefund(
+                        order=self,
+                        provider=item.provider, 
+                        order_item=item
+                    )
+                    for item in items
+                ]
+            )    
+            self.refund_generated = True 
+    
+
+
+
+class OrderItem(UUIDModel, TimeStampedModel):
+    order = models.ForeignKey(Order, verbose_name=_("Commande"), on_delete=models.SET_NULL, null=True)
+    provider = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("Fournisseur"), on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, verbose_name=_("Produit"), on_delete=models.SET_NULL, null=True)
+    price = models.FloatField(_("Prix"))
+    quantity = models.PositiveIntegerField(_("Quantité"), default=1)
+    total = models.FloatField(_("Total"), editable=False)
+
+    def save(self, *args, **kwargs):
+        self.provider = self.product.owner
+        super().save()

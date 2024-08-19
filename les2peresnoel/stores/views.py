@@ -21,7 +21,8 @@ def product_list(request):
     form = ProductForm()
     products = paginator.get_page(page)
     return render(
-        request, "stores/products/list.html", {"products": products, "form": form}
+        request, "stores/products/list.html", {
+            "products": products, "form": form}
     )
 
 
@@ -64,6 +65,7 @@ def product_create(request):
     # )
 
 
+@login_required
 def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
     # product_images = ProductImage.objects.filter(product=product)
@@ -74,8 +76,10 @@ def product_details(request, pk):
     )
 
 
+@login_required
 def product_update(request, pk):
-    product_form = ProductForm(request.POST, instance=get_object_or_404(Product, pk=pk))
+    product_form = ProductForm(
+        request.POST, instance=get_object_or_404(Product, pk=pk))
     if request.method == "POST":
         if product_form.is_valid():
             product_form.save()
@@ -100,6 +104,7 @@ def product_update(request, pk):
     )
 
 
+@login_required
 def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":

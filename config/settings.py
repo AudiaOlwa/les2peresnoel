@@ -27,6 +27,7 @@ else:
         "les2peresnoel.com",
         "www.les2peresnoel.com",
         "localhost",
+        "antelope-driven-utterly.ngrok-free.app"
     ]
 
 # Application definition
@@ -48,6 +49,7 @@ LOCAL_APPS = [
     "les2peresnoel.stores.apps.StoresConfig",
     "les2peresnoel.providers.apps.ProvidersConfig",
     "les2peresnoel.payments.apps.PaymentsConfig",
+    "les2peresnoel.accounting.apps.AccountingConfig"
 ]
 
 THIRD_PARTY_APPS = [
@@ -61,6 +63,8 @@ THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "django_htmx",
+    # "django_paypal",
+    "paypal.standard.ipn",  
     "baton.autodiscover",
 ]
 
@@ -212,7 +216,8 @@ CKEDITOR_CONFIGS = {
                     "Redo",
                 ],
             },
-            {"name": "editing", "items": ["Find", "Replace", "-", "SelectAll"]},
+            {"name": "editing", "items": [
+                "Find", "Replace", "-", "SelectAll"]},
             {
                 "name": "forms",
                 "items": [
@@ -278,7 +283,8 @@ CKEDITOR_CONFIGS = {
                 ],
             },
             "/",
-            {"name": "styles", "items": ["Styles", "Format", "Font", "FontSize"]},
+            {"name": "styles", "items": [
+                "Styles", "Format", "Font", "FontSize"]},
             {"name": "colors", "items": ["TextColor", "BGColor"]},
             {"name": "tools", "items": ["Maximize", "ShowBlocks"]},
             {"name": "about", "items": ["About"]},
@@ -376,9 +382,11 @@ LOGIN_URL = "account_login"
 
 LOGIN_REDIRECT_URL = "/"
 
-DJANGO_ADMIN_FORCE_ALLAUTH = env.bool("DJANGO_ADMIN_FORCE_ALLAUTH", default=False)
+DJANGO_ADMIN_FORCE_ALLAUTH = env.bool(
+    "DJANGO_ADMIN_FORCE_ALLAUTH", default=False)
 
-ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
+ACCOUNT_ALLOW_REGISTRATION = env.bool(
+    "DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 # https://docs.allauth.org/en/latest/account/configuration.html
@@ -396,9 +404,38 @@ ACCOUNT_FORMS = {"signup": "les2peresnoel.users.forms.UserSignupForm"}
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
 SOCIALACCOUNT_ADAPTER = "les2peresnoel.users.adapters.SocialAccountAdapter"
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
-SOCIALACCOUNT_FORMS = {"signup": "les2peresnoel.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_FORMS = {
+    "signup": "les2peresnoel.users.forms.UserSocialSignupForm"}
 
 MARKETPLACE_DEFAULT = {
     "category_cover": "/static/images/default.jpg",
     "product_cover": "/static/images/default.jpg",
 }
+
+
+SHIPPING_FEES = 0
+
+
+BASE_ACCOUNT_CODE_MAP = {
+    'CUSTOMER_ACCOUNTS_RECEIVABLE': '411000',
+    'BANK': '512000',
+    'BORROWINGS_FROM_CREDIT_INSTITUTIONS': '164000',
+    'INTEREST_CHARGES': '661000',
+    'SALES_COMMISSIONS': '622200',
+    'CAPITAL': '101000',
+    'RAW_MATERIALS_PURCHASES': '601000',
+    'INDUSTRIAL_EQUIPMENT': '215400',
+    'SALES_OF_FINISHED_PRODUCTS': '701000',
+    'SUPPLIER_DEBT': '401000'
+}
+
+
+LINK_TRANSACTION_TO_JOURNAL_ENTRY = True
+
+# PAYPAL INTEGRATION
+PAYPAL_RECEIVER_EMAIL = env("PAYPAL_RECEIVER_EMAIL")
+PAYPAL_TEST = True
+
+
+PAYPAL_CLIENT_ID = ""
+PAYPAL_CLIENT_SECRET = ""

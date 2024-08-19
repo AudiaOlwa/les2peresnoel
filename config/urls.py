@@ -16,7 +16,9 @@ urlpatterns = [
     path("stores/", include("les2peresnoel.stores.urls")),
     path("providers/", include("les2peresnoel.providers.urls")),
     path("payments/", include("les2peresnoel.payments.urls")),
+    path('paypal/', include("paypal.standard.ipn.urls")),
 ]
+
 
 # if settings.DEBUG:
 if True:
