@@ -2,15 +2,36 @@ import sweetify
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django_htmx.http import HttpResponseClientRedirect
 
 from config.settings import SWEETIFY_TOAST_TIMER
-from les2peresnoel.marketplace.forms import ProductForm
+from les2peresnoel.marketplace.forms import ProductForm, ProductAddForm
 from les2peresnoel.marketplace.models import Product
 from les2peresnoel.utils import render_block
 
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
+from django.views import View
+
+class SweetifyMixin:
+    def notify_success(self, request, message):
+        sweetify.toast(
+            request=request,
+            title="Succès",
+            icon="success",
+            text=message,
+            timer=SWEETIFY_TOAST_TIMER,
+        )
+
+    def notify_error(self, request, message):
+        sweetify.toast(
+            request=request,
+            title="Erreur",
+            icon="error",
+            text=message,
+            timer=SWEETIFY_TOAST_TIMER,
+        )
 
 @login_required
 def product_list(request):
@@ -111,3 +132,59 @@ def product_delete(request, pk):
         product.delete()
         return redirect("stores:products")
     return render(request, "stores/products/delete.html", context={"product": product})
+
+
+class OnProductAddView(SweetifyMixin, View):
+    template_name = 'stores/products/partials/add.html'
+    
+    def get(self, request, *args, **kwargs):
+        product = get_object_or_404(Product, pk=kwargs.get('pk'))
+        form = ProductAddForm()
+        return render(request, self.template_name, {'form': form, 'product': product})
+
+    def post(self, request, *args, **kwargs):
+        product = get_object_or_404(Product, pk=kwargs.get('pk'))
+        form = ProductAddForm(request.POST)
+        
+        if form.is_valid():
+            quantity = form.cleaned_data.get('quantity')
+            product.quantity += quantity  # Ajoute la quantité au produit existant
+            product.save()
+            self.notify_success(request, "Quantité ajoutée avec succès.")
+            return HttpResponseClientRedirect(reverse('stores:product_list'))
+        
+        self.notify_error(request, "Erreur lors de l'ajout de la quantité.")
+        return self.render_to_response({'form': form, 'product': product})
+
+
+class OnProductEditView(SweetifyMixin, UpdateView):
+    model = Product
+    template_name = 'stores/products/partials/edit.html'
+    form_class = ProductForm
+    success_url = reverse_lazy('stores:product_list')
+
+    def form_valid(self, form):
+        form.save()
+        self.notify_success(self.request, "Produit mis à jour avec succès.")
+        return HttpResponseClientRedirect(self.success_url)
+
+    def form_invalid(self, form):
+        self.notify_error(self.request, "Erreur lors de la mise à jour du produit.")
+        return self.render_to_response({'form': form})
+
+
+class OnProductDeleteView(SweetifyMixin, DeleteView):
+    model = Product
+    template_name = 'stores/products/partials/delete.html'
+    success_url = reverse_lazy('stores:product_list')
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        self.notify_success(self.request, "Produit supprimé avec succès.")
+        return HttpResponseClientRedirect(self.success_url)
+
+
+class OnProductDetailsView(DetailView):
+    model = Product
+    template_name = 'stores/products/partials/details.html'

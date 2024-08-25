@@ -25,8 +25,8 @@
     <!-- Theme switcher (color modes) -->
     <script src="{% static 'theme/ultra/js/theme-switcher.js' %}"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
-          rel="stylesheet" id="google-font">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+
 
     <!-- Vendor styles -->
     <link rel="stylesheet" media="screen" href="{% static 'theme/ultra/vendor/nouislider/dist/nouislider.min.css' %}">
@@ -38,6 +38,7 @@
     <!-- Theme styles + Bootstrap -->
     <link rel="stylesheet" media="screen" href="{% static 'theme/ultra/css/theme.min.css' %}">
     <link rel="stylesheet" media="screen" href="{% static 'css/marketplace-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}"/>
     <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
 
     {#    <!-- Customizer generated styles -->#}
@@ -45,6 +46,9 @@
 
     {#    <!-- Page loading styles -->#}
     <style>
+        body{
+            font-family: "Ysabeau Office", sans-serif !important;
+        }
         .page-loading {
             position: fixed;
             top: 0;
@@ -534,6 +538,7 @@
                       d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z"></path>
               </svg>
             </span>{% endcomment %}
+                <img src="{% static 'logos/mpbh.png' %}" alt="" height="32" width="35" >
                 <span class="d-none d-sm-inline text-primary"> {% translate 'MPERESBONHEUR' %}</span>
             </a>
 
@@ -865,6 +870,9 @@
 
         <!-- Columns with links -->
         <div class="row container justify-content-center" id="links">
+            {% comment %} <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+                <img src="{% static 'logos/mpbh.png' %}" alt="" height="200" >
+            </div> {% endcomment %}
             <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
                 <h3 class="h6 text-uppercase d-none d-md-block">{% translate "Utilitaires" %}</h3>
                 <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
@@ -943,24 +951,27 @@
                 <div class="collapse d-md-block" id="showroom" data-bs-parent="#links">
                     <ul class="nav flex-column pb-3">
                         <li class="nav-item">
-                            <a class="nav-link fw-normal px-0 py-1" href="#">1501 Main St, Ste 50<br>Tewksbury MA 01876</a>
+                            <a class="nav-link fw-normal px-0 py-1" href="#">Acajou 2 groupe Ozanam<br>B7 97232  Le lamentin</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-normal px-0 py-1"
                                href="mailto:contact@mperesbonheur.com">contact@mperesbonheur.com</a>
                         </li>
-                        <li class="nav-item">
+                        {% comment %} <li class="nav-item">
                             <a class="nav-link fw-normal px-0 py-1" href="%2b15262200459.html">+1&nbsp;526&nbsp;220&nbsp;0459</a>
-                        </li>
+                        </li> {% endcomment %}
                     </ul>
-                    {% comment %} <ul class="list-unstyled mb-0 pb-3 pb-md-0">
+                    {% comment %} 
+                    <ul class="list-unstyled mb-0 pb-3 pb-md-0">
                         <li class="text-light opacity-90 mb-2">Mon-Fri: 8:00 - 21:00</li>
                         <li class="text-light opacity-90 mb-2">Sat: 8:00 - 21:00</li>
                         <li class="text-light opacity-90">Sun: 8:00 - 21:00</li>
-                    </ul> {% endcomment %}
+                    </ul> 
+                    {% endcomment %}
                 </div>
             </div>
-            {% comment %} <div class="col-12 col-xl-3 mt-md-2 mt-xl-0 pt-2 pt-md-4 pt-xl-0">
+            {% comment %} 
+            <div class="col-12 col-xl-3 mt-md-2 mt-xl-0 pt-2 pt-md-4 pt-xl-0">
                 <h3 class="h6 text-uppercase mb-1 pb-1">Download our app</h3>
                 <div class="d-flex d-xl-block d-xxl-flex">
                     <a class="btn btn-secondary px-3 py-2 mt-3 me-3" href="#">
@@ -970,7 +981,8 @@
                         <img class="mx-1" src="assets/img/market/googleplay-light.svg" width="119" alt="Google Play">
                     </a>
                 </div>
-            </div> {% endcomment %}
+            </div> 
+            {% endcomment %}
         </div>
 
         <!-- Nav + Switcher -->
@@ -1000,16 +1012,19 @@
                         </select>
                     </div> {% endcomment %}
                     <a class="dropdown-item pb-1" href="#">
-                        <img class="me-2" src="assets/img/flags/fr.png" width="18" alt="Français">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172" style=" fill:#26e07f;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#1fb141"><path d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z"></path></g></g></svg>
+                        {% comment %} <img class="me-2" src="assets/img/flags/fr.png" width="18" alt="Français"> {% endcomment %}
                         Français
                     </a>
                     <a class="dropdown-item pb-1" href="#">
-                        <img class="me-2" src="assets/img/flags/de.png" width="18" alt="Deutsch">
-                        Deutsch
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172" style=" fill:#26e07f;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#1fb141"><path d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z"></path></g></g></svg>
+                        {% comment %} <img class="me-2" src="assets/img/flags/de.png" width="18" alt="Deutsch"> {% endcomment %}
+                        USA
                     </a>
                     <a class="dropdown-item" href="#">
-                        <img class="me-2" src="assets/img/flags/it.png" width="18" alt="Italiano">
-                        Italiano
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172" style=" fill:#26e07f;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#1fb141"><path d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z"></path></g></g></svg>
+                        {% comment %} <img class="me-2" src="assets/img/flags/it.png" width="18" alt="Italiano"> {% endcomment %}
+                        Deutsch
                     </a>
                 </div>
             </div>
@@ -1020,10 +1035,7 @@
             <div class="d-sm-flex align-items-center pe-sm-2">
                 <a class="navbar-brand d-inline-flex align-items-center me-sm-5 mb-4 mb-sm-0" href="index.html">
               <span class="text-primary flex-shrink-0 me-2">
-                {% comment %} <svg version="1.1" width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="currentColor"
-                        d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z"></path>
-                </svg> {% endcomment %}
+                <img src="{% static 'logos/mpbh.png' %}" alt="" height="32" width="35" >
               </span>
                     <span class="text-light opacity-90">
                         MPERESBONHEUR
@@ -1056,34 +1068,30 @@
 
 
 
-<a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
+{% comment %} <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
     <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5"
                 stroke-miterlimit="10"></circle>
     </svg>
     <i class="ai-arrow-up"></i>
-</a>
+</a> {% endcomment %}
 
 <script>
     document.addEventListener('htmx:afterSwap', function(event) {
-        //console.log("************* htmx request *************")
         if (event.detail.xhr.status === 200) {
             var response = event.detail.xhr.responseJSON;
-            // Mettre à jour le offcanvas cart
             document.querySelector('#cartOffcanvas').innerHTML = response.cart;
-            // Mettre à jour le résumé du checkout
             document.querySelector('#checkout').innerHTML = response.checkout;
-            // Mettre à jour le compteur du panier
             document.querySelector('#cart-count').innerHTML = response.cart_count;
         }
     });
 </script>
-
-<script src="{% static 'theme/ultra/vendor/nouislider/dist/nouislider.min.js' %}"></script>
-<script src="{% static 'theme/ultra/vendor/swiper/swiper-bundle.min.js' %}"></script>
-
-<script src="{% static 'theme/ultra/js/theme.min.js' %}"></script>
-
-<script src="{% static 'theme/ultra/js/customizer.min.js' %}"></script>
+    {% load sweetify %}
+    {% sweetify %}
+    <script src="{% static 'js/toastr.min.js' %}"></script>
+    <script src="{% static 'theme/ultra/vendor/nouislider/dist/nouislider.min.js' %}"></script>
+    <script src="{% static 'theme/ultra/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'theme/ultra/js/theme.min.js' %}"></script>
+    <script src="{% static 'theme/ultra/js/customizer.min.js' %}"></script>
 </body>
 </html>

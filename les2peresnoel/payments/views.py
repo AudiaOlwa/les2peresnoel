@@ -39,11 +39,15 @@ def pay_with_paypal(request, order_pk):
 
 
 def paypal_return(request):
-    return render(request, "payments/paypal/return.html")
+    # sweetify.toast(request, _("Paiement  !"))
+    return redirect(reverse('marketplace:home'))
+    # return render(request, "payments/paypal/return.html")
 
 
 def paypal_cancel(request):
-    return render(request, "payments/paypal/cancel.html")
+    sweetify.toast(request, _("Paiement annulé !"))
+    return redirect(reverse('marketplace:home'))
+    # return render(request, "payments/paypal/cancel.html")
 
 
 def credit_card(request):

@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="{% static 'theme/main/css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'theme/main/css/slick.css' %}"/>
     <link rel="stylesheet" href="{% static 'theme/main/css/venobox.min.css' %}"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}"/>
     <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
 
@@ -42,8 +43,8 @@
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light" style="margin-bottom: 50px !important;">
-    <div class="container">
-        <a class="navbar-brand" href="#">MPB<span>.</span></a>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="{% static 'logos/pb.jpg' %}" alt="" height="35"><span>PERESBONHEUR</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                 class="navbar-toggler-icon"></span></button>
@@ -219,9 +220,9 @@
 <section id="footer">
     <div class="container">
         <div class="row justify-content-between">
-            <div class="col-lg-3 footer-logo">
-                <a href="#!">MPB<span>.</span></a>
-                {% comment %}<img src="#" alt="bat-img" />{% endcomment %}
+            <div class="col-lg-3">
+                {% comment %} <a href="#!">MPB<span>.</span></a> {% endcomment %}
+                <img src="{% static 'logos/pb.jpg' %}" alt="" height="200" class="rounded">
             </div>
             <div class="col-lg-2 col-md-4 footer-menu">
                 <h3>{% trans 'Liens rapides' %}</h3>

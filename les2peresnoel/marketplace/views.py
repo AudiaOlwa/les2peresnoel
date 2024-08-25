@@ -17,10 +17,12 @@ from django_htmx.http import HttpResponseClientRedirect
 from sweetify import sweetify
 from render_block import render_block_to_string
 
-from ..utils import render_block
+from ..utils import render_block    
 from .forms import *
 from .models import *
 from .models import Product
+
+from ..core.views import send_order_confirmation_email
 
 SWEETIFY_TOAST_TIMER = settings.SWEETIFY_TOAST_TIMER
 
@@ -38,14 +40,22 @@ def add_product(request: HttpRequest, product_id: int, from_cart=False):
     quantity = int(request.POST.get("quantity", default=1))
     source = request.POST.get("source")
     cart = Cart.new(request)
-    cart.add(product, quantity=quantity)
-    sweetify.toast(
-        request,
-        title="Produit ajouté",
-        icon="success",
-        text="Produit ajouté avec succès !",
-    )
-    messages.success(request, message="Produit ajouté avec succès !")
+    if product.is_available_for_quantity(quantity):
+        cart.add(product, quantity=quantity)
+        sweetify.toast(
+            request,
+            title="Produit ajouté",
+            icon="success",
+            text="Produit ajouté avec succès !",
+        )
+        messages.success(request, message="Produit ajouté avec succès !")
+    else:
+        sweetify.toast(
+            request,
+            title="Rupture de stock",
+            icon="error",
+            text="La quantité de produit souhaitée est indisponible !",
+        )
     _context = {"cart": cart}
     if source == "cart":
         response = render_block("layouts/marketplace.html", "cart", _context)
@@ -371,7 +381,7 @@ class CheckoutView(View):
         cart_tva_amount = 1.18*float(cart.total)
         # shipping_fees = settings.SHIPPING_FEES
         total_amount = cart_tva_amount
-
+        customer = request.user if request.user.is_authenticated else None
         if checkout_form.is_valid():
             with atomic_transaction():
                 checkout = checkout_form.save()
@@ -382,7 +392,8 @@ class CheckoutView(View):
                     "total_ht": cart.total,
                     "total_ttc": total_amount,
                     "total_tva": tva_amount,
-                    "checkout": checkout
+                    "checkout": checkout,
+                    "customer": customer
                 })
 
                 OrderItem.objects.bulk_create(
@@ -399,6 +410,10 @@ class CheckoutView(View):
                 )
                 cart.empty()
                 sweetify.toast(request, _("Votre commande a été enregistrée avec succès !"))
+            if order:
+                # if not order.tracking_number:
+                #     order.tracking_number = order.generate_tracking_number
+                send_order_confirmation_email(order)
             return redirect(order.get_payment_url)
         else:
             sweetify.toast(request, _("Une erreur s'est produite !"), "error")

@@ -1,42 +1,42 @@
-# import pandas as pd
+import pandas as pd
 from django.db.transaction import atomic as atomic_transaction
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from .models import Account, ChartOfAccount, Transaction, JournalEntry, Journal
 
 
-# def import_accounts_from_excel(file_path, coa=None):
-#     breakpoint()
-#     # Lire le fichier Excel
-#     df = pd.read_excel(file_path, engine='openpyxl')
-#     # coa_pk = coa.pk if coa else None
-#     # Affiche les premières lignes pour vérifier
-#     # print(df.head())
+def import_accounts_from_excel(file_path, coa=None):
+    # breakpoint()
+    # Lire le fichier Excel
+    df = pd.read_excel(file_path, engine='openpyxl')
+    # coa_pk = coa.pk if coa else None
+    # Affiche les premières lignes pour vérifier
+    # print(df.head())
 
-#     # Vérifiez et renommez les colonnes si nécessaire
-#     if 'code' not in df.columns or 'name' not in df.columns:
-#         df.columns = ['code', 'name']  # Renommez les colonnes si elles ne sont pas correctement nommées
+    # Vérifiez et renommez les colonnes si nécessaire
+    if 'code' not in df.columns or 'name' not in df.columns:
+        df.columns = ['code', 'name']  # Renommez les colonnes si elles ne sont pas correctement nommées
 
-#     # Nettoyer les données et remplir les colonnes manquantes
-#     df = df[['code', 'name']].dropna()
-#     df['code'] = df['code'].astype(str)
-#     df['parent_code'] = df['code'].apply(lambda x: x[:-1] if len(x) > 1 else None)
+    # Nettoyer les données et remplir les colonnes manquantes
+    df = df[['code', 'name']].dropna()
+    df['code'] = df['code'].astype(str)
+    df['parent_code'] = df['code'].apply(lambda x: x[:-1] if len(x) > 1 else None)
 
-#     # Création des comptes
-#     with atomic_transaction(using='default'):
-#         for _, row in df.iterrows():
-#             code = str(row['code']).strip()
-#             name = row['name'].strip()
-#             parent_code = str(row['parent_code']).strip() if 'parent_code' in row and not pd.isna(
-#                 row['parent_code']) else None
+    # Création des comptes
+    with atomic_transaction(using='default'):
+        for _, row in df.iterrows():
+            code = str(row['code']).strip()
+            name = row['name'].strip()
+            parent_code = str(row['parent_code']).strip() if 'parent_code' in row and not pd.isna(
+                row['parent_code']) else None
 
-#             parent = Account.objects.filter(code=parent_code, coa=coa).first() if parent_code else None
+            parent = Account.objects.filter(code=parent_code, coa=coa).first() if parent_code else None
 
-#             account, created = Account.objects.update_or_create(
-#                 code=code, coa=coa,
-#                 defaults={'name': name, 'parent': parent}
-#             )
-#             # print(f"{parent_code} -> {code} --> {name}")
+            account, created = Account.objects.update_or_create(
+                code=code, coa=coa,
+                defaults={'name': name, 'parent': parent}
+            )
+            # print(f"{parent_code} -> {code} --> {name}")
 
 try:
     coa, created = ChartOfAccount.objects.get_or_create(name="default", description=_("Plan comptable par défaut"))

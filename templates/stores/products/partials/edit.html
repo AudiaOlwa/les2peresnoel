@@ -1,0 +1,13 @@
+{% load crispy_forms_tags %}
+{% load i18n %}
+<form hx-post="{% url 'stores:product_edit' object.pk %}" hx-target="#modal-content"
+                              hx-swap="innerHTML" hx-encoding="multipart/form-data">
+    <h4>{% translate 'Modifier ce produit' %} ({{object.name}})</h4>
+    {% csrf_token %}
+    {{ form | crispy }}
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">{% translate 'Fermer' %}</button>
+        <button type="submit" class="btn btn-primary">{% translate 'Modifier' %}</button>
+    </div>
+</form>

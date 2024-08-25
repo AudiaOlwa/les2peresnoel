@@ -1,8 +1,10 @@
+from django.conf import settings
 import random
 
 from django.shortcuts import get_object_or_404, render
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
+from mail_templated import EmailMessage
 
 from .forms import SignUpForm
 from .models import Document, Product
@@ -205,3 +207,17 @@ def notify_user(email, subject, message, template="notification"):
         },
         template_suffix="html",
     )
+
+
+def send_order_confirmation_email(order):
+    message = EmailMessage(
+        'emails/order_registered.tpl',
+        {
+            'first_name': order.first_name,
+            'tracking_number': order.tracking_number,
+            'logo_url': '/static/logos/mbph.png',  # Ajoutez l'URL de votre logo ici
+        },
+        settings.FROM_EMAIL,
+        [order.email],
+    )
+    message.send()

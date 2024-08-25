@@ -64,7 +64,8 @@ THIRD_PARTY_APPS = [
     "crispy_bootstrap5",
     "django_htmx",
     # "django_paypal",
-    "paypal.standard.ipn",  
+    "paypal.standard.ipn", 
+    "mail_templated", 
     "baton.autodiscover",
 ]
 
@@ -439,3 +440,6 @@ PAYPAL_TEST = True
 
 PAYPAL_CLIENT_ID = ""
 PAYPAL_CLIENT_SECRET = ""
+
+
+FROM_EMAIL = 'contact@mperesbonheur.com'

@@ -1,3 +1,5 @@
+import random
+import string
 from django import forms
 from dj_shop_cart.cart import CartItem
 from dj_shop_cart.protocols import Numeric
@@ -58,7 +60,7 @@ class Product(Detail, TimeStampedModel, SoftDeletableModel):
     category = models.ManyToManyField(
         Category, verbose_name=_("Catégorie"), related_name="products"
     )
-    # quantity = models.IntegerField(verbose_name=_("Quantité"))
+    quantity = models.IntegerField(verbose_name=_("Quantité"), default=1)
     external_link = models.URLField(help_text=_("Lien de dropshipping"), blank=True)
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="products"
@@ -70,6 +72,13 @@ class Product(Detail, TimeStampedModel, SoftDeletableModel):
 
     def get_price(self, item: CartItem) -> Numeric:
         return float(self.price)
+    
+    @property
+    def is_available(self):
+        return self.quantity > 0
+    
+    def is_available_for_quantity(self, quantity):
+        return self.quantity > quantity
 
     def get_details_for_provider_url(self):
         return reverse("stores:product_details", kwargs={"pk": self.pk})
@@ -132,6 +141,8 @@ class Order(UUIDModel, TimeStampedModel, StatusModel):
     shipping_amount = models.FloatField(_("Frais de livraison"), editable=False, default=0.0)
     checkout = models.ForeignKey("Checkout", verbose_name=_("Checkout"), on_delete=models.SET_NULL, editable=False, null=True)
     refund_generated = models.BooleanField(_("Redevance générée ?"), default=False, editable=False)
+    tracking_number = models.CharField(_("N° de suivi"), max_length=10, blank=True, editable=False)
+    customer = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("Client"), on_delete=models.SET_NULL, null=True)
 
     @property
     def get_payment_url(self):
@@ -151,6 +162,35 @@ class Order(UUIDModel, TimeStampedModel, StatusModel):
                 ]
             )    
             self.refund_generated = True 
+    
+    @property
+    def generate_tracking_number(self):
+        # Génère un numéro de suivi de 10 caractères alphanumériques
+        tracking_number = ''.join(random.choices(
+            string.ascii_uppercase + string.digits, k=10))
+        return tracking_number
+    
+    @property
+    def grouped_items(self):
+        grouped = {}
+        for item in self.orderitem_set.all():
+            if item.product.id not in grouped:
+                grouped[item.product.id] = {
+                    'product': item.product,
+                    'provider': item.provider,
+                    'items': [],
+                    'total_quantity': 0,
+                    'total_price': 0
+                }
+            grouped[item.product.id]['items'].append(item)
+            grouped[item.product.id]['total_quantity'] += item.quantity
+            grouped[item.product.id]['total_price'] += item.total
+        return grouped.values()
+
+    def save(self, *args, **kwargs):
+        if not self.tracking_number:
+            self.tracking_number = self.generate_tracking_number
+        super().save()
     
 
 

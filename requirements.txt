@@ -26,3 +26,5 @@ django-crispy-forms
 django-render-block==0.10
 django-htmx==1.19.0
 django-paypal==2.1
+pandas==2.2.2
+django-mail-templated==2.6.5

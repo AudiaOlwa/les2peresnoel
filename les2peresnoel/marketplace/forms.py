@@ -1,6 +1,8 @@
-from django.forms import ModelForm, widgets
+from django.forms import ModelForm, widgets, Form, IntegerField, NumberInput
 
 from .models import Category, Product, ProductImage, Checkout
+
+from django.utils.translation import gettext_lazy as _
 
 
 class CategoryForm(ModelForm):
@@ -18,6 +20,14 @@ class ProductForm(ModelForm):
             "description": widgets.Textarea(attrs={"rows": 3}),
         }
 
+
+class ProductAddForm(Form):
+    quantity = IntegerField(
+        label=_("Quantité"),
+        initial=1,
+        min_value=1,
+        widget=NumberInput(attrs={"class": "form-control"}),
+    )
 
 class ProductImageForm(ModelForm):
     class Meta:

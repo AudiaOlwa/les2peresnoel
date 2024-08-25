@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-    <div class="row my-4">
+    <div class="row my-4 container-fluid">
         <div class="col-xxl-12">
             <div class="card stretch stretch-full">
                 <div class="card-header">
@@ -90,16 +90,17 @@
                         <table class="table table-hover mb-0">
                             <thead>
                             <tr class="border-b">
-                                <th scope="row">{% trans "Produit" %}</th>
-                                <th>{% trans "Prix" %}</th>
-                                <th>{% trans "Date" %}</th>
-                                <th>{% trans "Statut" %}</th>
-                                <th class="text-end">{% trans "Actions" %}</th>
+                                <th scope="row">{% translate "Produit" %}</th>
+                                <th>{% translate "Prix" %}</th>
+                                <th>{% translate "Quantité" %}</th>
+                                <th>{% translate "Date" %}</th>
+                                <th>{% translate "Statut" %}</th>
+                                <th class="text-end">{% translate "Actions" %}</th>
                             </tr>
                             </thead>
                             <tbody>
                             {% for product in products %}
-                                <tr class="stretched-link">
+                                <tr>
                                     <td>
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image">
@@ -112,14 +113,64 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="badge bg-gray-200 text-dark">{{ product.price }}</span>
+                                        <span class="badge bg-gray-200 text-dark">{{ product.price }} €</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark">{{ product.quantity }}</span>
                                     </td>
                                     <td>{{ product.created }}</td>
                                     <td>
-                                        <span class="badge bg-soft-success text-success">{{ product.status | default:"Disponible" }}</span>
+                                        <span class="badge bg-soft-success text-{{ product.is_available | yesno:"success,danger" }}">{{ product.is_available | yesno:"En stock,Rupture" }}</span>
                                     </td>
                                     <td class="text-end">
-                                        <a href="javascript:void(0);"><i class="feather-more-vertical"></i></a>
+                                        <div class="dropdown">
+                                            <a href="#product-actions" data-bs-toggle="dropdown">
+                                                <i class="feather-more-vertical"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" id="product-actions">
+                                                <li>
+                                                    <a class="dropdown-item" href="#" 
+                                                       hx-get="{% url 'stores:product_add' product.id %}"
+                                                       hx-target="#modal-content"
+                                                       hx-trigger="click"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#productModal">
+                                                        <i class="feather-plus"></i> {% translate "Ajouter" %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"
+                                                       hx-get="{% url 'stores:product_edit' product.id %}"
+                                                       hx-target="#modal-content"
+                                                       hx-trigger="click"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#productModal">
+                                                        <i class="feather-edit"></i> {% translate "Modifier" %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"
+                                                       hx-get="{% url 'stores:product_delete' product.id %}"
+                                                       hx-target="#modal-content"
+                                                       hx-trigger="click"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#productModal">
+                                                        <i class="feather-trash-2"></i> {% translate "Supprimer" %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"
+                                                       hx-get="{% url 'stores:product_details' product.id %}"
+                                                       hx-target="#modal-content"
+                                                       hx-trigger="click"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#productModal">
+                                                        <i class="feather-eye"></i> 
+                                                        {% translate "Détails" %}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -191,4 +242,19 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" tabindex="-1" id="productModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                {% comment %} <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">{% translate "Action sur le produit" %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> {% endcomment %}
+                <div class="modal-body" id="modal-content">
+                    <!-- Le contenu sera chargé ici par HTMX -->
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
