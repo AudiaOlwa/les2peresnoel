@@ -49,7 +49,8 @@ LOCAL_APPS = [
     "les2peresnoel.stores.apps.StoresConfig",
     "les2peresnoel.providers.apps.ProvidersConfig",
     "les2peresnoel.payments.apps.PaymentsConfig",
-    "les2peresnoel.accounting.apps.AccountingConfig"
+    "les2peresnoel.accounting.apps.AccountingConfig",
+    "les2peresnoel.licences.apps.LicencesConfig"
 ]
 
 THIRD_PARTY_APPS = [
@@ -74,6 +75,7 @@ INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 USE_I18N = True
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -166,7 +168,9 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 VENV_PATH = os.path.dirname(BASE_DIR)
-STATIC_ROOT = os.path.join("static_root")
+# STATIC_ROOT = os.path.join("static_root")
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 MEDIA_ROOT = str(BASE_DIR / "media")
 MEDIA_URL = "/media/"
@@ -177,7 +181,17 @@ MEDIA_URL = "/media/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 # ------------------------------------------------
+
 
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
@@ -328,7 +342,7 @@ CKEDITOR_CONFIGS = {
         ),
     }
 }
-SWEETIFY_SWEETALERT_LIBRARY = "sweetalert2"
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 SWEETIFY_TOAST_TIMER = 3000
 
@@ -381,7 +395,7 @@ AUTH_USER_MODEL = "users.User"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = "account_login"
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "marketplace:home"
 
 DJANGO_ADMIN_FORCE_ALLAUTH = env.bool(
     "DJANGO_ADMIN_FORCE_ALLAUTH", default=False)

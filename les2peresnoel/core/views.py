@@ -1,7 +1,8 @@
 from django.conf import settings
 import random
 
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
 from mail_templated import EmailMessage
@@ -221,3 +222,8 @@ def send_order_confirmation_email(order):
         [order.email],
     )
     message.send()
+
+
+def login(request, *args, **kwargs):
+    # breakpoint()
+    return redirect(reverse("account_login"), *args, **kwargs)

@@ -1,0 +1,73 @@
+{% load static %}
+{% load i18n %}
+{% load sweetify %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="keywords" content="Les 2 Pères Noël, Noël, boutique, les 2 Pères, peres bonheur"/>
+    <meta name="description" content="Peres bonheur"/>
+    <title>MPERES BONHEUR</title>
+    {% sweetify %}
+    <!-- font-awesome icons link -->
+    <link rel="stylesheet" href="{% static 'theme/main/css/all.min.css' %}"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'theme/main/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/main/css/slick.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/main/css/venobox.min.css' %}"/>
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}"/>
+    <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+
+
+    <!-- main style file -->
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'theme/main/css/style.css' %}"/>
+        <link rel="stylesheet" href="{% static 'theme/main/css/responsive.css' %}"/>
+    {% endblock %}
+</head>
+
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+<div id="preloader">
+    <div id="loading-center">
+        <div id="loading-center-absolute">
+            <div class="object" id="object_one"></div>
+            <div class="object" id="object_two"></div>
+            <div class="object" id="object_three"></div>
+            <div class="object" id="object_four"></div>
+        </div>
+    </div>
+</div>
+{% block content %}
+{% endblock %}
+
+<!-- JavaScript -->
+<script src="{% static 'theme/main/js/jquery-3.6.3.min.js' %}"></script>
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>#}
+<script src="{% static 'js/toastr.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'theme/main/js/slick.min.js' %}"></script>
+<script src="{% static 'theme/main/js/venobox.min.js' %}"></script>
+<script src="{% static 'theme/main/js/counter.js' %}"></script>
+<script src="{% static 'theme/main/js/waypoints.min.js' %}"></script>
+<script src="{% static 'theme/main/js/custom.js' %}"></script>
+<script>
+    {% if messages %}
+        {% for message in messages %}
+            toastr.{{ message.tags }}('{{ message }}');
+        {% endfor %}
+    {% endif %}
+    {% comment %} toastr.info('Are you the 6 fingered man?') {% endcomment %}
+</script>
+{% block scripts %}
+
+{% endblock %}
+
+{% block modal %}
+
+{% endblock %}
+</body>
+</html>

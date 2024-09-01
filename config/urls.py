@@ -17,6 +17,8 @@ urlpatterns = [
     path("providers/", include("les2peresnoel.providers.urls")),
     path("payments/", include("les2peresnoel.payments.urls")),
     path('paypal/', include("paypal.standard.ipn.urls")),
+    path("login/", core.views.login, name="login"),
+    path("licences/", include("les2peresnoel.licences.urls")),
 ]
 
 

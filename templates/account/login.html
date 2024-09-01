@@ -1,5 +1,6 @@
-{% extends 'layouts/comicstyle.html' %}
+{% extends 'layouts/auth_base.html' %}
 {% load i18n %}
+{% load static %}
 {# {% load allauth account %} #}
 {% block head_title %}
   {% trans 'Sign In' %}
@@ -8,10 +9,9 @@
   <div class="row justify-content-center">
     <div class="col-lg-3 col-md-4 d-flex flex-column align-items-center justify-content-center">
       <div class="d-flex justify-content-center py-4 my-4">
-        <a href="#" class="logo d-flex align-items-center w-auto">
-          {% comment %}
-          <img src="" alt="" />
-          <span class="d-none d-lg-block">NiceAdmin</span>{% endcomment %}
+        <a href="{% url "marketplace:home" %}" class="logo d-flex align-items-center w-auto">
+          <img src="{% static  'logos/mpbh.png' %}" height="50" width="50" alt="" class="me-2"/>
+          <span class="d-none d-lg-block"> MESPERESBONHEUR</span>
         </a>
       </div>
       <!-- End Logo -->
@@ -59,7 +59,7 @@
               <button class="btn btn-primary w-100" type="submit" style="border-color:#d71515;background-color: #d71515 !important;">{% translate 'Connexion' %}</button>
             </div>
             <div class="col-12">
-              <p class="small mb-0">
+              <p class="small mb-0 text-center">
                 {% trans 'Pas de compte' %}? <a href="{{ signup_url }}">{% trans 'Inscrivez-vous' %}</a>
               </p>
             </div>

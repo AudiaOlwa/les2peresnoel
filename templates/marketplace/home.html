@@ -39,11 +39,11 @@
 
         <div class="category-area2">
             <div class="container">
-                <h2>{% translate "Nos Catégories" %}</h2>
+                <h2 class="text-center mt-4 mb-4">{% translate "Nos Catégories" %}</h2>
                 <div class="row">
                     {% for category in categories %}
                         <div class="col">
-                            <a href="#">
+                            <a href="{% url 'marketplace:list_product_by_category' category.pk %}">
                                 <div class="category-info">
                                     <div class="icon">
                                         <img src="{{category.cover}}" alt="">
@@ -61,7 +61,7 @@
         </div>
 
         
-        <h1 class="pb-2 pb-sm-3 text-center mt-5 mb-5">{% translate 'Nos produits' %}</h1>
+        <h1 class="pb-2 pb-sm-3 text-center mt-5 mb-5 my-4">{% translate 'Nos produits' %}</h1>
         <section class="container">
             <div class=" row pb-2 pb-sm-4">
             <!-- Sidebar (offcanvas on sreens < 992px) -->

@@ -1,4 +1,3 @@
-from django.template.loader import render_to_string
 from django.db.transaction import atomic as atomic_transaction
 from django_htmx.http import trigger_client_event
 import sweetify
@@ -13,8 +12,9 @@ from django.http import HttpRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django_htmx.http import HttpResponseClientRedirect
-from sweetify import sweetify
 from render_block import render_block_to_string
 
 from ..utils import render_block    
@@ -23,6 +23,7 @@ from .models import *
 from .models import Product
 
 from ..core.views import send_order_confirmation_email
+
 
 SWEETIFY_TOAST_TIMER = settings.SWEETIFY_TOAST_TIMER
 
@@ -110,7 +111,7 @@ def list_category(request):
         request, "marketplace/categories/list.html", {"categories": categories}
     )
 
-
+@login_required
 def create_category(request):
     category_form = CategoryForm(request.POST)
     if request.method == "POST":
@@ -137,13 +138,14 @@ def create_category(request):
     )
 
 
+
 def detail_category(request, pk):
     category = get_object_or_404(Category, pk=pk)
     return render(
         request, "marketplace/categories/detail.html", context={"category": category}
     )
 
-
+@login_required
 def update_category(request, pk):
     category = get_object_or_404(Category, pk=pk)
     category_form = CategoryForm(request.POST, instance=category)
@@ -171,6 +173,7 @@ def update_category(request, pk):
     )
 
 
+@login_required
 def delete_category(request, pk):
     category = get_object_or_404(Category, pk=pk)
     if request.method == "POST":
@@ -200,6 +203,7 @@ def detail_product(request, pk):
     )
 
 
+@login_required
 def create_product(request):
     product_form = ProductForm(request.POST)
     if request.method == "POST":
@@ -219,6 +223,7 @@ def create_product(request):
     )
 
 
+@login_required
 def update_product(request, pk):
     product_form = ProductForm(
         request.POST, instance=get_object_or_404(Product, pk=pk))
@@ -246,6 +251,7 @@ def update_product(request, pk):
     )
 
 
+@login_required
 def delete_product(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
@@ -256,6 +262,7 @@ def delete_product(request, pk):
     )
 
 
+@login_required
 def add_image_product(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product_image_form = ProductImageForm(request.POST, request.FILES)
@@ -358,7 +365,10 @@ def checkout(request):
     }
     return render(request, "marketplace/checkout.html", _context)
 
-class CheckoutView(View):
+
+class CheckoutView(LoginRequiredMixin, View):
+    login_url = '/login/'  # Remplacez par l'URL de votre page de connexion
+
     def get(self, request, *args, **kwars):
         cart = Cart.new(request)
         # Shipping form
@@ -418,10 +428,6 @@ class CheckoutView(View):
         else:
             sweetify.toast(request, _("Une erreur s'est produite !"), "error")
         return self.get(request, *args, **kwargs)
-                    
-
-            
-        
 
 @require_POST
 def update_checkout(request):
@@ -436,3 +442,31 @@ def update_checkout(request):
         "total_amount": total_amount,
     }
     return render_block("marketplace/checkout.html", "checkout", _context)
+
+
+@login_required
+def order_list(request):
+    orders = Order.objects.all()
+    if request.user.is_provider or request.user.is_superuser:
+        orders = orders.filter(provider=request.user)
+    user_orders = orders.filter(customer=request.user)
+    return render(request, "marketplace/orders/list.html", {"orders": orders, "user_orders": user_orders})
+
+@login_required
+def order_details(request, pk):
+    if not request.user.is_provider and not request.user.is_superuser:
+        raise HttpResponseUnauthorized(_("Vous n'êtes pas autorisé à accéder à cette page"))
+    order = get_object_or_404(Order, pk=pk)
+    return render(request, "marketplace/orders/details.html", {"order": order})
+
+
+def order_tracking(request, tracking_id):
+    order = get_object_or_404(Order, tracking_number=tracking_id)
+    return render(request, "marketplace/orders/tracking.html", {"order": order})
+
+
+def list_product_by_category(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+    products = Product.objects.filter(category=category)
+    _categories = Category.objects.all()
+    return render(request, "marketplace/products/list.html", {"products": products, "category": category, "categories": _categories})

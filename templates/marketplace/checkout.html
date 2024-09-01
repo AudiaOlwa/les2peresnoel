@@ -78,13 +78,6 @@
                 <label class="form-label fs-base" for="c-notes">{% translate "Notes sur la commande" %} <span class="text-body-secondary">({% translate "Optionnel" %})</span></label>
                 <textarea class="form-control form-control-lg" name="order_notes" rows="5" id="c-notes"></textarea>
               </div>
-              {% comment %} <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" x-model="same-address" type="checkbox" name="same_adress" id="same-address">
-                  <label class="form-check-label text-dark fw-medium" for="same-address">{% translate "Adresse de facturation identique à l'adresse de livraison" %}</label>
-                </div>
-              </div> 
-              {% endcomment %}
               <div class="col-12" id="id_shipping_adress">
               {% block shipping_adress %}
                 <label class="form-label fs-base" for="c-address">{% translate "Adresse de livraison" %}</label>
@@ -92,37 +85,6 @@
               {% endblock shipping_adress %}
               </div>
             </div>
-            {% comment %} <h3 class="fs-base fw-normal text-body text-uppercase pb-2 pb-sm-3">2.<span class="text-decoration-underline ms-1">Shipping method</span></h3>
-            <div class="form-check mb-4">
-              <input class="form-check-input" type="radio" name="shipping" id="standard">
-              <label class="form-check-label d-flex justify-content-between" for="standard">
-                <span>
-                  <span class="d-block fs-base text-dark fw-medium mb-1">Standard Delivery</span>
-                  <span class="text-body">Delivery in 5 - 8 working days</span>
-                </span>
-                <span class="fs-base text-dark fw-semibold">$8.00</span>
-              </label>
-            </div>
-            <div class="form-check mb-4">
-              <input class="form-check-input" type="radio" name="shipping" checked id="express">
-              <label class="form-check-label d-flex justify-content-between" for="express">
-                <span>
-                  <span class="d-block fs-base text-dark fw-medium mb-1">Express Shipping</span>
-                  <span class="text-body">Delivery in 3 - 5 working days</span>
-                </span>
-                <span class="fs-base text-dark fw-semibold">$15.00</span>
-              </label>
-            </div>
-            <div class="form-check mb-4">
-              <input class="form-check-input" type="radio" name="shipping" id="local">
-              <label class="form-check-label d-flex justify-content-between" for="local">
-                <span>
-                  <span class="d-block fs-base text-dark fw-medium mb-1">Local Pickup</span>
-                  <span class="text-body">Delivery in 1 - 2 working days</span>
-                </span>
-                <span class="fs-base text-dark fw-semibold">Free</span>
-              </label>
-            </div> {% endcomment %}
             <h3 class="fs-base fw-normal text-body text-uppercase mt-n4 mt-md-n3 pt-5 pb-2 pb-sm-3">
               <span class="ms-1">{% translate "Méthode de paiement" %}</span>
             </h3>
@@ -132,15 +94,6 @@
                 <span>
                   <span class="d-block fs-base text-dark fw-medium mb-1">{% translate "Carte crédit" %}</span>
                   <span class="text-body">Nous acceptons, Mastercard, Visa</span>
-                </span>
-              </label>
-            </div>
-            <div class="form-check mb-4">
-              <input class="form-check-input" type="radio" value="cash" name="payment_method" id="cash">
-              <label class="form-check-label" for="cash">
-                <span>
-                  <span class="d-block fs-base text-dark fw-medium mb-1">{% translate "Paiement à la livraison" %}</span>
-                  <span class="text-body">{% translate "Payez à la livraison" %}</span>
                 </span>
               </label>
             </div>
@@ -205,64 +158,22 @@
                                 </div>
                             </div>
                             <div class="text-end ms-auto">
-                                <div class="fs-5 mb-2">{{ item.subtotal }} €</div>
+                                <div class="fs-5 mb-2">{{ item.subtotal|floatformat:2 }} €</div>
                             </div>
                         </div>
-                        
-                        <div class="count-input ms-n3">
-                            {% comment %} <form hx-post="{% url 'marketplace:remove_product' %}"
-                                  hx-target="#checkout"
-                                  hx-trigger="click" hx-swap="innerHTML">
-                                {% csrf_token %}
-                                <input type="hidden" name="item_id" value="{{ item.id }}">
-                                <input type="hidden" name="source" value="checkout">
-                                <button class="btn btn-icon fs-xl" type="submit">-</button>
-                            </form> {% endcomment %}
-                            
-                            {% comment %} <form hx-post="{% url 'marketplace:add_to_cart' product_id=item.product.pk %}"
-                                    hx-target="#checkout"
-                                    hx-trigger="click" hx-swap="innerHTML"
-                            >
-                                <input type="hidden" name="source" value="cart">
-                                <button class="btn btn-icon fs-xl" type="submit">
-                                    +
-                                </button>
-                            </form> {% endcomment %}
-                        </div>
-                        {% comment %} <div class="nav justify-content-end mt-n5 mt-sm-n3">
-                            <form hx-post="{% url 'marketplace:remove_product' %}"
-                                  hx-target="#checkout"
-                                  hx-trigger="click" hx-swap="innerHTML">
-                                {% csrf_token %}
-                                 <input type="hidden" name="item_id" value="{{ item.id }}">
-                                 <input type="hidden" name="quantity" value="0">
-                                 <input type="hidden" name="source" value="checkout">
-                                <button type="submit" class="nav-link fs-xl p-2" hx-confirm="{% translate 'Retirer du panier ?' %}"
-                                   data-bs-toggle="tooltip" title="{% translate 'Retirer du panier' %}"
-                                   aria-label="Remove">
-                                    <i class="ai-trash"></i>
-                                </button>
-                            </form>
-                        </div> {% endcomment %}
                     </div>
                 </div>
             {% endfor %}
-            {% comment %} <div class="border-top pt-4 mb-3">
-              <div class="input-group input-group-sm border-dashed" style="max-width: 310px;">
-                <input class="form-control text-uppercase" type="text" placeholder="Your coupon code">
-                <button class="btn btn-secondary" type="button">Apply coupon</button>
-              </div>
-            </div> {% endcomment %}
             <ul class="list-unstyled py-3 mb-0">
               <li class="d-flex justify-content-between mb-2">
-                {% translate "Total H.T" %}:<span class="fw-semibold ms-2">{{cart.total}} €</span>
+                {% translate "Total H.T" %}:<span class="fw-semibold ms-2">{{cart.total|floatformat:2}} €</span>
               </li>
-              <li class="d-flex justify-content-between mb-2">
+              {% comment %} <li class="d-flex justify-content-between mb-2">
                 {% translate "Frais de livraison" %}:<span class="fw-semibold ms-2">{{shipping_fees}} €</span>
-              </li>
+              </li> {% endcomment %}
             </ul>
             <div class="d-flex align-items-center justify-content-between border-top fs-xl pt-4">
-              {% translate "Total T.T.C" %} (TVA 18%) :<span class="fs-3 fw-semibold text-dark ms-2">{{total_amount}} €</span>
+              {% translate "Total T.T.C" %} (TVA 18%) :<span class="fs-3 fw-semibold text-dark ms-2">{{total_amount|floatformat:2}} €</span>
             </div>
             {% endblock checkout_summary %}
           </div>

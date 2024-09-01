@@ -103,3 +103,4 @@ def bulk_refunder(request):
     return_url = request.POST.get(
         "return_url") or reverse('marketplace:dashboard')
     return redirect(return_url)
+

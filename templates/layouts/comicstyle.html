@@ -91,12 +91,12 @@
                 </div>
                 <a href="{% url 'marketplace:home' %}" class="button-secondary">{% trans 'Marketplace' %}</a>
                 {% comment %}
-            <a href="#" class="ham-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-              <div class="hamburger-menu">
-                <div class="nav-line"></div>
-              </div>
-            </a>
-            {% endcomment %}
+                  <a href="#" class="ham-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <div class="hamburger-menu">
+                      <div class="nav-line"></div>
+                    </div>
+                  </a>
+                {% endcomment %}
             </div>
         </div>
     </div>
@@ -289,6 +289,7 @@
 
 <!-- JavaScript -->
 <script src="{% static 'theme/main/js/jquery-3.6.3.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {#<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>#}
 <script src="{% static 'js/toastr.min.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>

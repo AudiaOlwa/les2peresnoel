@@ -50,6 +50,27 @@ urlpatterns = [
         "update_checkout",
         views.update_checkout,
         name="update_checkout"
-    )
-    
+    ),
+    # Orders
+    path(
+        'orders',
+        views.order_list,
+        name="order_list"
+    ),
+    path(
+        'orders/<pk>',
+        views.order_details,
+        name="order_detail"
+    ),
+    path(
+        'orders/<tracking_id>/tracking',
+        views.order_tracking,
+        name="order_tracking"
+    ),
+
+    path(
+        'categories/<int:pk>/products', 
+        views.list_product_by_category, 
+        name='list_product_by_category'
+    ),
 ]

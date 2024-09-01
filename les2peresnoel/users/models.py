@@ -35,3 +35,12 @@ class User(AbstractUser):
 
         """
         return reverse("users:detail", kwargs={"pk": self.id})
+    
+    @property
+    def is_provider(self):
+        try:
+            Provider.objects.get(user=self)
+            return True
+        except:
+            pass
+        return False
