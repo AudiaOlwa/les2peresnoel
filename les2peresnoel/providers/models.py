@@ -7,7 +7,8 @@ from django.utils.translation import gettext_lazy as _
 
 class Provider(UUIDModel, TimeStampedModel):
     account = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True
+        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True,
+        related_name="providers"
     )
     licence_key = models.CharField(max_length=36, unique=True, editable=False)
     company_name = models.CharField(_("Nom de l'entreprise"), max_length=200)

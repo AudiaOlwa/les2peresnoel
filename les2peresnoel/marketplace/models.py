@@ -9,6 +9,8 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from model_utils.models import SoftDeletableModel, TimeStampedModel, UUIDModel, StatusModel
 from model_utils import Choices
+from django.db.models import Q, Case, When, Value, BooleanField, Exists, OuterRef
+from django.db.models.functions import Coalesce
 
 from django.db.transaction import atomic as atomic_transaction
 
@@ -17,6 +19,8 @@ from les2peresnoel.utils import generate_unique_slug
 from .models_abstract import Detail
 
 from ..payments.models import ProviderRefund
+
+from ..users.models import User
 
 # Create your models here.
 class Category(Detail, TimeStampedModel, SoftDeletableModel):
@@ -70,13 +74,32 @@ class Product(Detail, TimeStampedModel, SoftDeletableModel):
 
     def __str__(self):
         return f"{self.name}-{self.category.name}"
+    
+    @classmethod
+    def get_available(cls):
+        from ..licences.models import Licence  # Import local pour éviter les imports circulaires
+
+        active_licence = Licence.objects.filter(
+            provider=OuterRef('owner__providers'),
+            is_active=True
+        )
+
+        return cls.objects.select_related('owner').annotate(
+            owner_can_manage_stock=Case(
+                When(owner__is_superuser=True, then=Value(True)),
+                When(owner__is_staff=True, then=Value(True)),
+                When(Exists(active_licence), then=Value(True)),
+                default=Value(False),
+                output_field=BooleanField()
+            )
+        ).filter(owner_can_manage_stock=True)
 
     def get_price(self, item: CartItem) -> Numeric:
         return float(self.price)
     
     @property
     def is_available(self):
-        return self.quantity > 0
+        return self.owner.can_manage_stock
 
     @property
     def media_url(self):

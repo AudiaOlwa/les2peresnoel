@@ -285,7 +285,7 @@ def add_image_product(request, pk):
 
 
 def home(request):
-    products = Product.objects.only('pk', 'name', 'category', 'price', 'image')
+    products = Product.get_available()#.only('pk', 'name', 'category', 'price', 'image')
 
     max_price = max([product.price for product in products])
 
@@ -377,10 +377,11 @@ class CheckoutView(LoginRequiredMixin, View):
     
     def post(self, request, *args, **kwargs):
         # breakpoint()
+        tva = settings.TVA_RATE/100
         checkout_form = CheckoutForm(request.POST)
         cart = Cart.new(request)
-        tva_amount = 0.18*float(cart.total)
-        cart_tva_amount = 1.18*float(cart.total)
+        tva_amount = float(tva)*float(cart.total)
+        cart_tva_amount = float(1+tva)*float(cart.total)
         # shipping_fees = settings.SHIPPING_FEES
         total_amount = cart_tva_amount
         customer = request.user if request.user.is_authenticated else None
