@@ -286,10 +286,14 @@ def add_image_product(request, pk):
 
 def home(request):
     products = Product.get_available()#.only('pk', 'name', 'category', 'price', 'image')
-
-    max_price = max([product.price for product in products])
-
-    min_price = min([product.price for product in products])
+    try:
+        max_price = max([product.price for product in products])
+    except:
+        max_price = 0
+    try:
+        min_price = min([product.price for product in products])
+    except:
+        min_price = 0
 
     filter_categories_slugs = []
     if request.htmx:
