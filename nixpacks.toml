@@ -1,0 +1,28 @@
+[phases.setup]
+# Installer les dépendances système nécessaires
+apt_pkgs = ["libpq-dev", "python3-dev", "build-essential"]
+
+[phases.install]
+# Installer les dépendances Python
+cmds = [
+    "pip install --upgrade pip",
+    "pip install -r requirements.txt"
+]
+
+[phases.build]
+# Collecter les fichiers statiques
+cmds = [
+    "python manage.py collectstatic --noinput"
+]
+
+[phases.start]
+# Démarrer l'application Django
+cmds = [
+    "python manage.py migrate",
+    "gunicorn les2peresnoel.wsgi:application --bind 0.0.0.0:$PORT"
+]
+
+[variables]
+# Définir les variables d'environnement nécessaires
+PORT = "8000"
+DJANGO_SETTINGS_MODULE = "les2peresnoel.settings"
