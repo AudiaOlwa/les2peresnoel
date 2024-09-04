@@ -1,5 +1,5 @@
 # Use an official Python 3.12 runtime as a parent image
-FROM python:3.12-slim-buster
+FROM python:3.12-slim-bullseye
 
 # Set environment variables for Python to prevent writing .pyc files and buffering stdout/stderr
 ENV PYTHONDONTWRITEBYTECODE=1
