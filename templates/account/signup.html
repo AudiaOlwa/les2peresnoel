@@ -1,0 +1,55 @@
+{% extends 'layouts/auth_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block style %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'theme/marketplace/css/style.css' %}" />
+{% endblock %}
+{% load i18n %}
+{% block head_title %}
+  {% trans 'Sign Up' %}
+{% endblock %}
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-4 d-flex flex-column align-items-center justify-content-center">
+      <div class="d-flex justify-content-center py-4 my-4">
+        <a href="{% url "marketplace:home" %}" class="logo d-flex align-items-center w-auto">
+          <img src="{% static  'logos/mpbh.png' %}" height="50" width="50" alt="" class="me-2"/>
+          <span class="d-none d-lg-block"> MESPERESBONHEUR</span>
+        </a>
+      </div>
+
+      <div class="card mb-3 shadow-lg border-0 mt-5">
+        <div class="card-body">
+          <div class="pt-4 pb-2 my-4">
+            <h5 class="card-title text-center pb-0 fs-4">{% trans 'Inscription' %}</h5>
+          </div>
+
+          <form action="{% url 'account_signup' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">{{ form|crispy }}</div>
+            <div class="form-check form-group d-flex m-auto align-items-center">
+              <input class="form-check-input me-2 my-3" type="checkbox" value="" id="agree" required />
+              <label class="form-check-label" for="agree"> {% translate "J'accepte " %} <a href="#">{% trans 'termes et conditions' %}.</a></label>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="col-12">
+                <button class="btn btn-primary w-100" type="submit" style="border-color:#d71515;background-color: #d71515 !important;">{% translate "S'inscire" %}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            toastr.error('{{ error }}');
+        {% endfor %}
+    {% endif %}
+  </script>
+{% endblock %}

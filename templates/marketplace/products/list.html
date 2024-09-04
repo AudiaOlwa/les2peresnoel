@@ -1,0 +1,143 @@
+{% extends 'layouts/marketplace.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <section class="container py-5 mt-5 mb-lg-4 mb-xl-5" >
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="pt-lg-3 pb-2 breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'marketplace:home' %}"> {% translate 'Accueil' %} </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page"> {{category.name}} </li>
+            </ol>
+        </nav> 
+
+        <div class="category-area2">
+            <div class="container">
+                <h2 class="text-center">{% translate "Nos Catégories" %}</h2>
+                <div class="row">
+                    {% for category in categories %}
+                        <div class="col">
+                            <a href="{% url 'marketplace:list_product_by_category' category.pk %}">
+                                <div class="category-info">
+                                    <div class="icon">
+                                        <img src="{{category.cover}}" alt="">
+                                    </div>
+                                    <div class="content">
+                                    <h5 class="text-muted">{{category.name}}</h5>
+                                    {% comment %} <p>{{category.items_count}} {% translate "Articles" %}</p> {% endcomment %}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        
+        <h1 class="pb-2 pb-sm-3 text-center mt-5 mb-5">{% translate 'Nos produits' %}</h1>
+        <section class="container">
+            <div class=" row pb-2 pb-sm-4">
+            <div class="col-lg-9">
+                <!-- Active filters + Sorting -->
+                <div class="d-flex align-items-start justify-content-between mb-4">
+
+                </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="product-list">
+                    {% block product_list %}
+                    {% for product in products %}
+                        <div class="col pb-2 pb-sm-3 d-flex align-items-stretch" >
+                            <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4 flex-grow-1 d-flex flex-column">
+                                <div>
+                                    <a href="{{ product.get_absolute_url }}">
+                                        <div class="p-2 p-xl-4">
+                                            <img class="d-block mx-auto" src="{{ product.image.url }}" width="226" alt="Product">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex mb-1">
+                                        <h3 class="h6 mb-0">
+                                            <a href="#">{{ product.name }}</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <span class="me-2">{{ product.price }}€</span>
+                                        <div class="nav ms-auto" data-bs-toggle="tooltip"
+                                            data-bs-template="<div class='tooltip fs-xs' role='tooltip'><div class='tooltip-inner bg-light text-body-secondary p-0'></div></div>"
+                                            data-bs-placement="left" title="{% translate 'Ajouter au panier' %}">
+                                            <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" href="#"
+                                            aria-label="{% translate 'Ajouter au panier' %}"
+                                            hx-post="{% url 'marketplace:add_to_cart' product_id=product.pk %}"
+                                            hx-target="#cart-count"
+                                            hx-trigger="click" hx-swap="innerHTML">
+                                            <i class="ai-cart"> </i>
+                                            {% translate " Ajouter au panier" %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% endblock product_list %}
+                </div>
+
+                
+
+                <!-- Pagination -->
+                <div class="row gy-3 align-items-center pt-3 pt-sm-4 mt-md-2">
+                    {% comment %} <div class="col col-md-4 col-6 order-md-1 order-1">
+                        <div class="d-flex align-items-center">
+                            <span class="text-body-secondary fs-sm">{% translate "Afficher" %}</span>
+                            <select class="form-select form-select-flush w-auto">
+                                <option value="12">12</option>
+                                <option value="18">18</option>
+                                <option value="24">24</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </div> {% endcomment %}
+                    <div class="col col-md-4 col-12 order-md-2 order-3 text-center">
+                        {% if products.has_next %}
+                        <a href="?page={{ products.next_page_number }}" class="btn btn-primary w-md-auto w-100" type="button">{% translate 'Voir plus' %}</a>
+                        {% endif %}
+                    </div>
+                    <div class="col col-md-4 col-6 order-md-3 order-2">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination pagination-sm justify-content-end">
+                                {% if products.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link bg-secondary text-white" href="?page={{ products.previous_page_number }}"><i class="bi bi-arrow-left"></i></a>
+                            </li>
+                        {% endif %}
+                        {% for num in products.paginator.page_range %}
+                            {% if products.number == num %}
+                                <li class="page-item page-active"><a class="page-link bg-primary text-white" href="?page={{ num }}" class="active">{{ num }}</a></li>
+                            {% elif num > products.number|add:'-3' and num < products.number|add:'3' %}
+                                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        <!-- Lien vers la page suivante -->
+                        {% if products.has_next %}
+                            <li class="page-item">
+                                <a class="page-link bg-secondary text-white"  href="?page={{ products.next_page_number }}"><i class="bi bi-arrow-right"></i></a>
+                            </li>
+                       {% comment %} {% else %}
+                            <li class="disabled"><span>Suivant &raquo;</span></li>{% endcomment %}
+                        {% endif %}
+                        
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        
+    </section>
+{% endblock %}

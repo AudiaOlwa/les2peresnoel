@@ -133,4 +133,4 @@ dmypy.json
 /media
 # katlilove/static/videos/
 # katlilove/media/products/
-# staticfiles/
+staticfiles/

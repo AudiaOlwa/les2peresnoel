@@ -1,0 +1,260 @@
+{% extends 'layouts/comicstyle.html' %}
+{% load static %}
+{% load sweetify %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'theme/marketplace/css/all-fontawesome.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/marketplace/css/animate.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/marketplace/css/magnific-popup.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/marketplace/css/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/marketplace/css/jquery-ui.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/marketplace/css/nice-select.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/marketplace/css/style.css' %}"/>
+{% endblock %}
+{% load i18n %}
+{% block content %}
+    <div class="hero-section3">
+        <div class="container-fluid px-0">
+            <div class="hero-slider owl-carousel owl-theme">
+                <div class="hero-single">
+                    <div class="hero-single-bg" style="background-image: url({% static 'img/bgb.jpg' %})"></div>
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-12 col-lg-6">
+                                <div class="hero-content">
+                                    <h6 class="hero-sub-title" data-animation="fadeInUp"
+                                        data-delay=".25s">{% translate 'Bienvenue sur notre marketplace' %}</h6>
+                                    <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s"><br/> <span>MPERESBONHEUR</span>
+                                    </h1>
+                                    <p data-animation="fadeInLeft" data-delay=".75s">
+                                        {% translate 'Faites vous plaisir avec nos produits' %}.
+                                    </p>
+                                    <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
+                                        <a href="#" class="theme-btn text-white">{% trans 'Visitez' %}<i
+                                                class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-single">
+                    <div class="hero-single-bg" style="background-image: url({% static 'img/bg3.jpg' %})"></div>
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-12 col-lg-6">
+                                <div class="hero-content">
+                                    <h6 class="hero-sub-title" data-animation="fadeInUp"
+                                        data-delay=".25s">{% translate 'Bienvenue sur notre marketplace' %}</h6>
+                                    <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s"><br/> <span>MPERESBONHEUR</span>
+                                    </h1>
+                                    <p data-animation="fadeInLeft" data-delay=".75s">
+                                        {% translate 'Faites vous plaisir avec nos produits' %}.
+                                    </p>
+                                    <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
+                                        <a href="#" class="theme-btn">{% translate "Visitez maintenant " %}<i
+                                                class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-area2 my">
+        <div class="container">
+            <div class="feature-wrap">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fal fa-truck"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>{% trans 'Livraison gratuite' %}</h4>
+                                <p>
+                                    {% trans 'Commandes supérieur à ' %}120£
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fal fa-sync"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>{% trans 'Remboursement' %}</h4>
+                                <p>
+                                    {% trans 'En cas de Litige' %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fal fa-wallet"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>{% trans 'Payements sécurisés' %}</h4>
+                                <p>
+                                    {% trans '100% de sécuririté' %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fal fa-headset"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>{% trans '24/7 Support' %}</h4>
+                                <p>
+                                    {% trans 'Appelez-nous' %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-area2 pt-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="site-heading-inline">
+                        <h2 class="site-title">{% trans 'Catégories' %}</h2>
+                        <a href="#">{% trans 'Voir plus' %} <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="category-slider owl-carousel owl-theme">
+                {% for category in categories %}
+                    <div class="category-item">
+                        <a href="#">
+                            <div class="category-info">
+                                <div class="icon">
+                                    <img src="{{ category.cover }}" alt/>
+                                </div>
+                                <div class="content">
+                                    <h4>{{ category.name }}</h4>
+                                    <p>
+                                        {{ category.items_count }} {% trans 'acticles' %}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="product-area pt-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="site-heading-inline">
+                        <h2 class="site-title">{% trans 'Produits' %}</h2>
+                        <a href="#">{% trans 'Voir plus' %} <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-slider item-2 owl-carousel owl-theme">
+                {% for product in products %}
+                    <div class="product-item">
+                        <div class="product-img">
+                            {% comment %} <span class="type new">New</span> {% endcomment %}
+                            <a href="#"><img src="{{ product.image.url }}" alt/></a>
+                            <div class="product-action-wrap">
+                                <div class="product-action">
+                                    <a href="#" data-bs-placement="right" data-tooltip="tooltip"
+                                       title="{% trans 'Voir les détails' %}"><i class="far fa-eye"></i></a>
+                                    {% comment %} <a href="#" data-bs-placement="right" data-tooltip="tooltip" title="Add To Wishlist"><i class="far fa-heart"></i></a> {% endcomment %}
+                                    {% comment %} <a href="#" data-bs-placement="right" data-tooltip="tooltip" title="Add To Compare"><i class="far fa-arrows-repeat"></i></a> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title"><a href="#">{{ product.name }}</a></h3>
+                            <div class="product-rate">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="product-bottom">
+                                <div class="product-price">
+                                    <span>{{ product.price }}</span>
+                                </div>
+                                <button type="button" class="product-cart-btn"
+                                        hx-post="{% url 'marketplace:add_to_cart' product.pk %}" hx-target="#cart-count"
+                                        hx-swap="innerHTML">{% trans 'Ajouter au panier' %}</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cart-offcanvas" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            ...
+        </div>
+    </div>
+ 
+    <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                {% comment %}<div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>{% endcomment %}
+                <div class="modal-body">
+                    <div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal"> {% translate 'Fermer' %} </button>
+                    <button type="submit" class="button-primary">{% translate 'Passer la commande' %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {% comment %} {{ block.super }} {% endcomment %}
+    <script src="{% static 'theme/marketplace/js/modernizr.min.js' %}"></script>
+    {% comment %} <script src="{% static 'marketplace/js/bootstrap.bundle.min.js' %}"></script> {% endcomment %}
+    <script src="{% static 'theme/marketplace/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/jquery.appear.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/counter-up.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/countdown.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/wow.min.js' %}"></script>
+    <script src="{% static 'theme/marketplace/js/main.js' %}"></script>
+{% endblock %}

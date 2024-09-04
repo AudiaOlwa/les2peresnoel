@@ -1,0 +1,317 @@
+{% load static %}
+{% load i18n %}
+{% load sweetify %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="keywords" content="Les 2 Pères Noël, Noël, boutique, les 2 Pères, peres bonheur"/>
+    <meta name="description" content="Peres bonheur"/>
+    <title>MPERES BONHEUR</title>
+    {% sweetify %}
+    <!-- font-awesome icons link -->
+    <link rel="stylesheet" href="{% static 'theme/main/css/all.min.css' %}"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'theme/main/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/main/css/slick.css' %}"/>
+    <link rel="stylesheet" href="{% static 'theme/main/css/venobox.min.css' %}"/>
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}"/>
+    <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+
+
+    <!-- main style file -->
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'theme/main/css/style.css' %}"/>
+        <link rel="stylesheet" href="{% static 'theme/main/css/responsive.css' %}"/>
+    {% endblock %}
+</head>
+
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+<div id="preloader">
+    <div id="loading-center">
+        <div id="loading-center-absolute">
+            <div class="object" id="object_one"></div>
+            <div class="object" id="object_two"></div>
+            <div class="object" id="object_three"></div>
+            <div class="object" id="object_four"></div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="margin-bottom: 50px !important;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="{% static 'logos/pb.jpg' %}" alt="" height="35"><span>PERESBONHEUR</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav m-auto mb-2 mt-0 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/#banner">{% trans 'Accueil' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/#new-comics">{% trans 'Gallerie' %}</a>
+                </li>
+
+                {% if not user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">{% trans 'Connexion' %}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'marketplace:dashboard' %}">{% trans 'Tableau de bord' %}</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#contact-modal">{% trans 'Contact' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">{% trans 'À propos' %}</a>
+                </li>
+            </ul>
+            <div class="menu-action d-flex">
+                <div class="action-icon">
+                    <a href="#" class="menu-icon"><i class="fa-solid fa-bookmark"></i></a>
+                    <a href="#cart-offcanvas" data-bs-toggle="offcanvas"
+                       aria-controls="offcanvasRight" class="menu-icon">
+                        <span id="cart-count">
+                            {% block cart %}
+                                {{ cart.count }}
+                            {% endblock %}
+                        </span>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+                       class="menu-icon mobile-v-show"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+                <a href="{% url 'marketplace:home' %}" class="button-secondary">{% trans 'Marketplace' %}</a>
+                {% comment %}
+                  <a href="#" class="ham-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <div class="hamburger-menu">
+                      <div class="nav-line"></div>
+                    </div>
+                  </a>
+                {% endcomment %}
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- right-menu modal -->
+{% comment %}
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Quick Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body side-menu">
+        <form>
+          <input type="text" class="form-control" placeholder="Rechercher ... " />
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="row">
+          <div class="col-lg-6 menu-comic">
+            <a href="#!"><img src="{% static 'theme/main/images/comic1.png' %}" alt="comic" class="img-fluid" /></a>
+          </div>
+          <div class="col-lg-6 menu-comic">
+            <a href="#!"><img src="{% static 'theme/main/images/popular1.png' %}" alt="comic" class="img-fluid" /></a>
+          </div>
+          <div class="col-lg-6 menu-comic">
+            <a href="#!"><img src="{% static 'theme/main/images/popular2.png' %}" alt="comic" class="img-fluid" /></a>
+          </div>
+          <div class="col-lg-6 menu-comic">
+            <a href="#!"><img src="{% static 'theme/main/images/comic3.png' %}" alt="comic" class="img-fluid" /></a>
+          </div>
+        </div>
+        <div class="row pt-5">
+          <div class="col-lg-12 text-center">
+            <a href="#" class="button-primary">Browse All</a>
+          </div>
+        </div>
+        <div class="social-media mobile-v-hide text-center">
+          <p>Follow Us</p>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-twitch"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    {% endcomment %}
+{% comment %}
+<div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-7">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <input type="text" class="form-control" placeholder="Your Name" />
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="email" class="form-control" placeholder="Your Email" />
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="text" class="form-control" placeholder="Your Phone" />
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="text" class="form-control" placeholder="Subject" />
+                    </div>
+                    <div class="col-lg-12">
+                      <textarea class="form-control" placeholder="Write Your Comment Here..." rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="contact-item">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus odit aliquid consectetur, veniam.</p>
+                    <div class="row">
+                      <div class="col-6 col-lg-6 contact-info">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h3> {% translate 'Adresse' %} :</h3>
+                        <p>Dhanmondi Road No. 32, Dhaka.</p>
+                      </div>
+                      <div class="col-6 col-lg-6 contact-info">
+                        <i class="fa-solid fa-phone"></i>
+                        <h3>Téléphone:</h3>
+                        <p>xxxxxxxxx</p>
+                      </div>
+                      <div class="col-6 col-lg-6 contact-info mb-0">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h3>Email:</h3>
+                        <p>L2P@mail.com</p>
+                      </div>
+                      <div class="col-6 col-lg-6 contact-info mb-0">
+                        <i class="fa-solid fa-wifi"></i>
+                        <h3>Réseaux sociaux:</h3>
+                        <div class="social">
+                          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                          <a href="#"><i class="fa-brands fa-twitch"></i></a>
+                          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="button-primary">Envoyer un message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+ {% endcomment %}
+{% block content %}
+{% endblock %}
+
+<section id="footer">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-3">
+                {% comment %} <a href="#!">MPB<span>.</span></a> {% endcomment %}
+                <img src="{% static 'logos/pb.jpg' %}" alt="" height="200" class="rounded">
+            </div>
+            <div class="col-lg-2 col-md-4 footer-menu">
+                <h3>{% trans 'Liens rapides' %}</h3>
+                <a href="#">{% trans 'Accueil' %}</a>
+                <a href="#">{% trans 'À propos' %}</a>
+                <a href="#">{% trans 'Contactez-nous' %}</a>
+            </div>
+            <div class="col-lg-2 col-md-4 footer-menu">
+                <h3>{% trans 'Conditions' %}</h3>
+                {% comment %}
+            <a href="#">Career Page</a>
+            <a href="#">FAQ</a>
+            <a href="#">Supports</a>
+            <a href="#">Affiliate Marketing</a>
+            {% endcomment %}
+                <a href="#">{% trans 'Générales' %}</a>
+                <a href="#">{% trans 'Ventes' %}</a>
+                <a href="#">{% trans 'Utilisation' %}</a>
+            </div>
+            {% comment %}
+          <div class="col-lg-2 col-md-4 footer-menu">
+            <h3>Action Link</h3>
+            <a href="#">Contact Us</a>
+            <a href="#">Payments</a>
+            <a href="#">Comic Books</a>
+            <a href="#">Community</a>
+          </div>
+          {% endcomment %}
+            <div class="col-lg-3 footer-action">
+                <h3>{% trans 'Suivez-nous' %}</h3>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                {% comment %}<h3>Get The App</h3>
+            <div class="footer-download">
+              <a href="#" class="button-primary android"><i class="fa-brands fa-google-play"></i> Play Store</a>
+              <a href="#" class="button-primary ios"><i class="fa-brands fa-apple"></i> App Store</a>
+            </div>
+            {% endcomment %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FOOTER AREA END -->
+
+<!-- COPY_RIGHT AREA START -->
+<section id="copy_right">
+    <div class="container">
+        <div class="row copyright-txt">
+            <div class="col-lg-6">
+                <span>LANGUAGE:</span>
+                <a href="#">EN</a>
+                <a href="#" class="active">FR</a>
+                <a href="#">DE</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- COPY_RIGHT AREA END -->
+
+<!-- JavaScript -->
+<script src="{% static 'theme/main/js/jquery-3.6.3.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>#}
+<script src="{% static 'js/toastr.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'theme/main/js/slick.min.js' %}"></script>
+<script src="{% static 'theme/main/js/venobox.min.js' %}"></script>
+<script src="{% static 'theme/main/js/counter.js' %}"></script>
+<script src="{% static 'theme/main/js/waypoints.min.js' %}"></script>
+<script src="{% static 'theme/main/js/custom.js' %}"></script>
+<script>
+    {% if messages %}
+        {% for message in messages %}
+            toastr.{{ message.tags }}('{{ message }}');
+        {% endfor %}
+    {% endif %}
+    {% comment %} toastr.info('Are you the 6 fingered man?') {% endcomment %}
+</script>
+{% block scripts %}
+
+{% endblock %}
+
+{% block modal %}
+
+{% endblock %}
+</body>
+</html>

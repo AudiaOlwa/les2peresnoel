@@ -18,6 +18,7 @@
            <a href="{% url 'index' %}" class="nav-item nav-link text-white">{% trans "Home"%}</a>
            <a href="{% url 'boutique' %}" class="nav-item nav-link text-white">{% trans "Boutique "%}</a>
            <a href="{% url 'gallerie' %}" class="nav-item nav-link text-white">{% trans "Gallerie "%}</a>
+           <a href="{% url 'marketplace:home' %}" class="nav-item nav-link text-white">{% trans "Marketplace "%}</a>
 
            <div class="nav-item dropdown">
             <a href="" class="nav-link dropdown-toggle active text-white" data-bs-toggle="dropdown">{% trans "A propos"%}</a>
@@ -26,7 +27,6 @@
                 <a href="{% url 'prqw2pn' %}" class="dropdown-item ">{% trans "Pourquoi 2 Pères noël ?"%}</a>
                 <a href="{% url 'birth' %}" class="dropdown-item">{% trans "Naissance du père noël"%}</a>
                 <a href="{% url 'evolution' %}" class="dropdown-item"> {% trans "Evolution du père noël"%}</a>
-               
             </div>
         </div>
            

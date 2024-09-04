@@ -1,4 +1,4 @@
-exclude: '^docs/|/migrations/'
+exclude: '^docs/|/migrations/templates'
 default_stages: [commit]
 
 repos:
@@ -34,7 +34,7 @@ repos:
     rev: "24.2.0"
     hooks:
       - id: black
-  
+
   - repo: https://github.com/PyCQA/isort
     rev: "5.12.0"
     hooks:

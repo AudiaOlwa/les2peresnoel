@@ -1,0 +1,18 @@
+{% extends 'layouts/comicstyle.html' %}
+{% load i18n %}
+{% load allauth %}
+{% block head_title %}
+  {% trans 'Verify Your Email Address' %}
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-lg-4 card-body mt-5 mb-5 pt-5 pb-5">
+        <h1 class="py-4"><span class="py-4">{% trans 'Vérifiez votre adresse électronique' %}</span></h1>
+        <p>
+          {% blocktrans %}Nous vous avons envoyé un courriel pour vérification. Suivez le lien fourni pour finaliser la procédure d'inscription. Si vous ne voyez pas l'e-mail de vérification dans votre boîte de réception principale, vérifiez votre dossier spam. Veuillez nous contacter si vous ne recevez pas l'e-mail de vérification dans les minutes qui suivent.{% endblocktrans %}
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

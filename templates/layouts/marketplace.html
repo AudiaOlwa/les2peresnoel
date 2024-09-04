@@ -1,0 +1,873 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="light">
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<head>
+    <meta charset="utf-8">
+
+    <!-- Viewport -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+
+    <!-- SEO meta tags -->
+    <title> {% translate 'MPERESBONHEUR' %} | Marketplace </title>
+    <meta name="description" content="MPERESBONHEUR - Marketplace">
+    <meta name="keywords"
+          content="les2peresnoels, lesdeuxperesnoel, marketplace, noel, mperesbonheur, mes peres bonheur, peresbonheur, peres bonheur, bonheur">
+    <meta name="author" content="MPERESBONEHUR">
+
+    <!-- Webmanifest + Favicon / App icons -->
+    <link rel="manifest" href="manifest.json">
+    {% comment %}<link rel="icon" type="image/png" href="assets/app-icons/icon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/app-icons/icon-180x180.png">{% endcomment %}
+
+    <!-- Theme switcher (color modes) -->
+    <script src="{% static 'theme/ultra/js/theme-switcher.js' %}"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" media="screen" href="{% static 'theme/ultra/vendor/nouislider/dist/nouislider.min.css' %}">
+    <link rel="stylesheet" media="screen" href="{% static 'theme/ultra/vendor/swiper/swiper-bundle.min.css' %}">
+
+    <!-- Font icons -->
+    <link rel="stylesheet" href="{% static "theme/ultra/icons/around-icons.min.css" %}">
+
+    <!-- Theme styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="{% static 'theme/ultra/css/theme.min.css' %}">
+    <link rel="stylesheet" media="screen" href="{% static 'css/marketplace-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}"/>
+    <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
+    {% block extra_styles %}{% endblock extra_styles %}
+    {#    <!-- Customizer generated styles -->#}
+    {#    <style id="customizer-styles"></style>#}
+
+    {#    <!-- Page loading styles -->#}
+    <style>
+        body{
+            font-family: "Ysabeau Office", sans-serif !important;
+        }
+        .page-loading {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all .4s .2s ease-in-out;
+            transition: all .4s .2s ease-in-out;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+        }
+
+        [data-bs-theme="dark"] .page-loading {
+            background-color: #121519;
+        }
+
+        .page-loading.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .page-loading-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
+            opacity: 0;
+        }
+
+        .page-loading.active > .page-loading-inner {
+            opacity: 1;
+        }
+
+        .page-loading-inner > span {
+            display: block;
+            font-family: "Inter", sans-serif;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #6f788b;
+        }
+
+        [data-bs-theme="dark"] .page-loading-inner > span {
+            color: #fff;
+            opacity: .6;
+        }
+
+        .page-spinner {
+            display: inline-block;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: .75rem;
+            vertical-align: text-bottom;
+            background-color: #d7dde2;
+            border-radius: 50%;
+            opacity: 0;
+            -webkit-animation: spinner .75s linear infinite;
+            animation: spinner .75s linear infinite;
+        }
+
+        [data-bs-theme="dark"] .page-spinner {
+            background-color: rgba(255, 255, 255, .25);
+        }
+
+        @-webkit-keyframes spinner {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        @keyframes spinner {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+    </style>
+
+    <!-- Page loading scripts -->
+    <script>
+        (function () {
+            window.onload = function () {
+                const preloader = document.querySelector('.page-loading')
+                preloader.classList.remove('active')
+                setTimeout(function () {
+                    preloader.remove()
+                }, 1500)
+            }
+        })()
+    </script>
+
+    <!-- Google Tag Manager -->
+    {% comment %} <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WKV3GT5');
+    </script> {% endcomment %}
+</head>
+
+
+<!-- Body -->
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+{% comment %}
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-WKV3GT5" height="0" width="0"
+            style="display: none; visibility: hidden;" title="Google Tag Manager"></iframe>
+</noscript>
+
+<!-- Page loading spinner -->{% endcomment %}
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>{% translate "Chargement" %} ...</span>
+    </div>
+</div>
+
+
+{% comment %}
+<!-- Customizer modal -->
+<div class="modal fade" id="customizer-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Your custom styles</h4>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-4">
+                <p class="mb-3">Grab the generated styles below. Wrap them inside <code>&lt;style&gt;</code> tag and put
+                    in the <code>&lt;head&gt;</code> section of your HTML document.</p>
+                <p class="mb-4"><span class="fw-medium">IMPORTANT:</span> In order for these styles to take effect you
+                    have to placed them below:<br><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot;
+                        href=&quot;assets/css/theme.min.css&quot;&gt;</code></p>
+                <div class="bg-secondary overflow-hidden rounded-4">
+                    <pre class="text-wrap bg-transparent border-0 text-dark p-4" id="custom-generated-styles"></pre>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button" id="copy-styles-btn">
+                    <i class="ai-copy me-2 ms-n1"></i>
+                    Copy styles
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Customizer toggler -->
+<a class="position-fixed top-50 bg-light text-dark fw-medium border rounded-pill shadow text-decoration-none"
+   href="#customizer" data-bs-toggle="offcanvas"
+   style="right: -1.75rem; margin-top: -1rem; padding: .25rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;">
+    <i class="ai-settings text-primary fs-base me-1 ms-n1"></i>
+    Customize
+</a>
+
+<!-- Customizer offcanvas -->
+<div class="offcanvas offcanvas-end" id="customizer" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1">
+    <div class="offcanvas-header border-bottom">
+        <h4 class="offcanvas-title">Customize theme</h4>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="d-flex align-items-center mb-3">
+            <i class="ai-paint-roll text-body-secondary fs-4 me-2"></i>
+            <h5 class="mb-0">Colors</h5>
+        </div>
+        <div class="row row-cols-3 g-3 mb-5" id="theme-colors">
+            <div class="col">
+                <div class="text-dark fs-sm fw-medium mb-2">Primary</div>
+                <div class="color-swatch" id="theme-primary"
+                     data-color-labels="[&quot;theme-primary&quot;, &quot;primary&quot;, &quot;primary-rgb&quot;]">
+                    <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="primary"
+                           style="background-color: #448c74;" role="button"></label>
+                    <input class="form-control form-control-sm" type="text" value="#448c74">
+                    <input class="visually-hidden" type="color" id="primary" value="#448c74">
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-dark fs-sm fw-medium mb-2">Warning</div>
+                <div class="color-swatch" id="theme-warning"
+                     data-color-labels="[&quot;theme-warning&quot;, &quot;warning&quot;, &quot;warning-rgb&quot;]">
+                    <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="warning"
+                           style="background-color: #edcb50;" role="button"></label>
+                    <input class="form-control form-control-sm" type="text" value="#edcb50">
+                    <input class="visually-hidden" type="color" id="warning" value="#edcb50">
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-dark fs-sm fw-medium mb-2">Info</div>
+                <div class="color-swatch" id="theme-info"
+                     data-color-labels="[&quot;theme-info&quot;, &quot;info&quot;, &quot;info-rgb&quot;]">
+                    <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="info"
+                           style="background-color: #3f7fca;" role="button"></label>
+                    <input class="form-control form-control-sm" type="text" value="#3f7fca">
+                    <input class="visually-hidden" type="color" id="info" value="#3f7fca">
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-dark fs-sm fw-medium pt-1 mb-2">Success</div>
+                <div class="color-swatch" id="theme-success"
+                     data-color-labels="[&quot;theme-success&quot;, &quot;success&quot;, &quot;success-rgb&quot;]">
+                    <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="success"
+                           style="background-color: #3fca90;" role="button"></label>
+                    <input class="form-control form-control-sm" type="text" value="#3fca90">
+                    <input class="visually-hidden" type="color" id="success" value="#3fca90">
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-dark fs-sm fw-medium pt-1 mb-2">Danger</div>
+                <div class="color-swatch" id="theme-danger"
+                     data-color-labels="[&quot;theme-danger&quot;, &quot;danger&quot;, &quot;danger-rgb&quot;]">
+                    <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="danger"
+                           style="background-color: #ed5050;" role="button"></label>
+                    <input class="form-control form-control-sm" type="text" value="#ed5050">
+                    <input class="visually-hidden" type="color" id="danger" value="#ed5050">
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center mb-3"><i class="ai-align-left text-body-secondary fs-4 me-2"></i>
+            <h5 class="mb-0">Typography <span class="text-body-secondary fs-sm fw-normal">(1rem = 16px)</span></h5>
+        </div>
+        <div class="mb-5">
+            <div class="mb-3">
+                <label class="text-dark fs-sm fw-medium pt-1 mb-2" for="font-url">Google font URL</label>
+                <input class="form-control" type="url"
+                       value="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+                       id="font-url">
+            </div>
+            <div class="mb-3">
+                <label class="text-dark fs-sm fw-medium pt-1 mb-2" for="body-font-family">Font family</label>
+                <input class="form-control" type="text" value="'Inter', sans-serif" id="body-font-family">
+            </div>
+            <div class="row row-cols-2">
+                <div class="col mb-3">
+                    <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="root-font-size">Root font size,
+                        rem</label>
+                    <select class="form-select" id="root-font-size">
+                        <option value=".75rem">.75</option>
+                        <option value=".875rem">.875</option>
+                        <option value="1rem" selected>1</option>
+                        <option value="1.05rem">1.05</option>
+                        <option value="1.1rem">1.1</option>
+                        <option value="1.15rem">1.15</option>
+                        <option value="1.25rem">1.25</option>
+                        <option value="1.375rem">1.375</option>
+                    </select>
+                </div>
+                <div class="col mb-3">
+                    <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="body-font-size">Body font size,
+                        rem</label>
+                    <select class="form-select" id="body-font-size">
+                        <option value=".75rem">.75</option>
+                        <option value=".875rem">.875</option>
+                        <option value="1rem" selected>1</option>
+                        <option value="1.15rem">1.15</option>
+                        <option value="1.25rem">1.25</option>
+                        <option value="1.375rem">1.375</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center mt-n2 mb-3"><i class="ai-maximize text-body-secondary fs-5 me-2"></i>
+            <h5 class="mb-0">Borders / Rounding</h5>
+        </div>
+        <div class="mb-3">
+            <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-width">Border width, px</label>
+            <input class="form-control" type="number" min="0" step="1" value="1" id="border-width">
+        </div>
+        <div class="mb-3">
+            <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius">Rounded base,
+                rem</label>
+            <input class="form-control" type="number" min="0" step=".05" value="1" id="border-radius">
+        </div>
+        <div id="theme-border-radiuses">
+            <div class="mb-3">
+                <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius-sm">
+                    Rounded SM<span
+                        class="text-body-secondary fw-normal ms-1"> = Rounded base multiplied by</span></label>
+                <input class="form-control" type="number" min="0" step=".05" value=".75" id="border-radius-sm">
+            </div>
+            <div class="mb-3">
+                <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius-lg">
+                    Rounded LG<span
+                        class="text-body-secondary fw-normal ms-1"> = Rounded base multiplied by</span></label>
+                <input class="form-control" type="number" min="0" step=".05" value="1.125" id="border-radius-lg">
+            </div>
+            <div class="mb-3">
+                <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius-xl">
+                    Rounded XL<span
+                        class="text-body-secondary fw-normal ms-1"> = Rounded base multiplied by</span></label>
+                <input class="form-control" type="number" min="0" step=".05" value="1.5" id="border-radius-xl">
+            </div>
+            <div class="mb-3">
+                <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius-xxl">
+                    Rounded 2XL<span
+                        class="text-body-secondary fw-normal ms-1"> = Rounded base multiplied by</span></label>
+                <input class="form-control" type="number" min="0" step=".05" value="2.25" id="border-radius-xxl">
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-header border-top d-none" id="customizer-btns">
+        <button class="btn btn-secondary w-100 me-3" type="button" id="customizer-reset-btn">
+            <i class="ai-undo fs-lg me-2 ms-n1"></i>
+            Reset
+        </button>
+        <button class="btn btn-primary w-100" type="button" data-bs-toggle="modal" data-bs-target="#customizer-modal">
+            <i class="ai-code-curly fs-lg me-2 ms-n1"></i>
+            Show styles
+        </button>
+    </div>
+</div>
+{% endcomment %}
+
+
+<!-- Search modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" data-focus-input="#search">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-block position-relative border-0 pb-3">
+                <form class="position-relative w-100 mt-2 mb-4">
+                    <button class="btn-close position-absolute top-50 end-0 translate-middle-y m-0 me-n1" type="reset"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    <i class="ai-search fs-xl position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                    <input class="form-control form-control-lg px-5" type="search" placeholder="Type to search"
+                           data-focus-on-open='["modal", "#searchModal"]'>
+                </form>
+                {#                <div class="fs-xs fw-medium text-body-secondary text-uppercase">Suggestions</div>#}
+            </div>
+            <div class="modal-body pt-3">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Cart offcanvas -->
+<div class="offcanvas offcanvas-end py-2 p-sm-4 p-md-5" id="cartOffcanvas" style="width: 680px;"
+     hx-target="#cart-count" hx-get="{% url 'marketplace:update_cart_count' %}" hx-trigger="hide.bs.offcanvas">
+    {% block cart %}
+        <!-- Title -->
+        <div class="px-4 pt-3">
+            <div class="d-flex justify-content-between align-items-center border-bottom pb-3 pb-sm-4">
+                <h2 class="offcanvas-title d-flex align-items-center mb-1">
+                    {% translate 'Votre panier' %}
+                    <span class="fs-base fw-normal text-body-secondary ms-3">
+                            ( {% block cart_details_count %}{{ cart.count }} {% endblock %} {% translate 'articles' %})
+                </span>
+                </h2>
+                <button class="btn-close mb-1 me-n1" type="button" data-bs-dismiss="offcanvas"
+                        data-bs-target="#cartOffcanvas" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="offcanvas-body">
+            {% for item in cart %}
+                <div class="d-sm-flex align-items-center {{ forloop.first|yesno:",border-top pt-4" }} pb-4"
+                     id="cart-content"
+                     hx-get="{% url 'marketplace:update_cart_count' %}" hx-target="#cart-count">
+                    <a
+                            class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-md-3 mb-2 mb-sm-0"
+                            href="{{ item.product.get_absolute_url }}"><img src="{{ item.product.image.url }}"
+                                                                            width="110"
+                                                                            alt="Product"></a>
+                    <div class="w-100 pt-1 ps-sm-4">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <h3 class="h5 mb-2">
+                                    <a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                                </h3>
+                            </div>
+                            <div class="text-end ms-auto">
+                                <div class="fs-5 mb-2">{{ item.subtotal }} €</div>
+                            </div>
+                        </div>
+                        <div class="count-input ms-n3">
+                            <form hx-post="{% url 'marketplace:remove_product' %}"
+                                  hx-target="#cartOffcanvas"
+                                  hx-trigger="click" hx-swap="innerHTML">
+                                {% csrf_token %}
+                                <input type="hidden" name="item_id" value="{{ item.id }}">
+                                <input type="hidden" name="source" value="cart">
+                                <button class="btn btn-icon fs-xl" type="submit">-</button>
+                            </form>
+                            <span>{{ item.quantity }}</span>
+                            <form hx-post="{% url 'marketplace:add_to_cart' product_id=item.product.pk %}"
+                                    hx-target="#cartOffcanvas"
+                                    hx-trigger="click" hx-swap="innerHTML"
+                            >
+                                <input type="hidden" name="source" value="cart">
+                                <button class="btn btn-icon fs-xl" type="submit">
+                                    +
+                                </button>
+                            </form>
+                        </div>
+                        <div class="nav justify-content-end mt-n5 mt-sm-n3">
+                            <form hx-post="{% url 'marketplace:remove_product' %}"
+                                  hx-target="#cartOffcanvas"
+                                  hx-trigger="click" hx-swap="innerHTML">
+                                {% csrf_token %}
+                                 <input type="hidden" name="item_id" value="{{ item.id }}">
+                                 <input type="hidden" name="quantity" value="0">
+                                 <input type="hidden" name="source" value="cart">
+                                <button type="submit" class="nav-link fs-xl p-2" hx-confirm="{% translate 'Retirer du panier ?' %}"
+                                   data-bs-toggle="tooltip" title="{% translate 'Retirer du panier' %}"
+                                   aria-label="Remove">
+                                    <i class="ai-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="px-4 pb-3 pb-sm-4 pb-sm-5">
+            <div class="d-sm-flex align-items-center pt-4">
+                <div class="input-group input-group-sm border-dashed mb-3 mb-sm-0 me-sm-4 me-md-5">
+                    {% comment %} <input class="form-control text-uppercase" type="text" placeholder="{% translate 'Code coupon' %}">
+                    <button class="btn btn-secondary" type="button">{% translate 'Appliquer un coupon' %}</button> {% endcomment %}
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                    <span class="fs-xl me-3">Total:</span>
+                    <span class="h3 mb-0">{{ cart.total }}€</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="d-flex align-items-center justify-content-between px-4 pb-3">
+            <div class="nav d-none d-sm-block">
+                <a class="nav-link fw-semibold px-0" href="#cartOffcanvas" data-bs-dismiss="offcanvas">
+                    <i class="ai-chevron-left fs-xl me-2"></i>
+                    {% translate 'Retour' %}
+                </a>
+            </div>
+            {% if not cart.total == 0 %}
+                <a class="btn btn-lg btn-primary w-100 w-sm-auto" href="{% url 'marketplace:checkout' %}">
+                    {% translate 'Passer la commande' %}
+                    <i class="ai-chevron-right ms-2 me-n1"></i>
+                </a>
+            {% endif %}
+        </div>
+    {% endblock %}
+</div>
+
+
+<main class="page-wrapper">
+    <header class="navbar navbar-expand-lg fixed-top bg-light">
+        <div class="container">
+            <a class="navbar-brand pe-sm-3" href="{% url "marketplace:home" %}">
+                <img src="{% static 'logos/mpbh.png' %}" alt="" height="32" width="35" >
+                <span class="d-none d-sm-inline text-primary"> {% translate 'MPERESBONHEUR' %}</span>
+            </a>
+
+            <!-- Theme switcher -->
+            <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
+                <input class="form-check-input" type="checkbox" id="theme-mode">
+                <label class="form-check-label" for="theme-mode">
+                    <i class="ai-sun fs-lg"></i>
+                </label>
+                <label class="form-check-label" for="theme-mode">
+                    <i class="ai-moon fs-lg"></i>
+                </label>
+            </div>
+
+            <!-- Search + Account + Cart -->
+            <div class="nav align-items-center order-lg-3 ms-n1 me-3 me-sm-0">
+                <a class="nav-link fs-4 p-2 mx-sm-1" href="#searchModal" data-bs-toggle="modal" aria-label="Search">
+                    <i class="ai-search"></i>
+                </a>
+                {% comment %} <a class="nav-link fs-4 p-2 mx-sm-1 d-none d-sm-flex" href="#" aria-label="Account">
+                    <i class="ai-user"></i>
+                </a> {% endcomment %}
+                <a class="nav-link position-relative fs-4 p-2" href="#cartOffcanvas" data-bs-toggle="offcanvas"
+                   hx-trigger="click"
+                   hx-target="#cartOffcanvas"
+                   hx-get="{% url 'marketplace:update_cart' %}"
+                   hx-swap="innerHTML"
+                   aria-label="Panier">
+                    <i class="ai-cart"></i>
+                    <span class="badge bg-primary fs-xs position-absolute end-0 top-0 me-n1"
+                          style="padding: .25rem .375rem;" id="cart-count">
+                        {% block cart_count %}
+                            {{ cart.count }}
+                        {% endblock %}
+                    </span>
+                </a>
+            </div>
+
+            <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">{% translate "Peres Bonheur" %}</a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{% url 'marketplace:dashboard' %}"> {% translate 'Tableau de bord' %} </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">
+                                <i class="ai-user fs-lg me-2"></i>
+                                {% translate 'Connexion' %}
+                            </a>
+                        </li>
+                        {% comment %} <li class="nav-item border-top mt-2 py-2 d-sm-none">
+                            <a class="nav-link" href="{% url 'account_login' %}">
+                                <i class="ai-user fs-lg me-2"></i>
+                                {% translate 'Connexion' %}
+                            </a>
+                        </li> {% endcomment %}
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'licences:request_create' %}">
+                            <i class="fas fa-store fs-lg me-2"></i>
+                            {% translate 'Devenir vendeur ?' %}
+                        </a>
+                    </li>
+                </ul>
+                {% comment %}
+                <div class="d-md-none p-3 mt-n3">
+                    <a class="btn btn-primary w-100 mb-1"
+                       href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/"
+                       target="_blank" rel="noopener">
+                        <i class="ai-cart fs-xl me-2 ms-n1"></i>
+                        Buy now
+                    </a>
+                </div>
+                {% endcomment %}
+            </nav>
+        </div>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+</main>
+
+
+<!-- Footer-->
+<footer class="footer bg-dark position-relative pb-4 pt-md-3 py-lg-4 py-xl-5">
+    <div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100"
+         style="background-color: rgba(255,255,255, .03);"></div>
+    <div class="container position-relative z-2 pt-5 pb-2" data-bs-theme="dark">
+
+        <!-- Columns with links -->
+        <div class="row container justify-content-center" id="links">
+            {% comment %} <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+                <img src="{% static 'logos/mpbh.png' %}" alt="" height="200" >
+            </div> {% endcomment %}
+            <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+                <h3 class="h6 text-uppercase d-none d-md-block">{% translate "Utilitaires" %}</h3>
+                <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
+                   href="#useful" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="useful"
+                   data-show-label="Utilitaires" data-hide-label="Utilitaires" aria-label="Utilitaires"></a>
+                <div class="collapse d-md-block" id="useful" data-bs-parent="#links">
+                    <ul class="nav flex-column pb-2 pb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">{% translate "Licences" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">{% translate "Espace vendeur" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">{% translate "À propos" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">{% translate "" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">{% translate "Nous contacter" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">{% translate "Litiges" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">{% translate "Livraisons" %}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+                <h3 class="h6 text-uppercase d-none d-md-block">{% trans "Catégories" %}</h3>
+                <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
+                   href="#cats" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="cats"
+                   data-show-label="{% translate "Catégories" %}" data-hide-label="{% translate "Catégories" %}" aria-label="{% translate "Catégories" %}"></a>
+                <div class="collapse d-md-block" id="cats" data-bs-parent="#links">
+                    <ul class="nav flex-column pb-2 pb-md-0">
+                        {% for category in categories %}
+                            <li class="nav-item">
+                                <a class="nav-link fw-normal px-0 py-1" href="#">{{category.name}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% comment %} <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+                <h3 class="h6 text-uppercase d-none d-md-block">Categories</h3>
+                <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
+                   href="#categories" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                   aria-controls="categories" data-show-label="Categories" data-hide-label="Categories"
+                   aria-label="Categories"></a>
+                <div class="collapse d-md-block" id="categories" data-bs-parent="#links">
+                    <ul class="nav flex-column pb-2 pb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">Kitchen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">Bathroom</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">Living room</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">Bedroom</a>
+                        </li>
+                    </ul>
+                </div>
+            </div> {% endcomment %}
+            <div class="col-md-3 pb-2 pb-md-0">
+                <h3 class="h6 text-uppercase d-none d-md-block">{% translate "Nous visiter" %}</h3>
+                <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
+                   href="#showroom" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                   aria-controls="{% translate "Nous visiter"%}" data-show-label="{% translate "Nous visiter"%}" data-hide-label="{% translate "Nous visiter"%}"
+                   aria-label="{% translate "Nous visiter"%}"></a>
+                <div class="collapse d-md-block" id="showroom" data-bs-parent="#links">
+                    <ul class="nav flex-column pb-3">
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="#">Acajou 2 groupe Ozanam<br>B7 97232  Le lamentin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1"
+                               href="mailto:contact@mperesbonheur.com">contact@mperesbonheur.com</a>
+                        </li>
+                        {% comment %} <li class="nav-item">
+                            <a class="nav-link fw-normal px-0 py-1" href="%2b15262200459.html">+1&nbsp;526&nbsp;220&nbsp;0459</a>
+                        </li> {% endcomment %}
+                    </ul>
+                    {% comment %} 
+                    <ul class="list-unstyled mb-0 pb-3 pb-md-0">
+                        <li class="text-light opacity-90 mb-2">Mon-Fri: 8:00 - 21:00</li>
+                        <li class="text-light opacity-90 mb-2">Sat: 8:00 - 21:00</li>
+                        <li class="text-light opacity-90">Sun: 8:00 - 21:00</li>
+                    </ul> 
+                    {% endcomment %}
+                </div>
+            </div>
+            {% comment %} 
+            <div class="col-12 col-xl-3 mt-md-2 mt-xl-0 pt-2 pt-md-4 pt-xl-0">
+                <h3 class="h6 text-uppercase mb-1 pb-1">Download our app</h3>
+                <div class="d-flex d-xl-block d-xxl-flex">
+                    <a class="btn btn-secondary px-3 py-2 mt-3 me-3" href="#">
+                        <img class="mx-1" src="assets/img/market/appstore-light.svg" width="120" alt="App Store">
+                    </a>
+                    <a class="btn btn-secondary px-3 py-2 mt-3" href="#">
+                        <img class="mx-1" src="assets/img/market/googleplay-light.svg" width="119" alt="Google Play">
+                    </a>
+                </div>
+            </div> 
+            {% endcomment %}
+        </div>
+
+        <!-- Nav + Switcher -->
+        <div class="d-sm-flex align-items-end justify-content-between border-bottom mt-2 mt-sm-1 pt-4 pt-sm-5">
+
+            <!-- Nav -->
+            <nav class="nav d-flex mb-3 mb-sm-4">
+                <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4" href="#">{% translate "Contacts" %}</a>
+                <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4" href="#">{% translate "Confidentialité" %}</a>
+                <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-sm-4" href="#">{% translate "Conditions d'utilisations" %}</a>
+            </nav>
+
+            <!-- Language / currency switcher -->
+            <div class="dropdown mb-4">
+                {% comment %} <button class="btn btn-outline-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside" aria-expanded="false"><img class="me-2"
+                                                                                src="assets/img/flags/en.png" width="18"
+                                                                                alt="English / USD">Eng / USD {% endcomment %}
+                </button>
+                <div class="dropdown-menu dropdown-menu-end my-1">
+                    {% comment %} <div class="dropdown-item">
+                        <select class="form-select form-select-sm">
+                            <option value="usd">$ USD</option>
+                            <option value="eur">€ EUR</option>
+                            <option value="ukp">£ UKP</option>
+                            <option value="jpy">¥ JPY</option>
+                        </select>
+                    </div> {% endcomment %}
+                    <a class="dropdown-item pb-1" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172" style=" fill:#26e07f;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#1fb141"><path d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z"></path></g></g></svg>
+                        {% comment %} <img class="me-2" src="assets/img/flags/fr.png" width="18" alt="Français"> {% endcomment %}
+                        Français
+                    </a>
+                    <a class="dropdown-item pb-1" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172" style=" fill:#26e07f;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#1fb141"><path d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z"></path></g></g></svg>
+                        {% comment %} <img class="me-2" src="assets/img/flags/de.png" width="18" alt="Deutsch"> {% endcomment %}
+                        USA
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172" style=" fill:#26e07f;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#1fb141"><path d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z"></path></g></g></svg>
+                        {% comment %} <img class="me-2" src="assets/img/flags/it.png" width="18" alt="Italiano"> {% endcomment %}
+                        Deutsch
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo + Socials + Cards -->
+        <div class="d-sm-flex align-items-center pt-4">
+            <div class="d-sm-flex align-items-center pe-sm-2">
+                <a class="navbar-brand d-inline-flex align-items-center me-sm-5 mb-4 mb-sm-0" href="index.html">
+              <span class="text-primary flex-shrink-0 me-2">
+                <img src="{% static 'logos/mpbh.png' %}" alt="" height="32" width="35" >
+              </span>
+                    <span class="text-light opacity-90">
+                        MPERESBONHEUR
+                    </span>
+                </a>
+                <div class="d-flex mb-4 mb-sm-0">
+                    <a class="btn btn-icon btn-sm btn-secondary btn-telegram rounded-circle mx-2 ms-sm-0 me-sm-3"
+                       href="#" aria-label="Telegram">
+                        <i class="ai-telegram"></i>
+                    </a>
+                    <a class="btn btn-icon btn-sm btn-secondary btn-instagram rounded-circle mx-2 ms-sm-0 me-sm-3"
+                       href="#" aria-label="Instagram">
+                        <i class="ai-instagram"></i>
+                    </a>
+                    <a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle mx-2 ms-sm-0 me-sm-3"
+                       href="#" aria-label="Facebook">
+                        <i class="ai-facebook"></i>
+                    </a>
+                    <a class="btn btn-icon btn-sm btn-secondary btn-pinterest rounded-circle mx-2 ms-sm-0 me-sm-3"
+                       href="#" aria-label="Piterest">
+                        <i class="ai-pinterest"></i>
+                    </a>
+                </div>
+            </div>
+            {% comment %} <img class="ms-sm-auto" src="assets/img/shop/footer-cards.png" width="187" alt="Accepted cards"> {% endcomment %}
+        </div>
+    </div>
+    <div class="pt-5 pt-lg-0"></div>
+</footer>
+
+
+
+{% comment %} <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
+    <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-miterlimit="10"></circle>
+    </svg>
+    <i class="ai-arrow-up"></i>
+</a> {% endcomment %}
+
+    {% comment %} <script>
+        document.addEventListener('htmx:afterSwap', function(event) {
+            if (event.detail.xhr.status === 200) {
+                var response = event.detail.xhr.responseJSON;
+                document.querySelector('#cartOffcanvas').innerHTML = response.cart;
+                document.querySelector('#checkout').innerHTML = response.checkout;
+                document.querySelector('#cart-count').innerHTML = response.cart_count;
+            }
+        });
+    </script> {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'js/toastr.min.js' %}"></script>
+    <script src="{% static 'theme/ultra/vendor/nouislider/dist/nouislider.min.js' %}"></script>
+    <script src="{% static 'theme/ultra/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'theme/ultra/js/theme.min.js' %}"></script>
+    <script src="{% static 'theme/ultra/js/customizer.min.js' %}"></script>
+    <script>
+    {% if messages %}
+        {% for message in messages %}
+            toastr.{{ message.tags }}('{{ message }}');
+        {% endfor %}
+    {% endif %}
+    toastr.info('Are you the 6 fingered man?')
+    </script>
+    {% block extra_scripts %}{% endblock extra_scripts %}
+    {% load sweetify %}
+    {% sweetify %}
+</body>
+</html>

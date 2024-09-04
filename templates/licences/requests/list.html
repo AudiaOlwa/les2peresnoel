@@ -1,0 +1,248 @@
+{% extends 'layouts/admin.html' %}
+{% load crispy_forms_filters %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <div class="page-header-left d-flex align-items-center">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">{% translate 'Requêtes de licences' %}</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a
+                                href="{% url 'licences:list_requests' %}">{% translate 'Liste' %}</a></li>
+                        <li class="breadcrumb-item">{% translate 'Toutes les requêtes' %}</li>
+                    </ul>
+                </div>
+                <div class="page-header-right ms-auto">
+                    <div class="page-header-right-items">
+                        {% comment %}<div class="d-flex d-md-none">
+                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                                <i class="feather-arrow-left me-2"></i>
+                                <span>Back</span>
+                            </a>
+                        </div>{% endcomment %}
+                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                            <a href="{% url 'licences:request_create' %}" class="btn btn-md btn-primary" 
+                               {% comment %} data-bs-target="#new-request"
+                               data-bs-toggle="modal"  {% endcomment %}
+                               {% comment %} href="{% url 'licences:request_create' %}" {% endcomment %}
+                               {% comment %} hx-target="#new-request-content" 
+                               hx-swap="innerHTML" 
+                               hx-trigger="click" {% endcomment %}
+                            >
+                                <i class="feather-plus me-2"></i>
+                                <span>{% translate "Nouvelle requête" %}</span>
+                            </a>
+                        </div>
+                    </div>
+                    {% comment %}<div class="d-md-none d-flex align-items-center">
+                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                            <i class="feather-align-right fs-20"></i>
+                        </a>
+                    </div>{% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-4 container-fluid">
+        <div class="col-xxl-12">
+            <div class="card stretch stretch-full">
+                <div class="card-header">
+                    <h5 class="card-title">{% trans "Mes requêtes de licences" %}</h5>
+                    <div class="card-header-action">
+                        <div class="card-header-btn">
+                            {% comment %}<div data-bs-toggle="tooltip" title="" data-bs-original-title="Delete">
+                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger"
+                                   data-bs-toggle="remove"> </a>
+                            </div>{% endcomment %}
+                            <div data-bs-toggle="tooltip" title="" data-bs-original-title="Refresh">
+                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning"
+                                   data-bs-toggle="{% translate "Rafraichir" %}"> </a>
+                            </div>
+                            <div data-bs-toggle="tooltip" title="" data-bs-original-title="Maximize/Minimize">
+                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success"
+                                   data-bs-toggle="{% translate "Étendre" %}"> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body custom-card-action p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                            <tr class="border-b">
+                                <th scope="row">{% translate "Nom de l'entreprise" %}</th>
+                                <th>{% translate "Pays" %}</th>
+                                <th>{% translate "Téléphone" %}</th>
+                                <th>{% translate "Email" %}</th>
+                                <th>{% translate "Statut" %}</th>
+                                <th class="text-end">{% translate "Actions" %}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for request in requests %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="avatar-image">
+                                                <img src="{{ request.company_logo.url }}" alt="" class="img-fluid">
+                                            </div>
+                                            <a href="{{ request.get_details_for_provider_url }}">
+                                                <span class="d-block">{{ request.company_name }}</span>
+                                                <span class="fs-12 d-block fw-normal text-muted">{{ request.company_address }}</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-gray-200 text-dark">{{ request.company_country }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark">{{ request.company_phone }}</span>
+                                    </td>
+                                    <td>{{ request.company_email }}</td>
+                                    <td>
+                                        
+                                            {% if request.status == 'pending' %}
+                                                <span class="badge bg-warning">En cours</span>
+                                            {% elif request.status == 'approved' %}
+                                                <span class="badge bg-success">Approuvé</span>
+                                            {% elif request.status == 'rejected' %}
+                                                <span class="badge bg-danger">Rejeté</span>
+                                            {% endif %}
+                                        
+                                    </td>
+                                    <td class="text-end">
+                                        <a class="d-flex align-items-center gap-2 justify-content-end"
+                                            href="{% url 'licences:request_details' request.id %}"
+                                            {% comment %} 
+                                            hx-target="#modal-content"
+                                            hx-trigger="click"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#requestModal" 
+                                            {% endcomment %}
+                                            >
+                                            <i class="feather-eye"></i> 
+                                            <span class="">{% translate "Détails" %}</span>
+                                        </a>
+                                        {% comment %} <div class="dropdown">
+                                            <a href="#product-actions" data-bs-toggle="dropdown">
+                                                <i class="feather-more-vertical"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" id="product-actions">
+                                                <li>
+                                                    <a class="dropdown-item" href="#" 
+                                                       hx-get="{% url 'licences:request_details' request.id %}"
+                                                       hx-target="#modal-content"
+                                                       hx-trigger="click"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#requestModal">
+                                                        <i class="feather-eye"></i> {% translate "Détails" %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"
+                                                       hx-get="{% url 'licences:request_update' request.id %}"
+                                                       hx-target="#modal-content"
+                                                       hx-trigger="click"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#requestModal">
+                                                        <i class="feather-edit"></i> {% translate "Modifier" %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"
+                                                       hx-get="{% url 'licences:request_delete' request.id %}"
+                                                       hx-target="#modal-content"
+                                                       hx-trigger="click"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#requestModal">
+                                                        <i class="feather-trash-2"></i> {% translate "Supprimer" %}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div> {% endcomment %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <ul class="list-unstyled d-flex align-items-center gap-2 mb-0 pagination-common-style">
+                        {% if products.has_previous %}
+                            <li>
+                                <a href="j?page={{ products.previous_page_number }}"><i class="bi bi-arrow-left"></i></a>
+                            </li>
+                        {% endif %}
+                        {% for num in products.paginator.page_range %}
+                            {% if products.number == num %}
+                                <li><a href="?page={{ num }}" class="active">{{ num }}</a></li>
+                            {% elif num > products.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <li><a href="?page={{ num }}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        <!-- Lien vers la page suivante -->
+                        {% if products.has_next %}
+                            <li>
+                                <a href="?page={{ products.next_page_number }}"><i class="bi bi-arrow-right"></i></a>
+                            </li>
+                       {% comment %} {% else %}
+                            <li class="disabled"><span>Suivant &raquo;</span></li>{% endcomment %}
+                        {% endif %}
+
+                       {% comment %} <li><a href="javascript:void(0);">2</a></li>
+                        <li>
+                            <a href="javascript:void(0);"><i class="bi bi-dot"></i></a>
+                        </li>
+                        <li><a href="javascript:void(0);">8</a></li>
+                        <li><a href="javascript:void(0);">9</a></li>{% endcomment %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <div class="modal" tabindex="-1" id="new-product">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{% translate 'Ajouter un nouveau produit' %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="new-product-content">
+                    {% block form_product_content %}
+                        <form hx-post="{% url 'stores:product_create' %}" hx-target="#new-product-content"
+                              hx-swap="innerHTML" hx-encoding="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">{% translate 'Fermer' %}</button>
+                                <button type="submit" class="btn btn-primary">{% translate 'Enregistrer' %}</button>
+                            </div>
+                        </form>
+                    {% endblock %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="productModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body" id="modal-content">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

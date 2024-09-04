@@ -1,311 +1,229 @@
-{% extends 'base.html' %}
+{% extends 'layouts/comicstyle.html' %}
 {% load static %}
 {% load i18n %}
 {% block content %}
-<div class="container-fluid bg-white p-0">
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+    <!-- BANNER AREA START -->
+    <section id="banner">
+        <div id="backtotop">
+            <a href="#banner" id="backtotop-value"><i class="fa-solid fa-arrow-up"></i></a>
         </div>
-    </div>
-    <!-- Spinner End -->
-              <!-- Carousel Start -->
-        <div class="container-fluid p-0 mb-5">
-            <div class="owl-carousel header-carousel">
-                <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/p1.jpg'%}') no-repeat; width: 2000px; height: px;
-                background-size: cover; ">
-                    <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8 text-white">
-                                    <h6 class="display-2 text-danger animated slideInDown mb-4">
-                                        {% trans "La boutique des 2 Pères noël vend des produits pour toutes les saisons "%}
-                                       </h6>
-                                
+        <div class="container zindex">
+            <div class="row">
+                <div class="col-lg-6 banner-txt">
+                    <span>MPERESBONHEUR</span>
+                    <h3>La Renaissance</h3>
+                    <h3>D'une </h3>
+                    <h3 class="txt-pos">Légende !</h3>
+                    <a href="{% url 'legend_rebirth' %}" class="button-primary"><i class="fa-solid fa-eye"></i> Lire</a>
+                    {% comment %}<a class="venobox button-circular" data-autoplay="true" data-vbtype="video"
+                       href="https://www.youtube.com/watch?v=kmh1cr3b4Js"><i class="fa-solid fa-play"></i></a>{% endcomment %}
+                    {% comment %}<div class="row banner-review">
+                        <div class="col-lg-3">
+                            <img src="images/user5.png" alt="user" class="one">
+                            <img src="images/user1.png" alt="user">
+                            <img src="images/user2.png" alt="user">
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <p>(409.6K Reviews)</p>
+                        </div>
+                    </div>{% endcomment %}
+                </div>
+                <div class="col-10 col-sm-11 col-md-7 col-lg-6 banner-images">
+                    {% comment %}<img src="{% static 'theme/main/images/banner-icon.png' %}" alt="banner-icon" class="banner-icon">{% endcomment %}
+                    <img src="{% static 'img/bg.jpg' %}" alt="banner-img" class="banner-img one img-fluid">
+                    <img src="{% static 'img/p1.jpg' %}" alt="banner-img" class="banner-img two img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BANNER AREA ENDS -->
+
+    <!-- ABOUT AREA START -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <div class="col">
+                        <div class="col-lg-6 m-auto text-center">
+                            <span>Qui sommes-nous ?</span>
+                            <h3>PERES BONHEUR</h3>
+                            <p class="pt-2 pb-4">Un marketplace permettant aux vendeurs et aux acheteurs de contribuer
+                                au bonheur des familles en difficulté</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-4 my-4 align-items-center">
+                    <div class="col-lg-5 col-md-9 m-md-auto about-main">
+                        <img src="{% static 'img/bgv.jpg' %}" alt="about-img" class="img-fluid h-100">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-txt">
+                            <span>Chers vendeurs</span>
+                            {#                            <h3>.</h3>#}
+                            <p class="pt-2 pb-4">Vendre vos créations n'a jamais été aussi simple.</p>
+                            <div class="check-p">
+                                <p>
+                                    <i class="fa-solid fa-check"></i>
+                                    En vendant vos créations sur notre plateforme, vous
+                                    contribuez directement à améliorer la vie de familles en difficulté
+                                </p>
+                                <p>
+                                    <i class="fa-solid fa-check"></i>
+                                    Notre plateforme intuitive vous permet de gérer vos
+                                    ventes en quelques clics.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4 py-4 px-md-4 align-items-center">
+                    <div class="col-lg-5 col-md-6">
+                        <div class="about-txt">
+                            <span>Chers acheteurs </span>
+                            {#                            <h3>.</h3>#}
+                            <p class="pt-2 pb-4">Soutenez le talent et l'artisanat en achetant sur notre marketplace</p>
+                            <div class="check-p">
+                                <p><i class="fa-solid fa-check"></i> En achetant sur notre plateforme, vous faites plus
+                                    qu'acquérir un produit, vous participez à un projet solidaire. </p>
+                                <p><i class="fa-solid fa-check"></i> Chaque achat contribue à améliorer la vie de
+                                    familles dans le besoin.</p>
+                                {% comment %}<p><i class="fa-solid fa-check"></i> Des contes enchanteurs aux mélodies envoûtantes, en
+                                    passant par des livres inspirants, trouvez l'œuvre qui vous correspond parmi notre
+                                    vaste catalogue.</p>{% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 about-main">
+                        <img src="{% static 'img/p4.jpg' %}" alt="about-img" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT AREA ENDS -->
+    {% comment %}    		<!-- BRAND AREA START -->
+		<section id="brand">
+			<div class="container">
+                <h3 class="text-center">Nos partenaires</h3>
+				<div class="row">
+					<div class="col-lg-3">
+						<img src="{% static 'theme/main/images/brand1.png' %}" alt="brand-img" class="img-fluid">
+					</div>
+					<div class="col-lg-3">
+						<img src="{% static 'theme/main/images/brand2.png' %}" alt="brand-img" class="img-fluid">
+					</div>
+					<div class="col-lg-3">
+						<img src="{% static 'theme/main/images/brand3.png' %}" alt="brand-img" class="img-fluid">
+					</div>
+					<div class="col-lg-3">
+						<img src="{% static 'theme/main/images/brand1.png' %}" alt="brand-img" class="img-fluid">
+					</div>
+					<div class="col-lg-3">
+						<img src="{% static 'theme/main/images/brand2.png' %}" alt="brand-img" class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- BRAND AREA END -->
+{% endcomment %}
+    <!-- NEW_COMICS AREA START -->
+    <section id="">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <div class="row">
+                        <div class="col-lg-6 m-auto text-center">
+                            <span>{% trans "Découvrez" %}</span>
+                            <h3>{% trans "Nos produits" %}.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row comic-item-pos">
+                <div class="col-lg-4 col-md-8 mobile-m-auto">
+                    <div class="comic-item">
+                        <img src="{% static 'img/bg3.jpg' %}" alt="comic" class="img-fluid">
+                        <a class="veno-img" data-gall="comic1" href="{% static 'img/bg3.jpg' %}"><i
+                                class="fa-solid fa-plus"></i></a>
+                        <div class="comic-item-details">
+                            <div class="row">
+                                <div class="col-8 col-lg-8">
+                                    <h3>Nos contes</h3>
+                                    {#<p><i class="fa-solid fa-eye"></i> 250.6K Reviews</p>#}
+                                </div>
+                                <div class="col-4 col-lg-4 text-end">
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="owl-carousel-item position-relative img-fluid" style="background: url('{% static 'img/bg.jpg'%}') no-repeat; background-size: cover;">
-                    <div class="top-0 start-0 w-100 h-100 d-flex align-items-center">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8 text-white">
-                                    <h6 class="display-2 text-white animated slideInDown mb-4">
-                                        {% trans "Les 2 Pères noël vous raconte la naissance du Père noël et son évolution "%}</h6>
-                                    <p></p>
+                <div class="col-lg-4 col-md-8 mobile-m-auto">
+                    <div class="comic-item active">
+                        <img src="{% static 'img/bgm.jpg' %}" alt="comic" class="img-fluid">
+                        <a class="veno-img" data-gall="comic1" href="{% static 'img/bgm.jpg' %}"><i
+                                class="fa-solid fa-plus"></i></a>
+                        <div class="comic-item-details">
+                            <div class="row">
+                                <div class="col-8 col-lg-8">
+                                    <h3>Nos musiques</h3>
+                                    {#<p><i class="fa-solid fa-eye"></i> 168.2K Reviews</p>#}
+                                </div>
+                                <div class="col-4 col-lg-4 text-end">
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                
-            </div>
-        </div>
-        
-        <!-- Carousel End -->
-        <h1 class=" text-center wow fadeInUp my-5 mt-5" style="color: #bf8f52; padding-top: 80px;">{% trans "Nos Produits"%}</h1>
-
-        <div class="text-center mx-auto mb-5 mt-5 fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px; ">
-            <h1 class="mb-3 text-center" style="color: #bf8f52; margin-top: 60px; padding-bottom: 50px; margin-left: 200px;"> 
-                <a href="{% url 'produits_noel' %}" style="color: #cf3231; font-size: 100px;">{% trans "Noel"%}</a>
-                <span style="margin: 0 50px;">&nbsp;</span>
-                <a href="{% url 'produits_horsnoel' %}" style="color: #cf3231; font-size: 100px;">{% trans " Hors Noël"%}</a>
-            </h1>
-        </div>
-      
-     
-        
-    <!--
-        
-        <div class="container-xxl ">
-            <div class="container">
-<div class="row " style="display: flex; align-items: center; justify-content: center; height: 100vh;">   
- 
-                <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="testimonial-item  rounded p-5">
-                        <div class="col-md-4 about-img wow fadeInUp" >
-                            <div class="" style="width: 25rem; height: 30rem;">
-                             <a href="{% url 'boutique' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
-                              src="{% static 'img/livre.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
-                              <div class="card-body">
-                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">{% trans "Contes"%}</h1>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="testimonial-item  rounded p-5">
-                        <div class="col-md-4 about-img wow fadeInUp">
-                            <div class="" style="width: 25rem; height: 30rem;">
-                             <a href="{% url 'boutique' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 100%; transition: transform 0.5s ease-in-out;" 
-                              src="{% static 'img/music.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
-                              <div class="card-body">
-                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">{% trans "Musiques"%}</h1>
-                              </div>
-                            </div>
-                          </div> 
-                    </div>
-                    <div class="testimonial-item  rounded p-5">
-                        <div class="col-md-4 about-img wow fadeInUp">
-                            <div class="" style="width: 25rem; height: 30rem;">
-                             <a href="{% url 'gallerie' %}"> <img class="rounded-circle shadow p-3 mb-5 bg-body" style="width: 400px; height: 250px; transition: transform 0.5s ease-in-out;" 
-                              src="{% static 'img/jeu.jpg'%}" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"></a>
-                              <div class="card-body">
-                                <h1 class="card-title mb-4 text-center wow fadeInUp" style="color: #bf8f52;">{% trans "Images"%}</h1>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-</div>
-            </div>
-        </div>
-
--->        
-    
-       
-            
-
-
-    
-
-
-     <!-- Call To Action Start -->
-      <div class=" owl-carousel header-carousel ">
-       
-                <div class="row container-fluid col-lg-12  p-0 mb-5 owl-carousel 
-                position-relative"  
-                style="background-color: #bf8f52; margin-left: 0.2%;">
-                <h1 class="display-2 animated slideInDown mt-5  text-center " style="color: lavender;" >{% trans "Nouveautés sur les2Pèresnoël"%}</h1>
-            <div class="col-lg-4 col-md-6 col-sm-4 wow fadeIn" data-wow-delay="0.1s" >
-                <div class="classes-item" >
-                    <div class="my-5 mb-2" >
-                       <a href="{% url 'boutique' %}"> <img class="img-fluid rounded" src="{% static 'img/imgetoile.jpg'%}" alt=""></a>
-                       <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Pochette album"%}</a>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="classes-item">
-                        <div class="my-5 mb-2">
-                           <a href="#"> <img class="img-fluid rounded" style="width: 500px; height: 600px;" src="{% static 'img/shirt.png'%}" alt=""></a>
-                           <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Tee-shirt personnalis"%}</a>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="classes-item">
-                            <div class="my-5 mb-2">
-                               <a href="#"> <img class="img-fluid rounded" src="{% static 'img/bath.jpg'%}" alt=""></a>
-                               <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: lavender;">{% trans "Serviette de bain personnalisée"%}</a>
-                            </div>
+                <div class="col-lg-4 col-md-8 mobile-m-auto">
+                    <div class="comic-item">
+                        <img src="{% static 'img/g5.jpg' %}" alt="comic" class="img-fluid">
+                        <a class="veno-img" data-gall="comic1" href="{% static 'img/g5.jpg' %}"><i
+                                class="fa-solid fa-plus"></i></a>
+                        <div class="comic-item-details">
+                            <div class="row">
+                                <div class="col-8 col-lg-8">
+                                    <h3>Nos nouveautés</h3>
+                                    {#										<p><i class="fa-solid fa-eye"></i> 124.7K Reviews</p>#}
+                                </div>
+                                <div class="col-4 col-lg-4 text-end">
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
-        </div>
-    </div>
-       
-     <!-- Call To Action End -->
-
-
- <!-- Call To Action Start -->
- <div class="container-xxl py-5">
-    <div class="container wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="mb-3 text-center " style="color: #bf8f52;">{% trans "Contes"%}</h1>
-        <div class="bg-light rounded">
-            <div class="row g-0">
-            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 770px;">
-                    <div class="position-relative h-100">
-                      <a href="{% url 'boutique' %}">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/imgconte.jpg'%}" style="object-fit: cover;"></a>
                     </div>
                 </div>
-               
             </div>
         </div>
-    </div>
-</div>
-<!-- Call To Action End -->
-
-
-<!--div class="container-xxl py-5">
-    <div class="container wow fadeInUp">
-      <div class=" rounded wow fadeInUp " data-wow-delay="0.1s">
-            <div class="row g-1">
-              <div class="col-lg-6 wow fadeUp rounded" data-wow-delay="0.1s" style="min-height: 400px;">
-                    {% for video in random_video %}
-                    <h1 class="mb-3 text-center "> <a href="{% url 'video_detail' video.id %}" style="color: #bf8f52;" >{% trans " Videos "%}</a></h1>
-                        <a href="{% url 'video_detail' video.id %}">
-                            <div class="position-relative h-100">
-                                <video class="w-60 h-60 container rounded" src="{{ video.file.url }}" controls  muted>
-                                </video>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                
-
-                 <div class="col-lg-6 wow fadeUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                    {% for musik in random_musik %}
-                    <h1 class="mb-3 text-center" style="color: #bf8f52;">{% trans " Musiques" %} </h1>
-                    <div class="position-relative h-100">
-                        {% if musik.cover_image %}
-                        <a href="{% url 'musique_detail' musik_id=musik.id %}"> 
-                            <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture">
-                            <div class="audio-overlay">
-                                <audio controls style="width: 100%;">
-                                    <source src="{{ musik.file.url }}" type="audio/mp3">
-                                    Télécharger
-                                </audio>
-                            </div>
-                        </a>
-                        {% endif %}
-                        
-                    </div>
-                    {% endfor %}
-                </div> 
-                
-            </div>
-        </div>
-    </div>
-</div-->
-
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3 text-center" style="color: #bf8f52;">{% trans "Musiques "%}</h1>
-        </div>
-        <div class="row g-4">
-            {% for musik in random_musik %}
-          <div class="col-lg-6 col-md-8 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="classes-item">
-                    <div class="bg-light">
-                        {% if musik.cover_image %}
-                        <a href="{% url 'musique_detail' musik_id=musik.id %}"> <img class="img-fluid rounded" src="{{ musik.cover_image.url }}" alt="Photo de couverture"></a>
-                        {% endif %}
-                        <div class="audio-overlay">
-                            <audio controls style="width: 100%;">
-                                <source src="{{ musik.file.url }}" type="audio/mp3">
-                                Télécharger
-                            </audio>
-                        </div> 
-                    </div>
-                   
+    </section>
+    <section class="my-4">
+        <div class="section-title">
+            <div class="col">
+                <div class="col-lg-6 m-auto text-center">
+                    <span>Le grand sage </span>
+                    <h3>CÈDE SA PLACE</h3>
+                    <p class="pt-2 pb-4">mais supervise.</p>
                 </div>
             </div>
-            {% endfor %}
-            </div>
-        </div>
-    </div>
-
-
-  <!-- Classes Start -->
-  <div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3 text-center" style="color: #bf8f52;">{% trans "Livres"%}</h1>
-        </div>
-        <div class="row g-4">
-            {% for book in random_books %}
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-           
-                <div class="classes-item">
-                   
-                    <div class="bg-light">
-                        
-                       <a href="{% url 'livre_detail' livre_id=book.id %}"> <img class="img-fluid rounded" src="{{ book.file.url }}" alt=""></a>
-                      
-                    </div>
-                    <div class="bg-light rounded">
-                        <a class="d-block text-center h3 mt-3 mb-4" href="" style="color: #bf8f52;">{{ book.nom }}</a>
-                        
-                       </div>
-                       
+            <div class="col">
+                <div class="col-lg-5 col-md-9 m-md-auto about-main">
+                    <img src="{% static 'img/h1.jpg' %}" alt="about-img" class="img-fluid h-100">
                 </div>
-               
             </div>
-            {% endfor %}
-               
-            </div>
-        </div>
-    </div>
-
-<!-- Classes End -->
-
-
-<!-- ---------------------------------Call To Action Start -->
-<div class="container-xxl py-5">
-    <div class="container wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="mb-3 text-center " style="color: #bf8f52;">{% trans "Boutique"%}</h1>
-        <div class="bg-light rounded">
-            <div class="row g-0">
-            <div class="col-lg-12 " data-wow-delay="0.1s" style="min-height: 500px;">
-                    <div class="position-relative h-100">
-                      <a href="{% url 'boutique' %}">  <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/angb.jpg'%}" style="object-fit: cover;"></a>
-                    </div>
+            <div class="col my-4">
+                <div class="col-lg-6 m-auto text-center">
+                    <a href="{% url 'sage' %}" class="button-primary"><i class="fa-solid fa-eye"></i> Lire</a>
                 </div>
-               
             </div>
         </div>
-    </div>
-</div>
-<!-- Call To Action End -->
+    </section>
 
-   
-
-
-    
-
-
-   
-
-
-    
-     
-
-    
-      {% endblock content %} 
+{% endblock content %}

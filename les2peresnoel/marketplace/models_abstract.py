@@ -3,12 +3,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Detail(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, verbose_name=_("Nom"))
     description = models.TextField(verbose_name=_("Description"), blank=True, null=True)
 
     class Meta:
         abstract = True
-
-
-class SoftDeletable(models.Model):
-    is_removed = models.BooleanField(default=False, editable=False)

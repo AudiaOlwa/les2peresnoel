@@ -1,0 +1,138 @@
+{% extends 'layouts/admin.html' %}
+{% load crispy_forms_filters %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <div class="page-header-left d-flex align-items-center">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">{% translate 'Détails de la requête' %}</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a
+                                href="{% url 'licences:list_requests' %}">{% translate 'Liste' %}</a></li>
+                        <li class="breadcrumb-item">{{ licence.company_name }}</li>
+                    </ul>
+                </div>
+                <div class="page-header-right ms-auto">
+                    <div class="page-header-right-items">
+                        {% if licence.status == 'pending' and request.user.is_superuser %}
+                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                            <a class="btn btn-md btn-primary"
+                                href="#accept-request"
+                                data-bs-toggle="modal"
+                            >
+                                <i class="feather-check me-2"></i>
+                                <span>{% translate "Accepter" %}</span>
+                            </a>
+                            <a class="btn btn-md btn-secondary"
+                                href="#reject-request"
+                                data-bs-toggle="modal"
+                            >
+                                <i class="feather-trash me-2"></i>
+                                <span>{% translate "Rejeter" %}</span>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-4 container">
+        <div class="col-xxl-12 card">
+            <div class="card-body">
+                <div class="row my-4 justify-content-start">
+                    <img src="{{ licence.company_logo.url }}" height="75" width="75" alt="{{ licence.company_name }}" class="img img-thumbnail" style="height: 200px;width: 200px;">
+                </div>
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Nom de l'entreprise" %}</span>
+                    <span>{{ licence.company_name }}</span>
+                </div>
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Adresse de l'entreprise" %}</span>
+                    <span>{{ licence.company_address }}</span>
+                </div>
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Téléphone de l'entreprise" %}</span>
+                    <span>{{ licence.company_phone }}</span>
+                </div>
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Email de l'entreprise" %}</span>
+                    <span>{{ licence.company_email }}</span>
+                </div>
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Site web de l'entreprise" %}</span>
+                    <span>{{ licence.company_website }}</span>
+                </div>
+                
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Pays de l'entreprise" %}</span>
+                    <span>{{ licence.company_country.name }}</span>
+                </div>
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Numéro d'identification fiscale de l'entreprise" %}</span>
+                    <span>{{ licence.company_id_number }}</span>
+                </div>
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Description de l'entreprise" %}</span>
+                    <span>{{ licence.company_description }}</span>
+                </div>
+                <div class="row my-4">
+                    <span class="fw-bold">{% translate "Message à l'attention de MPERESBONHEUR" %}</span>
+                <span>{{ licence.message }}</span>
+            </div> 
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <div class="modal" tabindex="-1" id="accept-request">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{% translate 'Accepter la requête de licence' %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="accept-request-content">
+                    <form action="{% url 'licences:request_accept' licence.pk %}" method="post">
+                        {% csrf_token %}
+                        <p>{% translate "Voulez-vous vraiment accepter cette requête ?" %}</p>
+                        {% comment %} {{ form|crispy }} {% endcomment %}
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">{% translate 'Non, Fermer' %}</button>
+                            <button type="submit" class="btn btn-primary">{% translate 'Oui, accepter !' %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="reject-request">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{% translate 'Rejeter la requête de licence' %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="reject-request-content">
+                    <form action="{% url 'licences:request_reject' licence.pk %}" method="post">
+                        {% csrf_token %}
+                        <p>{% translate "Voulez-vous vraiment rejeter cette requête ?" %}</p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% translate 'Non, Fermer' %}</button>
+                            <button type="submit" class="btn btn-primary">{% translate 'Oui, rejeter !' %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

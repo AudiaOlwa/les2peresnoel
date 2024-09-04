@@ -1,0 +1,45 @@
+{% extends "layouts/marketplace.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block extra_styles %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.6/build/css/intlTelInput.css">
+{% endblock extra_styles %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5 mb-2">
+        <div class="col-12 mt-5">
+            <h1> {% translate "Demande de licence" %} </h1>
+            <p> {% translate "Veuillez remplir le formulaire ci-dessous pour demander une licence de vente." %} </p>
+        </div>
+    </div>
+    <div class="row mt-2 mb-5">
+        <div class="col-10 col-md-6 mb-5">
+            {% block licences_request_form %}
+            <form hx-post="{% url 'licences:request_create' %}" hx-encoding="multipart/form-data" hx-swap="outerHTML" hx-trigger="submit">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary col-10 col-sm-8 col-md-6 col-lg-4"> {% translate "Soumettre" %} </button>
+                </div>
+            </form>
+            {% endblock licences_request_form %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.6/build/js/intlTelInput.min.js"></script>
+<script>
+  const input = document.querySelector("#id_company_phone");
+  window.intlTelInput(input, {
+    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.6/build/js/utils.js",
+  });
+  const div_id_company_phone = document.getElementById("div_id_company_phone");
+  div_id_company_phone.classList.add("d-flex", "flex-column");
+  const elements = document.querySelectorAll("[id^='div_id']");
+  elements.forEach(element => {
+    element.classList.add("my-4");
+  });
+</script>
+{% endblock extra_scripts %}

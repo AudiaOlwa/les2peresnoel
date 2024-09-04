@@ -1,0 +1,168 @@
+{% extends "layouts/marketplace.html" %}
+{% load i18n %}
+
+{% block content %}
+      <div class="d-none d-lg-block bg-secondary position-fixed top-0 start-0 h-100" style="width: 52.5%;"></div>
+
+      <form class="needs-validation container position-relative z-2 pt-5 pb-lg-5 pb-md-4 pb-2" novalidate action="{% url "marketplace:checkout" %}" method=post>
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card rounded-1 pb-2 pt-md-2 my-4 mt-lg-5">
+                <div class="card-header">
+                    {% translate " Méthodes de paiment" %}
+                </div>
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-12 d-flex flex-row">
+                            <a hx-get="{% url 'payments:credit_card' %}" hx-target="#init-payment-details" hx-swap="innerHTML" class="btn btn-sm btn-secondary rounded-1 mx-2 py-1">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
+                                    <path fill="#1565C0" d="M45,35c0,2.209-1.791,4-4,4H7c-2.209,0-4-1.791-4-4V13c0-2.209,1.791-4,4-4h34c2.209,0,4,1.791,4,4V35z"></path><path fill="#FFF" d="M15.186 19l-2.626 7.832c0 0-.667-3.313-.733-3.729-1.495-3.411-3.701-3.221-3.701-3.221L10.726 30v-.002h3.161L18.258 19H15.186zM17.689 30L20.56 30 22.296 19 19.389 19zM38.008 19h-3.021l-4.71 11h2.852l.588-1.571h3.596L37.619 30h2.613L38.008 19zM34.513 26.328l1.563-4.157.818 4.157H34.513zM26.369 22.206c0-.606.498-1.057 1.926-1.057.928 0 1.991.674 1.991.674l.466-2.309c0 0-1.358-.515-2.691-.515-3.019 0-4.576 1.444-4.576 3.272 0 3.306 3.979 2.853 3.979 4.551 0 .291-.231.964-1.888.964-1.662 0-2.759-.609-2.759-.609l-.495 2.216c0 0 1.063.606 3.117.606 2.059 0 4.915-1.54 4.915-3.752C30.354 23.586 26.369 23.394 26.369 22.206z"></path><path fill="#FFC107" d="M12.212,24.945l-0.966-4.748c0,0-0.437-1.029-1.573-1.029c-1.136,0-4.44,0-4.44,0S10.894,20.84,12.212,24.945z"></path>
+                                    </svg>
+                                </span>
+                                <span>
+                                    {% translate "Carte de Crédit" %}
+                                </span>
+                            </a>
+                            <a hx-get="{% url "payments:paypal" order.pk %}" hx-target="#init-payment-details" hx-swap="innerHTML" class="btn btn-sm btn-secondary rounded-1 mx-2 py-1">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
+                                    <path fill="#1565C0" d="M18.7,13.767l0.005,0.002C18.809,13.326,19.187,13,19.66,13h13.472c0.017,0,0.034-0.007,0.051-0.006C32.896,8.215,28.887,6,25.35,6H11.878c-0.474,0-0.852,0.335-0.955,0.777l-0.005-0.002L5.029,33.813l0.013,0.001c-0.014,0.064-0.039,0.125-0.039,0.194c0,0.553,0.447,0.991,1,0.991h8.071L18.7,13.767z"></path><path fill="#039BE5" d="M33.183,12.994c0.053,0.876-0.005,1.829-0.229,2.882c-1.281,5.995-5.912,9.115-11.635,9.115c0,0-3.47,0-4.313,0c-0.521,0-0.767,0.306-0.88,0.54l-1.74,8.049l-0.305,1.429h-0.006l-1.263,5.796l0.013,0.001c-0.014,0.064-0.039,0.125-0.039,0.194c0,0.553,0.447,1,1,1h7.333l0.013-0.01c0.472-0.007,0.847-0.344,0.945-0.788l0.018-0.015l1.812-8.416c0,0,0.126-0.803,0.97-0.803s4.178,0,4.178,0c5.723,0,10.401-3.106,11.683-9.102C42.18,16.106,37.358,13.019,33.183,12.994z"></path><path fill="#283593" d="M19.66,13c-0.474,0-0.852,0.326-0.955,0.769L18.7,13.767l-2.575,11.765c0.113-0.234,0.359-0.54,0.88-0.54c0.844,0,4.235,0,4.235,0c5.723,0,10.432-3.12,11.713-9.115c0.225-1.053,0.282-2.006,0.229-2.882C33.166,12.993,33.148,13,33.132,13H19.66z"></path>
+                                    </svg>
+                                </span>
+                                <span>
+                                    PayPal
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-12">
+                            <div id="init-payment-details">
+                                {% block init_payment %}
+                                <div class="row my-4">
+                                    <div class="col">
+                                        <label for="id_card_holder_name" class="form-label">
+                                            {% translate "Nom du titulaire de la carte" %}
+                                        </label>
+                                        <input type="text" name="card_holder_name" class="form-control" id="id_card_holder_name">
+                                    </div>
+                                </div>
+                                <div class="row my-4">
+                                    <div class="col">
+                                        <label for="id_card_number" class="form-label">
+                                            {% translate "Numéro de carte" %}
+                                        </label>
+                                        <input type="text" class="form-control" name="card_number" id="id_card_number">
+                                    </div>
+                                </div>
+                                <div class="row my-4">
+                                    <div class="col">
+                                        <label for="id_expiry_date" class="form-label">
+                                            {% translate "Date d'expiration" %}
+                                        </label>
+                                        <input type="text" class="form-control" name="expiry_date" id="id_expiry_date" maxlength="5" placeholder="MM/YY">
+                                        <span id="error-message" style="color: red; display: none;">Date invalide</span>
+                                    </div>
+                                    <div class="col">
+                                        <label for="id_card_ccv" class="form-label">
+                                            {% translate "CCV" %}
+                                        </label>
+                                        <input type="text" class="form-control" name="card_ccv" id="id_card_ccv" maxlength="3" size="3" placeholder="123">
+                                        
+                                    </div>
+                                </div>
+                                {% endblock init_payment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <!-- Order summary -->
+          <div class="col-lg-5 offset-lg-1 pt-1" id="checkout">
+                <h2 class="pb-2 pt-md-2 my-4 mt-lg-5">
+                {% translate "Résumé de la commande" %}
+                </h2>
+                
+                <ul class="list-unstyled py-3 mb-0">
+                <li class="d-flex justify-content-between mb-2">
+                    {% translate "Total H.T" %} :<span class="fw-semibold ms-2">{{order.total_ht}} €</span>
+                </li>
+                <li class="d-flex justify-content-between mb-2">
+                    {% translate "Total TVA" %} (18%):<span class="fw-semibold ms-2">{{order.total_tva}} €</span>
+                </li>
+                </ul>
+                <div class="d-flex align-items-center justify-content-between border-top fs-xl pt-4">
+                {% translate "Total T.T.C" %} :<span class="fs-3 fw-semibold text-dark ms-2">{{order.total_ttc}} €</span>
+                </div>
+                {% comment %} <div>
+                    <span><a href="#" class="btn btn-primary">{% translate "Initier le paiement" %}</a></span>
+                </div> {% endcomment %}
+          </div>
+
+        </div>
+
+        <!-- Place an order button visible on screens < 992px -->
+        {% comment %} <div class="d-lg-none pb-2 mt-2 mt-lg-0 pt-4 pt-lg-5">
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" checked id="save-info2">
+            <label class="form-check-label" for="save-info2">
+                <span class="text-body-secondary"> 
+                    {% translate "Vos informations personnelles seront utilisés pour traiter votre commande, pour améliorer votre expérience sur MPERESBONHEUR et pour vos futures commandes. Veuillez vous référer à notre politique de confideentialité, pour plus détails..." %}
+                  </span>
+              </label>
+          </div>
+          <button class="btn btn-lg btn-primary w-100 w-sm-auto" type="submit">{% translate "Valider votre commande" %}</button>
+        </div> {% endcomment %}
+      </form>
+
+      <script>
+        document.getElementById('id_expiry_date').addEventListener('input', function(e) {
+            let input = e.target.value;
+
+            // Ajouter automatiquement la barre oblique après deux chiffres pour le mois
+            if (input.length === 2 && !input.includes('/')) {
+                e.target.value = input + '/';
+            }
+        });
+
+        document.getElementById('id_expiry_date').addEventListener('blur', function(e) {
+            let input = e.target.value;
+            let [month, year] = input.split('/');
+
+            // Validation du mois
+            if (month < 1 || month > 12) {
+                showError('Le mois doit être compris entre 01 et 12.');
+                return;
+            }
+
+            // Validation de l'année
+            if (year && year.length === 2) {
+                let currentYear = new Date().getFullYear() % 100; // Obtenir les deux derniers chiffres de l'année en cours
+                if (year < currentYear) {
+                    showError("L'année ne peut pas être dans le passé.");
+                    return;
+                }
+            } else {
+                showError('Veuillez entrer une année valide au format YY.');
+                return;
+            }
+
+            hideError(); // Masquer le message d'erreur si tout est correct
+        });
+
+        function showError(message) {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.innerText = message;
+            errorMessage.style.display = 'inline';
+        }
+
+        function hideError() {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'none';
+        }
+      </script>
+{% endblock content %}

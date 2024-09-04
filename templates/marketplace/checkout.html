@@ -1,0 +1,201 @@
+{% extends "layouts/marketplace.html" %}
+{% load i18n %}
+
+{% block content %}
+      <div class="d-none d-lg-block bg-secondary position-fixed top-0 start-0 h-100" style="width: 52.5%;"></div>
+
+      <form class="needs-validation container position-relative z-2 pt-5 pb-lg-5 pb-md-4 pb-2" novalidate action="{% url "marketplace:checkout" %}" method=post>
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+              <ol class="mt-5 pt-lg-3 pb-md-1 pb-lg-3 breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'marketplace:home' %}"> {% translate "Accueil" %} </a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="{% url 'marketplace:home' %}"> {% translate "Marketplace" %} </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page"> {% translate "Commande" %} </li>
+              </ol>
+            </nav>
+            <h1 class="h2 pb-3"> {% translate "Commande / Checkout" %} </h1>
+            <h3 class="fs-base fw-normal text-body text-uppercase pb-2 pb-sm-3">
+              <span class="ms-1"> {% translate "Détails de la Commande" %} </span>
+            </h3>
+            <div class="row g-4 pb-4 pb-md-5 mb-3 mb-md-1">
+              <div class="col-sm-6">
+                <label class="form-label fs-base" for="c-fn"> {% translate "Nom" %} </label>
+                <input class="form-control form-control-lg" name="last_name" type="text" placeholder=" {% translate "Entrez votre nom" %} " required id="c-fn">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label fs-base" for="c-ln">{% translate "Prénom(s)" %}</label>
+                <input class="form-control form-control-lg" name="first_name" type="text" placeholder=" {% translate "Entrez vos prénoms" %} " required id="c-ln">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label fs-base" for="c-email">{% translate "Adresse E-mail" %}</label>
+                <div class="position-relative"><i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                  <input class="form-control form-control-lg ps-5" name="email" type="email" placeholder="{% translate "Entrez votre adresse e-mail" %}" required id="c-email">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label fs-base" for="c-phone">{% translate "Numéro de téléphone" %}</label>
+                <div class="position-relative"><i class="ai-phone fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                  <input class="form-control form-control-lg ps-5"  name="phone_number" type="tel" data-format='{"numericOnly": true, "delimiters": ["+1 ", " ", " "], "blocks": [0, 3, 3, 2]}' placeholder="+1 ___ ___ __" required id="c-phone">
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label fs-base" for="c-country">{% translate "Pays" %}</label>
+                <select class="form-select form-select-lg" name="country" required id="c-country">
+                  <option value="" selected disabled>{% translate "Choisissez le pays de livraison" %}</option>
+                  <option value="Australia">Australie</option>
+                  <option value="Belgium">Belgque</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Denmark">France</option>
+                  <option value="USA">USA</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label fs-base" for="c-city">{% translate "Ville" %}</label>
+                <select class="form-select form-select-lg" name="city" required id="c-city">
+                  <option value="" selected disabled>{% translate "Sélectionner une ville" %}</option>
+                  <option value="Sydney">Sydney</option>
+                  <option value="Brussels">Brussels</option>
+                  <option value="Toronto">Toronto</option>
+                  <option value="Copenhagen">Copenhagen</option>
+                  <option value="New York">New York</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label fs-base" for="c-zip">{% translate "Code Postal" %}</label>
+                <input class="form-control form-control-lg"  name="zip_code" type="text" data-format='{"delimiter": "-", "blocks": [3, 4], "uppercase": true}' placeholder="XXX-XXXX" required id="c-zip">
+              </div>
+              <div class="col-12">
+                <label class="form-label fs-base" for="c-address">{% translate "Adresse de facturation" %}</label>
+                <input class="form-control form-control-lg" name="address" type="text" required id="c-address">
+              </div>
+              <div class="col-12">
+                <label class="form-label fs-base" for="c-notes">{% translate "Notes sur la commande" %} <span class="text-body-secondary">({% translate "Optionnel" %})</span></label>
+                <textarea class="form-control form-control-lg" name="order_notes" rows="5" id="c-notes"></textarea>
+              </div>
+              <div class="col-12" id="id_shipping_adress">
+              {% block shipping_adress %}
+                <label class="form-label fs-base" for="c-address">{% translate "Adresse de livraison" %}</label>
+                <input class="form-control form-control-lg" name="shipping_adress" type="text" required id="c-shipping-address">
+              {% endblock shipping_adress %}
+              </div>
+            </div>
+            <h3 class="fs-base fw-normal text-body text-uppercase mt-n4 mt-md-n3 pt-5 pb-2 pb-sm-3">
+              <span class="ms-1">{% translate "Méthode de paiement" %}</span>
+            </h3>
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="radio" value="card" name="payment_method" checked id="card">
+              <label class="form-check-label" for="card">
+                <span>
+                  <span class="d-block fs-base text-dark fw-medium mb-1">{% translate "Carte crédit" %}</span>
+                  <span class="text-body">Nous acceptons, Mastercard, Visa</span>
+                </span>
+              </label>
+            </div>
+            <div class="form-check mb-4">
+              <input class="form-check-input" value="paypal" type="radio" name="payment_method" id="paypal">
+              <label class="form-check-label" for="paypal">
+                <span>
+                  <span class="d-block fs-base text-dark fw-medium mb-1">{% translate "Paypal" %}</span>
+                  <span class="text-body">{% translate "Payez avec Paypal" %}</span>
+                </span>
+              </label>
+            </div>
+            <!-- Place an order button visible on screens > 991px -->
+            <div class="d-none d-lg-block pt-5 mt-n3">
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" required id="save-info">
+                <label class="form-check-label" for="save-info">
+                  <span class="text-body-secondary"> 
+                    {% translate "Vos informations personnelles seront utilisés pour traiter votre commande, pour améliorer votre expérience sur MPERESBONHEUR et pour vos futures commandes. Veuillez vous référer à notre politique de confideentialité, pour plus détails..." %}
+                  </span>
+                </label>
+              </div>
+              <button class="btn btn-lg btn-primary" type="submit">{% translate "Valider votre commande" %}</button>
+            </div>
+          </div>
+
+          <!-- Order summary -->
+          <div class="col-lg-5 offset-lg-1 pt-1" id="checkout" hx-target="this" hx-trigger="checkout_cart" hx-post="{% url "marketplace:update_checkout" %}" hx-swap="innerHTML">
+            {% block checkout_summary %}
+            <h2 class="pb-2 pt-md-2 my-4 mt-lg-5">
+              Récapitulatif de la commande <br> <span class="fs-base fw-normal text-body-secondary">({{cart.count}} {% translate "produits" %})</span>
+            </h2>
+            {% for item in cart %}
+                <div class="d-sm-flex align-items-center {{ forloop.first|yesno:",border-top pt-4" }} pb-4"
+                     id="cart-content"
+                     hx-get="{% url 'marketplace:update_cart_count' %}" hx-target="#cart-count">
+                    <a
+                            class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-md-3 mb-2 mb-sm-0"
+                            href="{{ item.product.get_absolute_url }}"><img src="{{ item.product.image.url }}"
+                                                                            width="110"
+                                                                            alt="Product"></a>
+                    <div class="w-100 pt-1 ps-sm-4">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <h3 class="h5 mb-2">
+                                    <a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                                </h3>
+                                <div class="d-sm-flex flex-wrap my-4">
+                                    <div class="text-body-secondary fs-sm me-3">
+                                        {% translate "Quantité" %} : <span class="text-dark fw-medium"> {{ item.quantity }}</span>
+                                    </div>
+                                </div>
+                                <div class="d-sm-flex flex-wrap">
+                                    <div class="text-body-secondary fs-sm me-3">
+                                        {% translate "Catégories" %} : <span class="text-dark fw-medium">
+                                            {% for cat in item.product.category.all %}
+                                            <span>{{ cat }} {{ forloop.last|yesno:', - ' }}</span>
+                                            {% endfor %}
+                                        </span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="text-end ms-auto">
+                                <div class="fs-5 mb-2">{{ item.subtotal|floatformat:2 }} €</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <ul class="list-unstyled py-3 mb-0">
+              <li class="d-flex justify-content-between mb-2">
+                {% translate "Total H.T" %}:<span class="fw-semibold ms-2">{{cart.total|floatformat:2}} €</span>
+              </li>
+              {% comment %} <li class="d-flex justify-content-between mb-2">
+                {% translate "Frais de livraison" %}:<span class="fw-semibold ms-2">{{shipping_fees}} €</span>
+              </li> {% endcomment %}
+            </ul>
+            <div class="d-flex align-items-center justify-content-between border-top fs-xl pt-4">
+              {% translate "Total T.T.C" %} (TVA 18%) :<span class="fs-3 fw-semibold text-dark ms-2">{{total_amount|floatformat:2}} €</span>
+            </div>
+            {% endblock checkout_summary %}
+          </div>
+        </div>
+
+        <!-- Place an order button visible on screens < 992px -->
+        <div class="d-lg-none pb-2 mt-2 mt-lg-0 pt-4 pt-lg-5">
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" checked id="save-info2">
+            <label class="form-check-label" for="save-info2">
+                <span class="text-body-secondary"> 
+                    {% translate "Vos informations personnelles seront utilisés pour traiter votre commande, pour améliorer votre expérience sur MPERESBONHEUR et pour vos futures commandes. Veuillez vous référer à notre politique de confideentialité, pour plus détails..." %}
+                  </span>
+              </label>
+          </div>
+          <button class="btn btn-lg btn-primary w-100 w-sm-auto" type="submit">{% translate "Valider votre commande" %}</button>
+        </div>
+      </form>
+
+      <script>
+        document.addEventListener('htmx:update_checkout', function(){
+            console.log("update_checkout")
+        })
+      </script>
+{% endblock content %}
