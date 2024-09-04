@@ -8,32 +8,15 @@
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">{% translate 'Commandes' %}</h5>
+                        <h5 class="m-b-10">{% translate 'Paiements' %}</h5>
                     </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a
-                                href="{% url 'marketplace:order_list' %}">{% translate 'Liste' %}</a></li>
-                        <li class="breadcrumb-item">{% translate 'Toutes les commandes' %}</li>
-                    </ul>
+                    {% comment %} <ul class="breadcrumb">
+                        <li class="breadcrumb-item">{% translate 'Tout les paiments' %}</li>
+                    </ul> {% endcomment %}
                 </div>
                 <div class="page-header-right ms-auto">
                     <div class="page-header-right-items">
-                        {% comment %}
-                        <div class="d-flex d-md-none">
-                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                                <i class="feather-arrow-left me-2"></i>
-                                <span>Back</span>
-                            </a>
-                        </div>
-                        {% endcomment %}
                     </div>
-                    {% comment %}
-                    <div class="d-md-none d-flex align-items-center">
-                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                            <i class="feather-align-right fs-20"></i>
-                        </a>
-                    </div>
-                    {% endcomment %}
                 </div>
             </div>
         </div>
@@ -42,21 +25,8 @@
         <div class="col-xxl-12">
             <div class="card stretch stretch-full">
                 <div class="card-header">
-                    {% comment %} <h5 class="card-title">{% trans "Mes requêtes de licences" %}</h5> {% endcomment %}
                     <div class="card-header-action">
                         <div class="card-header-btn">
-                            {% comment %}<div data-bs-toggle="tooltip" title="" data-bs-original-title="Delete">
-                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger"
-                                   data-bs-toggle="remove"> </a>
-                            </div>{% endcomment %}
-                            {% comment %} <div data-bs-toggle="tooltip" title="" data-bs-original-title="Refresh">
-                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning"
-                                   data-bs-toggle="{% translate "Rafraichir" %}"> </a>
-                            </div>
-                            <div data-bs-toggle="tooltip" title="" data-bs-original-title="Maximize/Minimize">
-                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success"
-                                   data-bs-toggle="{% translate "Étendre" %}"> </a>
-                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -66,20 +36,20 @@
                             <thead>
                             <tr class="border-b">
                                 <th scope="row">{% translate "Client" %}</th>
-                                <th>{% translate "Email" %}</th>
-                                <th>{% translate "Total TTC" %}</th>
+                                <th scope="row">{% translate "Adresse E-mail" %}</th>
+                                <th>{% translate "Commande" %}</th>
+                                <th>{% translate "Montant" %}</th>
                                 <th>{% translate "Date" %}</th>
-                                <th class="text-end">{% translate "Détails" %}</th>
+                                <th>{% translate "Moyen de paiement" %}</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for order in orders %}
+                            {% for payment in payments %}
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center gap-3">
-                                            
                                             <a href="#">
-                                                <span class="d-block">{{ order.get_full_name }}</span>
+                                                <span class="d-block">{{ payment.order.get_full_name }}</span>
                                             </a>
                                         </div>
                                     </td>
@@ -87,22 +57,13 @@
                                         <span class="badge bg-gray-200 text-dark"><a href="mailto:{{ order.email }}">{{ order.email }}</a></span>
                                     </td>
                                     <td>
-                                        <span class="text-dark">{{ order.total_ttc }}</span>
+                                        <span class="text-dark">{{ payment.order.id }}</span>
                                     </td>
-                                    <td>{{ order.created }}</td>
-                                    <td class="text-end">
-                                        <a class="d-flex align-items-center gap-2 justify-content-end"
-                                            href="#order-detail"
-                                            hx-get="{% url 'marketplace:order_detail' order.id %}"
-                                            hx-target="#order-detail-content"
-                                            hx-trigger="click"
-                                            hx-swap="outerHTML"
-                                            data-bs-toggle="modal"
-                                            >
-                                            <i class="feather-eye"></i> 
-                                            <span class="">{% translate "Détails" %}</span>
-                                        </a>
+                                    <td>
+                                        <span class="text-dark">{{ payment.amount }}</span>
                                     </td>
+                                    <td>{{ payment.created }}</td>
+                                    <td>{{ payment.order.payment_method }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>

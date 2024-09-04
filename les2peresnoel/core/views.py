@@ -1,7 +1,9 @@
-from django.conf import settings
 import random
 
-from django.shortcuts import get_object_or_404, render, redirect
+import sweetify
+from django.conf import settings
+from django.contrib.auth import logout
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
@@ -212,11 +214,11 @@ def notify_user(email, subject, message, template="notification"):
 
 def send_order_confirmation_email(order):
     message = EmailMessage(
-        'emails/order_registered.tpl',
+        "emails/order_registered.tpl",
         {
-            'first_name': order.first_name,
-            'tracking_number': order.tracking_number,
-            'logo_url': '/static/logos/mbph.png',  # Ajoutez l'URL de votre logo ici
+            "first_name": order.first_name,
+            "tracking_number": order.tracking_number,
+            "logo_url": "/static/logos/mbph.png",  # Ajoutez l'URL de votre logo ici
         },
         settings.FROM_EMAIL,
         [order.email],
@@ -227,3 +229,9 @@ def send_order_confirmation_email(order):
 def login(request, *args, **kwargs):
     # breakpoint()
     return redirect(reverse("account_login"), *args, **kwargs)
+
+
+def account_logout(request, *args, **kwargs):
+    logout(request)
+    sweetify.toast(request, _("Vous avez été déconnecté avec succès."), icon="success")
+    return redirect(reverse("index"))

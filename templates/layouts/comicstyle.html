@@ -54,9 +54,9 @@
                     <a class="nav-link" href="/#banner">{% trans 'Accueil' %}</a>
                 </li>
 
-                <li class="nav-item">
+                {% comment %} <li class="nav-item">
                     <a class="nav-link" href="/#new-comics">{% trans 'Gallerie' %}</a>
-                </li>
+                </li> {% endcomment %}
 
                 {% if not user.is_authenticated %}
                     <li class="nav-item">

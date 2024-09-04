@@ -1,12 +1,12 @@
 import sweetify
 from django.conf import settings
+from django.shortcuts import get_object_or_404, render, reverse
 from django.views import View
-from django.shortcuts import render, get_object_or_404, reverse
 from django.views.decorators.http import require_POST
 from paypal.standard.forms import PayPalPaymentsForm
-from les2peresnoel.marketplace.models import Order
 
-
+from ..marketplace.models import Order
+from ..payments.models import Payment
 from .models import ProviderRefund
 
 # Create your views here.
@@ -25,9 +25,9 @@ def pay_with_paypal(request, order_pk):
         "amount": "{:.2f}".format(order.total_ttc),
         # "item_name": "name of the item",
         "invoice": "{}".format(order.pk),
-        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
-        "return": request.build_absolute_uri(reverse('payments:paypal_return')),
-        "cancel_return": request.build_absolute_uri(reverse('payments:paypal_cancel')),
+        "notify_url": request.build_absolute_uri(reverse("paypal-ipn")),
+        "return": request.build_absolute_uri(reverse("payments:paypal_return")),
+        "cancel_return": request.build_absolute_uri(reverse("payments:paypal_cancel")),
         # Custom command to correlate to some function later (optional)
         # "custom": "premium_plan",
     }
@@ -40,13 +40,13 @@ def pay_with_paypal(request, order_pk):
 
 def paypal_return(request):
     # sweetify.toast(request, _("Paiement  !"))
-    return redirect(reverse('marketplace:home'))
+    return redirect(reverse("marketplace:home"))
     # return render(request, "payments/paypal/return.html")
 
 
 def paypal_cancel(request):
     sweetify.toast(request, _("Paiement annulé !"))
-    return redirect(reverse('marketplace:home'))
+    return redirect(reverse("marketplace:home"))
     # return render(request, "payments/paypal/cancel.html")
 
 
@@ -62,14 +62,14 @@ def credit_card(request):
 @require_POST
 def refunder(request, pk):
     """
-        We want to pay the provider for the product our client bought
+    We want to pay the provider for the product our client bought
 
-        This case is for one product
+    This case is for one product
     """
 
     _refund = get_object_or_404(ProviderRefund, pk=pk)
-        
-    if "completed" ==  _refund.status:
+
+    if "completed" == _refund.status:
         sweetify.toast(request, _("Cette requête a déjà été traitée"))
     else:
         _refund.request_refund()
@@ -77,30 +77,35 @@ def refunder(request, pk):
         ...
 
     sweetify.toast(request, _("Opération traitée avec succès !"))
-    return_url = request.POST.get("return_url") or reverse('marketplace:dashboard')
+    return_url = request.POST.get("return_url") or reverse("marketplace:dashboard")
     return redirect(return_url)
 
 
 @require_POST
 def bulk_refunder(request):
     """
-        We want to pay the provider for the product our client bought
+    We want to pay the provider for the product our client bought
 
-        This case is for one product
+    This case is for one product
     """
-    
-    _refunds = ProviderRefund.objects.filter(provider=request.user).exclude(status="completed")
-    total_amount = _refunds.aggregate(Sum('amount')).get('amount__sum') or 0.0
+
+    _refunds = ProviderRefund.objects.filter(provider=request.user).exclude(
+        status="completed"
+    )
+    total_amount = _refunds.aggregate(Sum("amount")).get("amount__sum") or 0.0
     # Process the payment now
 
     # We assume that payment processing is successfully
     for r in _refunds:
         r.status = "completed"
 
-    ProviderRefund.bulk_update(_refunds, ['status'])
+    ProviderRefund.bulk_update(_refunds, ["status"])
 
     sweetify.toast(request, _("Opération traitée avec succès !"))
-    return_url = request.POST.get(
-        "return_url") or reverse('marketplace:dashboard')
+    return_url = request.POST.get("return_url") or reverse("marketplace:dashboard")
     return redirect(return_url)
 
+
+def list_payments(request):
+    _payments = Payment.objects.all()
+    return render(request, "payments/list.html", {"payments": _payments})
