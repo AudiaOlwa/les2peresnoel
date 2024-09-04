@@ -41,22 +41,14 @@ def add_product(request: HttpRequest, product_id: int, from_cart=False):
     quantity = int(request.POST.get("quantity", default=1))
     source = request.POST.get("source")
     cart = Cart.new(request)
-    if product.is_available_for_quantity(quantity):
-        cart.add(product, quantity=quantity)
-        sweetify.toast(
-            request,
-            title="Produit ajouté",
-            icon="success",
-            text="Produit ajouté avec succès !",
-        )
-        messages.success(request, message="Produit ajouté avec succès !")
-    else:
-        sweetify.toast(
-            request,
-            title="Rupture de stock",
-            icon="error",
-            text="La quantité de produit souhaitée est indisponible !",
-        )
+    cart.add(product, quantity=quantity)
+    sweetify.toast(
+        request,
+        title="Produit ajouté",
+        icon="success",
+        text="Produit ajouté avec succès !",
+    )
+    messages.success(request, message="Produit ajouté avec succès !")
     _context = {"cart": cart}
     if source == "cart":
         response = render_block("layouts/marketplace.html", "cart", _context)

@@ -1,7 +1,5 @@
 {% load static %}
 {% load i18n %}
-{% load sweetify %}
-{% sweetify %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,16 +17,16 @@
     <link rel="stylesheet" type="text/css" href="{% static 'theme/admin/vendors/css/daterangepicker.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'theme/admin/css/theme.min.css' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
+    {% block extra_styles %}
+    {% endblock %}
 </head>
-
 <body  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
 <nav class="nxl-navigation">
     <div class="navbar-wrapper">
         <div class="m-header">
             <a href="/" class="b-brand">
-                {% comment %}<img src="assets/images/logo-full.png" alt="" class="logo logo-lg" />
-            <img src="assets/images/logo-abbr.png" alt="" class="logo logo-sm" />{% endcomment %}
                 MESPERSBONHEUR
             </a>
         </div>
@@ -39,7 +37,7 @@
                 </li>
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-airplay"></i></span>
+                        <span class="nxl-micon"><i class="far fa-list-alt"></i></span>
                         <span class="nxl-mtext"> {% translate 'Gestion du stock' %} </span><span class="nxl-arrow"><i
                             class="feather-chevron-right"></i></span>
                     </a>
@@ -54,7 +52,7 @@
                 </li>
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-airplay"></i></span>
+                        <span class="nxl-micon"><i class="far fa-chart-bar"></i></span>
                         <span class="nxl-mtext"> {% translate 'Ventes' %} </span><span class="nxl-arrow"><i
                             class="feather-chevron-right"></i></span>
                     </a>
@@ -64,6 +62,21 @@
                         </li>
                         <li class="nxl-item">
                             <a class="nxl-link" href="#"> {% translate 'Paiements' %} </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="far fa-id-badge"></i></span>
+                        <span class="nxl-mtext"> {% translate 'Licences' %} </span>
+                        <span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item">
+                            <a class="nxl-link" href="{% url 'licences:list_requests' %}"> {% translate 'Requêtes' %} </a>
+                        </li>
+                        <li class="nxl-item">
+                            <a class="nxl-link" href="{% url 'licences:list_licences' %}"> {% translate 'Licences' %} </a>
                         </li>
                     </ul>
                 </li>
@@ -2145,6 +2158,7 @@
 	
 {% endblock %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{% static 'theme/admin/vendors/js/daterangepicker.min.js' %}"></script>
 <script src="{% static 'theme/admin/vendors/js/vendors.min.js' %}"></script>
 <script src="{% static 'theme/admin/vendors/js/apexcharts.min.js' %}"></script>
@@ -2152,5 +2166,7 @@
 <script src="{% static 'theme/admin/js/common-init.min.js' %}"></script>
 <script src="{% static 'theme/admin/js/dashboard-init.min.js' %}"></script>
 <script src="{% static 'theme/admin/js/theme-customizer-init.min.js' %}"></script>
+{% load sweetify %}
+{% sweetify %}
 </body>
 </html>

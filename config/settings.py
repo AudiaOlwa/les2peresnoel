@@ -157,7 +157,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "fr-fr"
 
 TIME_ZONE = "UTC"
 
@@ -166,10 +166,11 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 VENV_PATH = os.path.dirname(BASE_DIR)
 # STATIC_ROOT = os.path.join("static_root")
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 
 MEDIA_ROOT = str(BASE_DIR / "media")
@@ -444,6 +445,7 @@ BASE_ACCOUNT_CODE_MAP = {
     'SUPPLIER_DEBT': '401000'
 }
 
+TVA_RATE = 5.5
 
 LINK_TRANSACTION_TO_JOURNAL_ENTRY = True
 
@@ -457,3 +459,4 @@ PAYPAL_CLIENT_SECRET = ""
 
 
 FROM_EMAIL = 'contact@mperesbonheur.com'
+LICENCE_EXPIRATION_DAYS = 365

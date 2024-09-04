@@ -65,7 +65,8 @@ class Product(Detail, TimeStampedModel, SoftDeletableModel):
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="products"
     )
-    image = models.ImageField(upload_to="products/")
+    image = models.ImageField(upload_to="products/", verbose_name=_("Couverture"))
+    media = models.FileField(upload_to="products/media/", verbose_name=_("Média"), blank=True, null=True)
 
     def __str__(self):
         return f"{self.name}-{self.category.name}"
@@ -76,6 +77,15 @@ class Product(Detail, TimeStampedModel, SoftDeletableModel):
     @property
     def is_available(self):
         return self.quantity > 0
+
+    @property
+    def media_url(self):
+        return self.media.url if self.media else None
+    
+    @property
+    def can_be_sold(self):
+        # check if the product product.owner is a provider and has a licence
+        return self.owner.profile.is_provider and self.owner.profile.licence.is_active
     
     def is_available_for_quantity(self, quantity):
         return self.quantity > quantity

@@ -41,7 +41,7 @@
     <link rel="stylesheet" media="screen" href="{% static 'css/marketplace-style.css' %}">
     <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}"/>
     <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
-
+    {% block extra_styles %}{% endblock extra_styles %}
     {#    <!-- Customizer generated styles -->#}
     {#    <style id="customizer-styles"></style>#}
 
@@ -603,7 +603,7 @@
                         </li> {% endcomment %}
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'licences:request' %}">
+                        <a class="nav-link" href="{% url 'licences:request_create' %}">
                             <i class="fas fa-store fs-lg me-2"></i>
                             {% translate 'Devenir vendeur ?' %}
                         </a>
@@ -866,6 +866,7 @@
     {% endif %}
     toastr.info('Are you the 6 fingered man?')
     </script>
+    {% block extra_scripts %}{% endblock extra_scripts %}
     {% load sweetify %}
     {% sweetify %}
 </body>

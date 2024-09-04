@@ -8,29 +8,41 @@
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">{% translate 'Produits' %}</h5>
+                        <h5 class="m-b-10">{% translate 'Requêtes de licences' %}</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a
-                                href="{% url 'stores:product_list' %}">{% translate 'Liste' %}</a></li>
-                        <li class="breadcrumb-item">{% translate 'Tout les produits' %}</li>
+                                href="{% url 'licences:list_requests' %}">{% translate 'Liste' %}</a></li>
+                        <li class="breadcrumb-item">{% translate 'Toutes les requêtes' %}</li>
                     </ul>
                 </div>
                 <div class="page-header-right ms-auto">
                     <div class="page-header-right-items">
-                        {% if request.user.can_manage_stock %}
+                        {% comment %}<div class="d-flex d-md-none">
+                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                                <i class="feather-arrow-left me-2"></i>
+                                <span>Back</span>
+                            </a>
+                        </div>{% endcomment %}
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-
-                            <a href="javascript:void(0);" class="btn btn-md btn-primary" data-bs-target="#new-product"
-                               data-bs-toggle="modal" hx-get="{% url 'stores:product_create' %}"
-                               hx-target="#new-product-content" hx-swap="innerHTML" hx-trigger="click"
+                            <a href="{% url 'licences:request_create' %}" class="btn btn-md btn-primary" 
+                               {% comment %} data-bs-target="#new-request"
+                               data-bs-toggle="modal"  {% endcomment %}
+                               {% comment %} href="{% url 'licences:request_create' %}" {% endcomment %}
+                               {% comment %} hx-target="#new-request-content" 
+                               hx-swap="innerHTML" 
+                               hx-trigger="click" {% endcomment %}
                             >
                                 <i class="feather-plus me-2"></i>
-                                <span>{% translate "Nouveau produit" %}</span>
+                                <span>{% translate "Nouvelle requête" %}</span>
                             </a>
                         </div>
-                        {% endif %}
                     </div>
+                    {% comment %}<div class="d-md-none d-flex align-items-center">
+                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                            <i class="feather-align-right fs-20"></i>
+                        </a>
+                    </div>{% endcomment %}
                 </div>
             </div>
         </div>
@@ -39,7 +51,7 @@
         <div class="col-xxl-12">
             <div class="card stretch stretch-full">
                 <div class="card-header">
-                    <h5 class="card-title">{% trans "Mes produits" %}</h5>
+                    <h5 class="card-title">{% trans "Mes requêtes de licences" %}</h5>
                     <div class="card-header-action">
                         <div class="card-header-btn">
                             {% comment %}<div data-bs-toggle="tooltip" title="" data-bs-original-title="Delete">
@@ -62,89 +74,96 @@
                         <table class="table table-hover mb-0">
                             <thead>
                             <tr class="border-b">
-                                <th scope="row">{% translate "Produit" %}</th>
-                                <th>{% translate "Prix" %}</th>
-                                {% comment %} <th>{% translate "Quantité" %}</th> {% endcomment %}
-                                <th>{% translate "Date" %}</th>
+                                <th scope="row">{% translate "Nom de l'entreprise" %}</th>
+                                <th>{% translate "Pays" %}</th>
+                                <th>{% translate "Téléphone" %}</th>
+                                <th>{% translate "Email" %}</th>
                                 <th>{% translate "Statut" %}</th>
                                 <th class="text-end">{% translate "Actions" %}</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for product in products %}
+                            {% for request in requests %}
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image">
-                                                <img src="{{ product.image.url }}" alt="" class="img-fluid">
+                                                <img src="{{ request.company_logo.url }}" alt="" class="img-fluid">
                                             </div>
-                                            <a href="{{ product.get_details_for_provider_url }}">
-                                                <span class="d-block">{{ product.name }}</span>
-                                                <span class="fs-12 d-block fw-normal text-muted">{{ product.categories.all }}</span>
+                                            <a href="{{ request.get_details_for_provider_url }}">
+                                                <span class="d-block">{{ request.company_name }}</span>
+                                                <span class="fs-12 d-block fw-normal text-muted">{{ request.company_address }}</span>
                                             </a>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="badge bg-gray-200 text-dark">{{ product.price }} €</span>
+                                        <span class="badge bg-gray-200 text-dark">{{ request.company_country }}</span>
                                     </td>
-                                    {% comment %} <td>
-                                        <span class="text-dark">{{ product.quantity }}</span>
-                                    </td> {% endcomment %}
-                                    <td>{{ product.created }}</td>
                                     <td>
-                                        <span class="badge bg-soft-success text-{{ product.is_available | yesno:"success,danger" }}">{{ product.is_available | yesno:"En stock,Rupture" }}</span>
+                                        <span class="text-dark">{{ request.company_phone }}</span>
+                                    </td>
+                                    <td>{{ request.company_email }}</td>
+                                    <td>
+                                        
+                                            {% if request.status == 'pending' %}
+                                                <span class="badge bg-warning">En cours</span>
+                                            {% elif request.status == 'approved' %}
+                                                <span class="badge bg-success">Approuvé</span>
+                                            {% elif request.status == 'rejected' %}
+                                                <span class="badge bg-danger">Rejeté</span>
+                                            {% endif %}
+                                        
                                     </td>
                                     <td class="text-end">
-                                        <div class="dropdown">
+                                        <a class="d-flex align-items-center gap-2 justify-content-end"
+                                            href="{% url 'licences:request_details' request.id %}"
+                                            {% comment %} 
+                                            hx-target="#modal-content"
+                                            hx-trigger="click"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#requestModal" 
+                                            {% endcomment %}
+                                            >
+                                            <i class="feather-eye"></i> 
+                                            <span class="">{% translate "Détails" %}</span>
+                                        </a>
+                                        {% comment %} <div class="dropdown">
                                             <a href="#product-actions" data-bs-toggle="dropdown">
                                                 <i class="feather-more-vertical"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-end" id="product-actions">
-                                                {% comment %} <li>
+                                                <li>
                                                     <a class="dropdown-item" href="#" 
-                                                       hx-get="{% url 'stores:product_add' product.id %}"
+                                                       hx-get="{% url 'licences:request_details' request.id %}"
                                                        hx-target="#modal-content"
                                                        hx-trigger="click"
                                                        data-bs-toggle="modal"
-                                                       data-bs-target="#productModal">
-                                                        <i class="feather-plus"></i> {% translate "Ajouter" %}
-                                                    </a>    
-                                                </li> {% endcomment %}
-                                                {% if request.user.can_manage_stock %}
+                                                       data-bs-target="#requestModal">
+                                                        <i class="feather-eye"></i> {% translate "Détails" %}
+                                                    </a>
+                                                </li>
                                                 <li>
                                                     <a class="dropdown-item" href="#"
-                                                       hx-get="{% url 'stores:product_edit' product.id %}"
+                                                       hx-get="{% url 'licences:request_update' request.id %}"
                                                        hx-target="#modal-content"
                                                        hx-trigger="click"
                                                        data-bs-toggle="modal"
-                                                       data-bs-target="#productModal">
+                                                       data-bs-target="#requestModal">
                                                         <i class="feather-edit"></i> {% translate "Modifier" %}
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item" href="#"
-                                                       hx-get="{% url 'stores:product_delete' product.id %}"
+                                                       hx-get="{% url 'licences:request_delete' request.id %}"
                                                        hx-target="#modal-content"
                                                        hx-trigger="click"
                                                        data-bs-toggle="modal"
-                                                       data-bs-target="#productModal">
+                                                       data-bs-target="#requestModal">
                                                         <i class="feather-trash-2"></i> {% translate "Supprimer" %}
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"
-                                                       hx-get="{% url 'stores:product_details' product.id %}"
-                                                       hx-target="#modal-content"
-                                                       hx-trigger="click"
-                                                       data-bs-toggle="modal"
-                                                       data-bs-target="#productModal">
-                                                        <i class="feather-eye"></i> 
-                                                        {% translate "Détails" %}
-                                                    </a>
-                                                </li>
-                                                {% endif %}
                                             </ul>
-                                        </div>
+                                        </div> {% endcomment %}
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -220,12 +239,7 @@
     <div class="modal" tabindex="-1" id="productModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                {% comment %} <div class="modal-header">
-                    <h5 class="modal-title" id="productModalLabel">{% translate "Action sur le produit" %}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div> {% endcomment %}
                 <div class="modal-body" id="modal-content">
-                    <!-- Le contenu sera chargé ici par HTMX -->
                 </div>
             </div>
         </div>

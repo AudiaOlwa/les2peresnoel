@@ -35,6 +35,7 @@ class SweetifyMixin:
 
 @login_required
 def product_list(request):
+    # breakpoint()
     products = Product.objects.filter(owner=request.user)
     # paginate by 20
     paginator = Paginator(products, 20)

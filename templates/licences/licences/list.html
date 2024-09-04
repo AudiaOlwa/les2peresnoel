@@ -1,0 +1,230 @@
+{% extends 'layouts/admin.html' %}
+{% load crispy_forms_filters %}
+{% load i18n %}
+{% block title %}
+    {% translate 'Licences' %}
+{% endblock %}
+{% block extra_styles %}
+    <style>
+    .licence-card {
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .licence-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .licence-card .card-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .licence-card .card-body {
+        padding: 1.25rem;
+    }
+    .licence-card .card-footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <div class="page-header-left d-flex align-items-center">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">{% translate 'Licences' %}</h5>
+                    </div>
+                </div>
+                <div class="page-header-right ms-auto">
+                    <div class="page-header-right-items">
+                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-4 container-fluid">
+        <div class="col-xxl-12">
+            {% if request.user.is_superuser or  request.user.is_staff %}
+            <div class="card stretch stretch-full">
+                <div class="card-header">
+                    <h5 class="card-title">{% trans "Liste des licences" %}</h5>
+                    <div class="card-header-action">
+                        <div class="card-header-btn">
+                            <div data-bs-toggle="tooltip" title="" data-bs-original-title="Refresh">
+                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning"
+                                   data-bs-toggle="{% translate "Rafraichir" %}"> </a>
+                            </div>
+                            <div data-bs-toggle="tooltip" title="" data-bs-original-title="Maximize/Minimize">
+                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success"
+                                   data-bs-toggle="{% translate "Étendre" %}"> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body custom-card-action p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                            <tr class="border-b">
+                                <th scope="row">{% translate "Nom de l'entreprise" %}</th>
+                                <th>{% translate "Contact" %}</th>
+                                <th>{% translate "Date d'expiration" %}</th>
+                                <th>{% translate "Statut" %}</th>
+                                <th class="text-end">{% translate "Actions" %}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for licence in licences %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="avatar-image">
+                                                <img src="{{ licence.provider.company_logo.url }}" alt="" class="img-fluid">
+                                            </div>
+                                            <a href="{{ licence.get_details_for_provider_url }}">
+                                                <span class="d-block">{{ licence.provider.company_name }}</span>
+                                                <span class="fs-12 d-block fw-normal text-muted">{{ licence.provider.company_address }}</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-gray-200 text-dark">{{ licence.provider.company_phone }} / {{ licence.provider.company_email }}</span>
+                                    </td>
+                                    <td>
+                                        {{ licence.expires_at|date:"d/m/Y" }}
+                                    </td>
+                                    <td>
+                                        {% if licence.is_active %}
+                                            <span class="badge bg-success">Active</span>
+                                        {% else %}
+                                            <span class="badge bg-danger">Inactive</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-end">
+                                        <div class="d-flex justify-content-end">
+                                            <a class="btn btn-sm btn-{{licence.is_active|yesno:'danger,success'}}" href="#update-licence"                                
+                                                data-bs-toggle="modal"
+                                                hx-get="{{licence.get_update_url}}"
+                                                hx-target="#update-licence-content"
+                                                hx-swap="innerHTML"
+                                                hx-trigger="click"
+                                                >
+                                                
+                                                {% if licence.is_active %}
+                                                    <i class="feather-x"></i>
+                                                    {% translate "Désactiver" %}
+                                                {% else %}
+                                                    <i class="feather-check"></i>
+                                                    {% translate "Activer" %}
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <ul class="list-unstyled d-flex align-items-center gap-2 mb-0 pagination-common-style">
+                        {% if products.has_previous %}
+                            <li>
+                                <a href="j?page={{ products.previous_page_number }}"><i class="bi bi-arrow-left"></i></a>
+                            </li>
+                        {% endif %}
+                        {% for num in products.paginator.page_range %}
+                            {% if products.number == num %}
+                                <li><a href="?page={{ num }}" class="active">{{ num }}</a></li>
+                            {% elif num > products.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <li><a href="?page={{ num }}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        <!-- Lien vers la page suivante -->
+                        {% if products.has_next %}
+                            <li>
+                                <a href="?page={{ products.next_page_number }}"><i class="bi bi-arrow-right"></i></a>
+                            </li>
+                       {% comment %} {% else %}
+                            <li class="disabled"><span>Suivant &raquo;</span></li>{% endcomment %}
+                        {% endif %}
+
+                       {% comment %} <li><a href="javascript:void(0);">2</a></li>
+                        <li>
+                            <a href="javascript:void(0);"><i class="bi bi-dot"></i></a>
+                        </li>
+                        <li><a href="javascript:void(0);">8</a></li>
+                        <li><a href="javascript:void(0);">9</a></li>{% endcomment %}
+
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <div class="card licence-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-certificate me-2"></i>{% translate "Licence" %}
+                            </h5>
+                            <span class="badge {% if licence.is_active %}bg-success{% else %}bg-danger{% endif %}">
+                                {% if licence.is_active %}{% translate "Active" %}{% else %}{% translate "Inactive" %}{% endif %}
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><strong>{% translate "Clé" %}:</strong> {{ licence.licence_key }}</p>
+                            <p class="card-text"><strong>{% translate "Nom de l'entreprise" %}:</strong> {{ licence.company_name }}</p>
+                            {% comment %} <p class="card-text"><strong>{% translate "Client" %}:</strong> {{ licence.customer.get_full_name }}</p> {% endcomment %}
+                            <p class="card-text"><strong>{% translate "Date d'expiration" %}:</strong> {{ licence.expiration_date|date:"d/m/Y" }}</p>
+                            {% comment %} <p class="card-text"><strong>{% translate "Utilisations restantes" %}:</strong> {{ licence.remaining_uses }}</p> {% endcomment %}
+                        </div>
+                        <div class="card-footer text-muted">
+                            {% translate "Créée le" %} {{ licence.created_at|date:"d/m/Y H:i" }}
+                        </div>
+                    </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <div class="modal" tabindex="-1" id="update-licence">
+        <div class="modal-dialog">
+            <div class="modal-content" id="update-licence-content">
+                {% block update_licence_content %}
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        
+                        {% if licence.is_active %}
+                        {% translate 'Désactiver cette licence' %}
+                        {% else %}
+                        {% translate 'Activer cette licence' %}
+                        {% endif %} ({{licence.provider.company_name}})</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" >
+                    <form hx-post="{{url}}">
+                        {% csrf_token %}
+                        <p>
+                            {% if licence.is_active %}
+                            {% translate 'Voulez-vous vraiment désactiver cette licence ?' %}
+                            {% else %}
+                            {% translate 'Voulez-vous vraiment activer cette licence ?' %}
+                            {% endif %}
+                        </p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">{% translate 'Non, Fermer' %}</button>
+                            <button type="submit" class="btn btn-primary">{% translate 'Oui, accepter !' %}</button>
+                        </div>
+                    </form>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

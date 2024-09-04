@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField, EmailField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from ..providers.models import Provider
 
 from .managers import UserManager
 
@@ -39,8 +40,20 @@ class User(AbstractUser):
     @property
     def is_provider(self):
         try:
-            Provider.objects.get(user=self)
+            Provider.objects.get(account=self)
             return True
         except:
             pass
         return False
+
+    @property
+    def is_active_provider(self):
+        try:
+            provider = Provider.objects.get(account=self)
+            return provider.has_active_licence
+        except:
+            return False
+
+    @property
+    def can_manage_stock(self):
+        return self.is_active_provider or self.is_superuser or self.is_staff

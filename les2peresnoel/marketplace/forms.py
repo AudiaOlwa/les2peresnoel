@@ -14,7 +14,7 @@ class CategoryForm(ModelForm):
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        exclude = ("id", "created", "updated", "slug", "is_removed", "owner")
+        exclude = ("id", "created", "updated", "slug", "is_removed", "owner", "quantity")
         widgets = {
             "category": widgets.CheckboxSelectMultiple(),
             "description": widgets.Textarea(attrs={"rows": 3}),
