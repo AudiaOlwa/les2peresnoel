@@ -440,10 +440,9 @@ def update_checkout(request):
 @login_required
 def order_list(request):
     orders = Order.objects.all()
-    if request.user.is_provider or request.user.is_superuser:
-        orders = orders.filter(provider=request.user)
-    user_orders = orders.filter(customer=request.user)
-    return render(request, "marketplace/orders/list.html", {"orders": orders, "user_orders": user_orders})
+    if not request.user.is_superuser:
+        orders = orders.filter(customer=request.user)
+    return render(request, "marketplace/orders/list.html", {"orders": orders})
 
 @login_required
 def order_details(request, pk):

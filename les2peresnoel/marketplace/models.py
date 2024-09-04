@@ -178,6 +178,10 @@ class Order(UUIDModel, TimeStampedModel, StatusModel):
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("Client"), on_delete=models.SET_NULL, null=True)
 
     @property
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"
+    
+    @property
     def get_payment_url(self):
         return reverse('payments:pay_tracked_order', kwargs={"order_pk": self.pk})
 
