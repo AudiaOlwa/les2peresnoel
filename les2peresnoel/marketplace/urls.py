@@ -93,6 +93,12 @@ urlpatterns = [
         views.update_checkout,
         name="update_checkout"
     ),
+
+    path(
+        "simple_checkout/<product_id>",
+        views.simple_checkout,
+        name="simple_checkout"
+    ),
     # Orders
     path(
         'orders',

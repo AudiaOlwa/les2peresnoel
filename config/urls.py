@@ -1,5 +1,4 @@
-# from django.contrib import admin
-from baton.autodiscover import admin
+from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
@@ -8,7 +7,7 @@ from les2peresnoel import core
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("baton/", include("baton.urls")),
+    # path("baton/", include("baton.urls")),
     path("", include("les2peresnoel.core.urls")),
     path("accounts/", include("allauth.urls")),
     # path("core/", include("les2peresnoel.core.urls")),

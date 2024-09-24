@@ -16,7 +16,7 @@ environ.Env.read_env(BASE_DIR / ".env")
 SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
@@ -27,13 +27,19 @@ else:
         "les2peresnoel.com",
         "www.les2peresnoel.com",
         "localhost",
-        "antelope-driven-utterly.ngrok-free.app"
+        "antelope-driven-utterly.ngrok-free.app",
     ]
 
 # Application definition
 
 DJANGO_APPS = [
-    "baton",
+    "unfold",  
+    "unfold.contrib.filters",  
+    "unfold.contrib.forms",  
+    "unfold.contrib.inlines",  
+    "unfold.contrib.import_export",  
+    "unfold.contrib.guardian",
+    "unfold.contrib.simple_history",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -50,7 +56,7 @@ LOCAL_APPS = [
     "les2peresnoel.providers.apps.ProvidersConfig",
     "les2peresnoel.payments.apps.PaymentsConfig",
     "les2peresnoel.accounting.apps.AccountingConfig",
-    "les2peresnoel.licences.apps.LicencesConfig"
+    "les2peresnoel.licences.apps.LicencesConfig",
 ]
 
 THIRD_PARTY_APPS = [
@@ -64,10 +70,10 @@ THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "django_htmx",
+    "corsheaders",
     # "django_paypal",
-    "paypal.standard.ipn", 
-    "mail_templated", 
-    "baton.autodiscover",
+    "paypal.standard.ipn",
+    "mail_templated",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -77,6 +83,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -172,7 +179,6 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 # STATIC_ROOT = os.path.join("static_root")
 
 
-
 MEDIA_ROOT = str(BASE_DIR / "media")
 MEDIA_URL = "/media/"
 
@@ -187,12 +193,9 @@ STORAGES = {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
-
-# ------------------------------------------------
-
 
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
@@ -232,8 +235,7 @@ CKEDITOR_CONFIGS = {
                     "Redo",
                 ],
             },
-            {"name": "editing", "items": [
-                "Find", "Replace", "-", "SelectAll"]},
+            {"name": "editing", "items": ["Find", "Replace", "-", "SelectAll"]},
             {
                 "name": "forms",
                 "items": [
@@ -299,8 +301,7 @@ CKEDITOR_CONFIGS = {
                 ],
             },
             "/",
-            {"name": "styles", "items": [
-                "Styles", "Format", "Font", "FontSize"]},
+            {"name": "styles", "items": ["Styles", "Format", "Font", "FontSize"]},
             {"name": "colors", "items": ["TextColor", "BGColor"]},
             {"name": "tools", "items": ["Maximize", "ShowBlocks"]},
             {"name": "about", "items": ["About"]},
@@ -343,7 +344,7 @@ CKEDITOR_CONFIGS = {
         ),
     }
 }
-SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
+SWEETIFY_SWEETALERT_LIBRARY = "sweetalert2"
 
 SWEETIFY_TOAST_TIMER = 3000
 
@@ -398,11 +399,9 @@ LOGIN_URL = "account_login"
 
 LOGIN_REDIRECT_URL = "marketplace:home"
 
-DJANGO_ADMIN_FORCE_ALLAUTH = env.bool(
-    "DJANGO_ADMIN_FORCE_ALLAUTH", default=False)
+DJANGO_ADMIN_FORCE_ALLAUTH = env.bool("DJANGO_ADMIN_FORCE_ALLAUTH", default=False)
 
-ACCOUNT_ALLOW_REGISTRATION = env.bool(
-    "DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
+ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 # https://docs.allauth.org/en/latest/account/configuration.html
@@ -420,8 +419,7 @@ ACCOUNT_FORMS = {"signup": "les2peresnoel.users.forms.UserSignupForm"}
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
 SOCIALACCOUNT_ADAPTER = "les2peresnoel.users.adapters.SocialAccountAdapter"
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
-SOCIALACCOUNT_FORMS = {
-    "signup": "les2peresnoel.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_FORMS = {"signup": "les2peresnoel.users.forms.UserSocialSignupForm"}
 
 MARKETPLACE_DEFAULT = {
     "category_cover": "/static/images/default.jpg",
@@ -433,16 +431,16 @@ SHIPPING_FEES = 0
 
 
 BASE_ACCOUNT_CODE_MAP = {
-    'CUSTOMER_ACCOUNTS_RECEIVABLE': '411000',
-    'BANK': '512000',
-    'BORROWINGS_FROM_CREDIT_INSTITUTIONS': '164000',
-    'INTEREST_CHARGES': '661000',
-    'SALES_COMMISSIONS': '622200',
-    'CAPITAL': '101000',
-    'RAW_MATERIALS_PURCHASES': '601000',
-    'INDUSTRIAL_EQUIPMENT': '215400',
-    'SALES_OF_FINISHED_PRODUCTS': '701000',
-    'SUPPLIER_DEBT': '401000'
+    "CUSTOMER_ACCOUNTS_RECEIVABLE": "411000",
+    "BANK": "512000",
+    "BORROWINGS_FROM_CREDIT_INSTITUTIONS": "164000",
+    "INTEREST_CHARGES": "661000",
+    "SALES_COMMISSIONS": "622200",
+    "CAPITAL": "101000",
+    "RAW_MATERIALS_PURCHASES": "601000",
+    "INDUSTRIAL_EQUIPMENT": "215400",
+    "SALES_OF_FINISHED_PRODUCTS": "701000",
+    "SUPPLIER_DEBT": "401000",
 }
 
 TVA_RATE = 5.5
@@ -458,5 +456,13 @@ PAYPAL_CLIENT_ID = ""
 PAYPAL_CLIENT_SECRET = ""
 
 
-FROM_EMAIL = 'contact@mperesbonheur.com'
+FROM_EMAIL = "contact@mperesbonheur.com"
 LICENCE_EXPIRATION_DAYS = 365
+
+# Configuration CORS
+# CORS_ALLOWED_ORIGINS = ["https://antelope-driven-utterly.ngrok-free.app"]
+
+CORS_ALLOW_CREDENTIALS = True
+
+
+# CSRF_TRUSTED_ORIGINS = ["https://antelope-driven-utterly.ngrok-free.app"]

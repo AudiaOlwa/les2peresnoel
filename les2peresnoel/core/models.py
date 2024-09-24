@@ -2,6 +2,7 @@ from ckeditor.fields import RichTextField
 from dj_shop_cart.cart import CartItem
 from dj_shop_cart.protocols import Numeric
 from django.db import models
+from model_utils.models import TimeStampedModel
 
 # Create your models here.
 
@@ -39,3 +40,13 @@ class Document(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Contact(TimeStampedModel):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

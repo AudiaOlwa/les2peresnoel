@@ -15,24 +15,25 @@
         </nav> {% endcomment %}
 
         <!-- Banner -->
-        <section class="rounded-1 overflow-hidden mb-5"  data-bs-theme="light" style="background-image: url({% static 'theme/img/hero-bg.png' %}); height: 40pc;">
+        {% comment %} <section class="rounded-1 overflow-hidden mb-5"  data-bs-theme="light" style="background-image: url({% static 'theme/img/hero-bg.png' %}); height: 40pc;"> {% endcomment %}
+        <section class="rounded-1 overflow-hidden mb-5"  data-bs-theme="light" style="background-image: url({% static 'img/pncourant.jpeg' %}); height: 40pc; background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="row align-items-center pt-5 g-0" style="">
                 <div class="col-md-6 offset-xl-1 text-center text-md-start">
-                    <div class="py-4 px-4 px-sm-5 pe-md-0 ps-xl-4">
-                        <p class="text-body fs-xs text-uppercase pt-3 pt-md-0 mb-3 mb-lg-4">{% translate "Le marketplace du social" %}</p>
-                        <h1 class="h1 pb-2 pb-xl-3"> {% blocktranslate %}
-                           Bienvenue sur le marketplace des
+                    <div class="py-3 px-4 px-sm-5 pe-md-0 ps-xl-4 d-flex flex-column justify-content-center">
+                        <p class="text-body fs-xs text-uppercase mb-2">{% translate "Le marketplace du social" %}</p>
+                        <h1 class="h2 pb-2"> {% blocktranslate %}
+                           Bienvenue sur la marketplace des
                         {% endblocktranslate %}
                             <br>
                             <span style="color: #D71516 !important;">{% blocktranslate %}
-                                pères bonheur
+                                PERESBONHEURS
                         {% endblocktranslate %}</span>
-                        </h2>
+                        </h1>
                         {% comment %}<a class="btn btn-sm btn-outline-dark" href="#" data-bs-theme="light">Explore</a>{% endcomment %}
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-5 d-flex justify-content-end">
-                    <img src="{% static 'img/bgb.jpg' %}" width="491" style="border-radius: 5px !important;" alt="Banner">
+                    {% comment %} <img src="{% static 'img/pncourant.jpeg' %}" width="491" style="border-radius: 5px !important;" alt="Banner"> {% endcomment %}
                 </div>
             </div>
         </section>
@@ -41,7 +42,7 @@
             <div class="container">
                 <h2 class="text-center mt-4 mb-4">{% translate "Nos Catégories" %}</h2>
                 <div class="row">
-                    {% for category in categories %}
+                    {% for category in all_categories %}
                         <div class="col">
                             <a href="{% url 'marketplace:list_product_by_category' category.pk %}">
                                 <div class="category-info">
@@ -61,7 +62,7 @@
         </div>
 
         
-        <h1 class="pb-2 pb-sm-3 text-center mt-5 mb-5 my-4">{% translate 'Nos produits' %}</h1>
+        <h1 class="pb-2 pb-sm-3 text-center mt-5 mb-5 my-4">{% translate 'Articles numériques des pères bonheur' %}</h1>
         <section class="container">
             <div class=" row pb-2 pb-sm-4">
             <!-- Sidebar (offcanvas on sreens < 992px) -->

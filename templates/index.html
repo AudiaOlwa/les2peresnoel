@@ -4,48 +4,25 @@
 {% block content %}
     <!-- BANNER AREA START -->
     <section id="banner">
-        <div id="backtotop">
+        {% comment %} <div id="backtotop">
             <a href="#banner" id="backtotop-value"><i class="fa-solid fa-arrow-up"></i></a>
-        </div>
-        <div class="container zindex">
-            <div class="row">
+        </div> {% endcomment %}
+        <div class="container">
+            <div class="row align-items-center">
                 <div class="col-lg-6 banner-txt">
-                    <span>MPERESBONHEUR</span>
-                    <h3>La Renaissance</h3>
-                    <h3>D'une </h3>
-                    <h3 class="txt-pos">Légende !</h3>
+                    {% comment %} <span>MPERESBONHEUR</span> {% endcomment %}
+                    <h3 class="pb-2">La Renaissance</h3>
+                    <h3 class="pb-2">D'une </h3>
+                    <h3 class="txt-pos pt-3">Légende !</h3>
                     <a href="{% url 'legend_rebirth' %}" class="button-primary"><i class="fa-solid fa-eye"></i> Lire</a>
-                    {% comment %}<a class="venobox button-circular" data-autoplay="true" data-vbtype="video"
-                       href="https://www.youtube.com/watch?v=kmh1cr3b4Js"><i class="fa-solid fa-play"></i></a>{% endcomment %}
-                    {% comment %}<div class="row banner-review">
-                        <div class="col-lg-3">
-                            <img src="images/user5.png" alt="user" class="one">
-                            <img src="images/user1.png" alt="user">
-                            <img src="images/user2.png" alt="user">
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                            <p>(409.6K Reviews)</p>
-                        </div>
-                    </div>{% endcomment %}
+                    
                 </div>
                 <div class="col-10 col-sm-11 col-md-7 col-lg-6 banner-images">
-                    {% comment %}<img src="{% static 'theme/main/images/banner-icon.png' %}" alt="banner-icon" class="banner-icon">{% endcomment %}
-                    <img src="{% static 'img/bg.jpg' %}" alt="banner-img" class="banner-img one img-fluid">
-                    <img src="{% static 'img/p1.jpg' %}" alt="banner-img" class="banner-img two img-fluid">
+                    <img src="{% static 'img/bgb.jpg' %}" alt="banner-img" class="img-fluid">
                 </div>
             </div>
         </div>
     </section>
-    <!-- BANNER AREA ENDS -->
-
-    <!-- ABOUT AREA START -->
     <section id="about">
         <div class="container">
             <div class="row">
@@ -53,9 +30,12 @@
                     <div class="col">
                         <div class="col-lg-6 m-auto text-center">
                             <span>Qui sommes-nous ?</span>
-                            <h3>PERES BONHEUR</h3>
-                            <p class="pt-2 pb-4">Un marketplace permettant aux vendeurs et aux acheteurs de contribuer
-                                au bonheur des familles en difficulté</p>
+                            <h3>{% blocktrans %}PERES BONHEUR{% endblocktrans %}</h3>
+                            <p class="pt-2 pb-4">
+                                {% blocktrans %}
+                                 La Marketplace qui permet aux vendeurs de s'accoutumer à la Renaissance de la Légende adaptée aux nouvelles technologies et à notre ère
+                                {% endblocktrans %}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -71,8 +51,11 @@
                             <div class="check-p">
                                 <p>
                                     <i class="fa-solid fa-check"></i>
-                                    En vendant vos créations sur notre plateforme, vous
-                                    contribuez directement à améliorer la vie de familles en difficulté
+                                    En vendant vos produits sur notre plate-forme vous permettez aux utilisateurs de découvrir tous vos produits. 
+                                </p>
+                                <p>
+                                    <i class="fa-solid fa-check"></i>
+                                    Chaque vendeur se détermine dans son propre magasin et non dans un espace "fourre tout"
                                 </p>
                                 <p>
                                     <i class="fa-solid fa-check"></i>
@@ -92,8 +75,7 @@
                             <div class="check-p">
                                 <p><i class="fa-solid fa-check"></i> En achetant sur notre plateforme, vous faites plus
                                     qu'acquérir un produit, vous participez à un projet solidaire. </p>
-                                <p><i class="fa-solid fa-check"></i> Chaque achat contribue à améliorer la vie de
-                                    familles dans le besoin.</p>
+                                <p><i class="fa-solid fa-check"></i> Chaque achat contribue à faire perdurer la légende et conserver votre part de marché.</p>
                                 {% comment %}<p><i class="fa-solid fa-check"></i> Des contes enchanteurs aux mélodies envoûtantes, en
                                     passant par des livres inspirants, trouvez l'œuvre qui vous correspond parmi notre
                                     vaste catalogue.</p>{% endcomment %}
@@ -107,33 +89,7 @@
             </div>
         </div>
     </section>
-    <!-- ABOUT AREA ENDS -->
-    {% comment %}    		<!-- BRAND AREA START -->
-		<section id="brand">
-			<div class="container">
-                <h3 class="text-center">Nos partenaires</h3>
-				<div class="row">
-					<div class="col-lg-3">
-						<img src="{% static 'theme/main/images/brand1.png' %}" alt="brand-img" class="img-fluid">
-					</div>
-					<div class="col-lg-3">
-						<img src="{% static 'theme/main/images/brand2.png' %}" alt="brand-img" class="img-fluid">
-					</div>
-					<div class="col-lg-3">
-						<img src="{% static 'theme/main/images/brand3.png' %}" alt="brand-img" class="img-fluid">
-					</div>
-					<div class="col-lg-3">
-						<img src="{% static 'theme/main/images/brand1.png' %}" alt="brand-img" class="img-fluid">
-					</div>
-					<div class="col-lg-3">
-						<img src="{% static 'theme/main/images/brand2.png' %}" alt="brand-img" class="img-fluid">
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- BRAND AREA END -->
-{% endcomment %}
-    <!-- NEW_COMICS AREA START -->
+   
     <section id="">
         <div class="container">
             <div class="row">
@@ -141,13 +97,13 @@
                     <div class="row">
                         <div class="col-lg-6 m-auto text-center">
                             <span>{% trans "Découvrez" %}</span>
-                            <h3>{% trans "Nos produits" %}.</h3>
+                            <h3>{% trans "Nos produits" %}</h3>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row comic-item-pos">
-                <div class="col-lg-4 col-md-8 mobile-m-auto">
+                <div class="col-lg-6 col-md-6 mobile-m-auto">
                     <div class="comic-item">
                         <img src="{% static 'img/bg3.jpg' %}" alt="comic" class="img-fluid">
                         <a class="veno-img" data-gall="comic1" href="{% static 'img/bg3.jpg' %}"><i
@@ -155,17 +111,17 @@
                         <div class="comic-item-details">
                             <div class="row">
                                 <div class="col-8 col-lg-8">
-                                    <h3>Nos contes</h3>
+                                    <h3>{% blocktrans %}Bonheur{% endblocktrans %}</h3>
                                     {#<p><i class="fa-solid fa-eye"></i> 250.6K Reviews</p>#}
                                 </div>
-                                <div class="col-4 col-lg-4 text-end">
+                                {% comment %} <div class="col-4 col-lg-4 text-end">
                                     <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
+                                </div> {% endcomment %}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-8 mobile-m-auto">
+                <div class="col-lg-6 col-md-6 mobile-m-auto">
                     <div class="comic-item active">
                         <img src="{% static 'img/bgm.jpg' %}" alt="comic" class="img-fluid">
                         <a class="veno-img" data-gall="comic1" href="{% static 'img/bgm.jpg' %}"><i
@@ -173,17 +129,17 @@
                         <div class="comic-item-details">
                             <div class="row">
                                 <div class="col-8 col-lg-8">
-                                    <h3>Nos musiques</h3>
+                                    <h3>{% blocktrans %}Hors Bonheur{% endblocktrans %}</h3>
                                     {#<p><i class="fa-solid fa-eye"></i> 168.2K Reviews</p>#}
                                 </div>
-                                <div class="col-4 col-lg-4 text-end">
+                                {% comment %} <div class="col-4 col-lg-4 text-end">
                                     <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
+                                </div> {% endcomment %}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-8 mobile-m-auto">
+                {% comment %} <div class="col-lg-4 col-md-8 mobile-m-auto">
                     <div class="comic-item">
                         <img src="{% static 'img/g5.jpg' %}" alt="comic" class="img-fluid">
                         <a class="veno-img" data-gall="comic1" href="{% static 'img/g5.jpg' %}"><i
@@ -194,31 +150,31 @@
                                     <h3>Nos nouveautés</h3>
                                     {#										<p><i class="fa-solid fa-eye"></i> 124.7K Reviews</p>#}
                                 </div>
-                                <div class="col-4 col-lg-4 text-end">
+                                {% comment %} <div class="col-4 col-lg-4 text-end">
                                     <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
+                                </div> {% #endcomment %}
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> {% endcomment %}
             </div>
         </div>
     </section>
-    <section class="my-4">
-        <div class="section-title">
-            <div class="col">
+    <section class="mt-4 mb-4">
+        <div class="section-title mt-4 mb-4">
+            <div class="row mt-4 mb-4" style="margin-top: 10rem !important; margin-bottom: 5rem !important;">
                 <div class="col-lg-6 m-auto text-center">
                     <span>Le grand sage </span>
                     <h3>CÈDE SA PLACE</h3>
-                    <p class="pt-2 pb-4">mais supervise.</p>
+                    <p class="pt-2 pb-4 text-center">mais supervise.</p>
                 </div>
             </div>
-            <div class="col">
+            <div class="row">
                 <div class="col-lg-5 col-md-9 m-md-auto about-main">
                     <img src="{% static 'img/h1.jpg' %}" alt="about-img" class="img-fluid h-100">
                 </div>
             </div>
-            <div class="col my-4">
+            <div class="row my-4">
                 <div class="col-lg-6 m-auto text-center">
                     <a href="{% url 'sage' %}" class="button-primary"><i class="fa-solid fa-eye"></i> Lire</a>
                 </div>

@@ -115,7 +115,8 @@
                                         
                                     </td>
                                     <td class="text-end">
-                                        <a class="d-flex align-items-center gap-2 justify-content-end"
+                                        <div class="d-flex align-items-center gap-2 justify-content-end">
+                                        <a class="btn btn-sm btn-secondary d-flex align-items-center gap-2 justify-content-end"
                                             href="{% url 'licences:request_details' request.id %}"
                                             {% comment %} 
                                             hx-target="#modal-content"
@@ -127,6 +128,25 @@
                                             <i class="feather-eye"></i> 
                                             <span class="">{% translate "Détails" %}</span>
                                         </a>
+                                        <a class="btn btn-sm btn-secondary d-flex align-items-center gap-2 justify-content-end"
+                                            data-bs-container="body" 
+                                            data-bs-toggle="popover" 
+                                            data-bs-placement="top"
+                                            data-bs-content="<div class='d-flex flex-column align-items-center gap-2 justify-content-end'>
+                                            <div>
+                                                <p>{% translate 'Êtes-vous sûr de vouloir supprimer cette demande ?' %}</p> 
+                                            </div>
+                                            <div class='d-flex align-items-center gap-2'>
+                                                <a class='btn btn-sm btn-danger' href='{% url 'licences:request_delete' request.id %}'>{% translate 'Supprimer' %}</a>
+                                                <a class='btn btn-sm btn-secondary close-popover'>{% translate 'Annuler' %}</a>
+                                            </div>
+                                            </div>"
+                                            data-bs-html="true"
+                                            >   
+                                            <i class="feather-trash-2"></i> 
+                                            <span class="">{% translate "Supprimer" %}</span>
+                                        </a>
+                                        
                                         {% comment %} <div class="dropdown">
                                             <a href="#product-actions" data-bs-toggle="dropdown">
                                                 <i class="feather-more-vertical"></i>
@@ -246,3 +266,10 @@
     </div>
 {% endblock %}
 
+{% block extra_scripts %}  
+    <script>
+        $(document).on('click', '.close-popover', function() {
+            $(this).closest('.popover').popover('hide');
+        });
+    </script>
+{% endblock %}

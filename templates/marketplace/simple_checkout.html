@@ -132,49 +132,47 @@
           <div class="col-lg-5 offset-lg-1 pt-1" id="checkout" hx-target="this" hx-trigger="checkout_cart" hx-post="{% url "marketplace:update_checkout" %}" hx-swap="innerHTML">
             {% block checkout_summary %}
             <h2 class="pb-2 pt-md-2 my-4 mt-lg-5">
-              Récapitulatif de la commande <br> <span class="fs-base fw-normal text-body-secondary">({{cart.count}} {% translate "produits" %})</span>
+              Récapitulatif de la commande <br> <span class="fs-base fw-normal text-body-secondary">{% comment %} ({{cart.count}} {% translate "produits" %}){% endcomment %}</span>
             </h2>
-            {% for item in cart %}
-                <div class="d-sm-flex align-items-center {{ forloop.first|yesno:",border-top pt-4" }} pb-4"
-                     id="cart-content"
-                     hx-get="{% url 'marketplace:update_cart_count' %}" hx-target="#cart-count">
-                    <a
-                            class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-md-3 mb-2 mb-sm-0"
-                            href="{{ item.product.get_absolute_url }}"><img src="{{ item.product.image.url }}"
-                                                                            width="110"
-                                                                            alt="Product"></a>
-                    <div class="w-100 pt-1 ps-sm-4">
-                        <div class="d-flex">
-                            <div class="me-3">
-                                <h3 class="h5 mb-2">
-                                    <a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
-                                </h3>
-                                <div class="d-sm-flex flex-wrap my-4">
-                                    <div class="text-body-secondary fs-sm me-3">
-                                        {% translate "Quantité" %} : <span class="text-dark fw-medium"> {{ item.quantity }}</span>
-                                    </div>
-                                </div>
-                                <div class="d-sm-flex flex-wrap">
-                                    <div class="text-body-secondary fs-sm me-3">
-                                        {% translate "Catégories" %} : <span class="text-dark fw-medium">
-                                            {% for cat in item.product.category.all %}
-                                            <span>{{ cat }} {{ forloop.last|yesno:', - ' }}</span>
-                                            {% endfor %}
-                                        </span>
-                                    </div>
-                                    
+           
+            <div class="d-sm-flex align-items-center pb-4" id="cart-content">
+                <a
+                        class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-md-3 mb-2 mb-sm-0"
+                        href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}"
+                                                                        width="110"
+                                                                        alt="Product"></a>
+                <div class="w-100 pt-1 ps-sm-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <h3 class="h5 mb-2">
+                                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                            </h3>
+                            <div class="d-sm-flex flex-wrap my-4">
+                                <div class="text-body-secondary fs-sm me-3">
+                                    {% translate "Quantité" %} : <span class="text-dark fw-medium"> 1</span>
                                 </div>
                             </div>
-                            <div class="text-end ms-auto">
-                                <div class="fs-5 mb-2">{{ item.subtotal|floatformat:2 }} €</div>
+                            <div class="d-sm-flex flex-wrap">
+                                <div class="text-body-secondary fs-sm me-3">
+                                    {% translate "Catégories" %} : <span class="text-dark fw-medium">
+                                        {% for cat in product.category.all %}
+                                        <span>{{ cat }} {{ forloop.last|yesno:', - ' }}</span>
+                                        {% endfor %}
+                                    </span>
+                                </div>
+                                
                             </div>
+                        </div>
+                        <div class="text-end ms-auto">
+                            <div class="fs-5 mb-2">{{ product.price|floatformat:2 }} €</div>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
+            
             <ul class="list-unstyled py-3 mb-0">
               <li class="d-flex justify-content-between mb-2">
-                {% translate "Total H.T" %}:<span class="fw-semibold ms-2">{{cart.total|floatformat:2}} €</span>
+                {% translate "Total H.T" %}:<span class="fw-semibold ms-2">{{product.price|floatformat:2}} €</span>
               </li>
               {% comment %} <li class="d-flex justify-content-between mb-2">
                 {% translate "Frais de livraison" %}:<span class="fw-semibold ms-2">{{shipping_fees}} €</span>

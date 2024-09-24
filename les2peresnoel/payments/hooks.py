@@ -58,7 +58,7 @@ def paypal_call_back_handler(sender, **kwargs):
                     # notify_user(customer, "Paiement accepté",
                     #             _("Paiement de %s %s accepté avec succès" % (
                     #                 ipn_response.mc_gross, ipn_response.mc_currency)), )
-                    _payment = Payment.objects.create(order=order, amount=ipn_response.mc_gross)
+                    _payment, _created = Payment.objects.get_or_create(order=order, amount=ipn_response.mc_gross)
                     # Todo :: Accountant entries must be done next
 
                     #  Processing accounting for order registration

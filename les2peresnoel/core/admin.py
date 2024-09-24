@@ -1,5 +1,5 @@
 from django.contrib import admin
-from les2peresnoel.core.models import Product, Document
+from les2peresnoel.core.models import Product, Document, Contact
 
 
 # Register your models here.
@@ -15,3 +15,11 @@ class DocumentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Document, DocumentAdmin)
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "message")
+
+
+admin.site.register(Contact, ContactAdmin)
+    
