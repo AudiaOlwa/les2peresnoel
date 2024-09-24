@@ -21,23 +21,15 @@ DEBUG = env.bool("DJANGO_DEBUG", default=False)
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = [
-        "lesdeuxperesnoel.com",
-        "www.lesdeuxperesnoel.com",
-        "les2peresnoel.com",
-        "www.les2peresnoel.com",
-        "localhost",
-        "antelope-driven-utterly.ngrok-free.app",
-    ]
-
+    ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 # Application definition
 
 DJANGO_APPS = [
-    "unfold",  
-    "unfold.contrib.filters",  
-    "unfold.contrib.forms",  
-    "unfold.contrib.inlines",  
-    "unfold.contrib.import_export",  
+    "unfold",
+    "unfold.contrib.filters",
+    "unfold.contrib.forms",
+    "unfold.contrib.inlines",
+    "unfold.contrib.import_export",
     "unfold.contrib.guardian",
     "unfold.contrib.simple_history",
     "django.contrib.admin",
