@@ -180,6 +180,10 @@ class Checkout(UUIDModel, TimeStampedModel):
 
 
 class Order(UUIDModel, TimeStampedModel, StatusModel):
+    class Meta:
+        verbose_name = _("Commande")
+        verbose_name_plural = _("Commandes")
+
     STATUS = Choices("pending", "processing", "completed")
 
     last_name = models.CharField(_("Nom"), max_length=50, blank=True)
@@ -221,14 +225,15 @@ class Order(UUIDModel, TimeStampedModel, StatusModel):
 
     def generate_refund(self):
         with atomic_transaction():
-            items = self.orderitem_set.all()
-            ProviderRefund.objects.bulk_create(
+            if not self.refund_generated:
+                items = self.orderitem_set.all()
+                ProviderRefund.objects.bulk_create(
                 [
                     ProviderRefund(order=self, provider=item.provider, order_item=item)
                     for item in items
-                ]
-            )
-            self.refund_generated = True
+                    ]
+                )
+                self.refund_generated = True
 
     @property
     def generate_tracking_number(self):
@@ -262,6 +267,10 @@ class Order(UUIDModel, TimeStampedModel, StatusModel):
 
 
 class OrderItem(UUIDModel, TimeStampedModel):
+    class Meta:
+        verbose_name = _("Produit de commande")
+        verbose_name_plural = _("Produits de commande")
+
     order = models.ForeignKey(
         Order,
         verbose_name=_("Commande"),

@@ -1,6 +1,7 @@
 import sweetify
+import stripe
 from django.conf import settings
-from django.shortcuts import get_object_or_404, render, reverse
+from django.shortcuts import get_object_or_404, render, reverse, redirect
 from django.views import View
 from django.views.decorators.http import require_POST
 from paypal.standard.forms import PayPalPaymentsForm
@@ -8,7 +9,11 @@ from paypal.standard.forms import PayPalPaymentsForm
 from ..marketplace.models import Order
 from ..payments.models import Payment
 from .models import ProviderRefund
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django_htmx.http import HttpResponseClientRedirect
 
+from django.utils.translation import gettext_lazy as _
 # Create your views here.
 
 
@@ -49,14 +54,57 @@ def paypal_cancel(request):
     return redirect(reverse("marketplace:home"))
     # return render(request, "payments/paypal/cancel.html")
 
-
-def credit_card(request):
-    _context = {}
+@login_required
+def credit_card(request, order_pk):
+    # breakpoint()
+    _order = get_object_or_404(Order, pk=order_pk)
+    _context = {
+        "order": _order
+    }
+    
+    stripe.api_key = 'sk_test_51Hzfd8JbhXB8bKJseVqt2FN0JLrbAMw5HVxBhhPnE0Ieu4mavy8wriMDbfOkS0p6nvLCAxDvR02IfdIiEJFJHLkD00SY1hVWz1'
     if request.method == "POST":
-        ...
-        # Process credit card request here
-        # We must use a credit card provider
-    return render_block("payments/pay_order.html", "init_payment", _context)
+        print([item.price for item in _order.items.all()])
+        try:
+            checkout_session = stripe.checkout.Session.create(
+                line_items=[
+                    {
+                        'price_data': {
+                            'currency': 'eur',
+                            'product_data': {
+                                'name': item.product.name,
+                            },
+                            'unit_amount': int(round(item.price * 100)),
+                        },
+                        'quantity': item.quantity,
+                    }
+                    for item in _order.items.all()
+                ],
+                mode='payment',
+                success_url=request.build_absolute_uri(reverse("payments:credit_card_success", kwargs={"order_pk": _order.pk})),
+                cancel_url=request.build_absolute_uri(reverse("payments:credit_card_cancel")) ,
+                client_reference_id=str(_order.pk),
+                customer_email=request.user.email,
+            )
+        except Exception as e:
+            print(e.__str__())
+            return HttpResponse(str(e), status=400)
+        return HttpResponseClientRedirect(checkout_session.url)
+    return render(request, "payments/pay_order.html", _context)
+
+
+def credit_card_success(request, order_pk):
+    _order = get_object_or_404(Order, pk=order_pk)
+    Payment.objects.create(order=_order, amount=_order.total_ttc, payer=request.user)
+    sweetify.success(request, _("Paiement réussi !"))
+    return redirect(reverse("marketplace:home"))
+    # return render(request, "payments/credit_card/success.html")
+
+
+def credit_card_cancel(request):
+    sweetify.warning(request, _("Paiement annulé !"))
+    return redirect(reverse("marketplace:home"))
+    # return render(request, "payments/credit_card/cancel.html")
 
 
 @require_POST

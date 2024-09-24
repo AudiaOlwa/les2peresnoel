@@ -16,7 +16,7 @@ environ.Env.read_env(BASE_DIR / ".env")
 SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
@@ -33,7 +33,13 @@ else:
 # Application definition
 
 DJANGO_APPS = [
-    "baton",
+    "unfold",  
+    "unfold.contrib.filters",  
+    "unfold.contrib.forms",  
+    "unfold.contrib.inlines",  
+    "unfold.contrib.import_export",  
+    "unfold.contrib.guardian",
+    "unfold.contrib.simple_history",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -68,7 +74,6 @@ THIRD_PARTY_APPS = [
     # "django_paypal",
     "paypal.standard.ipn",
     "mail_templated",
-    "baton.autodiscover",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -191,8 +196,6 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
-
-# ------------------------------------------------
 
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
@@ -457,29 +460,9 @@ FROM_EMAIL = "contact@mperesbonheur.com"
 LICENCE_EXPIRATION_DAYS = 365
 
 # Configuration CORS
-CORS_ALLOWED_ORIGINS = ["https://antelope-driven-utterly.ngrok-free.app"]
+# CORS_ALLOWED_ORIGINS = ["https://antelope-driven-utterly.ngrok-free.app"]
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOW_METHODS = (
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-)
 
-CORS_ALLOW_HEADERS = (
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-)
-
-CSRF_TRUSTED_ORIGINS = ["https://antelope-driven-utterly.ngrok-free.app"]
+# CSRF_TRUSTED_ORIGINS = ["https://antelope-driven-utterly.ngrok-free.app"]

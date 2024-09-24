@@ -16,6 +16,7 @@
                 </div>
                 <div class="page-header-right ms-auto">
                     <div class="page-header-right-items">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#make-payment">{% translate 'Effectuer un paiement' %}</button>
                     </div>
                 </div>
             </div>
@@ -129,6 +130,26 @@
                             </div>
                         </div>
                     {% endfor %}
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" id="make-payment">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title">{% translate 'Effectuer un paiement' %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                {% block make_payment_content %}
+                <div class="modal-body" id="make-payment-content">
+                    <form action="{% url 'payments:make_payment' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="tracking_number" placeholder="Numero de suivie de la commande">
+                        <button type="submit" >{% translate 'Effectuer le paiement' %}</button>
+                    </form>
                 </div>
                 {% endblock %}
             </div>

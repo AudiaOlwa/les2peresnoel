@@ -69,6 +69,7 @@
                                         <div class="nav ms-auto" data-bs-toggle="tooltip"
                                             data-bs-template="<div class='tooltip fs-xs' role='tooltip'><div class='tooltip-inner bg-light text-body-secondary p-0'></div></div>"
                                             data-bs-placement="left" title="{% translate 'Ajouter au panier' %}">
+                                            {% if product.media %}
                                             <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" href="#"
                                             aria-label="{% translate 'Ajouter au panier' %}"
                                             hx-post="{% url 'marketplace:add_to_cart' product_id=product.pk %}"
@@ -77,6 +78,14 @@
                                             <i class="ai-cart"> </i>
                                             {% translate " Ajouter au panier" %}
                                             </a>
+                                            {% else %}
+                                            <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" 
+                                            aria-label="{% translate 'Ajouter au panier' %}"
+                                            href="{% url 'marketplace:simple_checkout' product_id=product.pk %}">
+                                            <i class="fa fa-shopping-bag"> </i>  &nbsp;
+                                            {% translate "Commander" %}
+                                            </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

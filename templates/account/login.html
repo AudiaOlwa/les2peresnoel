@@ -21,11 +21,11 @@
           <div class="pt-4 pb-2 my-4">
             <h5 class="card-title text-center pb-0 fs-4">{% trans 'Connexion' %}</h5>
             <p class="text-center small">Entrez votre E-mail &amp; votre mot de passe pour vous connecter</p>
-            <p class="text-danger">
+            {% comment %} <p class="text-danger">
               {% for error in form.errors %}
                 {{ error }}
               {% endfor %}
-            </p>
+            </p> {% endcomment %}
           </div>
 
           <form class="row g-3 my-4" action="{% url 'account_login' %}" method="post">

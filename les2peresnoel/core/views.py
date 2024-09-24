@@ -235,3 +235,16 @@ def account_logout(request, *args, **kwargs):
     logout(request)
     sweetify.toast(request, _("Vous avez été déconnecté avec succès."), icon="success")
     return redirect(reverse("index"))
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            message.success(request, _("Votre message a été envoyé avex succès !"))
+        else:
+            messages.error(request, _("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer !"))
+    else:
+        messages.error(request, _("Une erreur est survenue lors de l'envoi du message."))
+    return redirect('index')

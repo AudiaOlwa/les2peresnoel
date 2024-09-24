@@ -10,40 +10,51 @@
     <meta name="description" content="Peres bonheur"/>
     <title>MPERES BONHEUR</title>
     {% sweetify %}
+    
     <!-- font-awesome icons link -->
     <link rel="stylesheet" href="{% static 'theme/main/css/all.min.css' %}"/>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'theme/main/css/bootstrap.min.css' %}"/>
-    <link rel="stylesheet" href="{% static 'theme/main/css/slick.css' %}"/>
+    {% comment %} <link rel="stylesheet" href="{% static 'theme/main/css/slick.css' %}"/> {% endcomment %}
     <link rel="stylesheet" href="{% static 'theme/main/css/venobox.min.css' %}"/>
     {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}"/>
     <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
 
+    
 
     <!-- main style file -->
     {% block style %}
         <link rel="stylesheet" href="{% static 'theme/main/css/style.css' %}"/>
         <link rel="stylesheet" href="{% static 'theme/main/css/responsive.css' %}"/>
+        <style>
+            div {
+                text-align: justify !important;
+            }
+            p {
+                text-align: justify !important;
+            }
+        </style>
     {% endblock %}
+
 </head>
 
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-<div id="preloader">
+{% comment %} <div id="preloader">
     <div id="loading-center">
         <div id="loading-center-absolute">
             <div class="object" id="object_one"></div>
-            <div class="object" id="object_two"></div>
-            <div class="object" id="object_three"></div>
+            {% comment %} <div class="object" id="object_two"></div>  {%# endcomment %}
+            {% comment %} <div class="object" id="object_three"></div> {%# endcomment %}
             <div class="object" id="object_four"></div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 
 <nav class="navbar navbar-expand-lg navbar-light" style="margin-bottom: 50px !important;">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand" href="#"><img src="{% static 'logos/pb.jpg' %}" alt="" height="35"><span>PERESBONHEUR</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -68,14 +79,14 @@
                     </li>
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#contact-modal">{% trans 'Contact' %}</a>
+                    <a class="nav-link" data-bs-toggle="modal" href="#contact">{% trans 'Contact' %}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#about">{% trans 'À propos' %}</a>
                 </li>
             </ul>
-            <div class="menu-action d-flex">
-                <div class="action-icon">
+            <div class="d-flex">
+                {% comment %} <div class="action-icon">
                     <a href="#" class="menu-icon"><i class="fa-solid fa-bookmark"></i></a>
                     <a href="#cart-offcanvas" data-bs-toggle="offcanvas"
                        aria-controls="offcanvasRight" class="menu-icon">
@@ -88,7 +99,7 @@
                     </a>
                     <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
                        class="menu-icon mobile-v-show"><i class="fa-solid fa-magnifying-glass"></i></a>
-                </div>
+                </div> {% endcomment %}
                 <a href="{% url 'marketplace:home' %}" class="button-secondary">{% trans 'Marketplace' %}</a>
                 {% comment %}
                   <a href="#" class="ham-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -222,25 +233,25 @@
         <div class="row justify-content-between">
             <div class="col-lg-3">
                 {% comment %} <a href="#!">MPB<span>.</span></a> {% endcomment %}
-                <img src="{% static 'logos/pb.jpg' %}" alt="" height="200" class="rounded">
+                <img src="{% static 'logos/pb.jpg' %}" alt="" height="100" class="rounded">
             </div>
             <div class="col-lg-2 col-md-4 footer-menu">
                 <h3>{% trans 'Liens rapides' %}</h3>
-                <a href="#">{% trans 'Accueil' %}</a>
-                <a href="#">{% trans 'À propos' %}</a>
-                <a href="#">{% trans 'Contactez-nous' %}</a>
+                <a href="/">{% trans 'Accueil' %}</a>
+                <a href="/#about">{% trans 'À propos' %}</a>
+                <a href="/#contact" data-bs-toggle="modal">{% trans 'Contactez-nous' %}</a>
             </div>
             <div class="col-lg-2 col-md-4 footer-menu">
-                <h3>{% trans 'Conditions' %}</h3>
+                {% comment %} <h3>{% trans 'Conditions' %}</h3> {% endcomment %}
                 {% comment %}
             <a href="#">Career Page</a>
             <a href="#">FAQ</a>
             <a href="#">Supports</a>
             <a href="#">Affiliate Marketing</a>
             {% endcomment %}
-                <a href="#">{% trans 'Générales' %}</a>
+                {% comment %} <a href="#">{% trans 'Générales' %}</a>
                 <a href="#">{% trans 'Ventes' %}</a>
-                <a href="#">{% trans 'Utilisation' %}</a>
+                <a href="#">{% trans 'Utilisation' %}</a> {% endcomment %}
             </div>
             {% comment %}
           <div class="col-lg-2 col-md-4 footer-menu">
@@ -292,11 +303,11 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {#<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>#}
 <script src="{% static 'js/toastr.min.js' %}"></script>
-<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'theme/main/js/slick.min.js' %}"></script>
+<script src="{% static 'theme/main/js/bootstrap.bundle.min.js' %}"></script>
+{% comment %} <script src="{% static 'theme/main/js/slick.min.js' %}"></script> {% endcomment %}
 <script src="{% static 'theme/main/js/venobox.min.js' %}"></script>
-<script src="{% static 'theme/main/js/counter.js' %}"></script>
-<script src="{% static 'theme/main/js/waypoints.min.js' %}"></script>
+{% comment %} <script src="{% static 'theme/main/js/counter.js' %}"></script>
+<script src="{% static 'theme/main/js/waypoints.min.js' %}"></script> {% endcomment %}
 <script src="{% static 'theme/main/js/custom.js' %}"></script>
 <script>
     {% if messages %}
@@ -306,12 +317,42 @@
     {% endif %}
     {% comment %} toastr.info('Are you the 6 fingered man?') {% endcomment %}
 </script>
-{% block scripts %}
+{% block scripts %} 
+
 
 {% endblock %}
 
 {% block modal %}
-
+<div class="modal fade" id="contact" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contactez-Nous</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" action="{% url 'contact' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">{% trans 'Nom complet' %}</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">{% trans 'Adresse E-mail' %}</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">{% trans 'Message' %}</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="border-0 button-primary"> <i class="fa fa-paper-plane"></i> {% trans 'Envoyer' %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 </body>
 </html>

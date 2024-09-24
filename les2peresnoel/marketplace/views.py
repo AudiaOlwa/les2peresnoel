@@ -29,6 +29,61 @@ SWEETIFY_TOAST_TIMER = settings.SWEETIFY_TOAST_TIMER
 Cart = get_cart_class()
 
 
+def home(request):
+    products = (
+        Product.get_available()
+    )  # .only('pk', 'name', 'category', 'price', 'image')
+    try:
+        max_price = max([product.price for product in products])
+    except:
+        max_price = 0
+    try:
+        min_price = min([product.price for product in products])
+    except:
+        min_price = 0
+
+    products = products.filter(category__slug__icontains='bonheur').exclude(media='').distinct()  
+    filter_categories_slugs = []
+    if request.htmx:
+        # breakpoint()
+        for item in request.GET:
+            if item.startswith("filter_category_"):
+                filter_categories_slugs.append(request.GET.get(item))
+        if filter_categories_slugs != []:
+            products = products.filter(
+                category__slug__in=filter_categories_slugs)
+
+        filter_price_from = int(request.GET.get("filter_price_from") or 0)
+        filter_price_to = int(request.GET.get("filter_price_to") or 0)
+        if (
+            filter_price_from != 0
+            and filter_price_to != 0
+            and filter_price_from < filter_price_to
+        ):
+            products = products.filter(
+                price__gte=filter_price_from, price__lte=filter_price_to
+            )
+    paginator = Paginator(products, 9)
+    page = request.GET.get("page")
+    form = ProductForm()
+    products = paginator.get_page(page)
+    _context = {
+        "categories": Category.objects.only("name", "cover_image", "slug").filter(slug__icontains='bonheur'),
+        "all_categories": Category.objects.only("name", "cover_image", "slug"),
+        "products": products,
+        "filter_datas": {
+            "min_price": int(min_price),
+            "start_min_price": 10,
+            "max_price": int(max_price),
+            "start_max_price": 90,
+            "filter_categorie_slug": filter_categories_slugs,
+        },
+    }
+    if request.htmx:
+        return render_block("marketplace/home.html", "product_list", _context)
+    return render(request, "marketplace/home.html", context=_context)
+
+
 @require_POST
 def add_product(request: HttpRequest, product_id: int, from_cart=False):
     product = get_object_or_404(Product.objects.all(), pk=product_id)
@@ -36,6 +91,18 @@ def add_product(request: HttpRequest, product_id: int, from_cart=False):
     quantity = int(request.POST.get("quantity", default=1))
     source = request.POST.get("source")
     cart = Cart.new(request)
+    # get the provider of the first product in cart
+    breakpoint()
+    if cart.count > 0:
+        existing_provider = cart.products[0].provider
+    else:
+        existing_provider = None
+    if existing_provider != product.provider:
+        messages.error(request, message=_("Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le même panier"))
+        return redirect("marketplace:home")
+    else:
+        provider = product.provider
+
     cart.add(product, quantity=quantity)
     sweetify.toast(
         request,
@@ -52,7 +119,8 @@ def add_product(request: HttpRequest, product_id: int, from_cart=False):
             "layouts/marketplace.html", "checkout_summary", _context
         )
     else:
-        response = render_block("layouts/marketplace.html", "cart_count", _context)
+        # response = render_block("layouts/marketplace.html", "cart_count", _context)
+        response = TemplateResponse(request, "layouts/marketplace.html", _context)
 
     return trigger_client_event(response=response, name="update_cart", after="receive")
 
@@ -279,58 +347,6 @@ def add_image_product(request, pk):
     )
 
 
-def home(request):
-    products = (
-        Product.get_available()
-    )  # .only('pk', 'name', 'category', 'price', 'image')
-    try:
-        max_price = max([product.price for product in products])
-    except:
-        max_price = 0
-    try:
-        min_price = min([product.price for product in products])
-    except:
-        min_price = 0
-
-    filter_categories_slugs = []
-    if request.htmx:
-        # breakpoint()
-        for item in request.GET:
-            if item.startswith("filter_category_"):
-                filter_categories_slugs.append(request.GET.get(item))
-        if filter_categories_slugs != []:
-            products = products.filter(category__slug__in=filter_categories_slugs)
-
-        filter_price_from = int(request.GET.get("filter_price_from") or 0)
-        filter_price_to = int(request.GET.get("filter_price_to") or 0)
-        if (
-            filter_price_from != 0
-            and filter_price_to != 0
-            and filter_price_from < filter_price_to
-        ):
-            products = products.filter(
-                price__gte=filter_price_from, price__lte=filter_price_to
-            )
-    paginator = Paginator(products, 9)
-    page = request.GET.get("page")
-    form = ProductForm()
-    products = paginator.get_page(page)
-    _context = {
-        "categories": Category.objects.only("name", "cover_image"),
-        "products": products,
-        "filter_datas": {
-            "min_price": int(min_price),
-            "start_min_price": 10,
-            "max_price": int(max_price),
-            "start_max_price": 90,
-            "filter_categorie_slug": filter_categories_slugs,
-        },
-    }
-    if request.htmx:
-        return render_block("marketplace/home.html", "product_list", _context)
-    return render(request, "marketplace/home.html", context=_context)
-
-
 def dashboard(request):
     return render(request, "marketplace/admin/index.html")
 
@@ -369,8 +385,9 @@ class CheckoutView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwars):
         cart = Cart.new(request)
         # Shipping form
+        tva = settings.TVA_RATE / 100
         checkout_form = CheckoutForm()
-        cart_tva_amount = 1.18 * float(cart.total)
+        cart_tva_amount = 1.055 * float(cart.total)
         shipping_fees = settings.SHIPPING_FEES
         total_amount = cart_tva_amount + shipping_fees
         _context = {
@@ -434,6 +451,8 @@ class CheckoutView(LoginRequiredMixin, View):
         return self.get(request, *args, **kwargs)
 
 
+
+
 @require_POST
 def update_checkout(request):
     cart = Cart.new(request)
@@ -459,10 +478,10 @@ def order_list(request):
 
 @login_required
 def order_details(request, pk):
-    if not request.user.is_provider and not request.user.is_superuser:
-        raise HttpResponseUnauthorized(
-            _("Vous n'êtes pas autorisé à accéder à cette page")
-        )
+    # if not request.user.is_provider and not request.user.is_superuser:
+    #     raise HttpResponseUnauthorized(
+    #         _("Vous n'êtes pas autorisé à accéder à cette page")
+    #     )
     order = get_object_or_404(Order, pk=pk)
     return render_block(
         "marketplace/orders/list.html", "order_detail_content", {"order": order}
@@ -483,3 +502,82 @@ def list_product_by_category(request, pk):
         "marketplace/products/list.html",
         {"products": products, "category": category, "categories": _categories},
     )
+
+
+def simple_checkout(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    # Calculer les montants pour un seul produit
+    tva = settings.TVA_RATE / 100
+    price_tva_amount = (1 + tva) * float(product.price)
+    shipping_fees = settings.SHIPPING_FEES
+    total_amount = price_tva_amount + shipping_fees
+    
+    # Créer un formulaire de commande pré-rempli
+    initial_data = {}
+    if request.user.is_authenticated:
+        initial_data = {
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'email': request.user.email,
+        }
+    checkout_form = CheckoutForm(initial=initial_data)
+    
+    context = {
+        'product': product,
+        'checkout_form': checkout_form,
+        'price_tva_amount': price_tva_amount,
+        'shipping_fees': shipping_fees,
+        'total_amount': total_amount,
+    }
+
+    if request.method == "POST":
+        tva = settings.TVA_RATE / 100
+        checkout_form = CheckoutForm(request.POST)
+        tva_amount = float(tva) * product.price
+        cart_tva_amount = float(1 + tva) * float(product.price)
+        # shipping_fees = settings.SHIPPING_FEES
+        total_amount = cart_tva_amount
+        customer = request.user if request.user.is_authenticated else None
+        if checkout_form.is_valid():
+            with atomic_transaction():
+                checkout = checkout_form.save()
+                order = Order.objects.create(
+                    **{
+                        "last_name": checkout.last_name,
+                        "first_name": checkout.first_name,
+                        "email": checkout.email,
+                        "total_ht": cart.total,
+                        "total_ttc": total_amount,
+                        "total_tva": tva_amount,
+                        "checkout": checkout,
+                        "customer": customer,
+                    }
+                )
+
+                OrderItem.objects.bulk_create(
+                    [
+                        OrderItem(
+                            **{
+                                "product": product,
+                                "order": order,
+                                "quantity": 1,
+                                "price": product.price,
+                                "total": product.price,
+                            }
+                        )
+                        for item in cart
+                    ]
+                )
+                sweetify.toast(
+                    request, _(
+                        "Votre commande a été enregistrée avec succès !")
+                )
+            if order:
+                # if not order.tracking_number:
+                #     order.tracking_number = order.generate_tracking_number
+                send_order_confirmation_email(order)
+            return redirect(order.get_payment_url)
+        else:
+            sweetify.toast(request, _("Une erreur s'est produite !"), "error")
+    return render(request, "marketplace/simple_checkout.html", context)
+    # return redirect("marketplace:checkout")

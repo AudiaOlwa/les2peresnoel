@@ -30,3 +30,7 @@ pandas==2.2.2
 django-mail-templated==2.6.5
 whitenoise[brotli]
 gunicorn
+stripe
+crispy-bootstrap5
+django-countries
+django-unfold
