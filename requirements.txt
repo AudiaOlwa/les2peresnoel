@@ -34,3 +34,4 @@ stripe
 crispy-bootstrap5
 django-countries
 django-unfold
+django-cors-headers
