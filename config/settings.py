@@ -18,7 +18,7 @@ SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
-COMPRESS_ENABLED = not DEBUG
+COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=False)
 
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
