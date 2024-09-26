@@ -759,9 +759,9 @@
 
             <!-- Nav -->
             <nav class="nav d-flex mb-3 mb-sm-4">
-                <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4" href="#">{% translate "Contacts" %}</a>
-                <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4" href="#">{% translate "Confidentialité" %}</a>
-                <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-sm-4" href="#">{% translate "Conditions d'utilisations" %}</a>
+                {% comment %} <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4" href="#">{% translate "Contacts" %}</a> {% endcomment %}
+                <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4" href="{% url 'terms' %}">{% translate "Conditions générales" %}</a>
+                <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-sm-4" href="{% url 'cgu' %}">{% translate "Conditions d'utilisation" %}</a>
             </nav>
 
             <!-- Language / currency switcher -->
