@@ -191,7 +191,7 @@ COMPRESS_URL = STATIC_URL
 # print(MEDIA_ROOT)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "statics")]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # STORAGES = {
