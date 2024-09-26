@@ -10,6 +10,7 @@ urlpatterns = [
     path("boutique", views.boutique, name="boutique"),
     path("legend_rebirth", views.legend_rebirth, name="legend_rebirth"),
     path("sage", views.sage, name="sage"),
+    path("cgu", views.cgu, name="cgu"),
     path("livre/<int:livre_id>/", views.livre, name="livre_detail"),
     path("musique/<int:musik_id>/", views.musique, name="musique_detail"),
     path("video/<int:video_id>/", views.video, name="video_detail"),
