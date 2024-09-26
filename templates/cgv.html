@@ -1,0 +1,498 @@
+{% extends "layouts/comicstyle.html" %}
+{% load static i18n %}
+
+{% block content %}
+    <section class="py-4 my-4">
+        <div class="container pt-4 mt-4">
+            <h1 class="txt-pos text-center mt-4 mb-4">{% trans "Conditions Générales de Vente Pères Bonheur" %}</h1>
+            <div>
+                <h2 class="py-4" id="clauses-generales">1. {% trans "Clauses générales et définitions" %}</h2>
+                <div>
+                    <p>
+                        {% blocktrans %}
+                        Les présentes conditions générales de vente s’appliquent aux prestations vendues par Peresbonheur.com, géré par l’entreprise NOBPRINT Antilles Info dont le siège social est situé à Acajou 2 – Groupe Bois d’Inde - 97232 LAMENTIN, sous le numéro de SIRET 42417664200017.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+
+                <h2 class="py-4" id="particulier">2. {% trans "Conditions générales de vente pour Particulier" %}</h2>
+                <div>
+                    <h3 class="py-2">2.1 {% trans "Description des articles" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Le site Internet www.peresbonheur.com propose à la vente des œuvres intellectuelles sous forme numériques (epub). Les livres numériques (ou ebooks) et Emusique (Mp3/MP4) vendus sur www.peresbonheur.com sont des fichiers numériques contenant des œuvres intellectuelles destinés à être téléchargés pour être lus sur des terminaux électroniques (ordinateurs, Smartphones, tablettes, ereaders, lecteur audio etc.).
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Les ouvrages numériques sont protégés par les lois françaises et internationales sur le droit d'auteur. En l'absence de licence précisant d'autres conditions d'utilisation, les fichiers téléchargés sont réservés à l’usage exclusif de l'acheteur. Ils ne peuvent être ni revendus, ni loués, ni transmis gratuitement au-delà de son cercle de famille et des besoins légitimes de son usage privé ; toute représentation ou reproduction de ces fichiers, totale ou partielle, en dehors des cas prévus par l’article L122-5 du code de la propriété intellectuelle, est strictement interdite et exposerait leur détenteur à des poursuites.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.2 {% trans "Commandes" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Toutes les commandes sont réalisées exclusivement via le site Internet www.peresbonheur.com. Le paiement s'effectue à la commande. Le client doit être âgé d'au moins 18 ans et avoir la capacité juridique ou être titulaire d'une autorisation parentale pour effectuer une commande sur www.peresbonheur.com.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Le clic sur le bouton « Commander » sur l’écran qui récapitule la commande et l'acceptation explicite par une boîte de dialogue des présentes conditions générales de vente, constitue une signature électronique qui certifie expressément le consentement sans réserve du client aux présentes conditions générales de vente et aux conditions particulières (en particulier le prix unitaire) propres à chaque fichier acheté. Le client renonce, de ce fait, à se prévaloir de tout document contradictoire et, notamment, ses propres conditions générales d’achat.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Le client peut abandonner sa commande jusqu'à la validation du paiement de sa commande. Toute commande ayant un profil de risque de fraude peut être bloquée par l'administrateur au stade du paiement.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.3 {% trans "Disponibilité des articles" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les articles sont normalement accessibles par le client 24 heures sur 24, 7 jours sur 7 et toute l’année. L'administrateur de ce site se réserve néanmoins le droit d'en fermer temporairement l’accès sans préavis. Il ne saurait être tenu responsable des problèmes techniques indépendants de son service, tels que des problèmes de connexion dus aux fournisseurs d’accès Internet ou des problèmes informatiques dus au matériel ou aux logiciels du client.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.4 {% trans "Tarifs" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les tarifs des produits sont réputés nets en Euros toutes taxes comprises. Toutes les commandes sont facturées en Euros et payables en Euros à la commande. En raison de l'impossibilité de vérifier la domiciliation du client pour des commandes comprenant des ouvrages numériques, la TVA française de 5,5 % est appliquée à tous les ouvrages numériques.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.5 {% trans "Paiement" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Le prix est payable en totalité et en un seul versement à la commande. Le paiement des achats s'effectue par carte bancaire ou Paypal. La transaction bancaire est effectuée au moment de la commande. Dès la validation du moyen de paiement utilisé par l'acheteur de la carte bancaire ou Paypal, la commande est confirmée et ne peut plus être annulée ni remboursée.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.6 {% trans "Livraison" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        La livraison des œuvres numériques acquises sur www.peresbonheur.com se fait par téléchargement. Quelques minutes après le paiement de la commande, un courriel est envoyé au client avec un ou plusieurs liens de téléchargement à usage unique permettant de charger les œuvres sur son ordinateur. Ces liens de téléchargements ont une durée de vie de 48 heures. Au-delà de ce délai, si le client n'a pas téléchargé le fichier, il pourra demander l'envoi d'un nouveau lien depuis son espace personnel.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.7 {% trans "Garantie, retour et remboursement" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les articles en téléchargement fournis sur ce site sont garantis contre tout défaut. Toutefois si le téléchargement ne permet pas la lecture du fichier, vous disposez de 48 heures pour nous en informer par courriel. Dès réception de votre courriel, un nouveau lien de téléchargement vous sera envoyé sur votre adresse email.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.8 {% trans "Droit de rétractation" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les achats de supports numériques en téléchargement sont fermes et définitifs. Ils ne pourront donner lieu à aucun remboursement ou droit de rétractation.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.9 {% trans "Protection des données personnelles" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les données collectées par « LES 2 PERES NOEL » sur le site www.peresbonheur.com sont utilisées pour le traitement de l'utilisateur particulier afin de l'informer des offres de « Peresbonheur.com». Ils concernent les services internes et les prestataires de « Peresbonheur.com» pour le traitement des commandes. Peresbonheur.com peut également envoyer les données de l'utilisateur à d'autres sociétés du groupe « Peresbonheur.com».
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        En raison de contraintes techniques et afin de faciliter la navigation sur le site. www.peresbonheur.com, des "cookies" sont également installés sur le site peresbonheur.com. Conformément à la directive du Parlement européen et du Conseil du 24 octobre 1995 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données, la directive du 15 décembre 1997 concernant le traitement des données à caractère personnel et de la protection de la vie privée dans le secteur des télécommunications et de la loi sur la protection des données du 6 janvier 1978, l’utilisateur particulier dispose d’un droit d’accès, de modification, de rectification, de suppression des informations personnelles le concernant.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.10 {% trans "Responsabilités" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Toutefois, l'utilisateur reste seul responsable des dommages directs ou indirects, matériels ou immatériels, qu'il aurait causés à la société Peresbonheur.com ou à des tiers ou à d'autres utilisateurs particuliers du fait d'une utilisation abusive ou illégale des services proposés sur le site Peresbonheur.com. Les produits proposés sont conformes à la législation française en vigueur. La responsabilité de Peresbonheur.com ne saurait être engagée en cas de non-respect de la législation du pays où le produit est téléchargé. Il appartient à l'acheteur de vérifier auprès des autorités locales compétentes les possibilités d'utilisation des produits commandés.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.11 {% trans "Responsabilité" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Peresbonheur.com ne peut être tenu responsable du contenu des sites sur lesquels ses produits sont référencés.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.12 {% trans "Cas de force majeure" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Peresbonheur.com se dégage de toute responsabilité en cas d'inexécution du contrat due à un cas de force majeure (grève, inondation, incendie...). Dans un premier temps, les cas de force majeure suspendent l'exécution du contrat. Si les cas de force majeure ont une durée d'existence supérieure à un mois, le contrat sera automatiquement résilié. Sont expressément considérés comme cas de force majeure ou de cas fortuit, outre ceux généralement retenus par la jurisprudence des cours et tribunaux français: grèves totales ou partielles, internes ou externes à la société, lock-out, intempéries, épidémies, blocage de moyens de transport ou de ravitaillement pour quelque raison que ce soit, tremblements de terre, incendies, tempêtes, inondations, dégâts des eaux, restrictions gouvernementales ou légales, modifications légales ou réglementaires des formes de commercialisation, défaillances informatiques, blocages des télécommunications, y compris les réseaux PTT, défaillance des hôtes, guerre état de siège et tout événement indépendant, irrésistible et imprévisible empêchant l’exécution normale du contrat.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.13 {% trans "Droit applicable" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les présentes conditions générales de vente sont soumises à la loi française. Tout litige sera porté devant les tribunaux compétents de Fort-de-France, lieu où se situe le siège social de la société où est formalisé le contrat de vente entre les parties.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.14 {% trans "Facture" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Une facture électronique est automatiquement émise à l'utilisateur qui doit la conserver pour prouver sa bonne foi en cas de réclamation.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">2.15 {% trans "Mentions légales" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Peresbonheur.com est diffusé par l’entreprise NOBPRINT – Antilles info – Acajou 2 – Bois d’Inde – 97232 LE LAMENTIN – contact@peresbonheur.com
+                        {% endblocktrans %}
+                    </p>
+                </div>
+
+                <h2 class="py-4" id="annonceur">3. {% trans "Conditions générales de vente pour Annonceur" %}</h2>
+                <div>
+                    <h3 class="py-2">3.1 {% trans "Services" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les services de Peresbonheur.com sont basés sur la gestion de campagnes publicitaires (Display) pour le compte d'un Annonceur dans le cadre d'un mandat écrit conformément aux dispositions expresses de l'article 20 de la loi n ° 93-122 du 29 janvier 1993. Dans le cadre des campagnes, Peresbonheur.com gère pour le compte de l'annonceur une mission quotidienne de gestion et d'achat de Display, via la plateforme www.peresbonheur.com.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        The2peresnoel.com décline toute responsabilité en cas de problème technique provenant des moteurs de recherche concernant la redirection de liens vers les sites de l’Annonceur ou du partenaire. En cas de troncature du compte client par un moteur de recherche ou un fournisseur d'accès pour non-respect des conditions relatives au site du client, aucun remboursement ne pourra être réclamé à Peresbonheur.com.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        En cas de perte de visibilité prouvée par les outils de contrôle de Peresbonheur.com, au-delà d’une marge d’ajustement technique de 5% pour les espaces "Affichage", The2peresnoel.com s’engage à repositionner l’annonce, en fonction des possibilités offertes par le calendrier de réservation.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Pour le pack "Display", la campagne de l'Annonceur est basée sur le positionnement de l'annonce et expire à la date de résiliation indiquée par l'Annonceur au moment de l'achat via son compte Annonceur. Il assure à l'annonceur un positionnement de ses annonces sur toute page concernant la gestion des campagnes de:
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - Affichage: dépend de l’achat d’espace au coût par affichage (CPM), au coût par jour (CPJ) ou mensuel ou annuel par abonnement (abonnement mensuel ou annuel) (CA). (Pack renouvelable).
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        The2peresnoel.com assure un positionnement d’affichage exact à 100% (selon les conditions énoncées dans les présentes conditions générales, agissant en tant que contrat), pour la durée de la campagne, définie par les paramètres de l’annonceur, via son espace de gestion de campagne.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.2 {% trans "La gestion de campagne" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Dans le contrat «Peresbonheur.com», s’engage également à surveiller la campagne de l’Annonceur. Le positionnement de l'annonce "Display" restera fixé en fonction de l'abonnement ou en ce qui concerne le coût par affichage (CPM), le coût par jour (CPJ), le coût par abonnement (abonnement mensuel ou annuel) (CA) choisi par l'Annonceur à l'heure de la commande.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Peresbonheur.com ne pourra être tenu responsable de toute situation résultant d'une erreur dans l'établissement d'un titre, d'une date, d'une description, d'un lien vidéo ou d'une image. Peresbonheur.com ne configure pas d'annonces, seul l'Annonceur est responsable au moment de l'achat. Le positionnement fourni par Peresbonheur.com est calculé sur l’ensemble des affichages de la campagne de l’Annonceur et selon son choix.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Aucune réclamation de l'Annonceur ne sera prise en compte si l'annonce a été mal positionnée via son espace "gestion de campagne" ou via une agence de publicité externe ou via une agence multimédia externe, ou en cas de respect de l'affichage moyen journalier ou mensuel. Cependant, Peresbonheur.com s’efforcera de satisfaire en temps réel la moyenne garantie, le groupe d’experts dont la mission est de surveiller en permanence les campagnes des clients et d’assurer le respect des positions chaque jour. Les tarifs indiqués dans l'assurance comprennent:
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - Toutes les annonces tout au long de la campagne
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Lors du renouvellement de la campagne, seuls des frais d'abonnement fixes seront appliqués. La création du compte et le lancement de la campagne sont gratuits. Aucun remboursement ne sera possible concernant une annulation de commande ou une erreur liée au site de l'Annonceur (erreur 404, 401, etc.). Peresbonheur.com ne fournit pas d'accès aux interfaces utilisateur.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.3 {% trans "Obligation de moyen" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Peresbonheur.com n'assume qu'une obligation de moyen dans le cadre de la prestation de ces services. Peresbonheur.com s'engage à contribuer entièrement à garantir l'exécution des services commandés sur le site Peresbonheur.com
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.4 {% trans "Usage abusif" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        L’Annonceur reste toutefois seul responsable des dommages directs ou indirects, matériels ou immatériels causés par lui-même ou l’un de ses employés à la société Peresbonheur.com ou à des tiers ou à d’autres Annonceur s du fait de l’utilisation abusive ou illégale des services offerts sur le site Peresbonheur.com.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.5 {% trans "Activités frauduleuses" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        La société "Peresbonheur.com" ne peut être tenue pour responsable des actions frauduleuses, abusives et / ou illégales d'un Annonceur dans le cadre des services proposés sur le site www.Peresbonheur.com.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.6 {% trans "Lien bloqué" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        La responsabilité de Peresbonheur.com ne saurait être engagée en cas de poursuites judiciaires d'un Annonceur ou d'un partenaire résultant d'une suspension temporaire due à un problème de redirection d'un lien bloqué par un moteur de recherche. (Google, Yahoo, Opera, Firefox, etc.) ou un anti-virus ou un bloqueur de publicité.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.7 {% trans "Pannes informatiques" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Peresbonheur.com ne pourra être tenu responsable des poursuites judiciaires émanant d'un Annonceur ou du partenaire en raison d'éventuelles pannes informatiques générées par l'hôte de son site.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.8 {% trans "Statistiques et positionnement" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les statistiques générales ou détaillées des campagnes publicitaires ne sont conservées par Peresbonheur.com que pour une période maximale de 3 mois. Toutes les statistiques dépassant cette période seront détruites et / ou renvoyées à l'Annonceur sur demande avant l'expiration du délai de trois mois.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        L'Annonceur qui souhaite disposer d'informations détaillées sur les statistiques des pages visitées peut les consulter via "Google Analytics", qu'il doit obligatoirement installer sur sa plateforme.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.9 {% trans "Pack Display" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        L'Annonceur s'engage à respecter les dimensions des bannières…. pixels.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.10 {% trans "Commande" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        L'Annonceur peut acquérir les produits suivants :
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - Pack « Display » : lequel dépend au Coût par affichage (CMP), Coût par Jour (CPJ), par mois ou annuel. (Pack Renouvelable)
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        La commande de l'Annonceur, intervient via le site Internet www.peresbonheur.com. L’Annonceur, est responsable de la mise en place de sa bannière. Il peut renouveler son pack à la fin de son abonnement s’il le souhaite.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.11 {% trans "Prix et conditions de paiement pour les différents produits" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les prix actuels sont exprimés en euros et hors taxes. Les taxes applicables sont celles en vigueur à la date de la commande.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.12 {% trans "Tarif" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Le tarif proposé par Peresbonheur.com, agissant en qualité de régie publicitaire, est relatif aux produits cités dans l'article 3, intitulé "COMMANDE" Il constitue un prix ferme et forfaitaire comprenant : Les honoraires de gestion, le coût d’achat des produits.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.13 {% trans "Abonnement" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Toutes les commandes sont payables immédiatement de la manière suivante:
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - Par Paypal (Carte de crédit - Virement)
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.14 {% trans "Retard de paiement" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Tout incident et/ou retard de paiement à l’échéance entraînera de plein droit:
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - l’application d’une pénalité de retard égale à 5% par mois des sommes dues
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - la facturation de l’ensemble des frais financiers et de recouvrement y afférent, sans préjudice de la suspension et/ou de la résiliation du présent contrat à compter de la date de présentation de la première mise en demeure de paiement.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.15 {% trans "Suspension des Prestations" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Si l’Annonceur, ne règle pas entièrement sa facture correspondant à sa commande (hors packs en ligne) dans les trente jours à compter de la date d’émission de la facture, Peresbonheur.com se réserve le droit d’interrompre les services fournis immédiatement à compter de la date d’émission de la facture et après une mise en demeure de payer demeurée infructueuse. Toute reprise des prestations suspendues est subordonnée au règlement intégral des factures impayées par le Client.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.16 {% trans "Renouvellement" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les tarifs indiqués par Peresbonheur.com à l’Annonceur, sont valables pendant la durée du contrat. Peresbonheur.com se réserve le droit de revoir les tarifs à la hausse ou à la baisse à chaque renouvellement.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.17 {% trans "Pack Display" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        L’Annonceur s’engage à respecter les dimensions des bannières …. pixels du pack "Display".
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.18 {% trans "Moyens techniques" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Il appartient à l’Annonceur de définir et de mettre en œuvre les moyens techniques qu'il juge les plus appropriés permettant de préserver l'intégrité, l'authentification et la confidentialité des informations, fichiers, et données de toute nature qu'il souhaite mettre sur le réseau Internet et ce, dans le respect de la réglementation applicable et notamment, en matière du secret des correspondances et de cryptologie.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        L’Annonceur s’engage à fournir des informations correctes, respecter le nombre de lettres autorisé pour les titre et description de ses produits ou campagne. L'Annonceur peut vérifier la mesure de ces campagnes via son compteur dans son panneau de configuration.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.19 {% trans "Données contraires aux lois" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        L'Annonceur s'interdit de transmettre sur le réseau Internet toute donnée contraire aux lois et règlements ou susceptible :
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - de constituer un abus de droit ;
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - d'être contraire à l'ordre public et/ou aux bonnes mœurs ;
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - d'être utilisée pour exercer une menace ou une pression de quelque nature, forme ou objet que ce soit,
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - d'être en contravention ou en contradiction avec tout droit de propriété intellectuelle ou industrielle ;
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - d'avoir été obtenu ou utilisé à la suite d'une contravention, d'un crime ou d'un délit. ;
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        - de porter un préjudice quelconque à un tiers, en particulier dans le cadre d'une publicité mensongère. Dans cette hypothèse, les campagnes de positionnement publicitaires ou autres services seront systématiquement refusées.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.20 {% trans "Respect du CGV" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        L'Annonceur s’engage aussi à respecter les conditions générales de ventes de Peresbonheur.com.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.21 {% trans "Authenticité visiteurs" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        L'Annonceur s’engage à ne pas contester les rapports fournis par Peresbonheur.com concernant le comptage et l’authenticité des visiteurs. Le site de l'Annonceur doit comporter une version intégrale dans la langue des supports susceptibles d'être utilisés. Le site de l'Annonceur ne doit pas proposer de liens vers des contenus susceptibles d'enfreindre la loi ou de violer les droits d'un tiers du pays visé.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Le site doit mentionner l'ensemble des informations d'identification imposées par la loi du 30 septembre 1986 relative à la liberté de communication, modifiée par la loi 2000/719 du 1er août 2000. Le site doit disposer d'un nom de domaine propre, les adresses émanant d'hébergeurs gratuits ne pourront pas être prises en compte. Le site de l'Annonceur doit être accessible en permanence (24 heures sur 24, 7 jours sur 7).
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Le contenu (textuel et graphique) du message publicitaire est à l'entière et seule responsabilité de l’Annonceur. Il est tenu de respecter les lois et règlements en vigueur dans le pays de publication, et de se conformer aux prérogatives du droit à la Consommation. L’Annonceur, est tenu de respecter la réglementation en vigueur et d'appliquer les recommandations du Bureau de Vérification de la Publicité.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        L'Annonceur s'engage à protéger la société Peresbonheur.com de toute action en responsabilité, réclamations et litiges qui pourraient résulter de tout manquement aux présentes Conditions Générales de Vente, quelles soient imputables à celui-ci ou à l'utilisation de son compte et à intervenir dans tous procès qui serait engagé à l'encontre de la société Peresbonheur.com, de ce chef.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        L'Annonceur s'engage à ne diffuser sur Peresbonheur.com, toutes bannières, liens, images, messages qui portent atteinte aux bonnes mœurs ou qui soient en relation avec le blanchiment d'argent, la mafia et autre actions illicites.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.22 {% trans "Suivi évolution commande" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        L’Annonceur est tenu de suivre ses commandes via son espace professionnel.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.23 {% trans "Protection des données nominatives – cookies" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les données recueillies par Peresbonheur.com sur le site www.peresbonheur.com sont utilisées pour le traitement de l’Annonceur, pour l’informer sur les offres de Peresbonheur.com. Elles sont destinées aux services internes et aux prestataires de « Peresbonheur.com» pour l'exécution des commandes. Peresbonheur.com peut également être amenée à transmettre les coordonnées, des Annonceur s et Partenaires à d'autres sociétés du groupe Peresbonheur.com.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        En raison des contraintes techniques et afin de faciliter la navigation sur le site www.peresbonheur.com, des “ cookies ” sont également installés sur le site www.peresbonheur.com. Conformément à la directive du Parlement Européen et du Conseil du 24 octobre 1995 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données, à la directive du 15 décembre 1997 concernant le traitement des données à caractère personnel et la protection de la vie privée dans le secteur des télécommunications et à la Loi Informatique et Libertés du 6 janvier 1978, l'Annonceur dispose d'un droit d'accès, de modification, de rectification, de suppression, des informations nominatives le concernant.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        L’Annonceur pourra exercer ce droit, dans le cas où toutes ses factures sont acquittées, en envoyant un courrier postal au service clientèle de la société Peresbonheur.com, à l’adresse suivante: Peresbonheur.com Service Administratif, Acajou 2 – Groupe Bois d’Inde Bât. 7 – BL 66 - 97232 LE LAMENTIN avec une photocopie de sa carte d’identité. Peresbonheur.com s'engage également à ce que ces informations ne soient ni échangées ni cédées.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.24 {% trans "Force majeure" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Dans un premier temps, les cas de force majeure suspendront l'exécution du contrat. Si les cas de force majeure ont une durée d'existence supérieure à un mois, le contrat sera résilié automatiquement. De façon expresse, sont considérés comme cas de force majeure ou cas fortuit, outre ceux habituellement retenus par la jurisprudence des cours et tribunaux français : les grèves totales ou partielles, internes ou externes à l'entreprise, lock-out, intempéries, épidémies, blocage des moyens de transport ou d'approvisionnement pour quelque raison que ce soit, tremblements de terre, incendies, tempêtes, inondations, dégâts des eaux, restrictions gouvernementales ou légales, modifications légales ou réglementaires des formes de commercialisation, pannes d'ordinateurs, blocages des télécommunications, y compris les réseaux PTT, panne d’hébergeur, guerre ou état de siège, et de tout évènement indépendant, irrésistible et imprévisible empêchant l'exécution normale du contrat.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.25 {% trans "Résiliation" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Faculté de résiliation anticipée
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        L’Annonceur a la faculté de résilier sa commande dans l’hypothèse où Peresbonheur.com ne respecterait pas ses engagements en termes de positionnement d'annonce et autres services, selon les conditions susvisées, pendant une durée de 7 jours, à compter de l’acceptation de la commande. Toutefois, l'Annonceur est seul à choisir son positionnement ou service. Dans le cas où l'Annonceur se tromperait de positionnement ou d’autres services, il ne peut y avoir aucun recours.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Dans cette hypothèse, le client devra envoyer sa demande de résiliation par lettre recommandée avec accusé de réception à l’adresse suivante : Peresbonheur.com, Service résiliation – Acajou 2 – Groupe Bois d’Inde- Bât. 7 BL 66 - 97232 LE LAMENTIN. Une expertise amiable sera alors menée par des experts désignés par Peresbonheur.com afin de confirmer la position de l’Annonceur.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        Dans l’hypothèse d’un avis favorable rendu par l’Expert, la résiliation prendra effet après réception d’un courriel qui sera envoyé au client par Peresbonheur.com, dans un délai de 8 jours à compter de la réception de l’avis définitif, rendu dans le cadre de cette expertise amiable.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.26 {% trans "Autres hypothèses de résiliation du contrat" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Dans tous les cas où l’Annonceur souhaite résilier sa commande pour quelque raison que ce soit (à moins d'un manquement des obligations de Peresbonheur.com qui fera office d'expertise), l’Annonceur sera dans l'obligation de régler les packs de campagnes souscrits ou autres services ainsi que 20% du solde à payer. Une fois l'ordre d'insertion souscrit par l’Annonceur, les packs de campagnes ou autres services sont alors engagés par Peresbonheur.com et dus par le client et aucune demande de remboursement ne pourra être prise en compte.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        En cas de demande de résiliation par l’Annonceur après l'achat des packs de campagnes, seuls 20% du solde restant à payer sera à régler par le client afin que la résiliation prenne effet. Aucune résiliation ne pourra être effective si l’Annonceur ne s'est pas acquitté des frais de résiliation susmentionnés.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.27 {% trans "Modifications" %}</h3>
+                    <h3 class="py-2">3.27 {% trans "Modifications" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        La société Peresbonheur.com peut de plein droit modifier son service sans autre formalité que de porter ces modifications dans les Conditions Générales de Vente en ligne.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.28 {% trans "Configuration" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        La configuration logicielle et matérielle nécessaire pour utiliser le site Peresbonheur.com et devenir Annonceur est précisée dans les présentes conditions générales d’utilisation du site Peresbonheur.com. La charge technique et financière de cette configuration logicielle ainsi que les coûts de télécommunications liés à l'exécution des prestations prévues aux présentes conditions générales sont à la charge de l’Annonceur.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% blocktrans %}
+                        La responsabilité de la société Peresbonheur.com ne saurait être engagée au titre d’éventuelles difficultés d'accès ou de fonctionnement liés à la configuration matérielle ou logicielle de l’Annonceur. L'Annonceur déclare disposer des compétences ainsi que des moyens informatiques et de télécommunications lui permettant d’utiliser correctement les services du site www.peresbonheur.com.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.29 {% trans "Reddition de comptes" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Conformément aux dispositions édictées par la loi Sapin n° 93-122 du 29 janvier 1993, la Société Peresbonheur.com fournira à l’achèvement des prestations réalisées pour le compte de l’Annonceur un document auquel sera annexé les justificatifs de paiement fournis par PERESBONHEUR.COM.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.30 {% trans "Droit applicable et litiges" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Les présentes conditions générales sont soumises à la Loi française. Tout litige susceptible de s’élever entre les parties relatif à la formation, l’exécution et/ou de l’interprétation des présentes conditions générales de vente sera de la compétence exclusive du Tribunal de Commerce de FORT-DE-FRANCE.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.31 {% trans "Facture" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Une facture électronique est automatiquement émise à l'utilisateur qui doit la conserver pour prouver sa bonne foi en cas de réclamation.
+                        {% endblocktrans %}
+                    </p>
+                    <h3 class="py-2">3.32 {% trans "Mentions légales" %}</h3>
+                    <p>
+                        {% blocktrans %}
+                        Peresbonheur.com est diffusé par l’entreprise NOBPRINT – Antilles info – Acajou 2 – Bois d’Inde – 97232 LE LAMENTIN – contact@peresbonheur.com
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+

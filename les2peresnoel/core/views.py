@@ -259,3 +259,11 @@ def contact(request):
 
 def cgu(request):
     return render(request, "cgu.html")
+
+
+def cgv(request):
+    return render(request, "cgv.html")
+
+
+def terms(request):
+    return render(request, "terms.html")

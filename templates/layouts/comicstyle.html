@@ -251,9 +251,9 @@
             <a href="#">Supports</a>
             <a href="#">Affiliate Marketing</a>
             {% endcomment %}  
-               <a href="#">{% trans 'Générales' %}</a>
-                <a href="#">{% trans 'Ventes' %}</a>
-                <a href="#">{% trans 'Utilisation' %}</a>
+                <a href="{% url 'terms' %}">{% trans 'Générales' %}</a>
+                <a href="{% url 'cgv' %}">{% trans 'Ventes' %}</a>
+                <a href="{% url 'cgu' %}">{% trans 'Utilisation' %}</a>
             </div>
             {% comment %}
           <div class="col-lg-2 col-md-4 footer-menu">
