@@ -1,5 +1,5 @@
-{% load static %}
-{% load i18n %}
+{% load static i18n compress %}
+{% comment %} {% load i18n %} {% endcomment %}
 <!DOCTYPE html>
 <html lang="fr" data-bs-theme="light">
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
@@ -29,6 +29,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    {% compress css %}
     <!-- Vendor styles -->
     <link rel="stylesheet" media="screen" href="{% static 'theme/ultra/vendor/nouislider/dist/nouislider.min.css' %}">
     <link rel="stylesheet" media="screen" href="{% static 'theme/ultra/vendor/swiper/swiper-bundle.min.css' %}">
@@ -40,13 +41,7 @@
     <link rel="stylesheet" media="screen" href="{% static 'theme/ultra/css/theme.min.css' %}">
     <link rel="stylesheet" media="screen" href="{% static 'css/marketplace-style.css' %}">
     <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}"/>
-    <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
-    {% block extra_styles %}{% endblock extra_styles %}
-    {#    <!-- Customizer generated styles -->#}
-    {#    <style id="customizer-styles"></style>#}
-
-    {#    <!-- Page loading styles -->#}
-    <style>
+        <style>
         body{
             font-family: "Ysabeau Office", sans-serif !important;
         }
@@ -146,6 +141,14 @@
             }
         }
     </style>
+
+   
+    {% endcompress %}
+    {% block extra_styles %}{% endblock extra_styles %}
+    {#    <!-- Customizer generated styles -->#}
+    {#    <style id="customizer-styles"></style>#}
+
+    {#    <!-- Page loading styles -->#}
 
     <!-- Page loading scripts -->
     <script>
@@ -853,10 +856,13 @@
         });
     </script> {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% compress js %}
+    <script src="{% static 'js/htmx.org@2.0.1' %}"></script>
     <script src="{% static 'js/toastr.min.js' %}"></script>
     <script src="{% static 'theme/ultra/vendor/nouislider/dist/nouislider.min.js' %}"></script>
     <script src="{% static 'theme/ultra/vendor/swiper/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'theme/ultra/js/theme.min.js' %}"></script>
+    {% endcompress %}
     {% comment %} <script src="{% static 'theme/ultra/js/customizer.min.js' %}"></script> {% endcomment %}
     <script>
     {% if messages %}

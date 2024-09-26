@@ -105,9 +105,9 @@
             <div class="row comic-item-pos">
                 <div class="col-lg-6 col-md-6 mobile-m-auto">
                     <div class="comic-item">
-                        <img src="{% static 'img/bg3.jpg' %}" alt="comic" class="img-fluid">
-                        <a class="veno-img" data-gall="comic1" href="{% static 'img/bg3.jpg' %}"><i
-                                class="fa-solid fa-plus"></i></a>
+                        <img src="{% static 'img/bonheur.jpeg' %}" alt="Bonheur" class="img-fluid">
+                        {% comment %} <a class="veno-img" data-gall="comic1" href="{% static 'img/bonheur.jpeg' %}"><i
+                                class="fa-solid fa-plus"></i></a> {% endcomment %}
                         <div class="comic-item-details">
                             <div class="row">
                                 <div class="col-8 col-lg-8">
@@ -123,9 +123,9 @@
                 </div>
                 <div class="col-lg-6 col-md-6 mobile-m-auto">
                     <div class="comic-item active">
-                        <img src="{% static 'img/bgm.jpg' %}" alt="comic" class="img-fluid">
-                        <a class="veno-img" data-gall="comic1" href="{% static 'img/bgm.jpg' %}"><i
-                                class="fa-solid fa-plus"></i></a>
+                        <img src="{% static 'img/hors_bonheur.jpeg' %}" alt="Hors Bonheur" class="img-fluid">
+                        {% comment %} <a class="veno-img" data-gall="comic1" href="{% static 'img/hors_bonheur.jpeg' %}"><i
+                                class="fa-solid fa-plus"></i></a> {% endcomment %}
                         <div class="comic-item-details">
                             <div class="row">
                                 <div class="col-8 col-lg-8">
@@ -139,24 +139,6 @@
                         </div>
                     </div>
                 </div>
-                {% comment %} <div class="col-lg-4 col-md-8 mobile-m-auto">
-                    <div class="comic-item">
-                        <img src="{% static 'img/g5.jpg' %}" alt="comic" class="img-fluid">
-                        <a class="veno-img" data-gall="comic1" href="{% static 'img/g5.jpg' %}"><i
-                                class="fa-solid fa-plus"></i></a>
-                        <div class="comic-item-details">
-                            <div class="row">
-                                <div class="col-8 col-lg-8">
-                                    <h3>Nos nouveautés</h3>
-                                    {#										<p><i class="fa-solid fa-eye"></i> 124.7K Reviews</p>#}
-                                </div>
-                                {% comment %} <div class="col-4 col-lg-4 text-end">
-                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
-                                </div> {% #endcomment %}
-                            </div>
-                        </div>
-                    </div>
-                </div> {% endcomment %}
             </div>
         </div>
     </section>
@@ -164,19 +146,19 @@
         <div class="section-title mt-4 mb-4">
             <div class="row mt-4 mb-4" style="margin-top: 10rem !important; margin-bottom: 5rem !important;">
                 <div class="col-lg-6 m-auto text-center">
-                    <span>Le grand sage </span>
-                    <h3>CÈDE SA PLACE</h3>
-                    <p class="pt-2 pb-4 text-center">mais supervise.</p>
+                    <span> {% trans "Le grand sage" %} </span>
+                    <h3>{% trans "CÈDE SA PLACE" %}</h3>
+                    <p class="pt-2 pb-4 text-center">{% trans "mais supervise." %}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-5 col-md-9 m-md-auto about-main">
-                    <img src="{% static 'img/h1.jpg' %}" alt="about-img" class="img-fluid h-100">
+                    <img src="{% static 'img/sage_cedant.jpeg' %}" alt="le grand sage" class="img-fluid h-100">
                 </div>
             </div>
             <div class="row my-4">
                 <div class="col-lg-6 m-auto text-center">
-                    <a href="{% url 'sage' %}" class="button-primary"><i class="fa-solid fa-eye"></i> Lire</a>
+                    <a href="{% url 'sage' %}" class="button-primary"><i class="fa-solid fa-eye"></i> {% trans "Lire" %}</a>
                 </div>
             </div>
         </div>

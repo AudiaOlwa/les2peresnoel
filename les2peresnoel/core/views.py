@@ -238,13 +238,24 @@ def account_logout(request, *args, **kwargs):
 
 
 def contact(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             message.success(request, _("Votre message a été envoyé avex succès !"))
         else:
-            messages.error(request, _("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer !"))
+            messages.error(
+                request,
+                _(
+                    "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer !"
+                ),
+            )
     else:
-        messages.error(request, _("Une erreur est survenue lors de l'envoi du message."))
-    return redirect('index')
+        messages.error(
+            request, _("Une erreur est survenue lors de l'envoi du message.")
+        )
+    return redirect("index")
+
+
+def cgu(request):
+    return render(request, "cgu.html")

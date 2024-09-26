@@ -18,26 +18,20 @@ SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
+COMPRESS_ENABLED = not DEBUG
+
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = [
-        "lesdeuxperesnoel.com",
-        "www.lesdeuxperesnoel.com",
-        "les2peresnoel.com",
-        "www.les2peresnoel.com",
-        "localhost",
-        "antelope-driven-utterly.ngrok-free.app",
-    ]
-
+    ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 # Application definition
 
 DJANGO_APPS = [
-    "unfold",  
-    "unfold.contrib.filters",  
-    "unfold.contrib.forms",  
-    "unfold.contrib.inlines",  
-    "unfold.contrib.import_export",  
+    "unfold",
+    "unfold.contrib.filters",
+    "unfold.contrib.forms",
+    "unfold.contrib.inlines",
+    "unfold.contrib.import_export",
     "unfold.contrib.guardian",
     "unfold.contrib.simple_history",
     "django.contrib.admin",
@@ -74,6 +68,7 @@ THIRD_PARTY_APPS = [
     # "django_paypal",
     "paypal.standard.ipn",
     "mail_templated",
+    "compressor",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -81,7 +76,7 @@ INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 USE_I18N = True
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -175,6 +170,12 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+)
+
 VENV_PATH = os.path.dirname(BASE_DIR)
 # STATIC_ROOT = os.path.join("static_root")
 
@@ -182,20 +183,25 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 MEDIA_ROOT = str(BASE_DIR / "media")
 MEDIA_URL = "/media/"
 
+# COMPRESS_STORAGE = STATICFILES_STORAGE
+# COMPRESS_OFFLINE_MANIFEST_STORAGE = STATICFILES_STORAGE
+COMPRESS_URL = STATIC_URL
+
+
 # print(MEDIA_ROOT)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
-    },
-}
+# STORAGES = {
+# "default": {
+#     "BACKEND": "django.core.files.storage.FileSystemStorage",
+# },
+# "staticfiles": {
+#     "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+# },
+# }
 
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
@@ -411,7 +417,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 # https://docs.allauth.org/en/latest/account/configuration.html
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_ADAPTER = "les2peresnoel.users.adapters.AccountAdapter"
 # https://docs.allauth.org/en/latest/account/forms.html
@@ -466,3 +472,37 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 # CSRF_TRUSTED_ORIGINS = ["https://antelope-driven-utterly.ngrok-free.app"]
+
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',
+#         'LOCATION': [
+#             'redis://127.0.0.1:26379/0',
+#             'redis://127.0.0.1:26380/0',
+#             'redis://127.0.0.1:26381/0',
+#         ],
+#         # 'LOCATION': env('REDIS_URL'),
+#         'OPTIONS': {
+#             'CLIENT_CLASS': 'django_redis.client.SentinelClient',
+#             'SENTINEL_KWARGS': {
+#                 'socket_timeout': 0.1,
+#             },
+#             'CONNECTION_POOL_KWARGS': {
+#                 'max_connections': 100,
+#                 'retry_on_timeout': True,
+#             }
+#         }
+#     }
+# }
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": env("REDIS_URL"),  # Use the appropriate Redis server URL
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}

@@ -42,7 +42,11 @@ def home(request):
     except:
         min_price = 0
 
-    products = products.filter(category__slug__icontains='bonheur').exclude(media='').distinct()  
+    products = (
+        products.filter(category__slug__icontains="bonheur")
+        .exclude(media="")
+        .distinct()
+    )
     filter_categories_slugs = []
     if request.htmx:
         # breakpoint()
@@ -50,8 +54,7 @@ def home(request):
             if item.startswith("filter_category_"):
                 filter_categories_slugs.append(request.GET.get(item))
         if filter_categories_slugs != []:
-            products = products.filter(
-                category__slug__in=filter_categories_slugs)
+            products = products.filter(category__slug__in=filter_categories_slugs)
 
         filter_price_from = int(request.GET.get("filter_price_from") or 0)
         filter_price_to = int(request.GET.get("filter_price_to") or 0)
@@ -68,7 +71,9 @@ def home(request):
     form = ProductForm()
     products = paginator.get_page(page)
     _context = {
-        "categories": Category.objects.only("name", "cover_image", "slug").filter(slug__icontains='bonheur'),
+        "categories": Category.objects.only("name", "cover_image", "slug").filter(
+            slug__icontains="bonheur"
+        ),
         "all_categories": Category.objects.only("name", "cover_image", "slug"),
         "products": products,
         "filter_datas": {
@@ -98,7 +103,12 @@ def add_product(request: HttpRequest, product_id: int, from_cart=False):
     else:
         existing_provider = None
     if existing_provider != product.provider:
-        messages.error(request, message=_("Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le même panier"))
+        messages.error(
+            request,
+            message=_(
+                "Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le même panier"
+            ),
+        )
         return redirect("marketplace:home")
     else:
         provider = product.provider
@@ -451,8 +461,6 @@ class CheckoutView(LoginRequiredMixin, View):
         return self.get(request, *args, **kwargs)
 
 
-
-
 @require_POST
 def update_checkout(request):
     cart = Cart.new(request)
@@ -511,23 +519,23 @@ def simple_checkout(request, product_id):
     price_tva_amount = (1 + tva) * float(product.price)
     shipping_fees = settings.SHIPPING_FEES
     total_amount = price_tva_amount + shipping_fees
-    
+
     # Créer un formulaire de commande pré-rempli
     initial_data = {}
     if request.user.is_authenticated:
         initial_data = {
-            'first_name': request.user.first_name,
-            'last_name': request.user.last_name,
-            'email': request.user.email,
+            "first_name": request.user.first_name,
+            "last_name": request.user.last_name,
+            "email": request.user.email,
         }
     checkout_form = CheckoutForm(initial=initial_data)
-    
+
     context = {
-        'product': product,
-        'checkout_form': checkout_form,
-        'price_tva_amount': price_tva_amount,
-        'shipping_fees': shipping_fees,
-        'total_amount': total_amount,
+        "product": product,
+        "checkout_form": checkout_form,
+        "price_tva_amount": price_tva_amount,
+        "shipping_fees": shipping_fees,
+        "total_amount": total_amount,
     }
 
     if request.method == "POST":
@@ -569,8 +577,7 @@ def simple_checkout(request, product_id):
                     ]
                 )
                 sweetify.toast(
-                    request, _(
-                        "Votre commande a été enregistrée avec succès !")
+                    request, _("Votre commande a été enregistrée avec succès !")
                 )
             if order:
                 # if not order.tracking_number:
