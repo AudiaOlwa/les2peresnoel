@@ -2,13 +2,20 @@ import os
 from pathlib import Path
 
 import environ
+from django.templatetags.static import static
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 APPS_DIR = BASE_DIR / "les2peresnoel"
 
 env = environ.Env()
-environ.Env.read_env(BASE_DIR / ".env")
+
+READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
+if READ_DOT_ENV_FILE:
+    # OS environment variables take precedence over variables from .env
+    env.read_env(str(BASE_DIR / ".env"))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -16,16 +23,14 @@ environ.Env.read_env(BASE_DIR / ".env")
 SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DJANGO_DEBUG", default=False)
-
+DEBUG = env.bool("DJANGO_DEBUG", default=True)
+DEBUG = True
 COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=False)
-
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
     ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 # Application definition
-
 DJANGO_APPS = [
     "unfold",
     "unfold.contrib.filters",
@@ -505,4 +510,119 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         },
     }
+}
+
+
+# Unfolf settings
+
+UNFOLD = {
+    "SITE_TITLE": "ADMINISTRATION",
+    "SITE_HEADER": "PERES BONHEUR",
+    "SITE_URL": "/",
+    # "SITE_ICON": lambda request: static("icon.svg"),  # both modes, optimise for 32px height
+    # "SITE_ICON": {
+    #     "light": lambda request: static("icon-light.svg"),  # light mode
+    #     "dark": lambda request: static("icon-dark.svg"),  # dark mode
+    # },
+    # "SITE_LOGO": lambda request: static("logo.svg"),  # both modes, optimise for 32px height
+    # "SITE_LOGO": {
+    #     "light": lambda request: static("logo-light.svg"),  # light mode
+    #     "dark": lambda request: static("logo-dark.svg"),  # dark mode
+    # },
+    "SITE_SYMBOL": "speed",  # symbol from icon set
+    "SITE_FAVICONS": [
+        {
+            "rel": "icon",
+            "sizes": "32x32",
+            "type": "image/svg+xml",
+            "href": lambda request: static("favicon.svg"),
+        },
+    ],
+    "SHOW_HISTORY": True,  # show/hide "History" button, default: True
+    "SHOW_VIEW_ON_SITE": True,  # show/hide "View on site" button, default: True
+    # "ENVIRONMENT": "sample_app.environment_callback",
+    # "DASHBOARD_CALLBACK": "sample_app.dashboard_callback",
+    # "THEME": "dark",  # Force theme: "dark" or "light". Will disable theme switcher
+    "LOGIN": {
+        "image": lambda request: static("sample/login-bg.jpg"),
+        "redirect_after": lambda request: reverse_lazy("admin:APP_MODEL_changelist"),
+    },
+    "STYLES": [
+        lambda request: static("css/style.css"),
+        lambda request: static("unfold/css/font.css"),
+    ],
+    "SCRIPTS": [
+        lambda request: static("js/script.js"),
+    ],
+    "COLORS": {
+        "font": {
+            "subtle-light": "107 114 128",
+            "subtle-dark": "156 163 175",
+            "default-light": "75 85 99",
+            "default-dark": "209 213 219",
+            "important-light": "17 24 39",
+            "important-dark": "243 244 246",
+        },
+        "primary": {
+            "50": "255 235 235",  # Lightest shade of #d71515
+            "100": "255 204 204",
+            "200": "255 153 153",
+            "300": "255 102 102",
+            "400": "255 51 51",
+            "500": "215 21 21",  # #d71515
+            "600": "194 19 19",
+            "700": "173 17 17",
+            "800": "153 15 15",
+            "900": "133 13 13",
+            "950": "102 10 10",  # Darkest shade of #d71515
+        },
+    },
+    "EXTENSIONS": {
+        "modeltranslation": {
+            "flags": {
+                "en": "🇬🇧",
+                "fr": "🇫🇷",
+                "nl": "🇧🇪",
+            },
+        },
+    },
+    "SIDEBAR": {
+        "show_search": True,  # Search in applications and models names
+        "show_all_applications": True,  # Dropdown with all applications and models
+        # "navigation": [
+        #     {
+        #         "title": _("Navigation"),
+        #         "separator": True,  # Top border
+        #         "collapsible": True,  # Collapsible group of links
+        #         "items": [
+        #             {
+        #                 "title": _("Dashboard"),
+        #                 "icon": "dashboard",  # Supported icon set: https://fonts.google.com/icons
+        #                 "link": reverse_lazy("admin:index"),
+        #                 # "badge": "sample_app.badge_callback",
+        #                 "permission": lambda request: request.user.is_superuser,
+        #             },
+        #             {
+        #                 "title": _("Users"),
+        #                 "icon": "people",
+        #                 "link": reverse_lazy("admin:users_user_changelist"),
+        #             },
+        #         ],
+        #     },
+        # ],
+    },
+    # "TABS": [
+    #     {
+    #         "models": [
+    #             "app_label.model_name_in_lowercase",
+    #         ],
+    #         # "items": [
+    #         #     {
+    #         #         "title": _("Your custom title"),
+    #         #         "link": reverse_lazy("admin:app_label_model_name_changelist"),
+    #         #         "permission": "sample_app.permission_callback",
+    #         #     },
+    #         # ],
+    #     },
+    # ],
 }
