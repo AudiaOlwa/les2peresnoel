@@ -33,6 +33,9 @@ class Category(Detail, TimeStampedModel, SoftDeletableModel):
     slug = models.SlugField(max_length=100, editable=False)
     parent = models.ForeignKey("self", on_delete=models.CASCADE, null=True, blank=True)
     cover_image = models.ImageField(upload_to="categories/", blank=True, null=True)
+    is_removed = models.BooleanField(
+        default=False, verbose_name=_("Supprimé ?"), editable=False
+    )
 
     @property
     def cover(self):
@@ -68,11 +71,17 @@ class Product(Detail, TimeStampedModel, SoftDeletableModel):
     quantity = models.IntegerField(verbose_name=_("Quantité"), default=1)
     external_link = models.URLField(help_text=_("Lien de dropshipping"), blank=True)
     owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="products"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="products",
+        editable=False,
     )
     image = models.ImageField(upload_to="products/", verbose_name=_("Couverture"))
     media = models.FileField(
         upload_to="products/media/", verbose_name=_("Média"), blank=True, null=True
+    )
+    is_removed = models.BooleanField(
+        default=False, verbose_name=_("Supprimé ?"), editable=False
     )
 
     def __str__(self):
@@ -228,9 +237,11 @@ class Order(UUIDModel, TimeStampedModel, StatusModel):
             if not self.refund_generated:
                 items = self.orderitem_set.all()
                 ProviderRefund.objects.bulk_create(
-                [
-                    ProviderRefund(order=self, provider=item.provider, order_item=item)
-                    for item in items
+                    [
+                        ProviderRefund(
+                            order=self, provider=item.provider, order_item=item
+                        )
+                        for item in items
                     ]
                 )
                 self.refund_generated = True

@@ -24,7 +24,7 @@ SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=True)
-# DEBUG = True
+DEBUG = True
 COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=False)
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
@@ -550,9 +550,12 @@ UNFOLD = {
     "STYLES": [
         lambda request: static("css/style.css"),
         lambda request: static("unfold/css/font.css"),
+        lambda request: "https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css",
     ],
     "SCRIPTS": [
         lambda request: static("js/script.js"),
+        lambda request: "https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js",
+        lambda request: static("unfold/js/extra.js"),
     ],
     "COLORS": {
         "font": {
