@@ -12,8 +12,9 @@ APPS_DIR = BASE_DIR / "les2peresnoel"
 
 env = environ.Env()
 
-READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
+READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
 if READ_DOT_ENV_FILE:
+    breakpoint()
     # OS environment variables take precedence over variables from .env
     env.read_env(str(BASE_DIR / ".env"))
 # Quick-start development settings - unsuitable for production
@@ -24,7 +25,7 @@ SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=True)
-DEBUG = True
+# DEBUG = True
 COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=False)
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
