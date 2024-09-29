@@ -23,8 +23,7 @@ if READ_DOT_ENV_FILE:
 SECRET_KEY = "5vxou4in7%f+p$x2a0kzhk379$#1q-0+646v*_((k%s-$+7=go"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DJANGO_DEBUG", default=True)
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG", default=False)
 COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=False)
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
@@ -92,6 +91,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
+    # "config.middleware.CurrentRequestMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -102,6 +102,11 @@ TEMPLATES = [
         "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
+            # "loaders": [
+            #     "config.loaders.UnfoldAdminLoader",
+            #     "django.template.loaders.filesystem.Loader",
+            #     "django.template.loaders.app_directories.Loader",
+            # ],
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
@@ -516,19 +521,23 @@ CACHES = {
 # Unfolf settings
 
 UNFOLD = {
-    "SITE_TITLE": "ADMINISTRATION",
+    "SITE_TITLE": "PERES BONHEUR | ADMINISTRATION",
     "SITE_HEADER": "PERES BONHEUR",
     "SITE_URL": "/",
-    # "SITE_ICON": lambda request: static("icon.svg"),  # both modes, optimise for 32px height
-    # "SITE_ICON": {
-    #     "light": lambda request: static("icon-light.svg"),  # light mode
-    #     "dark": lambda request: static("icon-dark.svg"),  # dark mode
-    # },
-    # "SITE_LOGO": lambda request: static("logo.svg"),  # both modes, optimise for 32px height
-    # "SITE_LOGO": {
-    #     "light": lambda request: static("logo-light.svg"),  # light mode
-    #     "dark": lambda request: static("logo-dark.svg"),  # dark mode
-    # },
+    "SITE_ICON": lambda request: static(
+        "icon.svg"
+    ),  # both modes, optimise for 32px height
+    "SITE_ICON": {
+        "light": lambda request: static("icon-light.svg"),  # light mode
+        "dark": lambda request: static("icon-dark.svg"),  # dark mode
+    },
+    "SITE_LOGO": lambda request: static(
+        "logo.svg"
+    ),  # both modes, optimise for 32px height
+    "SITE_LOGO": {
+        "light": lambda request: static("logo-light.svg"),  # light mode
+        "dark": lambda request: static("logo-dark.svg"),  # dark mode
+    },
     "SITE_SYMBOL": "speed",  # symbol from icon set
     "SITE_FAVICONS": [
         {
@@ -545,7 +554,7 @@ UNFOLD = {
     # "THEME": "dark",  # Force theme: "dark" or "light". Will disable theme switcher
     "LOGIN": {
         "image": lambda request: static("sample/login-bg.jpg"),
-        "redirect_after": lambda request: reverse_lazy("admin:APP_MODEL_changelist"),
+        "redirect_after": lambda request: reverse_lazy("admin:index"),
     },
     "STYLES": [
         lambda request: static("css/style.css"),
@@ -589,43 +598,43 @@ UNFOLD = {
             },
         },
     },
-    "SIDEBAR": {
-        "show_search": True,  # Search in applications and models names
-        "show_all_applications": True,  # Dropdown with all applications and models
-        # "navigation": [
-        #     {
-        #         "title": _("Navigation"),
-        #         "separator": True,  # Top border
-        #         "collapsible": True,  # Collapsible group of links
-        #         "items": [
-        #             {
-        #                 "title": _("Dashboard"),
-        #                 "icon": "dashboard",  # Supported icon set: https://fonts.google.com/icons
-        #                 "link": reverse_lazy("admin:index"),
-        #                 # "badge": "sample_app.badge_callback",
-        #                 "permission": lambda request: request.user.is_superuser,
-        #             },
-        #             {
-        #                 "title": _("Users"),
-        #                 "icon": "people",
-        #                 "link": reverse_lazy("admin:users_user_changelist"),
-        #             },
-        #         ],
-        #     },
-        # ],
-    },
-    # "TABS": [
-    #     {
-    #         "models": [
-    #             "app_label.model_name_in_lowercase",
-    #         ],
-    #         # "items": [
+    #     "SIDEBAR": {
+    #         "show_search": True,  # Search in applications and models names
+    #         "show_all_applications": True,  # Dropdown with all applications and models
+    #         # "navigation": [
     #         #     {
-    #         #         "title": _("Your custom title"),
-    #         #         "link": reverse_lazy("admin:app_label_model_name_changelist"),
-    #         #         "permission": "sample_app.permission_callback",
+    #         #         "title": _("Navigation"),
+    #         #         "separator": True,  # Top border
+    #         #         "collapsible": True,  # Collapsible group of links
+    #         #         "items": [
+    #         #             {
+    #         #                 "title": _("Dashboard"),
+    #         #                 "icon": "dashboard",  # Supported icon set: https://fonts.google.com/icons
+    #         #                 "link": reverse_lazy("admin:index"),
+    #         #                 # "badge": "sample_app.badge_callback",
+    #         #                 "permission": lambda request: request.user.is_superuser,
+    #         #             },
+    #         #             {
+    #         #                 "title": _("Users"),
+    #         #                 "icon": "people",
+    #         #                 "link": reverse_lazy("admin:users_user_changelist"),
+    #         #             },
+    #         #         ],
     #         #     },
     #         # ],
     #     },
-    # ],
+    #     # "TABS": [
+    #     #     {
+    #     #         "models": [
+    #     #             "app_label.model_name_in_lowercase",
+    #     #         ],
+    #     #         # "items": [
+    #     #         #     {
+    #     #         #         "title": _("Your custom title"),
+    #     #         #         "link": reverse_lazy("admin:app_label_model_name_changelist"),
+    #     #         #         "permission": "sample_app.permission_callback",
+    #     #         #     },
+    #     #         # ],
+    #     #     },
+    #     # ],
 }

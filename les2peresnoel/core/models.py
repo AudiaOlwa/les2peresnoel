@@ -42,8 +42,11 @@ class Document(models.Model):
         return self.title
 
 
-
 class Contact(TimeStampedModel):
+    class Meta:
+        verbose_name = "Message de contact"
+        verbose_name_plural = "Messages de contact  "
+
     name = models.CharField(max_length=150)
     email = models.EmailField()
     message = models.TextField()

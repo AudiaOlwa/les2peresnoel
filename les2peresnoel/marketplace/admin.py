@@ -1,6 +1,9 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 
-from .models import Category, Product, ProductImage, Order, OrderItem, Checkout
+from config.sites import manager_admin_site
+
+from .models import Category, Checkout, Order, OrderItem, Product, ProductImage
 
 # Register your models here.
 
@@ -10,3 +13,33 @@ admin.site.register(ProductImage)
 admin.site.register(Checkout)
 admin.site.register(Order)
 admin.site.register(OrderItem)
+
+
+@admin.register(Order, site=manager_admin_site)
+class OrderAdmin(ModelAdmin):
+    pass
+
+
+@admin.register(OrderItem, site=manager_admin_site)
+class OrderItemAdmin(ModelAdmin):
+    pass
+
+
+@admin.register(Checkout, site=manager_admin_site)
+class CheckoutAdmin(ModelAdmin):
+    pass
+
+
+@admin.register(Category, site=manager_admin_site)
+class CategoryAdmin(ModelAdmin):
+    list_display = ("name", "description", "parent")
+
+
+@admin.register(Product, site=manager_admin_site)
+class ProductAdmin(ModelAdmin):
+    list_display = ("name", "description", "price")
+
+
+@admin.register(ProductImage, site=manager_admin_site)
+class ProductImageAdmin(ModelAdmin):
+    pass

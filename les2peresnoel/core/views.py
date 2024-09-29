@@ -2,6 +2,7 @@ import random
 
 import sweetify
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import logout
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -9,7 +10,7 @@ from django.utils.translation import activate
 from django.utils.translation import gettext as _
 from mail_templated import EmailMessage
 
-from .forms import SignUpForm
+from .forms import ContactForm, SignUpForm
 from .models import Document, Product
 
 
@@ -238,11 +239,12 @@ def account_logout(request, *args, **kwargs):
 
 
 def contact(request):
+    breakpoint()
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            message.success(request, _("Votre message a été envoyé avex succès !"))
+            messages.success(request, _("Votre message a été envoyé avex succès !"))
         else:
             messages.error(
                 request,
