@@ -8,7 +8,8 @@ from les2peresnoel import core
 from .sites import manager_admin_site
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    # path("admin/", admin.site.urls),
+    path("vAbGuJwYJyTAck/bUzLQvA/", admin.site.urls),
     path("manager/", manager_admin_site.urls),
     # path("baton/", include("baton.urls")),
     path("", include("les2peresnoel.core.urls")),
