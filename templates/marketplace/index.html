@@ -196,9 +196,17 @@
                                 <div class="product-price">
                                     <span>{{ product.price }}</span>
                                 </div>
-                                <button type="button" class="product-cart-btn"
+                                {% if product.price == 0 and product.media %}
+                                    {% if product.media %}
+                                        <a type="button" class="product-download-btn"
+                                            href="{{ product.media.url }}" download="{{ product.name }}">{% trans 'Télécharger' %}</a>
+                                    {% endif %}
+                                {% else %}
+                                    <button type="button" class="product-cart-btn"
                                         hx-post="{% url 'marketplace:add_to_cart' product.pk %}" hx-target="#cart-count"
                                         hx-swap="innerHTML">{% trans 'Ajouter au panier' %}</button>
+                                {% endif %}
+                                
                             </div>
                         </div>
                     </div>

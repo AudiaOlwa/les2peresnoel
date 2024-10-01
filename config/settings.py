@@ -78,6 +78,7 @@ THIRD_PARTY_APPS = [
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 USE_I18N = True
+USE_L10N = True
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     # "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -131,6 +132,10 @@ LANGUAGES = [
 ]
 
 CURRENT_LANGUAGE = "fr"
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
+]
 
 WSGI_APPLICATION = "config.wsgi.application"
 
