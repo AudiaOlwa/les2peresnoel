@@ -97,21 +97,24 @@ def add_product(request: HttpRequest, product_id: int, from_cart=False):
     source = request.POST.get("source")
     cart = Cart.new(request)
     # get the provider of the first product in cart
-    breakpoint()
+    # breakpoint()
     if cart.count > 0:
-        existing_provider = cart.products[0].provider
+        existing_provider = cart.products[0].owner
     else:
         existing_provider = None
-    if existing_provider != product.provider:
-        messages.error(
+    if existing_provider and existing_provider != product.owner:
+        sweetify.toast(
             request,
-            message=_(
+            title=_("Erreur"),
+            icon="error",
+            text=_(
                 "Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le même panier"
             ),
+            timer=SWEETIFY_TOAST_TIMER,
         )
-        return redirect("marketplace:home")
-    else:
-        provider = product.provider
+        return HttpResponseClientRedirect(reverse("marketplace:home"))
+    # else:
+    #     provider = product.owner
 
     cart.add(product, quantity=quantity)
     sweetify.toast(
@@ -129,8 +132,8 @@ def add_product(request: HttpRequest, product_id: int, from_cart=False):
             "layouts/marketplace.html", "checkout_summary", _context
         )
     else:
-        # response = render_block("layouts/marketplace.html", "cart_count", _context)
-        response = TemplateResponse(request, "layouts/marketplace.html", _context)
+        response = render_block("layouts/marketplace.html", "cart_count", _context)
+        # response = TemplateResponse(request, "layouts/marketplace.html", _context)
 
     return trigger_client_event(response=response, name="update_cart", after="receive")
 

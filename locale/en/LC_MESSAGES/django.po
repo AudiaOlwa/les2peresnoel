@@ -47,103 +47,103 @@ msgstr ""
 
 #: les2peresnoel/accounting/helpers.py:54
 msgid "Capital"
-msgstr ""
+msgstr "Capital"
 
 #: les2peresnoel/accounting/helpers.py:57
 msgid "Achats de matières premières"
-msgstr ""
+msgstr "Purchases of raw materials"
 
 #: les2peresnoel/accounting/helpers.py:60
 msgid "Matériel industriel"
-msgstr ""
+msgstr "Industrial equipment"
 
 #: les2peresnoel/accounting/helpers.py:63
 msgid "Ventes de produits finis"
-msgstr ""
+msgstr "Sales of finished products"
 
 #: les2peresnoel/accounting/helpers.py:65
 msgid "Dette fournisseur"
-msgstr ""
+msgstr "Supplier debt"
 
 #: les2peresnoel/accounting/helpers.py:68
 msgid "Commissions de vente"
-msgstr ""
+msgstr "Sales commissions"
 
 #: les2peresnoel/accounting/helpers.py:79
 msgid "Journal de transaction par défaut"
-msgstr ""
+msgstr "Default transaction journal"
 
 #: les2peresnoel/accounting/helpers.py:129
 msgid "Avance"
-msgstr ""
+msgstr "Advance"
 
 #: les2peresnoel/accounting/helpers.py:143
 msgid "Prélèvement de la commission de vente"
-msgstr ""
+msgstr "Withdrawal of sales commission"
 
 #: les2peresnoel/accounting/helpers.py:157
 msgid "Reversement au fournisseurs"
-msgstr ""
+msgstr "Return to suppliers"
 
 #: les2peresnoel/accounting/management/commands/load_configuration.py:7
 msgid "Loads the default configuration"
-msgstr ""
+msgstr "Loads the default configuration "
 
 #: les2peresnoel/accounting/models.py:14
 msgid "Journée comptable"
-msgstr ""
+msgstr "Accounting day"
 
 #: les2peresnoel/accounting/models.py:15
 msgid "Journées comptables"
-msgstr ""
+msgstr "Accounting days"
 
 #: les2peresnoel/accounting/models.py:64
 msgid "Plan comptable"
-msgstr ""
+msgstr "Chart of accounts"
 
 #: les2peresnoel/accounting/models.py:65
 msgid "Plan comptables"
-msgstr ""
+msgstr "Chart of accounts"
 
 #: les2peresnoel/accounting/models.py:83
 msgid "Compte"
-msgstr ""
+msgstr "Account"
 
 #: les2peresnoel/accounting/models.py:84
 msgid "Comptes"
-msgstr ""
+msgstr "Accounts"
 
 #: les2peresnoel/accounting/models.py:117
 msgid "Transaction"
-msgstr ""
+msgstr "Transaction"
 
 #: les2peresnoel/accounting/models.py:118
 msgid "Transactions"
-msgstr ""
+msgstr "Transactions"
 
 #: les2peresnoel/accounting/models.py:135
 msgid "Journal"
-msgstr ""
+msgstr "Journal"
 
 #: les2peresnoel/accounting/models.py:136
 msgid "Journaux"
-msgstr ""
+msgstr "Journals"
 
 #: les2peresnoel/accounting/models.py:146
 msgid "Entrée de journal"
-msgstr ""
+msgstr "Journal entry"
 
 #: les2peresnoel/accounting/models.py:147
 msgid "Entrées de journal"
-msgstr ""
+msgstr "Journal entries"
 
 #: les2peresnoel/accounting/models.py:149
 msgid "Debit"
-msgstr ""
+msgstr "Debit"
 
 #: les2peresnoel/accounting/models.py:150
 msgid "Credit"
-msgstr ""
+msgstr "Credit"
 
 #: les2peresnoel/core/views.py:19 les2peresnoel/core/views.py:26
 #: les2peresnoel/core/views.py:52 les2peresnoel/core/views.py:58
@@ -153,31 +153,31 @@ msgstr ""
 #: les2peresnoel/core/views.py:160 les2peresnoel/core/views.py:183
 #: les2peresnoel/core/views.py:189
 msgid "Hello, world!"
-msgstr ""
+msgstr "Hello, world!"
 
 #: les2peresnoel/core/views.py:237
 msgid "Vous avez été déconnecté avec succès."
-msgstr ""
+msgstr "You have been disconnected successfully."
 
 #: les2peresnoel/core/views.py:247
 msgid "Votre message a été envoyé avex succès !"
-msgstr ""
+msgstr "Your message has been sent successfully!"
 
 #: les2peresnoel/core/views.py:252
 msgid ""
 "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer !"
-msgstr ""
+msgstr "An error occurred while sending the message. Please try again!"
 
 #: les2peresnoel/core/views.py:257
 msgid "Une erreur est survenue lors de l'envoi du message."
-msgstr ""
+msgstr "An error occurred while sending the message."
 
 #: les2peresnoel/licences/forms.py:22 les2peresnoel/licences/models.py:66
 #: templates/licences/licences/list.html:75
 #: templates/licences/licences/list.html:185
 #: templates/payments/pay_order.html:65
 msgid "Date d'expiration"
-msgstr ""
+msgstr "Expiration date"
 
 #: les2peresnoel/licences/models.py:18 les2peresnoel/providers/models.py:14
 #: templates/licences/licences/list.html:73
@@ -185,39 +185,39 @@ msgstr ""
 #: templates/licences/requests/details.html:51
 #: templates/licences/requests/list.html:83
 msgid "Nom de l'entreprise"
-msgstr ""
+msgstr "Company name"
 
 #: les2peresnoel/licences/models.py:19 les2peresnoel/providers/models.py:16
 #: templates/licences/requests/details.html:55
 msgid "Adresse de l'entreprise"
-msgstr ""
+msgstr "Company address"
 
 #: les2peresnoel/licences/models.py:19 les2peresnoel/providers/models.py:16
 msgid "Adresse complète de l'entreprise"
-msgstr ""
+msgstr "Complete address of the company"
 
 #: les2peresnoel/licences/models.py:20 les2peresnoel/providers/models.py:17
 #: templates/licences/requests/details.html:59
 msgid "Téléphone de l'entreprise"
-msgstr ""
+msgstr "Company phone"
 
 #: les2peresnoel/licences/models.py:20 les2peresnoel/providers/models.py:18
 msgid "Numéro de téléphone de l'entreprise"
-msgstr ""
+msgstr "Company phone number"
 
 #: les2peresnoel/licences/models.py:21 les2peresnoel/providers/models.py:20
 #: templates/licences/requests/details.html:63
 msgid "Email de l'entreprise"
-msgstr ""
+msgstr "Company email"
 
 #: les2peresnoel/licences/models.py:22 les2peresnoel/providers/models.py:22
 #: templates/licences/requests/details.html:67
 msgid "Site web de l'entreprise"
-msgstr ""
+msgstr "Company website"
 
 #: les2peresnoel/licences/models.py:23 les2peresnoel/providers/models.py:24
 msgid "Logo de l'entreprise"
-msgstr ""
+msgstr "Company logo"
 
 #: les2peresnoel/licences/models.py:25 les2peresnoel/providers/models.py:27
 msgid "Numéro d'identification fiscale"
@@ -226,978 +226,1328 @@ msgstr ""
 #: les2peresnoel/licences/models.py:25 les2peresnoel/providers/models.py:27
 #: templates/licences/requests/details.html:76
 msgid "Numéro d'identification fiscale de l'entreprise"
-msgstr ""
+msgstr "Tax identification number of the company"
 
 #: les2peresnoel/licences/models.py:27 les2peresnoel/providers/models.py:29
 #: templates/licences/requests/details.html:80
 msgid "Description de l'entreprise"
-msgstr ""
+msgstr "Description of the company"
 
 #: les2peresnoel/licences/models.py:28 templates/layouts/comicstyle.html:367
 #, fuzzy
 #| msgid "Messages"
 msgid "Message"
 msgstr "messages"
-
-#: les2peresnoel/licences/models.py:28
-#: templates/licences/requests/details.html:84
-msgid "Message à l'attention de MPERESBONHEUR"
-msgstr ""
-
-#: les2peresnoel/licences/models.py:53
-msgid "Pièce jointe"
-msgstr ""
-
-#: les2peresnoel/licences/models.py:54 les2peresnoel/marketplace/models.py:162
-#: les2peresnoel/marketplace/models.py:198
-#: les2peresnoel/marketplace/models_abstract.py:6
-#: templates/marketplace/checkout.html:34
-#: templates/marketplace/simple_checkout.html:34
-msgid "Nom"
-msgstr ""
-
-#: les2peresnoel/licences/models.py:54
-msgid "Nom de la pièce jointe"
-msgstr ""
-
-#: les2peresnoel/licences/models.py:55
-#: les2peresnoel/marketplace/models_abstract.py:7
-#: templates/marketplace/products/detail.html:143
-msgid "Description"
-msgstr ""
-
-#: les2peresnoel/licences/models.py:55
-msgid "Description de l'attachement"
-msgstr ""
-
-#: les2peresnoel/licences/views.py:29 les2peresnoel/licences/views.py:34
-msgid "Votre demande de licence a été soumise avec succès."
-msgstr ""
-
-#: les2peresnoel/licences/views.py:62
-msgid "Votre demande de licence a été modifiée avec succès."
-msgstr ""
-
-#: les2peresnoel/licences/views.py:75
-msgid "Votre demande de licence a été supprimée avec succès."
-msgstr ""
-
-#: les2peresnoel/licences/views.py:114
-msgid "Votre demande de licence a été acceptée avec succès."
-msgstr ""
-
-#: les2peresnoel/licences/views.py:121
-msgid "Votre demande de licence a été rejetée avec succès."
-msgstr ""
-
-#: les2peresnoel/licences/views.py:140 les2peresnoel/licences/views.py:145
-msgid "Votre licence a été créée avec succès."
-msgstr ""
-
-#: les2peresnoel/licences/views.py:160
-msgid "Licence mise à jour avec succès."
-msgstr ""
-
-#: les2peresnoel/licences/views.py:177
-msgid "Votre licence a été activée avec succès."
-msgstr ""
-
-#: les2peresnoel/licences/views.py:186
-msgid "Votre licence a été désactivée avec succès."
-msgstr ""
-
-#: les2peresnoel/marketplace/forms.py:26 les2peresnoel/marketplace/models.py:71
-#: les2peresnoel/marketplace/models.py:302
-#: templates/marketplace/checkout.html:156
-#: templates/marketplace/simple_checkout.html:155
-msgid "Quantité"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:30
-#: les2peresnoel/marketplace/models.py:69
-#: templates/marketplace/products/detail.html:109
-msgid "Catégorie"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:31
-#: templates/marketplace/checkout.html:161 templates/marketplace/home.html:83
-#: templates/marketplace/index.html:134
-#: templates/marketplace/simple_checkout.html:160
-msgid "Catégories"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:37
-#: les2peresnoel/marketplace/models.py:84
-msgid "Supprimé ?"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:63
-#: les2peresnoel/marketplace/models.py:299
-#: templates/stores/products/list.html:66
-msgid "Produit"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:64 templates/layouts/admin.html:47
-#: templates/marketplace/index.html:166 templates/stores/products/list.html:11
-msgid "Produits"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:67
-#: les2peresnoel/marketplace/models.py:301 templates/marketplace/home.html:95
-#: templates/stores/products/list.html:67
-msgid "Prix"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:72
-msgid "Lien de dropshipping"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:79
-msgid "Couverture"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:81
-msgid "Média"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:146
-msgid "Lien externe"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:163
-#: templates/marketplace/checkout.html:38
-#: templates/marketplace/simple_checkout.html:38
-msgid "Prénom(s)"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:164
-msgid "Adresse"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:165
-#: templates/marketplace/checkout.html:67
-#: templates/marketplace/simple_checkout.html:67
-msgid "Ville"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:166
-#: templates/marketplace/checkout.html:80
-#: templates/marketplace/simple_checkout.html:80
-msgid "Code Postal"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:167
-msgid "Country"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:169
-#: les2peresnoel/marketplace/models.py:200 templates/account/login.html:35
-#: templates/layouts/comicstyle.html:363 templates/marketplace/checkout.html:42
-#: templates/marketplace/simple_checkout.html:42
-#: templates/payments/list.html:41
-msgid "Adresse E-mail"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:172
-msgid "Numero de téléphone"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:181
-#: templates/marketplace/checkout.html:99
-#: templates/marketplace/simple_checkout.html:99
-msgid "Méthode de paiement"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:187
-msgid "Adresse PayPal"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:193
-#: les2peresnoel/marketplace/models.py:287 les2peresnoel/payments/models.py:13
-#: les2peresnoel/payments/models.py:36 les2peresnoel/payments/models.py:41
-#: templates/cgv.html:238 templates/marketplace/checkout.html:25
-#: templates/marketplace/simple_checkout.html:25
-#: templates/payments/list.html:42
-msgid "Commande"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:194 templates/cgv.html:31
-#: templates/layouts/admin.html:65 templates/marketplace/orders/list.html:11
-msgid "Commandes"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:199
-msgid "Prénoms"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:201
-msgid "Total Hors-Taxe"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:202
-#: templates/marketplace/orders/list.html:75
-msgid "Total TTC"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:203 templates/payments/pay_order.html:97
-msgid "Total TVA"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:205
-msgid "Frais de livraison"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:209
-msgid "Checkout"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:215
-msgid "Redevance générée ?"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:218
-msgid "N° de suivi"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:222
-#: templates/marketplace/orders/list.html:73 templates/payments/list.html:40
-msgid "Client"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:282
-msgid "Produit de commande"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:283
-msgid "Produits de commande"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:294 les2peresnoel/payments/models.py:30
-msgid "Fournisseur"
-msgstr ""
-
-#: les2peresnoel/marketplace/models.py:303
-msgid "Total"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:109
-msgid ""
-"Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le "
-"même panier"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:171
-#: les2peresnoel/marketplace/views.py:199
-#: les2peresnoel/marketplace/views.py:234
-msgid "Erreur dans la création de la catégorie"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:188
-msgid "Catégorie créée"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:190
-msgid "La catégorie a bien été crée"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:223
-msgid "Catégorie mise à jour"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:225
-msgid "La catégorie a bien été mise à jour"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:284 les2peresnoel/stores/views.py:67
-#: les2peresnoel/stores/views.py:76
-msgid "Erreur dans la création du produit"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:300 les2peresnoel/stores/views.py:110
-msgid "Produit mis à jour"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:302 les2peresnoel/stores/views.py:112
-msgid "Le produit a bien été mis à jour"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:311 les2peresnoel/stores/views.py:121
-msgid "Erreur dans la mise à jour du produit"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:339
-msgid "Image ajoutée"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:341
-msgid "L'image a bien été ajoutée"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:350
-msgid "Erreur dans la création de l'image"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:452
-#: les2peresnoel/marketplace/views.py:580
-msgid "Votre commande a été enregistrée avec succès !"
-msgstr ""
-
-#: les2peresnoel/marketplace/views.py:460
-#: les2peresnoel/marketplace/views.py:588
-msgid "Une erreur s'est produite !"
-msgstr ""
-
-#: les2peresnoel/payments/hooks.py:46
-msgid ""
-"Un problème à malheureusement été détecté. Votre paiement n'as pas pu être "
-"validé. Veuillez patienter pendant que nous effectuons des vérifications."
-msgstr ""
-
-#: les2peresnoel/payments/models.py:17 les2peresnoel/payments/models.py:43
-#: templates/payments/list.html:43
-msgid "Montant"
-msgstr ""
-
-#: les2peresnoel/payments/models.py:20
-msgid "Payeur"
-msgstr ""
-
-#: les2peresnoel/payments/views.py:53 les2peresnoel/payments/views.py:105
-msgid "Paiement annulé !"
-msgstr ""
-
-#: les2peresnoel/payments/views.py:99
-msgid "Paiement réussi !"
-msgstr ""
-
-#: les2peresnoel/payments/views.py:121
-msgid "Cette requête a déjà été traitée"
-msgstr ""
-
-#: les2peresnoel/payments/views.py:127 les2peresnoel/payments/views.py:152
-msgid "Opération traitée avec succès !"
-msgstr ""
-
-#: les2peresnoel/users/admin.py:23
-msgid "Personal info"
-msgstr ""
-
-#: les2peresnoel/users/admin.py:25
-msgid "Permissions"
-msgstr ""
-
-#: les2peresnoel/users/admin.py:36
-msgid "Important dates"
-msgstr ""
-
-#: les2peresnoel/users/apps.py:9
-msgid "Users"
-msgstr ""
-
-#: les2peresnoel/users/forms.py:27 les2peresnoel/users/tests/test_forms.py:34
-msgid "This email has already been taken."
-msgstr ""
-
-#: les2peresnoel/users/models.py:20
-msgid "Name of User"
-msgstr ""
-
-#: les2peresnoel/users/models.py:23
-#, fuzzy
-#| msgid "Enter a valid email address."
-msgid "email address"
-msgstr "Entrez une adresse mail valide."
-
-#: les2peresnoel/users/tests/test_views.py:69 les2peresnoel/users/views.py:21
-msgid "Information successfully updated"
-msgstr ""
-
-#: templates/about.html:27 templates/footer.html:19 templates/gallerie.html:61
-#: templates/gallerie.html:210 templates/nav.html:24
-msgid "A propos"
-msgstr ""
-
-#: templates/about.html:28
-msgid "NOBPRINT est une petite entreprise d’innovations diverses "
-msgstr ""
-
-#: templates/about.html:43 templates/gallerie.html:63 templates/nav.html:26
-msgid "Background du projet"
-msgstr ""
-
-#: templates/about.html:45
-msgid ""
-"Le site les2pèresnoel résout le problème du mensonge qui associe les fêtes "
-"de Noël à la nativité. Le site dévoile à travers l’histoire du Père noël ses "
-"vraies origines qui permettent de constater que l’histoire est laïque et non "
-"religieuse. Par ailleurs, les choses ayant évoluées, on ne peut plus "
-"raconter aux enfants qu’un vieux monsieur de 120 kilos passe par la cheminée "
-"d’autant plus que les immeubles et la plupart des nouvelles maisons n’ont "
-"plus de cheminée."
-msgstr ""
-
-#: templates/about.html:47
-msgid ""
-"En outre, les 2 pères noël actualisent le personnage à travers ses moyens de "
-"locomotion qui sont les voitures volantes, les drones, les vaisseaux "
-"spatiaux que l’on retrouve dans le tome 2 du conte Kovani qui s’intitule "
-"«Kovani et le vaisseau spatial»."
-msgstr ""
-
-#: templates/about.html:49
-msgid ""
-"Les 2 pères noël à travers leurs actions sociales durant toute l’année "
-"permettent d’apporter du bonheur dans les familles en difficulté car une "
-"fois les choses bien mises en place, une association sera constituée pour "
-"permettre de verser des sommes qui seront allouées aux familles en "
-"difficulté, là ou les organismes de l’état n’interviennent pas. A travers "
-"les contes et chansons vendus dans notre boutique les petits et adultes "
-"s’approprieront l’évolution du Père noël."
-msgstr ""
-
-#: templates/account/account_inactive.html:5
-#: templates/account/account_inactive.html:9
-msgid "Account Inactive"
-msgstr ""
-
-#: templates/account/account_inactive.html:12
-msgid "This account is inactive."
-msgstr ""
-
-#: templates/account/base_reauthenticate.html:5
-#: templates/account/base_reauthenticate.html:9
-msgid "Confirm Access"
-msgstr ""
-
-#: templates/account/base_reauthenticate.html:12
-msgid "Please reauthenticate to safeguard your account."
-msgstr ""
-
-#: templates/account/base_reauthenticate.html:19
-msgid "Alternative options"
-msgstr ""
-
-#: templates/account/confirm_login_code.html:5
-#: templates/account/confirm_login_code.html:27 templates/account/login.html:6
-#: templates/account/request_login_code.html:5
-#: templates/allauth/layouts/base.html:62
-msgid "Sign In"
-msgstr ""
-
-#: templates/account/confirm_login_code.html:9
-msgid "Enter Sign-In Code"
-msgstr ""
-
-#: templates/account/confirm_login_code.html:15
-#, python-format
-msgid ""
-"We’ve sent a code to %(email_link)s. The code expires shortly, so please "
-"enter it soon."
-msgstr ""
-
-#: templates/account/confirm_login_code.html:34
-#: templates/account/request_login_code.html:31
-msgid "Other sign-in options"
-msgstr ""
-
-#: templates/account/email.html:4 templates/account/email.html:8
-msgid "Email Addresses"
-msgstr ""
-
-#: templates/account/email.html:12
-msgid "The following email addresses are associated with your account:"
-msgstr ""
-
-#: templates/account/email.html:25
-msgid "Verified"
-msgstr ""
-
-#: templates/account/email.html:29
-msgid "Unverified"
-msgstr ""
-
-#: templates/account/email.html:34
-msgid "Primary"
-msgstr ""
-
-#: templates/account/email.html:44
-msgid "Make Primary"
-msgstr ""
-
-#: templates/account/email.html:47 templates/account/email_change.html:37
-msgid "Re-send Verification"
-msgstr ""
-
-#: templates/account/email.html:50
-msgid "Remove"
-msgstr ""
-
-#: templates/account/email.html:59
-msgid "Add Email Address"
-msgstr ""
-
-#: templates/account/email.html:70
-msgid "Add Email"
-msgstr ""
-
-#: templates/account/email.html:79
-msgid "Do you really want to remove the selected email address?"
-msgstr ""
-
-#: templates/account/email/account_already_exists_message.txt:4
-#, python-format
-msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
-"account using email address:\n"
-"\n"
-"%(email)s\n"
-"\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
-"your account:\n"
-"\n"
-"%(password_reset_url)s"
-msgstr ""
-
-#: templates/account/email/account_already_exists_subject.txt:3
-msgid "Account Already Exists"
-msgstr ""
-
-#: templates/account/email/base_message.txt:1
-#, python-format
-msgid "Hello from %(site_name)s!"
-msgstr ""
-
-#: templates/account/email/base_message.txt:5
-#, python-format
-msgid ""
-"Thank you for using %(site_name)s!\n"
-"%(site_domain)s"
-msgstr ""
-
-#: templates/account/email/base_notification.txt:5
-msgid ""
-"You are receiving this mail because the following change was made to your "
-"account:"
-msgstr ""
-
-#: templates/account/email/base_notification.txt:10
-#, python-format
-msgid ""
-"If you do not recognize this change then please take proper security "
-"precautions immediately. The change to your account originates from:\n"
-"\n"
-"- IP address: %(ip)s\n"
-"- Browser: %(user_agent)s\n"
-"- Date: %(timestamp)s"
-msgstr ""
-
-#: templates/account/email/email_changed_message.txt:4
-#, python-format
-msgid "Your email has been changed from %(from_email)s to %(to_email)s."
-msgstr ""
-
-#: templates/account/email/email_changed_subject.txt:3
-msgid "Email Changed"
-msgstr ""
-
-#: templates/account/email/email_confirm_message.txt:4
-msgid "Your email has been confirmed."
-msgstr ""
-
-#: templates/account/email/email_confirm_subject.txt:3
-msgid "Email Confirmation"
-msgstr ""
-
-#: templates/account/email/email_confirmation_message.txt:5
-#, python-format
-msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s.\n"
-"\n"
-"To confirm this is correct, go to %(activate_url)s"
-msgstr ""
-
-#: templates/account/email/email_confirmation_subject.txt:3
-msgid "Please Confirm Your Email Address"
-msgstr ""
-
-#: templates/account/email/email_deleted_message.txt:4
-#, python-format
-msgid "Email address %(deleted_email)s has been removed from your account."
-msgstr ""
-
-#: templates/account/email/email_deleted_subject.txt:3
-msgid "Email Removed"
-msgstr ""
-
-#: templates/account/email/login_code_message.txt:5
-msgid ""
-"Your sign-in code is listed below. Please enter it in your open browser "
-"window."
-msgstr ""
-
-#: templates/account/email/login_code_message.txt:9
-#: templates/account/email/unknown_account_message.txt:6
-msgid "This mail can be safely ignored if you did not initiate this action."
-msgstr ""
-
-#: templates/account/email/login_code_subject.txt:3
-msgid "Sign-In Code"
-msgstr ""
-
-#: templates/account/email/password_changed_message.txt:4
-msgid "Your password has been changed."
-msgstr ""
-
-#: templates/account/email/password_changed_subject.txt:3
-msgid "Password Changed"
-msgstr ""
-
-#: templates/account/email/password_reset_key_message.txt:4
-msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
-msgstr ""
-
-#: templates/account/email/password_reset_key_message.txt:9
-#, python-format
-msgid "In case you forgot, your username is %(username)s."
-msgstr ""
-
-#: templates/account/email/password_reset_key_subject.txt:3
-msgid "Password Reset Email"
-msgstr ""
-
-#: templates/account/email/password_reset_message.txt:4
-msgid "Your password has been reset."
-msgstr ""
-
-#: templates/account/email/password_reset_subject.txt:3
-#: templates/account/password_reset.html:4
-#: templates/account/password_reset.html:8
-#: templates/account/password_reset_done.html:6
-#: templates/account/password_reset_done.html:10
-msgid "Password Reset"
-msgstr ""
-
-#: templates/account/email/password_set_message.txt:4
-msgid "Your password has been set."
-msgstr ""
-
-#: templates/account/email/password_set_subject.txt:3
-msgid "Password Set"
-msgstr ""
-
-#: templates/account/email/unknown_account_message.txt:4
-#, python-format
-msgid ""
-"You are receiving this email because you, or someone else, tried to access "
-"an account with email %(email)s. However, we do not have any record of such "
-"an account in our database."
-msgstr ""
-
-#: templates/account/email/unknown_account_message.txt:8
-msgid "If it was you, you can sign up for an account using the link below."
-msgstr ""
-
-#: templates/account/email/unknown_account_subject.txt:3
-msgid "Unknown Account"
-msgstr ""
-
-#: templates/account/email_change.html:5 templates/account/email_change.html:9
-msgid "Email Address"
-msgstr ""
-
-#: templates/account/email_change.html:21
-#: templates/account/email_change.html:29
-msgid "Current email"
-msgstr ""
-
-#: templates/account/email_change.html:31
-msgid "Changing to"
-msgstr ""
-
-#: templates/account/email_change.html:35
-msgid "Your email address is still pending verification."
-msgstr ""
-
-#: templates/account/email_change.html:41
-msgid "Cancel Change"
-msgstr ""
-
-#: templates/account/email_change.html:49
-msgid "Change to"
-msgstr ""
-
-#: templates/account/email_change.html:55
-#: templates/allauth/layouts/base.html:31
-msgid "Change Email"
-msgstr ""
-
-#: templates/account/email_confirm.html:6
-msgid "Confirm Email Address"
-msgstr ""
-
-#: templates/account/email_confirm.html:10
-msgid "Confirmez votre adresse E-mail "
-msgstr ""
-
-#: templates/account/email_confirm.html:15
-#, python-format
-msgid ""
-"Veuillez confirmez que <a href=\"mailto:%(email)s\">%(email)s</a> est votre "
-"adresse électonique."
-msgstr ""
-
-#: templates/account/email_confirm.html:22
-msgid "Confirmer"
-msgstr ""
-
-#: templates/account/email_confirm.html:27
-#: templates/account/messages/email_confirmation_failed.txt:2
-#, python-format
-msgid ""
-"Unable to confirm %(email)s because it is already confirmed by a different "
-"account."
-msgstr ""
-
-#: templates/account/email_confirm.html:33
-#, python-format
-msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
-msgstr ""
-
-#: templates/account/login.html:22 templates/account/login.html:60
-#: templates/gallerie.html:71 templates/layouts/comicstyle.html:82
-#: templates/layouts/marketplace.html:606 templates/nav.html:33
-msgid "Connexion"
-msgstr ""
-
-#: templates/account/login.html:40
-msgid "Entrez votre addresse E-mail svp "
-msgstr ""
-
-#: templates/account/login.html:46
-msgid "Entrez votre mot de passe"
-msgstr ""
-
-#: templates/account/login.html:49
-msgid "Entrez votre mot de passe svp !"
-msgstr ""
-
-#: templates/account/login.html:64
-msgid "Pas de compte"
-msgstr ""
-
-#: templates/account/login.html:64
-msgid "Inscrivez-vous"
-msgstr ""
-
-#: templates/account/logout.html:4 templates/account/logout.html:8
-#: templates/account/logout.html:21 templates/allauth/layouts/base.html:55
-msgid "Sign Out"
-msgstr ""
-
-#: templates/account/logout.html:11
-msgid "Are you sure you want to sign out?"
-msgstr ""
-
-#: templates/account/messages/cannot_delete_primary_email.txt:2
-#, python-format
-msgid "You cannot remove your primary email address (%(email)s)."
-msgstr ""
-
-#: templates/account/messages/email_confirmation_sent.txt:2
-#, python-format
-msgid "Confirmation email sent to %(email)s."
-msgstr ""
-
-#: templates/account/messages/email_confirmed.txt:2
-#, python-format
-msgid "You have confirmed %(email)s."
-msgstr ""
-
-#: templates/account/messages/email_deleted.txt:2
-#, fuzzy, python-format
-#| msgid "Enter a valid email address."
-msgid "Removed email address %(email)s."
-msgstr "Entrez une adresse mail valide."
-
-#: templates/account/messages/logged_in.txt:4
-#, python-format
-msgid "Successfully signed in as %(name)s."
-msgstr ""
-
-#: templates/account/messages/logged_out.txt:2
-msgid "You have signed out."
-msgstr ""
-
-#: templates/account/messages/login_code_sent.txt:2
-#, python-format
-msgid "A sign-in code has been mailed to %(email)s."
-msgstr ""
-
-#: templates/account/messages/password_changed.txt:2
-msgid "Password successfully changed."
-msgstr ""
-
-#: templates/account/messages/password_set.txt:2
-msgid "Password successfully set."
-msgstr ""
-
-#: templates/account/messages/primary_email_set.txt:2
-#, fuzzy
-#| msgid "Enter a valid email address."
-msgid "Primary email address set."
-msgstr "Entrez une adresse mail valide."
-
-#: templates/account/messages/unverified_primary_email.txt:2
-msgid "Your primary email address must be verified."
-msgstr ""
-
-#: templates/account/password_change.html:4
-#: templates/account/password_change.html:8
-#: templates/account/password_change.html:20
-#: templates/account/password_reset_from_key.html:5
-#: templates/account/password_reset_from_key.html:12
-#: templates/account/password_reset_from_key.html:30
-#: templates/account/password_reset_from_key_done.html:5
-#: templates/account/password_reset_from_key_done.html:9
-#: templates/allauth/layouts/base.html:37
-msgid "Change Password"
-msgstr ""
-
-#: templates/account/password_change.html:22
-msgid "Forgot Password?"
-msgstr ""
-
-#: templates/account/password_reset.html:14
-msgid ""
-"Forgotten your password? Enter your email address below, and we'll send you "
-"an email allowing you to reset it."
-msgstr ""
-
-#: templates/account/password_reset.html:25
-msgid "Reset My Password"
-msgstr ""
-
-#: templates/account/password_reset.html:30
-msgid "Please contact us if you have any trouble resetting your password."
-msgstr ""
-
-#: templates/account/password_reset_done.html:16
-msgid ""
-"We have sent you an email. If you have not received it please check your "
-"spam folder. Otherwise contact us if you do not receive it in a few minutes."
-msgstr ""
-
-#: templates/account/password_reset_from_key.html:10
-msgid "Bad Token"
-msgstr ""
-
-#: templates/account/password_reset_from_key.html:18
-#, python-format
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
-msgstr ""
-
-#: templates/account/password_reset_from_key_done.html:12
-msgid "Your password is now changed."
-msgstr ""
-
-#: templates/account/password_set.html:5 templates/account/password_set.html:9
-#: templates/account/password_set.html:21
-msgid "Set Password"
-msgstr ""
-
-#: templates/account/reauthenticate.html:6
-msgid "Enter your password:"
-msgstr ""
-
-#: templates/account/reauthenticate.html:18
-msgid "Confirm"
-msgstr ""
-
-#: templates/account/request_login_code.html:9
-msgid "Mail me a sign-in code"
-msgstr ""
-
-#: templates/account/request_login_code.html:12
-msgid ""
-"You will receive an email containing a special code for a password-free sign-"
-"in."
-msgstr ""
-
-#: templates/account/request_login_code.html:24
-msgid "Request Code"
-msgstr ""
-
-#: templates/account/signup.html:10 templates/allauth/layouts/base.html:68
-msgid "Sign Up"
-msgstr ""
-
-#: templates/account/signup.html:25
-msgid "Inscription"
-msgstr ""
-
-#: templates/account/signup.html:33
-msgid "J'accepte "
-msgstr ""
-
-#: templates/account/signup.html:33
-msgid "termes et conditions"
-msgstr ""
-
-#: templates/account/signup.html:37
-msgid "S'inscire"
-msgstr ""
-
-#: templates/account/signup_closed.html:5
-#: templates/account/signup_closed.html:9
-msgid "Sign Up Closed"
-msgstr ""
-
-#: templates/account/signup_closed.html:12
-msgid "We are sorry, but the sign up is currently closed."
-msgstr ""
-
+ 
+ #: les2peresnoel/licences/models.py:28
+ #: templates/licences/requests/details.html:84
+ msgid "Message à l'attention de MPERESBONHEUR"
+ msgstr "Message for MPERESBONHEUR"
+ 
+ #: les2peresnoel/licences/models.py:53
+ msgid "Pièce jointe"
+ msgstr "Attachment"
+ 
+ #: les2peresnoel/licences/models.py:54 les2peresnoel/marketplace/models.py:162
+ #: les2peresnoel/marketplace/models.py:198
+ #: les2peresnoel/marketplace/models_abstract.py:6
+ #: templates/marketplace/checkout.html:34
+ #: templates/marketplace/simple_checkout.html:34
+ msgid "Nom"
+ msgstr "Name"
+ 
+ #: les2peresnoel/licences/models.py:54
+ msgid "Nom de la pièce jointe"
+ msgstr "Attachment name"
+ 
+ #: les2peresnoel/licences/models.py:55
+ #: les2peresnoel/marketplace/models_abstract.py:7
+ #: templates/marketplace/products/detail.html:143
+ msgid "Description"
+ msgstr "Description"
+ 
+ #: les2peresnoel/licences/models.py:55
+ msgid "Description de l'attachement"
+ msgstr "Attachment description"
+ 
+ #: les2peresnoel/licences/views.py:29 les2peresnoel/licences/views.py:34
+ msgid "Votre demande de licence a été soumise avec succès."
+ msgstr "Your license request has been submitted successfully."
+ 
+ #: les2peresnoel/licences/views.py:62
+ msgid "Votre demande de licence a été modifiée avec succès."
+ msgstr "Your license request has been modified successfully."
+ 
+ #: les2peresnoel/licences/views.py:75
+ msgid "Votre demande de licence a été supprimée avec succès."
+ msgstr "Your license request has been deleted successfully."
+ 
+ #: les2peresnoel/licences/views.py:114
+ msgid "Votre demande de licence a été acceptée avec succès."
+ msgstr "Your license request has been accepted successfully."
+ 
+ #: les2peresnoel/licences/views.py:121
+ msgid "Votre demande de licence a été rejetée avec succès."
+ msgstr "Your license request has been rejected successfully."
+ 
+ #: les2peresnoel/licences/views.py:140 les2peresnoel/licences/views.py:145
+ msgid "Votre licence a été créée avec succès."
+ msgstr "Your license has been created successfully."
+ 
+ #: les2peresnoel/licences/views.py:160
+ msgid "Licence mise à jour avec succès."
+ msgstr "License updated successfully."
+ 
+ #: les2peresnoel/licences/views.py:177
+ msgid "Votre licence a été activée avec succès."
+ msgstr "Your license has been activated successfully."
+ 
+ #: les2peresnoel/licences/views.py:186
+ msgid "Votre licence a été désactivée avec succès."
+ msgstr "Your license has been deactivated successfully."
+ 
+ #: les2peresnoel/marketplace/forms.py:26 les2peresnoel/marketplace/models.py:71
+ #: les2peresnoel/marketplace/models.py:302
+ #: templates/marketplace/checkout.html:156
+ #: templates/marketplace/simple_checkout.html:155
+ msgid "Quantité"
+ msgstr "Quantity"
+ 
+ #: les2peresnoel/marketplace/models.py:30
+ #: les2peresnoel/marketplace/models.py:69
+ #: templates/marketplace/products/detail.html:109
+ msgid "Catégorie"
+ msgstr "Category"
+ 
+ #: les2peresnoel/marketplace/models.py:31
+ #: templates/marketplace/checkout.html:161 templates/marketplace/home.html:83
+ #: templates/marketplace/index.html:134
+ #: templates/marketplace/simple_checkout.html:160
+ msgid "Catégories"
+ msgstr "Categories"
+ 
+ #: les2peresnoel/marketplace/models.py:37
+ #: les2peresnoel/marketplace/models.py:84
+ msgid "Supprimé ?"
+ msgstr "Deleted?"
+ 
+ #: les2peresnoel/marketplace/models.py:63
+ #: les2peresnoel/marketplace/models.py:299
+ #: templates/stores/products/list.html:66
+ msgid "Produit"
+ msgstr "Product"
+ 
+ #: les2peresnoel/marketplace/models.py:64 templates/layouts/admin.html:47
+ #: templates/marketplace/index.html:166 templates/stores/products/list.html:11
+ msgid "Produits"
+ msgstr "Products"
+ 
+ #: les2peresnoel/marketplace/models.py:67
+ #: les2peresnoel/marketplace/models.py:301 templates/marketplace/home.html:95
+ #: templates/stores/products/list.html:67
+ msgid "Prix"
+ msgstr "Price"
+ 
+ #: les2peresnoel/marketplace/models.py:72
+ msgid "Lien de dropshipping"
+ msgstr "Dropshipping link"
+ 
+ #: les2peresnoel/marketplace/models.py:79
+ msgid "Couverture"
+ msgstr "Cover"
+ 
+ #: les2peresnoel/marketplace/models.py:81
+ msgid "Média"
+ msgstr "Media"
+ 
+ #: les2peresnoel/marketplace/models.py:146
+ msgid "Lien externe"
+ msgstr "External link"
+ 
+ #: les2peresnoel/marketplace/models.py:163
+ #: templates/marketplace/checkout.html:38
+ #: templates/marketplace/simple_checkout.html:38
+ msgid "Prénom(s)"
+ msgstr "First name(s)"
+ 
+ #: les2peresnoel/marketplace/models.py:164
+ msgid "Adresse"
+ msgstr "Address"
+ 
+ #: les2peresnoel/marketplace/models.py:165
+ #: templates/marketplace/checkout.html:67
+ #: templates/marketplace/simple_checkout.html:67
+ msgid "Ville"
+ msgstr "City"
+ 
+ #: les2peresnoel/marketplace/models.py:166
+ #: templates/marketplace/checkout.html:80
+ #: templates/marketplace/simple_checkout.html:80
+ msgid "Code Postal"
+ msgstr "Postal Code"
+ 
+ #: les2peresnoel/marketplace/models.py:167
+ msgid "Country"
+ msgstr "Country"
+ 
+ #: les2peresnoel/marketplace/models.py:169
+ #: les2peresnoel/marketplace/models.py:200 templates/account/login.html:35
+ #: templates/layouts/comicstyle.html:363 templates/marketplace/checkout.html:42
+ #: templates/marketplace/simple_checkout.html:42
+ #: templates/payments/list.html:41
+ msgid "Adresse E-mail"
+ msgstr "Email Address"
+ 
+ #: les2peresnoel/marketplace/models.py:172
+ msgid "Numero de téléphone"
+ msgstr "Phone number"
+ 
+ #: les2peresnoel/marketplace/models.py:181
+ #: templates/marketplace/checkout.html:99
+ #: templates/marketplace/simple_checkout.html:99
+ msgid "Méthode de paiement"
+ msgstr "Payment method"
+ 
+ #: les2peresnoel/marketplace/models.py:187
+ msgid "Adresse PayPal"
+ msgstr "PayPal address"
+ 
+ #: les2peresnoel/marketplace/models.py:193
+ #: les2peresnoel/marketplace/models.py:287 les2peresnoel/payments/models.py:13
+ #: les2peresnoel/payments/models.py:36 les2peresnoel/payments/models.py:41
+ #: templates/cgv.html:238 templates/marketplace/checkout.html:25
+ #: templates/marketplace/simple_checkout.html:25
+ #: templates/payments/list.html:42
+ msgid "Commande"
+ msgstr "Order"
+ 
+ #: les2peresnoel/marketplace/models.py:194 templates/cgv.html:31
+ #: templates/layouts/admin.html:65 templates/marketplace/orders/list.html:11
+ msgid "Commandes"
+ msgstr "Orders"
+ 
+ #: les2peresnoel/marketplace/models.py:199
+ msgid "Prénoms"
+ msgstr "First names"
+ 
+ #: les2peresnoel/marketplace/models.py:201
+ msgid "Total Hors-Taxe"
+ msgstr "Total before tax"
+ 
+ #: les2peresnoel/marketplace/models.py:202
+ #: templates/marketplace/orders/list.html:75
+ msgid "Total TTC"
+ msgstr "Total including tax"
+ 
+ #: les2peresnoel/marketplace/models.py:203 templates/payments/pay_order.html:97
+ msgid "Total TVA"
+ msgstr "Total VAT"
+ 
+ #: les2peresnoel/marketplace/models.py:205
+ msgid "Frais de livraison"
+ msgstr "Shipping fees"
+ 
+ #: les2peresnoel/marketplace/models.py:209
+ msgid "Checkout"
+ msgstr "Checkout"
+ 
+ #: les2peresnoel/marketplace/models.py:215
+ msgid "Redevance générée ?"
+ msgstr "Fee generated?"
+ 
+ #: les2peresnoel/marketplace/models.py:218
+ msgid "N° de suivi"
+ msgstr "Tracking number"
+ 
+ #: les2peresnoel/marketplace/models.py:222
+ #: templates/marketplace/orders/list.html:73 templates/payments/list.html:40
+ msgid "Client"
+ msgstr "Customer"
+ 
+ #: les2peresnoel/marketplace/models.py:282
+ msgid "Produit de commande"
+ msgstr "Order product"
+ 
+ #: les2peresnoel/marketplace/models.py:283
+ msgid "Produits de commande"
+ msgstr "Order products"
+ 
+ #: les2peresnoel/marketplace/models.py:294 les2peresnoel/payments/models.py:30
+ msgid "Fournisseur"
+ msgstr "Supplier"
+ 
+ #: les2peresnoel/marketplace/models.py:303
+ msgid "Total"
+ msgstr "Total"
+ 
+ #: les2peresnoel/marketplace/views.py:109
+ msgid ""
+ "Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le "
+ "même panier"
+ msgstr "You cannot add products from different suppliers to the same cart"
+ 
+ #: les2peresnoel/marketplace/views.py:171
+ #: les2peresnoel/marketplace/views.py:199
+ #: les2peresnoel/marketplace/views.py:234
+ msgid "Erreur dans la création de la catégorie"
+ msgstr "Error in category creation"
+ 
+ #: les2peresnoel/marketplace/views.py:188
+ msgid "Catégorie créée"
+ msgstr "Category created"
+ 
+ #: les2peresnoel/marketplace/views.py:190
+ msgid "La catégorie a bien été crée"
+ msgstr "The category has been created successfully"
+ 
+ #: les2peresnoel/marketplace/views.py:223
+ msgid "Catégorie mise à jour"
+ msgstr "Category updated"
+ 
+ #: les2peresnoel/marketplace/views.py:225
+ msgid "La catégorie a bien été mise à jour"
+ msgstr "The category has been updated successfully"
+ 
+ #: les2peresnoel/marketplace/views.py:284 les2peresnoel/stores/views.py:67
+ #: les2peresnoel/stores/views.py:76
+ msgid "Erreur dans la création du produit"
+ msgstr "Error in product creation"
+ 
+ #: les2peresnoel/marketplace/views.py:300 les2peresnoel/stores/views.py:110
+ msgid "Produit mis à jour"
+ msgstr "Product updated"
+ 
+ #: les2peresnoel/marketplace/views.py:302 les2peresnoel/stores/views.py:112
+ msgid "Le produit a bien été mis à jour"
+ msgstr "The product has been updated successfully"
+ 
+ #: les2peresnoel/marketplace/views.py:311 les2peresnoel/stores/views.py:121
+ msgid "Erreur dans la mise à jour du produit"
+ msgstr "Error in product update"
+ 
+ #: les2peresnoel/marketplace/views.py:339
+ msgid "Image ajoutée"
+ msgstr "Image added"
+ 
+ #: les2peresnoel/marketplace/views.py:341
+ msgid "L'image a bien été ajoutée"
+ msgstr "The image has been added successfully"
+ 
+ #: les2peresnoel/marketplace/views.py:350
+ msgid "Erreur dans la création de l'image"
+ msgstr "Error in image creation"
+ 
+ #: les2peresnoel/marketplace/views.py:452
+ #: les2peresnoel/marketplace/views.py:580
+ msgid "Votre commande a été enregistrée avec succès !"
+ msgstr "Your order has been registered successfully!"
+ 
+ #: les2peresnoel/marketplace/views.py:460
+ #: les2peresnoel/marketplace/views.py:588
+ msgid "Une erreur s'est produite !"
+ msgstr "An error occurred!"
+ 
+ #: les2peresnoel/payments/hooks.py:46
+ msgid ""
+ "Un problème à malheureusement été détecté. Votre paiement n'as pas pu être "
+ "validé. Veuillez patienter pendant que nous effectuons des vérifications."
+ msgstr "Unfortunately, a problem has been detected. Your payment could not be validated. Please wait while we perform checks."
+ 
+ #: les2peresnoel/payments/models.py:17 les2peresnoel/payments/models.py:43
+ #: templates/payments/list.html:43
+ msgid "Montant"
+ msgstr "Amount"
+ 
+ #: les2peresnoel/payments/models.py:20
+ msgid "Payeur"
+ msgstr "Payer"
+ 
+ #: les2peresnoel/payments/views.py:53 les2peresnoel/payments/views.py:105
+ msgid "Paiement annulé !"
+ msgstr "Payment cancelled!"
+ 
+ #: les2peresnoel/payments/views.py:99
+ msgid "Paiement réussi !"
+ msgstr "Payment successful!"
+ 
+ #: les2peresnoel/payments/views.py:121
+ msgid "Cette requête a déjà été traitée"
+ msgstr "This request has already been processed"
+ 
+ #: les2peresnoel/payments/views.py:127 les2peresnoel/payments/views.py:152
+ msgid "Opération traitée avec succès !"
+ msgstr "Operation processed successfully!"
+ 
+ #: les2peresnoel/users/admin.py:23
+ msgid "Personal info"
+ msgstr "Personal info"
+ 
+ #: les2peresnoel/users/admin.py:25
+ msgid "Permissions"
+ msgstr "Permissions"
+ 
+ #: les2peresnoel/users/admin.py:36
+ msgid "Important dates"
+ msgstr "Important dates"
+ 
+ #: les2peresnoel/users/apps.py:9
+ msgid "Users"
+ msgstr "Users"
+ 
+ 
+ 
+ #: les2peresnoel/users/forms.py:27 les2peresnoel/users/tests/test_forms.py:34
+ msgid "This email has already been taken."
+ msgstr "This email has already been taken."
+ 
+ #: les2peresnoel/users/models.py:20
+ msgid "Name of User"
+ msgstr "Name of User"
+ 
+ #: les2peresnoel/users/models.py:23
+ #, fuzzy
+ #| msgid "Enter a valid email address."
+ msgid "email address"
+ msgstr "Enter a valid email address."
+ 
+ #: les2peresnoel/users/tests/test_views.py:69 les2peresnoel/users/views.py:21
+ msgid "Information successfully updated"
+ msgstr "Information successfully updated"
+ 
+ #: templates/about.html:27 templates/footer.html:19 templates/gallerie.html:61
+ #: templates/gallerie.html:210 templates/nav.html:24
+ msgid "A propos"
+ msgstr "About"
+ 
+ #: templates/about.html:28
+ msgid "NOBPRINT est une petite entreprise d'innovations diverses "
+ msgstr "NOBPRINT is a small company of various innovations"
+ 
+ #: templates/about.html:43 templates/gallerie.html:63 templates/nav.html:26
+ msgid "Background du projet"
+ msgstr "Project Background"
+ 
+ #: templates/about.html:45
+ msgid ""
+ "Le site les2pèresnoel résout le problème du mensonge qui associe les fêtes "
+ "de Noël à la nativité. Le site dévoile à travers l'histoire du Père noël ses "
+ "vraies origines qui permettent de constater que l'histoire est laïque et non "
+ "religieuse. Par ailleurs, les choses ayant évoluées, on ne peut plus "
+ "raconter aux enfants qu'un vieux monsieur de 120 kilos passe par la cheminée "
+ "d'autant plus que les immeubles et la plupart des nouvelles maisons n'ont "
+ "plus de cheminée."
+ msgstr ""
+ "The les2pèresnoel website solves the problem of the lie that associates "
+ "Christmas with the nativity. The site reveals, through the story of Santa Claus, "
+ "its true origins, which show that the story is secular and not religious. "
+ "Moreover, as things have evolved, we can no longer tell children that an old "
+ "man weighing 120 kilos comes down the chimney, especially since apartment buildings "
+ "and most new houses no longer have chimneys."
+ 
+ #: templates/about.html:47
+ msgid ""
+ "En outre, les 2 pères noël actualisent le personnage à travers ses moyens de "
+ "locomotion qui sont les voitures volantes, les drones, les vaisseaux "
+ "spatiaux que l'on retrouve dans le tome 2 du conte Kovani qui s'intitule "
+ "«Kovani et le vaisseau spatial»."
+ msgstr ""
+ "In addition, the 2 Santas update the character through his means of "
+ "transportation, which are flying cars, drones, and spaceships found in "
+ "volume 2 of the Kovani tale entitled 'Kovani and the Spaceship'."
+ 
+ #: templates/about.html:49
+ msgid ""
+ "Les 2 pères noël à travers leurs actions sociales durant toute l'année "
+ "permettent d'apporter du bonheur dans les familles en difficulté car une "
+ "fois les choses bien mises en place, une association sera constituée pour "
+ "permettre de verser des sommes qui seront allouées aux familles en "
+ "difficulté, là ou les organismes de l'état n'interviennent pas. A travers "
+ "les contes et chansons vendus dans notre boutique les petits et adultes "
+ "s'approprieront l'évolution du Père noël."
+ msgstr ""
+ "The 2 Santas, through their social actions throughout the year, "
+ "bring happiness to families in difficulty because once things are well "
+ "established, an association will be formed to allow sums to be paid "
+ "to families in difficulty, where state organizations do not intervene. "
+ "Through the tales and songs sold in our shop, children and adults "
+ "will embrace the evolution of Santa Claus."
+ 
+ #: templates/account/account_inactive.html:5
+ #: templates/account/account_inactive.html:9
+ msgid "Account Inactive"
+ msgstr "Account Inactive"
+ 
+ #: templates/account/account_inactive.html:12
+ msgid "This account is inactive."
+ msgstr "This account is inactive."
+ 
+ #: templates/account/base_reauthenticate.html:5
+ #: templates/account/base_reauthenticate.html:9
+ msgid "Confirm Access"
+ msgstr "Confirm Access"
+ 
+ #: templates/account/base_reauthenticate.html:12
+ msgid "Please reauthenticate to safeguard your account."
+ msgstr "Please reauthenticate to safeguard your account."
+ 
+ #: templates/account/base_reauthenticate.html:19
+ msgid "Alternative options"
+ msgstr "Alternative options"
+ 
+ #: templates/account/confirm_login_code.html:5
+ #: templates/account/confirm_login_code.html:27 templates/account/login.html:6
+ #: templates/account/request_login_code.html:5
+ #: templates/allauth/layouts/base.html:62
+ msgid "Sign In"
+ msgstr "Sign In"
+ 
+ #: templates/account/confirm_login_code.html:9
+ msgid "Enter Sign-In Code"
+ msgstr "Enter Sign-In Code"
+ 
+ #: templates/account/confirm_login_code.html:15
+ #, python-format
+ msgid ""
+ "We've sent a code to %(email_link)s. The code expires shortly, so please "
+ "enter it soon."
+ msgstr ""
+ "We've sent a code to %(email_link)s. The code expires shortly, so please "
+ "enter it soon."
+ 
+ #: templates/account/confirm_login_code.html:34
+ #: templates/account/request_login_code.html:31
+ msgid "Other sign-in options"
+ msgstr "Other sign-in options"
+ 
+ #: templates/account/email.html:4 templates/account/email.html:8
+ msgid "Email Addresses"
+ msgstr "Email Addresses"
+ 
+ #: templates/account/email.html:12
+ msgid "The following email addresses are associated with your account:"
+ msgstr "The following email addresses are associated with your account:"
+ 
+ #: templates/account/email.html:25
+ msgid "Verified"
+ msgstr "Verified"
+ 
+ #: templates/account/email.html:29
+ msgid "Unverified"
+ msgstr "Unverified"
+ 
+ #: templates/account/email.html:34
+ msgid "Primary"
+ msgstr "Primary"
+ 
+ #: templates/account/email.html:44
+ msgid "Make Primary"
+ msgstr "Make Primary"
+ 
+ #: templates/account/email.html:47 templates/account/email_change.html:37
+ msgid "Re-send Verification"
+ msgstr "Re-send Verification"
+ 
+ #: templates/account/email.html:50
+ msgid "Remove"
+ msgstr "Remove"
+ 
+ #: templates/account/email.html:59
+ msgid "Add Email Address"
+ msgstr "Add Email Address"
+ 
+ #: templates/account/email.html:70
+ msgid "Add Email"
+ msgstr "Add Email"
+ 
+ #: templates/account/email.html:79
+ msgid "Do you really want to remove the selected email address?"
+ msgstr "Do you really want to remove the selected email address?"
+ 
+ #: templates/account/email/account_already_exists_message.txt:4
+ #, python-format
+ msgid ""
+ "You are receiving this email because you or someone else tried to signup for "
+ "an\n"
+ "account using email address:\n"
+ "\n"
+ "%(email)s\n"
+ "\n"
+ "However, an account using that email address already exists.  In case you "
+ "have\n"
+ "forgotten about this, please use the password forgotten procedure to "
+ "recover\n"
+ "your account:\n"
+ "\n"
+ "%(password_reset_url)s"
+ msgstr ""
+ "You are receiving this email because you or someone else tried to signup for "
+ "an\n"
+ "account using email address:\n"
+ "\n"
+ "%(email)s\n"
+ "\n"
+ "However, an account using that email address already exists.  In case you "
+ "have\n"
+ "forgotten about this, please use the password forgotten procedure to "
+ "recover\n"
+ "your account:\n"
+ "\n"
+ "%(password_reset_url)s"
+ 
+ #: templates/account/email/account_already_exists_subject.txt:3
+ msgid "Account Already Exists"
+ msgstr "Account Already Exists"
+ 
+ #: templates/account/email/base_message.txt:1
+ #, python-format
+ msgid "Hello from %(site_name)s!"
+ msgstr "Hello from %(site_name)s!"
+ 
+ #: templates/account/email/base_message.txt:5
+ #, python-format
+ msgid ""
+ "Thank you for using %(site_name)s!\n"
+ "%(site_domain)s"
+ msgstr ""
+ "Thank you for using %(site_name)s!\n"
+ "%(site_domain)s"
+ 
+ #: templates/account/email/base_notification.txt:5
+ msgid ""
+ "You are receiving this mail because the following change was made to your "
+ "account:"
+ msgstr ""
+ "You are receiving this mail because the following change was made to your "
+ "account:"
+ 
+ #: templates/account/email/base_notification.txt:10
+ #, python-format
+ msgid ""
+ "If you do not recognize this change then please take proper security "
+ "precautions immediately. The change to your account originates from:\n"
+ "\n"
+ "- IP address: %(ip)s\n"
+ "- Browser: %(user_agent)s\n"
+ "- Date: %(timestamp)s"
+ msgstr ""
+ "If you do not recognize this change then please take proper security "
+ "precautions immediately. The change to your account originates from:\n"
+ "\n"
+ "- IP address: %(ip)s\n"
+ "- Browser: %(user_agent)s\n"
+ "- Date: %(timestamp)s"
+ 
+ #: templates/account/email/email_changed_message.txt:4
+ #, python-format
+ msgid "Your email has been changed from %(from_email)s to %(to_email)s."
+ msgstr "Your email has been changed from %(from_email)s to %(to_email)s."
+ 
+ #: templates/account/email/email_changed_subject.txt:3
+ msgid "Email Changed"
+ msgstr "Email Changed"
+ 
+ #: templates/account/email/email_confirm_message.txt:4
+ msgid "Your email has been confirmed."
+ msgstr "Your email has been confirmed."
+ 
+ #: templates/account/email/email_confirm_subject.txt:3
+ msgid "Email Confirmation"
+ msgstr "Email Confirmation"
+ 
+ #: templates/account/email/email_confirmation_message.txt:5
+ #, python-format
+ msgid ""
+ "You're receiving this email because user %(user_display)s has given your "
+ "email address to register an account on %(site_domain)s.\n"
+ "\n"
+ "To confirm this is correct, go to %(activate_url)s"
+ msgstr ""
+ "You're receiving this email because user %(user_display)s has given your "
+ "email address to register an account on %(site_domain)s.\n"
+ "\n"
+ "To confirm this is correct, go to %(activate_url)s"
+ 
+ #: templates/account/email/email_confirmation_subject.txt:3
+ msgid "Please Confirm Your Email Address"
+ msgstr "Please Confirm Your Email Address"
+ 
+ #: templates/account/email/email_deleted_message.txt:4
+ #, python-format
+ msgid "Email address %(deleted_email)s has been removed from your account."
+ msgstr "Email address %(deleted_email)s has been removed from your account."
+ 
+ #: templates/account/email/email_deleted_subject.txt:3
+ msgid "Email Removed"
+ msgstr "Email Removed"
+ 
+ #: templates/account/email/login_code_message.txt:5
+ msgid ""
+ "Your sign-in code is listed below. Please enter it in your open browser "
+ "window."
+ msgstr ""
+ "Your sign-in code is listed below. Please enter it in your open browser "
+ "window."
+ 
+ #: templates/account/email/login_code_message.txt:9
+ #: templates/account/email/unknown_account_message.txt:6
+ msgid "This mail can be safely ignored if you did not initiate this action."
+ msgstr "This mail can be safely ignored if you did not initiate this action."
+ 
+ #: templates/account/email/login_code_subject.txt:3
+ msgid "Sign-In Code"
+ msgstr "Sign-In Code"
+ 
+ #: templates/account/email/password_changed_message.txt:4
+ msgid "Your password has been changed."
+ msgstr "Your password has been changed."
+ 
+ #: templates/account/email/password_changed_subject.txt:3
+ msgid "Password Changed"
+ msgstr "Password Changed"
+ 
+ #: templates/account/email/password_reset_key_message.txt:4
+ msgid ""
+ "You're receiving this email because you or someone else has requested a "
+ "password reset for your user account.\n"
+ "It can be safely ignored if you did not request a password reset. Click the "
+ "link below to reset your password."
+ msgstr ""
+ "You're receiving this email because you or someone else has requested a "
+ "password reset for your user account.\n"
+ "It can be safely ignored if you did not request a password reset. Click the "
+ "link below to reset your password."
+ 
+ #: templates/account/email/password_reset_key_message.txt:9
+ #, python-format
+ msgid "In case you forgot, your username is %(username)s."
+ msgstr "In case you forgot, your username is %(username)s."
+ 
+ #: templates/account/email/password_reset_key_subject.txt:3
+ msgid "Password Reset Email"
+ msgstr "Password Reset Email"
+ 
+ #: templates/account/email/password_reset_message.txt:4
+ msgid "Your password has been reset."
+ msgstr "Your password has been reset."
+ 
+ #: templates/account/email/password_reset_subject.txt:3
+ #: templates/account/password_reset.html:4
+ #: templates/account/password_reset.html:8
+ #: templates/account/password_reset_done.html:6
+ #: templates/account/password_reset_done.html:10
+ msgid "Password Reset"
+ msgstr "Password Reset"
+ 
+ #: templates/account/email/password_set_message.txt:4
+ msgid "Your password has been set."
+ msgstr "Your password has been set."
+ 
+ #: templates/account/email/password_set_subject.txt:3
+ msgid "Password Set"
+ msgstr "Password Set"
+ 
+ #: templates/account/email/unknown_account_message.txt:4
+ #, python-format
+ msgid ""
+ "You are receiving this email because you, or someone else, tried to access "
+ "an account with email %(email)s. However, we do not have any record of such "
+ "an account in our database."
+ msgstr ""
+ "You are receiving this email because you, or someone else, tried to access "
+ "an account with email %(email)s. However, we do not have any record of such "
+ "an account in our database."
+ 
+ #: templates/account/email/unknown_account_message.txt:8
+ msgid "If it was you, you can sign up for an account using the link below."
+ msgstr "If it was you, you can sign up for an account using the link below."
+ 
+ #: templates/account/email/unknown_account_subject.txt:3
+ msgid "Unknown Account"
+ msgstr "Unknown Account"
+ 
+ #: templates/account/email_change.html:5 templates/account/email_change.html:9
+ msgid "Email Address"
+ msgstr "Email Address"
+ 
+ #: templates/account/email_change.html:21
+ #: templates/account/email_change.html:29
+ msgid "Current email"
+ msgstr "Current email"
+ 
+ #: templates/account/email_change.html:31
+ msgid "Changing to"
+ msgstr "Changing to"
+ 
+ #: templates/account/email_change.html:35
+ msgid "Your email address is still pending verification."
+ msgstr "Your email address is still pending verification."
+ 
+ #: templates/account/email_change.html:41
+ msgid "Cancel Change"
+ msgstr "Cancel Change"
+ 
+ #: templates/account/email_change.html:49
+ msgid "Change to"
+ msgstr "Change to"
+ 
+ #: templates/account/email_change.html:55
+ #: templates/allauth/layouts/base.html:31
+ msgid "Change Email"
+ msgstr "Change Email"
+ 
+ #: templates/account/email_confirm.html:6
+ msgid "Confirm Email Address"
+ msgstr "Confirm Email Address"
+ 
+ #: templates/account/email_confirm.html:10
+ msgid "Confirmez votre adresse E-mail "
+ msgstr "Confirm your email address"
+ 
+ #: templates/account/email_confirm.html:15
+ #, python-format
+ msgid ""
+ "Veuillez confirmez que <a href=\"mailto:%(email)s\">%(email)s</a> est votre "
+ "adresse électonique."
+ msgstr ""
+ "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is your "
+ "email address."
+ 
+ #: templates/account/email_confirm.html:22
+ msgid "Confirmer"
+ msgstr "Confirm"
+ 
+ #: templates/account/email_confirm.html:27
+ #: templates/account/messages/email_confirmation_failed.txt:2
+ #, python-format
+ msgid ""
+ "Unable to confirm %(email)s because it is already confirmed by a different "
+ "account."
+ msgstr ""
+ "Unable to confirm %(email)s because it is already confirmed by a different "
+ "account."
+ 
+ #: templates/account/email_confirm.html:33
+ #, python-format
+ msgid ""
+ "This email confirmation link expired or is invalid. Please <a "
+ "href=\"%(email_url)s\">issue a new email confirmation request</a>."
+ msgstr ""
+ "This email confirmation link expired or is invalid. Please <a "
+ "href=\"%(email_url)s\">issue a new email confirmation request</a>."
+ 
+ #: templates/account/login.html:22 templates/account/login.html:60
+ #: templates/gallerie.html:71 templates/layouts/comicstyle.html:82
+ #: templates/layouts/marketplace.html:606 templates/nav.html:33
+ msgid "Connexion"
+ msgstr "Login"
+ 
+ #: templates/account/login.html:40
+ msgid "Entrez votre addresse E-mail svp "
+ msgstr "Please enter your email address"
+ 
+ #: templates/account/login.html:46
+ msgid "Entrez votre mot de passe"
+ msgstr "Enter your password"
+ 
+ #: templates/account/login.html:49
+ msgid "Entrez votre mot de passe svp !"
+ msgstr "Please enter your password!"
+ 
+ #: templates/account/login.html:64
+ msgid "Pas de compte"
+ msgstr "No account"
+ 
+  
+ #: les2peresnoel/users/forms.py:27 les2peresnoel/users/tests/test_forms.py:34
+ msgid "This email has already been taken."
+ msgstr "This email has already been taken."
+ 
+ #: les2peresnoel/users/models.py:20
+ msgid "Name of User"
+ msgstr "Name of User"
+ 
+ #: les2peresnoel/users/models.py:23
+ #, fuzzy
+ #| msgid "Enter a valid email address."
+ msgid "email address"
+ msgstr "Enter a valid email address."
+ 
+ #: les2peresnoel/users/tests/test_views.py:69 les2peresnoel/users/views.py:21
+ msgid "Information successfully updated"
+ msgstr "Information successfully updated"
+ 
+ #: templates/about.html:27 templates/footer.html:19 templates/gallerie.html:61
+ #: templates/gallerie.html:210 templates/nav.html:24
+ msgid "A propos"
+ msgstr "About"
+ 
+ #: templates/about.html:28
+ msgid "NOBPRINT est une petite entreprise d'innovations diverses "
+ msgstr "NOBPRINT is a small company of various innovations"
+ 
+ #: templates/about.html:43 templates/gallerie.html:63 templates/nav.html:26
+ msgid "Background du projet"
+ msgstr "Project Background"
+ 
+ #: templates/about.html:45
+ msgid ""
+ "Le site les2pèresnoel résout le problème du mensonge qui associe les fêtes "
+ "de Noël à la nativité. Le site dévoile à travers l'histoire du Père noël ses "
+ "vraies origines qui permettent de constater que l'histoire est laïque et non "
+ "religieuse. Par ailleurs, les choses ayant évoluées, on ne peut plus "
+ "raconter aux enfants qu'un vieux monsieur de 120 kilos passe par la cheminée "
+ "d'autant plus que les immeubles et la plupart des nouvelles maisons n'ont "
+ "plus de cheminée."
+ msgstr ""
+ "The les2pèresnoel website solves the problem of the lie that associates "
+ "Christmas with the nativity. The site reveals, through the story of Santa Claus, "
+ "its true origins, which show that the story is secular and not religious. "
+ "Moreover, as things have evolved, we can no longer tell children that an old "
+ "man weighing 120 kilos comes down the chimney, especially since apartment buildings "
+ "and most new houses no longer have chimneys."
+ 
+ #: templates/about.html:47
+ msgid ""
+ "En outre, les 2 pères noël actualisent le personnage à travers ses moyens de "
+ "locomotion qui sont les voitures volantes, les drones, les vaisseaux "
+ "spatiaux que l'on retrouve dans le tome 2 du conte Kovani qui s'intitule "
+ "«Kovani et le vaisseau spatial»."
+ msgstr ""
+ "In addition, the 2 Santas update the character through his means of "
+ "transportation, which are flying cars, drones, and spaceships found in "
+ "volume 2 of the Kovani tale entitled 'Kovani and the Spaceship'."
+ 
+ #: templates/about.html:49
+ msgid ""
+ "Les 2 pères noël à travers leurs actions sociales durant toute l'année "
+ "permettent d'apporter du bonheur dans les familles en difficulté car une "
+ "fois les choses bien mises en place, une association sera constituée pour "
+ "permettre de verser des sommes qui seront allouées aux familles en "
+ "difficulté, là ou les organismes de l'état n'interviennent pas. A travers "
+ "les contes et chansons vendus dans notre boutique les petits et adultes "
+ "s'approprieront l'évolution du Père noël."
+ msgstr ""
+ "The 2 Santas, through their social actions throughout the year, "
+ "bring happiness to families in difficulty because once things are well "
+ "established, an association will be formed to allow sums to be paid "
+ "to families in difficulty, where state organizations do not intervene. "
+ "Through the tales and songs sold in our shop, children and adults "
+ "will embrace the evolution of Santa Claus."
+ 
+ #: templates/account/account_inactive.html:5
+ #: templates/account/account_inactive.html:9
+ msgid "Account Inactive"
+ msgstr "Account Inactive"
+ 
+ #: templates/account/account_inactive.html:12
+ msgid "This account is inactive."
+ msgstr "This account is inactive."
+ 
+ #: templates/account/base_reauthenticate.html:5
+ #: templates/account/base_reauthenticate.html:9
+ msgid "Confirm Access"
+ msgstr "Confirm Access"
+ 
+ #: templates/account/base_reauthenticate.html:12
+ msgid "Please reauthenticate to safeguard your account."
+ msgstr "Please reauthenticate to safeguard your account."
+ 
+ #: templates/account/base_reauthenticate.html:19
+ msgid "Alternative options"
+ msgstr "Alternative options"
+ 
+ #: templates/account/confirm_login_code.html:5
+ #: templates/account/confirm_login_code.html:27 templates/account/login.html:6
+ #: templates/account/request_login_code.html:5
+ #: templates/allauth/layouts/base.html:62
+ msgid "Sign In"
+ msgstr "Sign In"
+ 
+ #: templates/account/confirm_login_code.html:9
+ msgid "Enter Sign-In Code"
+ msgstr "Enter Sign-In Code"
+ 
+ #: templates/account/confirm_login_code.html:15
+ #, python-format
+ msgid ""
+ "We've sent a code to %(email_link)s. The code expires shortly, so please "
+ "enter it soon."
+ msgstr ""
+ "We've sent a code to %(email_link)s. The code expires shortly, so please "
+ "enter it soon."
+ 
+ #: templates/account/confirm_login_code.html:34
+ #: templates/account/request_login_code.html:31
+ msgid "Other sign-in options"
+ msgstr "Other sign-in options"
+ 
+ #: templates/account/email.html:4 templates/account/email.html:8
+ msgid "Email Addresses"
+ msgstr "Email Addresses"
+ 
+ #: templates/account/email.html:12
+ msgid "The following email addresses are associated with your account:"
+ msgstr "The following email addresses are associated with your account:"
+ 
+ #: templates/account/email.html:25
+ msgid "Verified"
+ msgstr "Verified"
+ 
+ #: templates/account/email.html:29
+ msgid "Unverified"
+ msgstr "Unverified"
+ 
+ #: templates/account/email.html:34
+ msgid "Primary"
+ msgstr "Primary"
+ 
+ #: templates/account/email.html:44
+ msgid "Make Primary"
+ msgstr "Make Primary"
+ 
+ #: templates/account/email.html:47 templates/account/email_change.html:37
+ msgid "Re-send Verification"
+ msgstr "Re-send Verification"
+ 
+ #: templates/account/email.html:50
+ msgid "Remove"
+ msgstr "Remove"
+ 
+ #: templates/account/email.html:59
+ msgid "Add Email Address"
+ msgstr "Add Email Address"
+ 
+ #: templates/account/email.html:70
+ msgid "Add Email"
+ msgstr "Add Email"
+ 
+ #: templates/account/email.html:79
+ msgid "Do you really want to remove the selected email address?"
+ msgstr "Do you really want to remove the selected email address?"
+ 
+ #: templates/account/email/account_already_exists_message.txt:4
+ #, python-format
+ msgid ""
+ "You are receiving this email because you or someone else tried to signup for "
+ "an\n"
+ "account using email address:\n"
+ "\n"
+ "%(email)s\n"
+ "\n"
+ "However, an account using that email address already exists.  In case you "
+ "have\n"
+ "forgotten about this, please use the password forgotten procedure to "
+ "recover\n"
+ "your account:\n"
+ "\n"
+ "%(password_reset_url)s"
+ msgstr ""
+ "You are receiving this email because you or someone else tried to signup for "
+ "an\n"
+ "account using email address:\n"
+ "\n"
+ "%(email)s\n"
+ "\n"
+ "However, an account using that email address already exists.  In case you "
+ "have\n"
+ "forgotten about this, please use the password forgotten procedure to "
+ "recover\n"
+ "your account:\n"
+ "\n"
+ "%(password_reset_url)s"
+ 
+ #: templates/account/email/account_already_exists_subject.txt:3
+ msgid "Account Already Exists"
+ msgstr "Account Already Exists"
+ 
+ #: templates/account/email/base_message.txt:1
+ #, python-format
+ msgid "Hello from %(site_name)s!"
+ msgstr "Hello from %(site_name)s!"
+ 
+ #: templates/account/email/base_message.txt:5
+ #, python-format
+ msgid ""
+ "Thank you for using %(site_name)s!\n"
+ "%(site_domain)s"
+ msgstr ""
+ "Thank you for using %(site_name)s!\n"
+ "%(site_domain)s"
+ 
+ #: templates/account/email/base_notification.txt:5
+ msgid ""
+ "You are receiving this mail because the following change was made to your "
+ "account:"
+ msgstr ""
+ "You are receiving this mail because the following change was made to your "
+ "account:"
+ 
+ #: templates/account/email/base_notification.txt:10
+ #, python-format
+ msgid ""
+ "If you do not recognize this change then please take proper security "
+ "precautions immediately. The change to your account originates from:\n"
+ "\n"
+ "- IP address: %(ip)s\n"
+ "- Browser: %(user_agent)s\n"
+ "- Date: %(timestamp)s"
+ msgstr ""
+ "If you do not recognize this change then please take proper security "
+ "precautions immediately. The change to your account originates from:\n"
+ "\n"
+ "- IP address: %(ip)s\n"
+ "- Browser: %(user_agent)s\n"
+ "- Date: %(timestamp)s"
+ 
+ #: templates/account/email/email_changed_message.txt:4
+ #, python-format
+ msgid "Your email has been changed from %(from_email)s to %(to_email)s."
+ msgstr "Your email has been changed from %(from_email)s to %(to_email)s."
+ 
+ #: templates/account/email/email_changed_subject.txt:3
+ msgid "Email Changed"
+ msgstr "Email Changed"
+ 
+ #: templates/account/email/email_confirm_message.txt:4
+ msgid "Your email has been confirmed."
+ msgstr "Your email has been confirmed."
+ 
+ #: templates/account/email/email_confirm_subject.txt:3
+ msgid "Email Confirmation"
+ msgstr "Email Confirmation"
+ 
+ #: templates/account/email/email_confirmation_message.txt:5
+ #, python-format
+ msgid ""
+ "You're receiving this email because user %(user_display)s has given your "
+ "email address to register an account on %(site_domain)s.\n"
+ "\n"
+ "To confirm this is correct, go to %(activate_url)s"
+ msgstr ""
+ "You're receiving this email because user %(user_display)s has given your "
+ "email address to register an account on %(site_domain)s.\n"
+ "\n"
+ "To confirm this is correct, go to %(activate_url)s"
+ 
+ #: templates/account/email/email_confirmation_subject.txt:3
+ msgid "Please Confirm Your Email Address"
+ msgstr "Please Confirm Your Email Address"
+ 
+ #: templates/account/email/email_deleted_message.txt:4
+ #, python-format
+ msgid "Email address %(deleted_email)s has been removed from your account."
+ msgstr "Email address %(deleted_email)s has been removed from your account."
+ 
+ #: templates/account/email/email_deleted_subject.txt:3
+ msgid "Email Removed"
+ msgstr "Email Removed"
+ 
+ #: templates/account/email/login_code_message.txt:5
+ msgid ""
+ "Your sign-in code is listed below. Please enter it in your open browser "
+ "window."
+ msgstr ""
+ "Your sign-in code is listed below. Please enter it in your open browser "
+ "window."
+ 
+ #: templates/account/email/login_code_message.txt:9
+ #: templates/account/email/unknown_account_message.txt:6
+ msgid "This mail can be safely ignored if you did not initiate this action."
+ msgstr "This mail can be safely ignored if you did not initiate this action."
+ 
+ #: templates/account/email/login_code_subject.txt:3
+ msgid "Sign-In Code"
+ msgstr "Sign-In Code"
+ 
+ #: templates/account/email/password_changed_message.txt:4
+ msgid "Your password has been changed."
+ msgstr "Your password has been changed."
+ 
+ #: templates/account/email/password_changed_subject.txt:3
+ msgid "Password Changed"
+ msgstr "Password Changed"
+ 
+ #: templates/account/email/password_reset_key_message.txt:4
+ msgid ""
+ "You're receiving this email because you or someone else has requested a "
+ "password reset for your user account.\n"
+ "It can be safely ignored if you did not request a password reset. Click the "
+ "link below to reset your password."
+ msgstr ""
+ "You're receiving this email because you or someone else has requested a "
+ "password reset for your user account.\n"
+ "It can be safely ignored if you did not request a password reset. Click the "
+ "link below to reset your password."
+ 
+ #: templates/account/email/password_reset_key_message.txt:9
+ #, python-format
+ msgid "In case you forgot, your username is %(username)s."
+ msgstr "In case you forgot, your username is %(username)s."
+ 
+ #: templates/account/email/password_reset_key_subject.txt:3
+ msgid "Password Reset Email"
+ msgstr "Password Reset Email"
+ 
+ #: templates/account/email/password_reset_message.txt:4
+ msgid "Your password has been reset."
+ msgstr "Your password has been reset."
+ 
+ #: templates/account/email/password_reset_subject.txt:3
+ #: templates/account/password_reset.html:4
+ #: templates/account/password_reset.html:8
+ #: templates/account/password_reset_done.html:6
+ #: templates/account/password_reset_done.html:10
+ msgid "Password Reset"
+ msgstr "Password Reset"
+ 
+ #: templates/account/email/password_set_message.txt:4
+ msgid "Your password has been set."
+ msgstr "Your password has been set."
+ 
+ #: templates/account/email/password_set_subject.txt:3
+ msgid "Password Set"
+ msgstr "Password Set"
+ 
+ #: templates/account/email/unknown_account_message.txt:4
+ #, python-format
+ msgid ""
+ "You are receiving this email because you, or someone else, tried to access "
+ "an account with email %(email)s. However, we do not have any record of such "
+ "an account in our database."
+ msgstr ""
+ "You are receiving this email because you, or someone else, tried to access "
+ "an account with email %(email)s. However, we do not have any record of such "
+ "an account in our database."
+ 
+ #: templates/account/email/unknown_account_message.txt:8
+ msgid "If it was you, you can sign up for an account using the link below."
+ msgstr "If it was you, you can sign up for an account using the link below."
+ 
+ #: templates/account/email/unknown_account_subject.txt:3
+ msgid "Unknown Account"
+ msgstr "Unknown Account"
+ 
+ #: templates/account/email_change.html:5 templates/account/email_change.html:9
+ msgid "Email Address"
+ msgstr "Email Address"
+ 
+ #: templates/account/email_change.html:21
+ #: templates/account/email_change.html:29
+ msgid "Current email"
+ msgstr "Current email"
+ 
+ #: templates/account/email_change.html:31
+ msgid "Changing to"
+ msgstr "Changing to"
+ 
+ #: templates/account/email_change.html:35
+ msgid "Your email address is still pending verification."
+ msgstr "Your email address is still pending verification."
+ 
+ #: templates/account/email_change.html:41
+ msgid "Cancel Change"
+ msgstr "Cancel Change"
+ 
+ #: templates/account/email_change.html:49
+ msgid "Change to"
+ msgstr "Change to"
+ 
+ #: templates/account/email_change.html:55
+ #: templates/allauth/layouts/base.html:31
+ msgid "Change Email"
+ msgstr "Change Email"
+ 
+ #: templates/account/email_confirm.html:6
+ msgid "Confirm Email Address"
+ msgstr "Confirm Email Address"
+ 
+ #: templates/account/email_confirm.html:10
+ msgid "Confirmez votre adresse E-mail "
+ msgstr "Confirm your email address"
+ 
+ #: templates/account/email_confirm.html:15
+ #, python-format
+ msgid ""
+ "Veuillez confirmez que <a href=\"mailto:%(email)s\">%(email)s</a> est votre "
+ "adresse électonique."
+ msgstr ""
+ "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is your "
+ "email address."
+ 
+ #: templates/account/email_confirm.html:22
+ msgid "Confirmer"
+ msgstr "Confirm"
+ 
+ #: templates/account/email_confirm.html:27
+ #: templates/account/messages/email_confirmation_failed.txt:2
+ #, python-format
+ msgid ""
+ "Unable to confirm %(email)s because it is already confirmed by a different "
+ "account."
+ msgstr ""
+ "Unable to confirm %(email)s because it is already confirmed by a different "
+ "account."
+ 
+ #: templates/account/email_confirm.html:33
+ #, python-format
+ msgid ""
+ "This email confirmation link expired or is invalid. Please <a "
+ "href=\"%(email_url)s\">issue a new email confirmation request</a>."
+ msgstr ""
+ "This email confirmation link expired or is invalid. Please <a "
+ "href=\"%(email_url)s\">issue a new email confirmation request</a>."
+ 
+ #: templates/account/login.html:22 templates/account/login.html:60
+ #: templates/gallerie.html:71 templates/layouts/comicstyle.html:82
+ #: templates/layouts/marketplace.html:606 templates/nav.html:33
+ msgid "Connexion"
+ msgstr "Login"
+ 
+ #: templates/account/login.html:40
+ msgid "Entrez votre addresse E-mail svp "
+ msgstr "Please enter your email address"
+ 
+ #: templates/account/login.html:46
+ msgid "Entrez votre mot de passe"
+ msgstr "Enter your password"
+ 
+ #: templates/account/login.html:49
+ msgid "Entrez votre mot de passe svp !"
+ msgstr "Please enter your password!"
+ 
+ #: templates/account/login.html:64
+ msgid "Pas de compte"
+ msgstr "No account"
 #: templates/account/snippets/already_logged_in.html:7
 msgid "Note"
-msgstr ""
+msgstr "Note"
 
 #: templates/account/snippets/already_logged_in.html:7
 #, python-format
 msgid "You are already logged in as %(user_display)s."
-msgstr ""
+msgstr "You are already logged in as %(user_display)s."
 
 #: templates/account/snippets/warn_no_email.html:3
 msgid "Warning:"
-msgstr ""
+msgstr "Warning:"
 
 #: templates/account/snippets/warn_no_email.html:3
 msgid ""
 "You currently do not have any email address set up. You should really add an "
 "email address so you can receive notifications, reset your password, etc."
 msgstr ""
+"You currently do not have any email address set up. You should really add an "
+"email address so you can receive notifications, reset your password, etc."
 
 #: templates/account/verification_sent.html:5
 #: templates/account/verified_email_required.html:5
 #: templates/account/verified_email_required.html:9
 msgid "Verify Your Email Address"
-msgstr ""
+msgstr "Verify Your Email Address"
 
 #: templates/account/verification_sent.html:11
 msgid "Vérifiez votre adresse électronique"
-msgstr ""
+msgstr "Verify your email address"
 
 #: templates/account/verification_sent.html:13
 msgid ""
@@ -1207,6 +1557,10 @@ msgid ""
 "dossier spam. Veuillez nous contacter si vous ne recevez pas l'e-mail de "
 "vérification dans les minutes qui suivent."
 msgstr ""
+"We have sent you a verification email. Follow the provided link to complete "
+"the registration process. If you do not see the verification email in your "
+"main inbox, check your spam folder. Please contact us if you do not receive "
+"the verification email within a few minutes."
 
 #: templates/account/verified_email_required.html:13
 msgid ""
@@ -1214,6 +1568,9 @@ msgid ""
 "be. For this purpose, we require that you verify ownership of your email "
 "address."
 msgstr ""
+"This part of the site requires us to verify that you are who you claim to "
+"be. For this purpose, we require that you verify ownership of your email "
+"address."
 
 #: templates/account/verified_email_required.html:16
 msgid ""
@@ -1222,6 +1579,10 @@ msgid ""
 "inbox, check your spam folder. Otherwise contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
+"We have sent an email to you for verification. Please click on the link "
+"inside that email. If you do not see the verification email in your main "
+"inbox, check your spam folder. Otherwise contact us if you do not receive it "
+"within a few minutes."
 
 #: templates/account/verified_email_required.html:19
 #, python-format
@@ -1229,52 +1590,54 @@ msgid ""
 "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
 "email address</a>."
 msgstr ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
+"email address</a>."
 
 #: templates/allauth/layouts/base.html:18
 #, fuzzy
 #| msgid "Messages"
 msgid "Messages:"
-msgstr "messages"
+msgstr "Messages:"
 
 #: templates/allauth/layouts/base.html:25
 msgid "Menu:"
-msgstr ""
+msgstr "Menu:"
 
 #: templates/allauth/layouts/base.html:43
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Two-Factor Authentication"
 
 #: templates/allauth/layouts/base.html:49
 msgid "Sessions"
-msgstr ""
+msgstr "Sessions"
 
 #: templates/birth.html:27 templates/gallerie.html:65 templates/nav.html:28
 msgid "Naissance du père noël"
-msgstr ""
+msgstr "Birth of Santa Claus"
 
 #: templates/boutique.html:39
 msgid "Livres,vidéos de chant et danse de noël en animation 3D"
-msgstr ""
+msgstr "Books, Christmas singing and dancing videos in 3D animation"
 
 #: templates/boutique.html:46 templates/produits_noel.html:28
 msgid "Contes"
-msgstr ""
+msgstr "Tales"
 
 #: templates/boutique.html:77
 msgid "Chants de Noël "
-msgstr ""
+msgstr "Christmas Songs"
 
 #: templates/boutique.html:142
 msgid "Actualitées+ "
-msgstr ""
+msgstr "News+"
 
 #: templates/boutique.html:158
 msgid "Histoires"
-msgstr ""
+msgstr "Stories"
 
 #: templates/cgu.html:7
 msgid "Conditions Générales d'Utilisation Pères Bonheur"
-msgstr ""
+msgstr "General Terms of Use Pères Bonheur"
 
 #: templates/cgu.html:10
 msgid ""
@@ -1285,77 +1648,83 @@ msgid ""
 "aux conditions énoncées ci-dessous et aux lois applicables:\n"
 "                    "
 msgstr ""
+"\n"
+"                    Access and use of the site <a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a> whose domain name is <a "
+"href=\"https://www.peresbonheur.com\">www.Peresbonheur.com</a> are subject "
+"to the conditions set out below and applicable laws:\n"
+"                    "
 
 #: templates/cgu.html:15 templates/cgu.html:46
 msgid "Accessibilité au site"
-msgstr ""
+msgstr "Site Accessibility"
 
 #: templates/cgu.html:16 templates/cgu.html:70
 msgid "Limitation de responsabilité"
-msgstr ""
+msgstr "Limitation of Liability"
 
 #: templates/cgu.html:17 templates/cgu.html:94
 msgid "Propriété intellectuelle"
-msgstr ""
+msgstr "Intellectual Property"
 
 #: templates/cgu.html:18 templates/cgu.html:108
 msgid "Liens vers des sites tiers"
-msgstr ""
+msgstr "Links to Third-Party Sites"
 
 #: templates/cgu.html:19 templates/cgu.html:127
 msgid "Préservation des droits et juridiction compétente"
-msgstr ""
+msgstr "Preservation of Rights and Competent Jurisdiction"
 
 #: templates/cgu.html:20 templates/cgu.html:151
 msgid "Services offerts"
-msgstr ""
+msgstr "Services Offered"
 
 #: templates/cgu.html:21 templates/cgu.html:246
 msgid "Politique de vie privée"
-msgstr ""
+msgstr "Privacy Policy"
 
 #: templates/cgu.html:22 templates/cgu.html:325
 #, fuzzy
 #| msgid "Syndication"
 msgid "Interdiction"
-msgstr "Syndication"
+msgstr "Prohibition"
 
 #: templates/cgu.html:23 templates/cgu.html:359
 msgid "Mentions légales sur les virus"
-msgstr ""
+msgstr "Legal Notice on Viruses"
 
 #: templates/cgu.html:24 templates/cgu.html:378
 msgid "Bonnes mœurs et suspension ou suppression d'un compte"
-msgstr ""
+msgstr "Good Morals and Suspension or Deletion of an Account"
 
 #: templates/cgu.html:25 templates/cgu.html:402
 msgid "Comportement général"
-msgstr ""
+msgstr "General Behavior"
 
 #: templates/cgu.html:26 templates/cgu.html:411
 msgid "Modification du règlement"
-msgstr ""
+msgstr "Modification of the Rules"
 
 #: templates/cgu.html:27 templates/cgu.html:430
 msgid "Législation"
-msgstr ""
+msgstr "Legislation"
 
 #: templates/cgu.html:28 templates/cgu.html:449
 msgid "Loi relative à l'informatique, aux fichiers et aux libertés"
-msgstr ""
+msgstr "Law on Information Technology, Files and Freedoms"
 
 #: templates/cgu.html:29 templates/cgu.html:468
 msgid "Copyright et image"
-msgstr ""
+msgstr "Copyright and Image"
 
 #: templates/cgu.html:30 templates/cgu.html:477 templates/cgv.html:118
 #: templates/cgv.html:480
 msgid "Facture"
-msgstr ""
+msgstr "Invoice"
 
 #: templates/cgu.html:31 templates/cgu.html:486
 msgid "Mention légales"
-msgstr ""
+msgstr "Legal Notice"
 
 #: templates/cgu.html:35
 msgid ""
@@ -1367,6 +1736,12 @@ msgid ""
 "pas autorisé à utiliser ce site.\n"
 "                    "
 msgstr ""
+"\n"
+"                    By using this site or clicking on a box or link that "
+"states that you accept these terms, you indicate that you agree with these "
+"general terms of use. If you do not accept these general terms of use, you "
+"are not authorized to use this site.\n"
+"                    "
 
 #: templates/cgu.html:41
 msgid ""
@@ -1384,6 +1759,17 @@ msgid ""
 "conditions générales d'utilisation.\n"
 "                    "
 msgstr ""
+"\n"
+"                    It is strictly forbidden for any person belonging to a "
+"criminal organization (terrorism, mafia, organized theft, money laundering, "
+"prostitution, drugs, weapons, pedophilia, human organ trafficking. This list "
+"is not exhaustive) to register, post comments or participate in any activity "
+"on <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>.  <br><a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>  cannot be held "
+"responsible for the protection of their identity vis-à-vis the governments "
+"in charge of protecting populations. This person is subject to legal action "
+"in case of violation of these general terms of use.\n"
+"                    "
 
 #: templates/cgu.html:49
 msgid ""
@@ -1396,6 +1782,14 @@ msgid ""
 "niveau ou pour toutes autres raisons notamment techniques.\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> strives as much as possible to keep its services "
+"accessible 7 days a week and 24 hours a day. <a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a> may at any time interrupt access for "
+"maintenance and upgrading or for any other reasons, particularly technical "
+"reasons.\n"
+"                        "
 
 #: templates/cgu.html:54
 msgid ""
@@ -1415,6 +1809,18 @@ msgid ""
 "ces frais.\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> reserves the right to modify, at any time and "
+"without prior notice, these General Terms of Use of the Site. Each User "
+"connecting to the Site is invited to regularly consult these General Terms "
+"of Use to be aware of any changes. The renewed use of the Site as these "
+"general terms of use are modified will constitute acceptance by each User of "
+"the General Terms of Use in force. All fees and costs incurred when using "
+"the Site from your mobile device are charged through your mobile account. <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> disclaims all "
+"responsibility for these fees.\n"
+"                        "
 
 #: templates/cgu.html:59
 msgid ""
@@ -1434,6 +1840,19 @@ msgid ""
 "internet (rubrique confidentialité, vie privée, etc.).\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> uses computer identifiers called \"cookies\" to "
+"remember certain settings such as account and identifier recognition. "
+"Cookies are used in particular to obtain information relating to the pages "
+"viewed and the dates and times of viewing as well as to facilitate the "
+"display of pages. If Users disable cookies, some information may not display "
+"properly and access to the site may become difficult or even impossible. It "
+"is therefore recommended that Users set their browser to accept cookies from "
+"the site to avoid not being able to access their account. Users can object "
+"to the recording of cookies by setting their internet browser options "
+"(privacy, etc.).\n"
+"                        "
 
 #: templates/cgu.html:64
 msgid ""
@@ -1447,6 +1866,15 @@ msgid ""
 "pourraient être obtenues au moyen de ces « cookies ».\n"
 "                        "
 msgstr ""
+"\n"
+"                        Third-party sites visited by the User or the "
+"advertisements on the Site are also likely to set \"cookies\". These are "
+"managed by third parties independent of \"<a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a>\" under their sole responsibility, it "
+"being specified that <a href=\"https://www.peresbonheur.com\">Peresbonheur."
+"com</a> has no access to the data that may be obtained through these "
+"\"cookies\".\n"
+"                        "
 
 #: templates/cgu.html:73
 msgid ""
@@ -1465,6 +1893,18 @@ msgid ""
 "résulter.\n"
 "                        "
 msgstr ""
+"\n"
+"                        1. <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> cannot be held liable for any malfunctions of the "
+"Internet network resulting in failures in the administration, security, "
+"integrity or management of the products or services offered on the Site. "
+"Furthermore, <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> "
+"is not responsible for the possible transmission of viruses through these "
+"sites. <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> is not "
+"responsible for the fraudulent use of its means of distribution. It declines "
+"all responsibility for any intrusion into its computer systems and for any "
+"plundering of any data that may result.\n"
+"                        "
 
 #: templates/cgu.html:78
 msgid ""
@@ -1482,6 +1922,19 @@ msgid ""
 "d’exploitation, perte de profit, perte de chance, dommages ou frais.\n"
 "                        "
 msgstr ""
+"\n"
+"                        2. <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> is not responsible for any damage or any temporary "
+"or permanent incident that may be caused to the user's data or computer "
+"equipment during access to the sites, during navigation within their pages "
+"or generally during the transmission of files and computer programs that "
+"make up the sites on their receiving equipment. <a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a> implements the necessary means to "
+"prevent illegal intrusions. <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> is not liable for indirect damages resulting from "
+"the present, loss of operation, loss of profit, loss of opportunity, "
+"damages or costs.\n"
+"                        "
 
 #: templates/cgu.html:83
 msgid ""
@@ -1494,6 +1947,13 @@ msgid ""
 "atteinte.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The connection of any person to the Site and the "
+"participation in the products and services offered on the Site is the sole "
+"responsibility of the user. It is the responsibility of each user to take "
+"all appropriate measures to protect their own data and/or software stored on "
+"their computer equipment against any infringement.\n"
+"                        "
 
 #: templates/cgu.html:88
 msgid ""
@@ -1508,6 +1968,15 @@ msgid ""
 "intellectuelle.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The content and information published on <a href=\""
+"https://www.peresbonheur.com\">Peresbonheur.com</a> belong to the user who "
+"can control how <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> "
+"shares their content. The user grants \"<a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a>\" a non-exclusive, transferable, sublicensable, "
+"royalty-free, worldwide license to use photos, videos, and intellectual "
+"property content.\n"
+"                        "
 
 #: templates/cgu.html:97
 msgid ""
@@ -1518,6 +1987,12 @@ msgid ""
 "éventuels fournisseurs ou partenaires.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The structure, layout, and all elements contained in "
+"this site are protected by the copyrights of \"<a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a>\", its potential suppliers or "
+"partners.\n"
+"                        "
 
 #: templates/cgu.html:102
 msgid ""
@@ -1532,6 +2007,15 @@ msgid ""
 "com\">Peresbonheur.com</a>.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Other product or company names mentioned on this site "
+"may be trademarks of their respective owners. The user is not authorized to "
+"modify, copy, distribute, transmit, broadcast, represent, reproduce, publish, "
+"license, transfer or sell any information, product or service obtained from "
+"this site, nor to create derivative works from the aforementioned elements, "
+"without the prior written consent of <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a>.\n"
+"                        "
 
 #: templates/cgu.html:111
 msgid ""
@@ -1548,6 +2032,17 @@ msgid ""
 "ces sites.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Web spaces outside the domains and subdomains of <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> as well as the "
+"spaces to which the user may be directed by means of hypertext links within "
+"the pages of these sites are the sole responsibility of the holders of these "
+"web spaces. <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> "
+"cannot exercise permanent control over these sites nor assume responsibility "
+"for their content. The insertion of these links does not mean that <a href=\""
+"https://www.peresbonheur.com\">Peresbonheur.com</a> approves the elements "
+"contained on these sites.\n"
+"                        "
 
 #: templates/cgu.html:116
 msgid ""
@@ -1559,6 +2054,13 @@ msgid ""
 "serait procédé.\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> therefore declines all responsibility, in "
+"particular for the equipment, data of any kind contained or disseminated on "
+"these referral web spaces, and for the processing of personal data that may "
+"be carried out.\n"
+"                        "
 
 #: templates/cgu.html:121
 msgid ""
@@ -1570,6 +2072,13 @@ msgid ""
 "titulaires de ces partenaires et des espaces web associés.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The web spaces of the partners of <a href=\"https://"
+"www.peresbonheur.com\">Peresbonheur.com</a> as well as the spaces to which "
+"the user may be directed by means of hypertext links within the pages of "
+"these sites are the sole responsibility of the holders of these partners and "
+"the associated web spaces.\n"
+"                        "
 
 #: templates/cgu.html:130
 msgid ""
@@ -1580,6 +2089,12 @@ msgid ""
 "réparation de son dommage éventuel.\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> reserves the right to take legal action in the "
+"event of a violation of these general terms of use in order to obtain "
+"compensation for any damage.\n"
+"                        "
 
 #: templates/cgu.html:135
 msgid ""
@@ -1591,6 +2106,12 @@ msgid ""
 "utilisateur.\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> reserves the right to refuse any user access to "
+"all or part of its site unilaterally and without prior notice, particularly "
+"in the event of a manifest violation of these terms by a user.\n"
+"                        "
 
 #: templates/cgu.html:140
 msgid ""
@@ -1605,35 +2126,52 @@ msgid ""
 "d'urgence ou conservatoires, de procédure de référé ou sur requête.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Any disputes that may arise regarding the validity, "
+"interpretation, acceptance, and execution of these terms, regardless of the "
+"place of consultation, subscription, or settlement, will be subject to an "
+"attempt at amicable settlement that the parties agree to seek. Failing to do "
+"so within a period of (3) months, the court of Fort-de-France will have sole "
+"jurisdiction even in the event of a warranty claim, multiple defendants, "
+"emergency or conservatory procedures, summary proceedings or on request.\n"
+"                        "
 
 #: templates/cgu.html:145
 msgid ""
 "\n"
 "                        Sous réserve des règles impératives de droit "
-"international public et privé qui régissent l’utilisateur, le droit français "
+"international public et privé qui régissent l'utilisateur, le droit français "
 "régit les rapports entre <a href=\"https://www.peresbonheur."
-"com\">Peresbonheur.com</a> et l’utilisateur. Tout différend relatif à "
-"l’utilisation de ce site sera exclusivement régi par le droit français. Les "
+"com\">Peresbonheur.com</a> et l'utilisateur. Tout différend relatif à "
+"l'utilisation de ce site sera exclusivement régi par le droit français. Les "
 "cours et tribunaux de Fort-de-France seront seuls compétents en cas de "
 "litige.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Subject to the mandatory rules of public and private international law "
+"governing the user, French law governs the relationship between <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> and the user. Any dispute relating to "
+"the use of this site will be exclusively governed by French law. The "
+"courts and tribunals of Fort-de-France will have sole jurisdiction in case of "
+"litigation.\n"
+"                        "
 
 #: templates/cgu.html:154
 msgid "Ebook"
-msgstr ""
+msgstr "Ebook"
 
 #: templates/cgu.html:155
 msgid "Emusique"
-msgstr ""
+msgstr "Emusic"
 
 #: templates/cgu.html:156
 msgid "Espace publicitaire"
-msgstr ""
+msgstr "Advertising space"
 
 #: templates/cgu.html:158
 msgid "Règles générales"
-msgstr ""
+msgstr "General rules"
 
 #: templates/cgu.html:160
 msgid ""
@@ -1648,6 +2186,16 @@ msgid ""
 "d'interrogation ou de requête automatisée du site.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Any adult user can use <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> as soon as their registration "
+"is validated. Participation in \"<a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a>\" is exclusively done electronically, "
+"on the website and individually. Each user must use <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> personally and it "
+"is forbidden to use, directly or indirectly, any form "
+"of automated querying or requesting of the site.\n"
+"                        "
 
 #: templates/cgu.html:165
 msgid ""
@@ -1655,10 +2203,13 @@ msgid ""
 "                        Un utilisateur peut acheter plusieurs produits.\n"
 "                        "
 msgstr ""
+"\n"
+"                        A user can purchase multiple products.\n"
+"                        "
 
 #: templates/cgu.html:169
 msgid "Responsabilité de l'utilisateur"
-msgstr ""
+msgstr "User Responsibility"
 
 #: templates/cgu.html:171
 msgid ""
@@ -1674,6 +2225,17 @@ msgid ""
 "d'identité, passeport, preuve d'adresse).\n"
 "                        "
 msgstr ""
+"\n"
+"                        To download e-books, Emusic or "
+"purchase advertising space, the user must be of legal age in "
+"any country. They must not use any illegal means to "
+"download products. It is forbidden for the user to use false "
+"names, false dates of birth or provide inaccurate postal addresses. "
+"<a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> "
+"reserves the right to ask the user to provide supporting documents "
+"regarding their age, identity, address (identity card, "
+"passport, proof of address).\n"
+"                        "
 
 #: templates/cgu.html:176
 msgid ""
@@ -1685,6 +2247,13 @@ msgid ""
 "href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>.\n"
 "                        "
 msgstr ""
+"\n"
+"                        It is strictly forbidden for any person who is "
+"part of a criminal organization (terrorism, mafia, organized theft, "
+"money laundering, prostitution, drugs, weapons, pedophilia, human "
+"organ trafficking. This list is not exhaustive) to register on <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>.\n"
+"                        "
 
 #: templates/cgu.html:181
 msgid ""
@@ -1697,10 +2266,17 @@ msgid ""
 "d'utilisation.\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> cannot be held responsible for "
+"protecting their identity from governments in charge of "
+"population protection. This person may face legal action "
+"in case of violation of these general terms and conditions of use.\n"
+"                        "
 
 #: templates/cgu.html:185
 msgid "Adresse e-mail de l'utilisateur"
-msgstr ""
+msgstr "User's email address"
 
 #: templates/cgu.html:187
 msgid ""
@@ -1714,10 +2290,19 @@ msgid ""
 "adresse e-mail à tout moment dans la rubrique « compte ».\n"
 "                        "
 msgstr ""
+"\n"
+"                        It is the responsibility and duty of "
+"the user to ensure that the email address provided to the site <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> remains valid and "
+"accessible to ensure communication of all information between "
+"the user and the site. The user must update their email address "
+"through the \"account\" section. Any user can change their "
+"email address at any time in the \"account\" section.\n"
+"                        "
 
 #: templates/cgu.html:191
 msgid "Clôture du compte de l'utilisateur"
-msgstr ""
+msgstr "Closing the user's account"
 
 #: templates/cgu.html:193
 msgid ""
@@ -1729,10 +2314,17 @@ msgid ""
 "être effectué, chaque compte est strictement personnel.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Any User can close their account at any "
+"time in the \"account\" section. Closing an account means the "
+"definitive and irreversible deletion of personal data, without "
+"any compensation. No transfer (exchange and assignment of account) can "
+"be made, each account is strictly personal.\n"
+"                        "
 
 #: templates/cgu.html:197
 msgid "Durée de validité d'un compte"
-msgstr ""
+msgstr "Duration of validity of an account"
 
 #: templates/cgu.html:199
 msgid ""
@@ -1746,10 +2338,19 @@ msgid ""
 "www.peresbonheur.com\">Peresbonheur.com</a>.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Registration on <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> is made for an unlimited duration without "
+"prejudice to the ability for each party to unilaterally terminate, "
+"at any time, without notice or justification, these "
+"contractual relationships. In case of inactivity for more than 6 months, the user's account "
+"may be deleted by the administration of <a href=\"https://"
+"www.peresbonheur.com\">Peresbonheur.com</a>.\n"
+"                        "
 
 #: templates/cgu.html:203
 msgid "Comportement de l'utilisateur"
-msgstr ""
+msgstr "User behavior"
 
 #: templates/cgu.html:205
 msgid ""
@@ -1764,10 +2365,20 @@ msgid ""
 "com\">Peresbonheur.com</a> implique l'acceptation des termes et conditions.\n"
 "                        "
 msgstr ""
+"\n"
+"                        It is the user's responsibility to keep their "
+"profile up to date (email address, postal address, name, etc.) in order "
+"to optimize the quality of the administration service of <a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a>. Any profile not updated on the "
+"site <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> implies "
+"the closure or suspension of the concerned account. Any registration "
+"request on the site <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> implies acceptance of the terms and conditions.\n"
+"                        "
 
 #: templates/cgu.html:209
 msgid "Aspect technique / Équipement requis"
-msgstr ""
+msgstr "Technical aspect / Required equipment"
 
 #: templates/cgu.html:211
 msgid ""
@@ -1779,6 +2390,13 @@ msgid ""
 "diverses données du site.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Every user must ensure that their "
+"computer equipment, smartphone or tablet allows them access to the system governing "
+"the products and activities. Inadequate equipment may prevent "
+"the user from accessing their account, placing orders or accessing "
+"various data on the site.\n"
+"                        "
 
 #: templates/cgu.html:216
 msgid ""
@@ -1791,32 +2409,42 @@ msgid ""
 "com\">Peresbonheur.com</a> » est :\n"
 "                        "
 msgstr ""
+"\n"
+"                        Every user is responsible for the compatibility "
+"of their computer equipment, PC, smartphone or tablet with the system "
+"governing the site of « <a href=\"https://www.peresbonheur.com\">Peresbonheur."
+"com</a> ». The recommended equipment (as of the date of this "
+"regulation) to access the products of « <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> » is:\n"
+"                        "
 
 #: templates/cgu.html:221
 msgid "Un PC Windows"
-msgstr ""
+msgstr "A Windows PC"
 
 #: templates/cgu.html:222
 msgid "Un Mac OS"
-msgstr ""
+msgstr "A Mac OS"
 
 #: templates/cgu.html:223
 msgid "Un Smartphone IOS, Android ou Winphone"
-msgstr ""
+msgstr "An IOS, Android or Winphone Smartphone"
 
 #: templates/cgu.html:224
 msgid "Une tablette IOS, Android ou Winphone"
-msgstr ""
+msgstr "An IOS, Android or Winphone tablet"
 
 #: templates/cgu.html:225
 msgid ""
 "Navigateurs : Google Chrome, Mozilla Firefox ; Internet explorer, Safari, "
 "Baidu, Qwant…"
 msgstr ""
+"Browsers: Google Chrome, Mozilla Firefox; Internet Explorer, Safari, "
+"Baidu, Qwant…"
 
 #: templates/cgu.html:226
 msgid "Une connexion ADSL ou câble"
-msgstr ""
+msgstr "An ADSL or cable connection"
 
 #: templates/cgu.html:229
 msgid ""
@@ -1826,10 +2454,15 @@ msgid ""
 "l'utilisateur.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The loading time of products varies "
+"depending on the quality and speed of the user's internet "
+"connection.\n"
+"                        "
 
 #: templates/cgu.html:233
 msgid "Frais de connexion"
-msgstr ""
+msgstr "Connection fees"
 
 #: templates/cgu.html:235
 msgid ""
@@ -1846,6 +2479,18 @@ msgid ""
 "frais ou débours supplémentaire.\n"
 "                        "
 msgstr ""
+"\n"
+"                        In the current state of service offerings and "
+"technology, some Internet service providers offer free or flat-rate "
+"connections to internet users. It is expressly agreed that "
+"any access to the site on a free or flat-rate basis (such "
+"as cable connection, ADSL or dedicated line) will not "
+"give rise to any reimbursement, insofar as the subscription to "
+"the access provider's services is in this case contracted by the internet user "
+"for their general Internet use and the fact that the participant "
+"connects to the site and participates in the service does not incur any "
+"additional costs or expenses.\n"
+"                        "
 
 #: templates/cgu.html:240
 msgid ""
@@ -1857,6 +2502,13 @@ msgid ""
 "com\">Peresbonheur.com</a> ».\n"
 "                        "
 msgstr ""
+"\n"
+"                        Any user who has a paid connection "
+"billed pro-rata to the duration of communication must subscribe to "
+"a connection not subject to pro-rata to connect or refrain from "
+"participating in the activities of « <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> ».\n"
+"                        "
 
 #: templates/cgu.html:249
 msgid ""
@@ -1866,6 +2518,11 @@ msgid ""
 "le comportement ne correspond pas à ce qui suit:\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> reserves the right to terminate any account whose "
+"behavior does not correspond to the following:\n"
+"                        "
 
 #: templates/cgu.html:254
 msgid ""
@@ -1876,6 +2533,12 @@ msgid ""
 "manière légale.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The user ensures that they have only one account "
+"and browse the sites of the company <a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a> knowingly and "
+"legally.\n"
+"                        "
 
 #: templates/cgu.html:259
 msgid ""
@@ -1888,6 +2551,14 @@ msgid ""
 "com\">Peresbonheur.com</a> pour affaiblir les fonctions du système.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The user cannot distribute any content, "
+"knowingly or not (including, but not limited to, viruses) on the "
+"site, likely to cause damage to systems belonging to the site or "
+"at any level, or to intrude, hack or generate overloads on "
+"the hosting servers of the sites <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> to weaken the system functions.\n"
+"                        "
 
 #: templates/cgu.html:264
 msgid ""
@@ -1902,6 +2573,16 @@ msgid ""
 "partenaires.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The user must not deliver or transfer "
+"chain letters, spam of any kind, "
+"query, contest or prevent by any means other "
+"users from having full access to users or from browsing "
+"<a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>. Such "
+"behavior would damage the reputation and development of <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> and its "
+"partners.\n"
+"                        "
 
 #: templates/cgu.html:269
 msgid ""
@@ -1912,6 +2593,12 @@ msgid ""
 "href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The user electronically expresses their "
+"unconditional acceptance of the general conditions by posting a message "
+"on a forum, blog, chat or any other similar section of <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>.\n"
+"                        "
 
 #: templates/cgu.html:274
 msgid ""
@@ -1922,28 +2609,43 @@ msgid ""
 "vrac (UBE).\n"
 "                                                "
 msgstr ""
+"\n"
+"                        The user is not authorized to publish the URLs "
+"of our games in chat rooms, ICQ, guestbooks, "
+"forums, IRC and bulk email discussion groups "
+"(UBE).\n"
+"                                                "
 
 #: templates/cgu.html:279
 msgid ""
 "\n"
-"                        L’utilisateur ne doit en aucun cas nommer les sites "
+"                        L'utilisateur ne doit en aucun cas nommer les sites "
 "de <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> figurant "
-"sur d’autres sites contenant des informations relatives à bestialité, viol, "
+"sur d'autres sites contenant des informations relatives à bestialité, viol, "
 "pornographie, violence sous toutes ses formes, diffamation, activités "
 "illicites, discrimination de quelque nature que ce soit (raciale, sexuelle "
 "ou religieuse), handicap ... ou tout autre contenu jugé illégal ou immoral "
 "aux yeux de <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The user must not under any circumstances name the sites "
+"of <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> appearing "
+"on other sites containing information related to bestiality, rape, "
+"pornography, violence in all its forms, defamation, illegal "
+"activities, discrimination of any kind (racial, sexual "
+"or religious), disability ... or any other content deemed illegal or immoral "
+"in the eyes of <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a>.\n"
+"                        "
 
 #: templates/cgu.html:284
 msgid ""
 "\n"
-"                        L’utilisateur n’est pas autorisé à choisir des noms "
-"d’utilisateur, des mots de passe et / ou des adresses électroniques pour "
+"                        L'utilisateur n'est pas autorisé à choisir des noms "
+"d'utilisateur, des mots de passe et / ou des adresses électroniques pour "
 "publier, distribuer et / ou poster des messages de la nature suivante: "
 "injurieux, diffamatoire, diffamatoire ou de toute autre manière "
-"préjudiciable à l’honneur ou à la réputation de tiers, racistes, xénophobes, "
+"préjudiciable à l'honneur ou à la réputation de tiers, racistes, xénophobes, "
 "révisionnistes ou négationnistes, obscènes, pornographiques, pédophiles, "
 "offensants ou autrement contraires à la bonne moralité, portant atteinte de "
 "quelque manière que ce soit aux droits d'autrui, y compris le droit à la vie "
@@ -1955,17 +2657,40 @@ msgid ""
 "prosélytisme, d'une manière contraire aux lois et règlements en vigueur.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The user is not authorized to choose usernames, "
+"passwords and/or email addresses to "
+"publish, distribute and/or post messages of the following nature: "
+"insulting, defamatory, slanderous or in any other way "
+"harmful to the honor or reputation of third parties, racist, xenophobic, "
+"revisionist or negationist, obscene, pornographic, pedophilic, "
+"offensive or otherwise contrary to good morality, infringing in "
+"any way on the rights of others, including the right to privacy, "
+"the right to one's image, the right to good reputation, right to human "
+"dignity and protection of children and adolescents, infringement of "
+"intellectual property rights of others, incitement to discrimination, "
+"hatred, violence, or to commit a crime or offense, or to consume "
+"illicit substances, of an advertising nature, or of propaganda or "
+"proselytism, in a manner contrary to the laws and regulations in force.\n"
+"                        "
 
 #: templates/cgu.html:289
 msgid ""
 "\n"
-"                        L’utilisateur est seul responsable, en termes "
+"                        L'utilisateur est seul responsable, en termes "
 "civils, administratifs et pénaux, des commentaires et / ou du contenu "
-"(textes, images, sons, etc.) qu’il communique sur des forums, blogs, "
+"(textes, images, sons, etc.) qu'il communique sur des forums, blogs, "
 "discussions et autres sections similaires du site Web \"the2santaclaus."
 "com\".\n"
 "                        "
 msgstr ""
+"\n"
+"                        The user is solely responsible, in civil, "
+"administrative and criminal terms, for the comments and/or content "
+"(texts, images, sounds, etc.) that they communicate on forums, blogs, "
+"discussions and other similar sections of the website \"the2santaclaus."
+"com\".\n"
+"                        "
 
 #: templates/cgu.html:294
 msgid ""
@@ -1979,18 +2704,35 @@ msgid ""
 "com\">Peresbonheur.com</a>\".\n"
 "                        "
 msgstr ""
+"\n"
+"                        The user guarantees that \"<a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a>\" is free from any recourse, "
+"dispute, claim for damages, or any other action or "
+"claim that could be made by third parties for any reason "
+"whatsoever following the dissemination of intentions and/or content by "
+"the user on the site \"<a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a>\".\n"
+"                        "
 
 #: templates/cgu.html:299
 msgid ""
 "\n"
 "                        Dans le cas où la responsabilité de <a "
 "href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> serait recherchée "
-"du fait du non-respect par l’utilisateur des obligations qui lui incombent "
+"du fait du non-respect par l'utilisateur des obligations qui lui incombent "
 "en vertu des présentes conditions générales, <a href=\"https://www."
-"peresbonheur.com\">Peresbonheur.com</a> peut faire appel de l’utilisateur "
-"dans le cadre d’une procédure en tierce partie.\n"
+"peresbonheur.com\">Peresbonheur.com</a> peut faire appel de l'utilisateur "
+"dans le cadre d'une procédure en tierce partie.\n"
 "                        "
 msgstr ""
+"\n"
+"                        In the event that the responsibility of <a "
+"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> is sought "
+"due to non-compliance by the user with the obligations incumbent upon them "
+"under these general conditions, <a href=\"https://www."
+"peresbonheur.com\">Peresbonheur.com</a> may appeal to the user "
+"as part of a third-party procedure.\n"
+"                        "
 
 #: templates/cgu.html:304
 msgid ""
@@ -2009,6 +2751,9 @@ msgstr ""
 msgid ""
 "\n"
 "                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> reserves the right, at the request of a judicial "
+"authority, to communicate any information in its possession that could "
+"allow or facilitate the identification of the user, such as "
 "com\">Peresbonheur.com</a> n'approuve aucun abus ni aucune fraude sur "
 "Internet car son équipe peut ne pas être informée de tels abus.\n"
 "                        "
@@ -2023,6 +2768,12 @@ msgid ""
 "détaillé sur la fraude constatée via sa page \"contact\".\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> encourages all users who encounter such "
+"practices to report them by email with detailed content about the observed "
+"fraud via its \"contact\" page.\n"
+"                        "
 
 #: templates/cgu.html:319
 msgid ""
@@ -2034,6 +2785,13 @@ msgid ""
 "com\">Peresbonheur.com</a> ».\n"
 "                        "
 msgstr ""
+"\n"
+"                        Any user who has intentionally or unintentionally "
+"attempted to defraud the <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> website or any website of its partners will have "
+"their account closed at the sole discretion of \"<a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a>\".\n"
+"                        "
 
 #: templates/cgu.html:328
 msgid ""
@@ -2042,6 +2800,10 @@ msgid ""
 "ebooks et emusic illégalement.\n"
 "                        "
 msgstr ""
+"\n"
+"                        It is strictly forbidden to download ebooks and "
+"emusic illegally.\n"
+"                        "
 
 #: templates/cgu.html:333
 msgid ""
@@ -2055,16 +2817,28 @@ msgid ""
 "musiques électroniques en ligne.\n"
 "                        "
 msgstr ""
+"\n"
+"                        No agency or individual may make electronic copies "
+"or print electronic books, electronic music and redistribute them in any form. "
+"The use of these online books and music as part of digital content packages "
+"or software is also strictly prohibited. No website or online service is "
+"authorized to host these online electronic books and music.\n"
+"                        "
 
 #: templates/cgu.html:338
 msgid ""
 "\n"
 "                        Afin de décourager le piratage, les livres "
 "numériques en ligne portent un filigrane sur toutes les pages déclarant les "
-"droits d'auteur de the2peresnoel.com. N’acheter pas ou ne vendez pas des "
+"droits d'auteur de the2peresnoel.com. N'acheter pas ou ne vendez pas des "
 "livres électroniques ou imprimés avec des pages en filigrane.\n"
 "                        "
 msgstr ""
+"\n"
+"                        To discourage piracy, online digital books bear a "
+"watermark on all pages declaring the copyright of the2peresnoel.com. Do not "
+"buy or sell electronic or printed books with watermarked pages.\n"
+"                        "
 
 #: templates/cgu.html:343
 msgid ""
@@ -2075,6 +2849,12 @@ msgid ""
 "électroniques par un emusiques.\n"
 "                        "
 msgstr ""
+"\n"
+"                        <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a> thanks you for reporting any infringement or "
+"copyright violation and commercial exploitation of these electronic books "
+"by emusic.\n"
+"                        "
 
 #: templates/cgu.html:348
 msgid ""
@@ -2087,6 +2867,13 @@ msgid ""
 "com\">Peresbonheur.com</a>.\n"
 "                        "
 msgstr ""
+"\n"
+"                        No advertisement proclaiming xenophobia, racial hatred, "
+"advertisements that may harm public morals or children who connect to the "
+"<a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> website or "
+"others, which may create discord among users of <a href=\"https://www.peresbonheur."
+"com\">Peresbonheur.com</a>.\n"
+"                        "
 
 #: templates/cgu.html:353
 msgid ""
@@ -2096,987 +2883,11 @@ msgid ""
 "non respect de ces règles.\n"
 "                        "
 msgstr ""
-
-#: templates/cgu.html:362
-msgid ""
-"\n"
-"                        Certains documents ou programmes peuvent être "
-"téléchargés à travers ce site. Les propriétaires et les gestionnaires du "
-"site ne seront pas tenus responsables quant aux virus informatiques qui "
-"pourraient être présents sur le site.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:367
-msgid ""
-"\n"
-"                        L’utilisateur est entièrement responsable de son "
-"utilisation de logiciels antivirus et de la vérification de tous les "
-"fichiers téléchargés sur ce site. Les logiciels antivirus à jour sont "
-"fortement recommandés. Les propriétaires de ce site ne transmettront pas des "
-"fichiers qu’ils savent ou pensent savoir contenir des virus. Par ailleurs, "
-"les propriétaires et les gestionnaires de ce site ne seront pas tenus "
-"responsables des dommages accidentels, consécutifs ou spéciaux, qu’ils "
-"soient prévus ou prévisibles, qu’ils aient été informés de leur éventualité "
-"ou non et qu’ils aient pris ou non des dispositions pour le prévenir.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:372
-msgid ""
-"\n"
-"                        Un “VIRUS” est un programme informatique, un code ou "
-"une fraction de programme informatique intentionnellement créé et programmé "
-"pour endommager, corrompre, empêcher, détruire, espionner, au demeurant pour "
-"créer un effet négatif sur le système de l’ordinateur de l’utilisateur. "
-"Comme vous le savez, les virus sur l’Internet sont nombreux et de ce fait, "
-"en tant qu’internaute, vous devez prendre les dispositions nécessaires de "
-"bonne foi afin de vous assurer que votre système informatique est protégé "
-"contre les virus.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:381
-msgid ""
 "\n"
 "                        <a href=\"https://www.peresbonheur."
-"com\">Peresbonheur.com</a> se réserve le droit de suspendre ou supprimer un "
-"compte, pour enquêter sur les problèmes de sécurité, y compris, mais sans "
-"s'y limiter, la suspicion de fraude. Cela inclut mais n'est pas limité à:\n"
+"com\">Peresbonheur.com</a> may block your account at any time in case of "
+"non-compliance with these rules.\n"
 "                        "
-msgstr ""
-
-#: templates/cgu.html:386
-msgid "Non-respect de ces termes et conditions"
-msgstr ""
-
-#: templates/cgu.html:387
-msgid "La communication de fausses données"
-msgstr ""
-
-#: templates/cgu.html:388
-msgid "La communication de données obsolètes"
-msgstr ""
-
-#: templates/cgu.html:389
-msgid "L'accès à n'importe quel compte peut être suspendu ou supprimé:"
-msgstr ""
-
-#: templates/cgu.html:390
-msgid "Pendant la maintenance"
-msgstr ""
-
-#: templates/cgu.html:391
-msgid "Pendant les mises à jour du site"
-msgstr ""
-
-#: templates/cgu.html:392
-msgid ""
-"Si <a href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> cesse son "
-"activité, pour quelque raison que ce soit, à la seule discrétion du site"
-msgstr ""
-
-#: templates/cgu.html:393
-msgid "Si le compte devient inactif (pas de connexion au site pendant 6 mois)."
-msgstr ""
-
-#: templates/cgu.html:396
-msgid ""
-"\n"
-"                        Aucune compensation ne peut être réclamée par un "
-"utilisateur suite à une suspension ou à la suppression de son compte.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:405
-msgid ""
-"\n"
-"                        Il est strictement interdit aux utilisateurs et "
-"annonceurs de publier sur le site www. <a href=\"https://www.peresbonheur."
-"com\">Peresbonheur.com</a> tout contenu de quelque nature que ce soit qui "
-"serait contraire aux lois et règlements à l’ordre public, aux bonnes mœurs, "
-"nuisant ou portant atteinte aux droits d’un tiers, tel que notamment un "
-"contenu : diffamatoire, injurieux, calomnieux, insultant ou dégradant, "
-"discriminatoire, raciste, xénophobe, homophobe ou incitant à la haine, "
-"pornographique, pédophile, incitant au tourisme sexuel, indécent, obscène ou "
-"contenant des scènes de nudité publicitaire commercial ou publié dans un but "
-"commercial ou professionnel, sans l’accord préalable et écrit de l’éditeur, "
-"violent, choquant ou constitutif d’une menace pour la sécurité de toute "
-"personne ou tout bien, contraire à la dignité humaine, favorisant ou "
-"incitant toute activité ou entreprise criminelle, délictuelle, illégale ou "
-"dommageable, constituant une contrefaçon des droits de propriété "
-"intellectuelle d’un tiers, notamment reproduisant ou représentant une œuvre "
-"de l’esprit sans l’autorisation de son auteur ou proposant une telle "
-"reproduction ou représentation, contenant des données nominatives relatives "
-"à une personne tierce, telles que notamment numéro de téléphone ou adresse, "
-"ou incitant les autres utilisateurs à communiquer de telles données, "
-"contenant l’image d’une personne qui n’a pas donné son autorisation pour une "
-"telle publication, portant atteinte à la vie privée d’une personne, sans son "
-"autorisation. Cette liste n'est pas exhaustive.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:414
-msgid ""
-"\n"
-"                        Dans un souci d'adaptation aux évolutions du site et/"
-"ou de son exploitation, <a href=\"https://www.peresbonheur."
-"com\">Peresbonheur.com</a> se réserve le droit de modifier le règlement des "
-"services proposés sur le site unilatéralement et sans préavis. Après "
-"diffusion des nouvelles dispositions pouvant être librement consultées sur "
-"le site, les modifications seront opposables sans délai à l’utilisateur.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:419
-msgid ""
-"\n"
-"                        Tout utilisateur déjà inscrit doit consulter "
-"régulièrement les conditions d'utilisations pour être tenu au courant de "
-"toute modification du règlement et sera invité à consulter et agréer les "
-"termes du nouveau règlement.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:424
-msgid ""
-"\n"
-"                        Dans le cas où l’utilisateur n'agrée pas le nouveau "
-"règlement, il devra manifester son refus à « <a href=\"https://www."
-"peresbonheur.com\">Peresbonheur.com</a> » par la clôture via son espace "
-"utilisateur.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:433
-msgid ""
-"\n"
-"                        La société <a href=\"https://www.peresbonheur."
-"com\">Peresbonheur.com</a> déclare se conformer à la législation en vigueur "
-"sur le sol français (qui est similaire à la législation en vigueur dans les "
-"différents pays de la communauté européenne et dans la plupart des pays en "
-"général).\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:438
-msgid ""
-"\n"
-"                        L'utilisateur doit d'abord vérifier qu'il accède au "
-"site depuis un État dont la législation lui permet généralement de "
-"télécharger et d'acheter des services impliquant des livres électroniques, "
-"musiques électroniques et espaces publicitaires. Si une loi restreint ou "
-"interdit l'accès au site the2santaclaus.com, l'utilisateur doit se conformer "
-"à cette législation.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:443
-msgid ""
-"\n"
-"                        Les fonctions informatiques communes fournissent un "
-"caractère précis, garantissant un traitement égal de tous les utilisateurs. "
-"Ce site est créé, hébergé, maintenu et contrôlé en France. Les conditions "
-"ici énoncées sont donc régies par le droit français.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:452
-msgid ""
-"\n"
-"                        Conformément à la loi n° 78-17 du 6 janvier 1978, "
-"relative à l'informatique, aux fichiers et aux libertés, et à la directive "
-"européenne n° 95/46 du 24 octobre 1995 relative à la protection des "
-"personnes physiques à l'égard du traitement des données à caractère "
-"personnel et à la libre circulation de ces données, les personnes qui, "
-"s'étant connectées au site et ont répondu aux questions de l'inscription "
-"afin d'accéder aux jeux et services du site <a href=\"https://www."
-"peresbonheur.com\">Peresbonheur.com</a> disposent d'un droit d'opposition, "
-"d'accès et de rectification des données les concernant.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:457
-msgid ""
-"\n"
-"                        Tout utilisateur inscrit sur <a href=\"https://www."
-"peresbonheur.com\">Peresbonheur.com</a> a le droit d'exiger que soient "
-"rectifiées, complétées, clarifiées, mises à jour ou effacées, les "
-"informations le concernant qui seraient inexactes, incomplètes, équivoques "
-"ou périmées.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:462
-msgid ""
-"\n"
-"                        La demande doit être adressée, par écrit, avec les "
-"coordonnées du demandeur, à l'adresse de « <a href=\"https://www."
-"peresbonheur.com\">Peresbonheur.com</a> » indiquée dans nos mentions "
-"légales. La demande peut également être formée directement sur le site, via "
-"notre page \"Contact\".\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:471
-msgid ""
-"\n"
-"                        Les images présentes sur le site <a href=\"https://"
-"www.peresbonheur.com\">www.Peresbonheur.com</a> bénéficient d’une protection "
-"intellectuelle et ne peuvent être copiées sans autorisation de « <a "
-"href=\"https://www.peresbonheur.com\">Peresbonheur.com</a> ».\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:480 templates/cgv.html:120 templates/cgv.html:482
-msgid ""
-"\n"
-"                        Une facture électronique est automatiquement émise à "
-"l'utilisateur qui doit la conserver pour prouver sa bonne foi en cas de "
-"réclamation.\n"
-"                        "
-msgstr ""
-
-#: templates/cgu.html:489
-msgid ""
-"\n"
-"                        <a href=\"https://www.peresbonheur."
-"com\">Peresbonheur.com</a> est diffusé par l’entreprise NOBPRINT – Antilles "
-"info – Acajou 2 – Bois d’Inde – 97232 LE LAMENTIN – <a href=\"mailto:"
-"contact@Peresbonheur.com\">contact@Peresbonheur.com</a>\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:7
-msgid "Conditions Générales de Vente Pères Bonheur"
-msgstr ""
-
-#: templates/cgv.html:9
-msgid "Clauses générales et définitions"
-msgstr ""
-
-#: templates/cgv.html:12
-msgid ""
-"\n"
-"                        Les présentes conditions générales de vente "
-"s’appliquent aux prestations vendues par Peresbonheur.com, géré par "
-"l’entreprise NOBPRINT Antilles Info dont le siège social est situé à Acajou "
-"2 – Groupe Bois d’Inde - 97232 LAMENTIN, sous le numéro de SIRET "
-"42417664200017.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:18
-msgid "Conditions générales de vente pour Particulier"
-msgstr ""
-
-#: templates/cgv.html:20
-msgid "Description des articles"
-msgstr ""
-
-#: templates/cgv.html:22
-msgid ""
-"\n"
-"                        Le site Internet www.peresbonheur.com propose à la "
-"vente des œuvres intellectuelles sous forme numériques (epub). Les livres "
-"numériques (ou ebooks) et Emusique (Mp3/MP4) vendus sur www.peresbonheur.com "
-"sont des fichiers numériques contenant des œuvres intellectuelles destinés à "
-"être téléchargés pour être lus sur des terminaux électroniques (ordinateurs, "
-"Smartphones, tablettes, ereaders, lecteur audio etc.).\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:27
-msgid ""
-"\n"
-"                        Les ouvrages numériques sont protégés par les lois "
-"françaises et internationales sur le droit d'auteur. En l'absence de licence "
-"précisant d'autres conditions d'utilisation, les fichiers téléchargés sont "
-"réservés à l’usage exclusif de l'acheteur. Ils ne peuvent être ni revendus, "
-"ni loués, ni transmis gratuitement au-delà de son cercle de famille et des "
-"besoins légitimes de son usage privé ; toute représentation ou reproduction "
-"de ces fichiers, totale ou partielle, en dehors des cas prévus par l’article "
-"L122-5 du code de la propriété intellectuelle, est strictement interdite et "
-"exposerait leur détenteur à des poursuites.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:33
-msgid ""
-"\n"
-"                        Toutes les commandes sont réalisées exclusivement "
-"via le site Internet www.peresbonheur.com. Le paiement s'effectue à la "
-"commande. Le client doit être âgé d'au moins 18 ans et avoir la capacité "
-"juridique ou être titulaire d'une autorisation parentale pour effectuer une "
-"commande sur www.peresbonheur.com.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:38
-msgid ""
-"\n"
-"                        Le clic sur le bouton « Commander » sur l’écran qui "
-"récapitule la commande et l'acceptation explicite par une boîte de dialogue "
-"des présentes conditions générales de vente, constitue une signature "
-"électronique qui certifie expressément le consentement sans réserve du "
-"client aux présentes conditions générales de vente et aux conditions "
-"particulières (en particulier le prix unitaire) propres à chaque fichier "
-"acheté. Le client renonce, de ce fait, à se prévaloir de tout document "
-"contradictoire et, notamment, ses propres conditions générales d’achat.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:43
-msgid ""
-"\n"
-"                        Le client peut abandonner sa commande jusqu'à la "
-"validation du paiement de sa commande. Toute commande ayant un profil de "
-"risque de fraude peut être bloquée par l'administrateur au stade du "
-"paiement.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:47
-msgid "Disponibilité des articles"
-msgstr ""
-
-#: templates/cgv.html:49
-msgid ""
-"\n"
-"                        Les articles sont normalement accessibles par le "
-"client 24 heures sur 24, 7 jours sur 7 et toute l’année. L'administrateur de "
-"ce site se réserve néanmoins le droit d'en fermer temporairement l’accès "
-"sans préavis. Il ne saurait être tenu responsable des problèmes techniques "
-"indépendants de son service, tels que des problèmes de connexion dus aux "
-"fournisseurs d’accès Internet ou des problèmes informatiques dus au matériel "
-"ou aux logiciels du client.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:53
-msgid "Tarifs"
-msgstr ""
-
-#: templates/cgv.html:55
-#, python-format
-msgid ""
-"\n"
-"                        Les tarifs des produits sont réputés nets en Euros "
-"toutes taxes comprises. Toutes les commandes sont facturées en Euros et "
-"payables en Euros à la commande. En raison de l'impossibilité de vérifier la "
-"domiciliation du client pour des commandes comprenant des ouvrages "
-"numériques, la TVA française de 5,5 %% est appliquée à tous les ouvrages "
-"numériques.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:59
-msgid "Paiement"
-msgstr ""
-
-#: templates/cgv.html:61
-msgid ""
-"\n"
-"                        Le prix est payable en totalité et en un seul "
-"versement à la commande. Le paiement des achats s'effectue par carte "
-"bancaire ou Paypal. La transaction bancaire est effectuée au moment de la "
-"commande. Dès la validation du moyen de paiement utilisé par l'acheteur de "
-"la carte bancaire ou Paypal, la commande est confirmée et ne peut plus être "
-"annulée ni remboursée.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:65
-msgid "Livraison"
-msgstr ""
-
-#: templates/cgv.html:67
-msgid ""
-"\n"
-"                        La livraison des œuvres numériques acquises sur www."
-"peresbonheur.com se fait par téléchargement. Quelques minutes après le "
-"paiement de la commande, un courriel est envoyé au client avec un ou "
-"plusieurs liens de téléchargement à usage unique permettant de charger les "
-"œuvres sur son ordinateur. Ces liens de téléchargements ont une durée de vie "
-"de 48 heures. Au-delà de ce délai, si le client n'a pas téléchargé le "
-"fichier, il pourra demander l'envoi d'un nouveau lien depuis son espace "
-"personnel.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:71
-msgid "Garantie, retour et remboursement"
-msgstr ""
-
-#: templates/cgv.html:73
-msgid ""
-"\n"
-"                        Les articles en téléchargement fournis sur ce site "
-"sont garantis contre tout défaut. Toutefois si le téléchargement ne permet "
-"pas la lecture du fichier, vous disposez de 48 heures pour nous en informer "
-"par courriel. Dès réception de votre courriel, un nouveau lien de "
-"téléchargement vous sera envoyé sur votre adresse email.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:77
-msgid "Droit de rétractation"
-msgstr ""
-
-#: templates/cgv.html:79
-msgid ""
-"\n"
-"                        Les achats de supports numériques en téléchargement "
-"sont fermes et définitifs. Ils ne pourront donner lieu à aucun remboursement "
-"ou droit de rétractation.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:83
-msgid "Protection des données personnelles"
-msgstr ""
-
-#: templates/cgv.html:85
-msgid ""
-"\n"
-"                        Les données collectées par « LES 2 PERES NOEL » sur "
-"le site www.peresbonheur.com sont utilisées pour le traitement de "
-"l'utilisateur particulier afin de l'informer des offres de « Peresbonheur."
-"com». Ils concernent les services internes et les prestataires de « "
-"Peresbonheur.com» pour le traitement des commandes. Peresbonheur.com peut "
-"également envoyer les données de l'utilisateur à d'autres sociétés du groupe "
-"« Peresbonheur.com».\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:90
-msgid ""
-"\n"
-"                        En raison de contraintes techniques et afin de "
-"faciliter la navigation sur le site. www.peresbonheur.com, des \"cookies\" "
-"sont également installés sur le site peresbonheur.com. Conformément à la "
-"directive du Parlement européen et du Conseil du 24 octobre 1995 relative à "
-"la protection des personnes physiques à l'égard du traitement des données à "
-"caractère personnel et à la libre circulation de ces données, la directive "
-"du 15 décembre 1997 concernant le traitement des données à caractère "
-"personnel et de la protection de la vie privée dans le secteur des "
-"télécommunications et de la loi sur la protection des données du 6 janvier "
-"1978, l’utilisateur particulier dispose d’un droit d’accès, de modification, "
-"de rectification, de suppression des informations personnelles le "
-"concernant.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:94
-msgid "Responsabilités"
-msgstr ""
-
-#: templates/cgv.html:96
-msgid ""
-"\n"
-"                        Toutefois, l'utilisateur reste seul responsable des "
-"dommages directs ou indirects, matériels ou immatériels, qu'il aurait causés "
-"à la société Peresbonheur.com ou à des tiers ou à d'autres utilisateurs "
-"particuliers du fait d'une utilisation abusive ou illégale des services "
-"proposés sur le site Peresbonheur.com. Les produits proposés sont conformes "
-"à la législation française en vigueur. La responsabilité de Peresbonheur.com "
-"ne saurait être engagée en cas de non-respect de la législation du pays où "
-"le produit est téléchargé. Il appartient à l'acheteur de vérifier auprès des "
-"autorités locales compétentes les possibilités d'utilisation des produits "
-"commandés.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:100
-msgid "Responsabilité"
-msgstr ""
-
-#: templates/cgv.html:102
-msgid ""
-"\n"
-"                        Peresbonheur.com ne peut être tenu responsable du "
-"contenu des sites sur lesquels ses produits sont référencés.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:106
-msgid "Cas de force majeure"
-msgstr ""
-
-#: templates/cgv.html:108
-msgid ""
-"\n"
-"                        Peresbonheur.com se dégage de toute responsabilité "
-"en cas d'inexécution du contrat due à un cas de force majeure (grève, "
-"inondation, incendie...). Dans un premier temps, les cas de force majeure "
-"suspendent l'exécution du contrat. Si les cas de force majeure ont une durée "
-"d'existence supérieure à un mois, le contrat sera automatiquement résilié. "
-"Sont expressément considérés comme cas de force majeure ou de cas fortuit, "
-"outre ceux généralement retenus par la jurisprudence des cours et tribunaux "
-"français: grèves totales ou partielles, internes ou externes à la société, "
-"lock-out, intempéries, épidémies, blocage de moyens de transport ou de "
-"ravitaillement pour quelque raison que ce soit, tremblements de terre, "
-"incendies, tempêtes, inondations, dégâts des eaux, restrictions "
-"gouvernementales ou légales, modifications légales ou réglementaires des "
-"formes de commercialisation, défaillances informatiques, blocages des "
-"télécommunications, y compris les réseaux PTT, défaillance des hôtes, guerre "
-"état de siège et tout événement indépendant, irrésistible et imprévisible "
-"empêchant l’exécution normale du contrat.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:112
-msgid "Droit applicable"
-msgstr ""
-
-#: templates/cgv.html:114
-msgid ""
-"\n"
-"                        Les présentes conditions générales de vente sont "
-"soumises à la loi française. Tout litige sera porté devant les tribunaux "
-"compétents de Fort-de-France, lieu où se situe le siège social de la société "
-"où est formalisé le contrat de vente entre les parties.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:124 templates/cgv.html:486
-msgid "Mentions légales"
-msgstr ""
-
-#: templates/cgv.html:126 templates/cgv.html:488
-msgid ""
-"\n"
-"                        Peresbonheur.com est diffusé par l’entreprise "
-"NOBPRINT – Antilles info – Acajou 2 – Bois d’Inde – 97232 LE LAMENTIN – "
-"contact@peresbonheur.com\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:132
-msgid "Conditions générales de vente pour Annonceur"
-msgstr ""
-
-#: templates/cgv.html:134
-msgid "Services"
-msgstr ""
-
-#: templates/cgv.html:136
-msgid ""
-"\n"
-"                        Les services de Peresbonheur.com sont basés sur la "
-"gestion de campagnes publicitaires (Display) pour le compte d'un Annonceur "
-"dans le cadre d'un mandat écrit conformément aux dispositions expresses de "
-"l'article 20 de la loi n ° 93-122 du 29 janvier 1993. Dans le cadre des "
-"campagnes, Peresbonheur.com gère pour le compte de l'annonceur une mission "
-"quotidienne de gestion et d'achat de Display, via la plateforme www."
-"peresbonheur.com.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:141
-msgid ""
-"\n"
-"                        The2peresnoel.com décline toute responsabilité en "
-"cas de problème technique provenant des moteurs de recherche concernant la "
-"redirection de liens vers les sites de l’Annonceur ou du partenaire. En cas "
-"de troncature du compte client par un moteur de recherche ou un fournisseur "
-"d'accès pour non-respect des conditions relatives au site du client, aucun "
-"remboursement ne pourra être réclamé à Peresbonheur.com.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:146
-#, python-format
-msgid ""
-"\n"
-"                        En cas de perte de visibilité prouvée par les outils "
-"de contrôle de Peresbonheur.com, au-delà d’une marge d’ajustement technique "
-"de 5%% pour les espaces \"Affichage\", The2peresnoel.com s’engage à "
-"repositionner l’annonce, en fonction des possibilités offertes par le "
-"calendrier de réservation.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:151
-msgid ""
-"\n"
-"                        Pour le pack \"Display\", la campagne de l'Annonceur "
-"est basée sur le positionnement de l'annonce et expire à la date de "
-"résiliation indiquée par l'Annonceur au moment de l'achat via son compte "
-"Annonceur. Il assure à l'annonceur un positionnement de ses annonces sur "
-"toute page concernant la gestion des campagnes de:\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:156
-msgid ""
-"\n"
-"                        - Affichage: dépend de l’achat d’espace au coût par "
-"affichage (CPM), au coût par jour (CPJ) ou mensuel ou annuel par abonnement "
-"(abonnement mensuel ou annuel) (CA). (Pack renouvelable).\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:161
-#, python-format
-msgid ""
-"\n"
-"                        The2peresnoel.com assure un positionnement "
-"d’affichage exact à 100%% (selon les conditions énoncées dans les présentes "
-"conditions générales, agissant en tant que contrat), pour la durée de la "
-"campagne, définie par les paramètres de l’annonceur, via son espace de "
-"gestion de campagne.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:165
-msgid "La gestion de campagne"
-msgstr ""
-
-#: templates/cgv.html:167
-msgid ""
-"\n"
-"                        Dans le contrat «Peresbonheur.com», s’engage "
-"également à surveiller la campagne de l’Annonceur. Le positionnement de "
-"l'annonce \"Display\" restera fixé en fonction de l'abonnement ou en ce qui "
-"concerne le coût par affichage (CPM), le coût par jour (CPJ), le coût par "
-"abonnement (abonnement mensuel ou annuel) (CA) choisi par l'Annonceur à "
-"l'heure de la commande.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:172
-msgid ""
-"\n"
-"                        Peresbonheur.com ne pourra être tenu responsable de "
-"toute situation résultant d'une erreur dans l'établissement d'un titre, "
-"d'une date, d'une description, d'un lien vidéo ou d'une image. Peresbonheur."
-"com ne configure pas d'annonces, seul l'Annonceur est responsable au moment "
-"de l'achat. Le positionnement fourni par Peresbonheur.com est calculé sur "
-"l’ensemble des affichages de la campagne de l’Annonceur et selon son choix.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:177
-msgid ""
-"\n"
-"                        Aucune réclamation de l'Annonceur ne sera prise en "
-"compte si l'annonce a été mal positionnée via son espace \"gestion de "
-"campagne\" ou via une agence de publicité externe ou via une agence "
-"multimédia externe, ou en cas de respect de l'affichage moyen journalier ou "
-"mensuel. Cependant, Peresbonheur.com s’efforcera de satisfaire en temps réel "
-"la moyenne garantie, le groupe d’experts dont la mission est de surveiller "
-"en permanence les campagnes des clients et d’assurer le respect des "
-"positions chaque jour. Les tarifs indiqués dans l'assurance comprennent:\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:182
-msgid ""
-"\n"
-"                        - Toutes les annonces tout au long de la campagne\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:187
-msgid ""
-"\n"
-"                        Lors du renouvellement de la campagne, seuls des "
-"frais d'abonnement fixes seront appliqués. La création du compte et le "
-"lancement de la campagne sont gratuits. Aucun remboursement ne sera possible "
-"concernant une annulation de commande ou une erreur liée au site de "
-"l'Annonceur (erreur 404, 401, etc.). Peresbonheur.com ne fournit pas d'accès "
-"aux interfaces utilisateur.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:191
-msgid "Obligation de moyen"
-msgstr ""
-
-#: templates/cgv.html:193
-msgid ""
-"\n"
-"                        Peresbonheur.com n'assume qu'une obligation de moyen "
-"dans le cadre de la prestation de ces services. Peresbonheur.com s'engage à "
-"contribuer entièrement à garantir l'exécution des services commandés sur le "
-"site Peresbonheur.com\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:197
-msgid "Usage abusif"
-msgstr ""
-
-#: templates/cgv.html:199
-msgid ""
-"\n"
-"                        L’Annonceur reste toutefois seul responsable des "
-"dommages directs ou indirects, matériels ou immatériels causés par lui-même "
-"ou l’un de ses employés à la société Peresbonheur.com ou à des tiers ou à "
-"d’autres Annonceur s du fait de l’utilisation abusive ou illégale des "
-"services offerts sur le site Peresbonheur.com.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:203
-msgid "Activités frauduleuses"
-msgstr ""
-
-#: templates/cgv.html:205
-msgid ""
-"\n"
-"                        La société \"Peresbonheur.com\" ne peut être tenue "
-"pour responsable des actions frauduleuses, abusives et / ou illégales d'un "
-"Annonceur dans le cadre des services proposés sur le site www.Peresbonheur."
-"com.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:209
-msgid "Lien bloqué"
-msgstr ""
-
-#: templates/cgv.html:211
-msgid ""
-"\n"
-"                        La responsabilité de Peresbonheur.com ne saurait "
-"être engagée en cas de poursuites judiciaires d'un Annonceur ou d'un "
-"partenaire résultant d'une suspension temporaire due à un problème de "
-"redirection d'un lien bloqué par un moteur de recherche. (Google, Yahoo, "
-"Opera, Firefox, etc.) ou un anti-virus ou un bloqueur de publicité.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:215
-msgid "Pannes informatiques"
-msgstr ""
-
-#: templates/cgv.html:217
-msgid ""
-"\n"
-"                        Peresbonheur.com ne pourra être tenu responsable des "
-"poursuites judiciaires émanant d'un Annonceur ou du partenaire en raison "
-"d'éventuelles pannes informatiques générées par l'hôte de son site.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:221
-msgid "Statistiques et positionnement"
-msgstr ""
-
-#: templates/cgv.html:223
-msgid ""
-"\n"
-"                        Les statistiques générales ou détaillées des "
-"campagnes publicitaires ne sont conservées par Peresbonheur.com que pour une "
-"période maximale de 3 mois. Toutes les statistiques dépassant cette période "
-"seront détruites et / ou renvoyées à l'Annonceur sur demande avant "
-"l'expiration du délai de trois mois.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:228
-msgid ""
-"\n"
-"                        L'Annonceur qui souhaite disposer d'informations "
-"détaillées sur les statistiques des pages visitées peut les consulter via "
-"\"Google Analytics\", qu'il doit obligatoirement installer sur sa "
-"plateforme.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:232 templates/cgv.html:305
-msgid "Pack Display"
-msgstr ""
-
-#: templates/cgv.html:234
-msgid ""
-"\n"
-"                        L'Annonceur s'engage à respecter les dimensions des "
-"bannières…. pixels.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:240
-msgid ""
-"\n"
-"                        L'Annonceur peut acquérir les produits suivants :\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:245
-msgid ""
-"\n"
-"                        - Pack « Display » : lequel dépend au Coût par "
-"affichage (CMP), Coût par Jour (CPJ), par mois ou annuel. (Pack "
-"Renouvelable)\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:250
-msgid ""
-"\n"
-"                        La commande de l'Annonceur, intervient via le site "
-"Internet www.peresbonheur.com. L’Annonceur, est responsable de la mise en "
-"place de sa bannière. Il peut renouveler son pack à la fin de son abonnement "
-"s’il le souhaite.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:254
-msgid "Prix et conditions de paiement pour les différents produits"
-msgstr ""
-
-#: templates/cgv.html:256
-msgid ""
-"\n"
-"                        Les prix actuels sont exprimés en euros et hors "
-"taxes. Les taxes applicables sont celles en vigueur à la date de la "
-"commande.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:260
-msgid "Tarif"
-msgstr ""
-
-#: templates/cgv.html:262
-msgid ""
-"\n"
-"                        Le tarif proposé par Peresbonheur.com, agissant en "
-"qualité de régie publicitaire, est relatif aux produits cités dans l'article "
-"3, intitulé \"COMMANDE\" Il constitue un prix ferme et forfaitaire "
-"comprenant : Les honoraires de gestion, le coût d’achat des produits.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:266
-msgid "Abonnement"
-msgstr ""
-
-#: templates/cgv.html:268
-msgid ""
-"\n"
-"                        Toutes les commandes sont payables immédiatement de "
-"la manière suivante:\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:273
-msgid ""
-"\n"
-"                        - Par Paypal (Carte de crédit - Virement)\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:277
-msgid "Retard de paiement"
-msgstr ""
-
-#: templates/cgv.html:279
-msgid ""
-"\n"
-"                        Tout incident et/ou retard de paiement à l’échéance "
-"entraînera de plein droit:\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:284
-#, python-format
-msgid ""
-"\n"
-"                        - l’application d’une pénalité de retard égale à 5%% "
-"par mois des sommes dues\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:289
-msgid ""
-"\n"
-"                        - la facturation de l’ensemble des frais financiers "
-"et de recouvrement y afférent, sans préjudice de la suspension et/ou de la "
-"résiliation du présent contrat à compter de la date de présentation de la "
-"première mise en demeure de paiement.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:293
-msgid "Suspension des Prestations"
-msgstr ""
-
-#: templates/cgv.html:295
-msgid ""
-"\n"
-"                        Si l’Annonceur, ne règle pas entièrement sa facture "
-"correspondant à sa commande (hors packs en ligne) dans les trente jours à "
-"compter de la date d’émission de la facture, Peresbonheur.com se réserve le "
-"droit d’interrompre les services fournis immédiatement à compter de la date "
-"d’émission de la facture et après une mise en demeure de payer demeurée "
-"infructueuse. Toute reprise des prestations suspendues est subordonnée au "
-"règlement intégral des factures impayées par le Client.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:299
-msgid "Renouvellement"
-msgstr ""
-
-#: templates/cgv.html:301
-msgid ""
-"\n"
-"                        Les tarifs indiqués par Peresbonheur.com à "
-"l’Annonceur, sont valables pendant la durée du contrat. Peresbonheur.com se "
-"réserve le droit de revoir les tarifs à la hausse ou à la baisse à chaque "
-"renouvellement.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:307
-msgid ""
-"\n"
-"                        L’Annonceur s’engage à respecter les dimensions des "
-"bannières …. pixels du pack \"Display\".\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:311
-msgid "Moyens techniques"
-msgstr ""
-
-#: templates/cgv.html:313
-msgid ""
-"\n"
-"                        Il appartient à l’Annonceur de définir et de mettre "
-"en œuvre les moyens techniques qu'il juge les plus appropriés permettant de "
-"préserver l'intégrité, l'authentification et la confidentialité des "
-"informations, fichiers, et données de toute nature qu'il souhaite mettre sur "
-"le réseau Internet et ce, dans le respect de la réglementation applicable et "
-"notamment, en matière du secret des correspondances et de cryptologie.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:318
-msgid ""
-"\n"
-"                        L’Annonceur s’engage à fournir des informations "
-"correctes, respecter le nombre de lettres autorisé pour les titre et "
-"description de ses produits ou campagne. L'Annonceur peut vérifier la mesure "
-"de ces campagnes via son compteur dans son panneau de configuration.\n"
-"                        "
-msgstr ""
-
-#: templates/cgv.html:322
-msgid "Données contraires aux lois"
-msgstr ""
-
-#: templates/cgv.html:324
-msgid ""
-"\n"
-"                        L'Annonceur s'interdit de transmettre sur le réseau "
-"Internet toute donnée contraire aux lois et règlements ou susceptible :\n"
-"                        "
-msgstr ""
 
 #: templates/cgv.html:329
 msgid ""
@@ -3084,6 +2895,9 @@ msgid ""
 "                        - de constituer un abus de droit ;\n"
 "                        "
 msgstr ""
+"\n"
+"                        - to constitute an abuse of rights;\n"
+"                        "
 
 #: templates/cgv.html:334
 msgid ""
@@ -3092,6 +2906,9 @@ msgid ""
 "mœurs ;\n"
 "                        "
 msgstr ""
+"\n"
+"                        - to be contrary to public order and/or morality;\n"
+"                        "
 
 #: templates/cgv.html:339
 msgid ""
@@ -3100,6 +2917,9 @@ msgid ""
 "pression de quelque nature, forme ou objet que ce soit,\n"
 "                        "
 msgstr ""
+"\n"
+"                        - to be used to exert a threat or pressure of any nature, form or object whatsoever,\n"
+"                        "
 
 #: templates/cgv.html:344
 msgid ""
@@ -3108,6 +2928,9 @@ msgid ""
 "tout droit de propriété intellectuelle ou industrielle ;\n"
 "                        "
 msgstr ""
+"\n"
+"                        - to be in violation or contradiction with any intellectual or industrial property right;\n"
+"                        "
 
 #: templates/cgv.html:349
 msgid ""
@@ -3116,6 +2939,9 @@ msgid ""
 "contravention, d'un crime ou d'un délit. ;\n"
 "                        "
 msgstr ""
+"\n"
+"                        - to have been obtained or used as a result of an infraction, crime or offense;\n"
+"                        "
 
 #: templates/cgv.html:354
 msgid ""
@@ -3126,34 +2952,43 @@ msgid ""
 "systématiquement refusées.\n"
 "                        "
 msgstr ""
+"\n"
+"                        - to cause any harm to a third party, particularly in the context of false advertising. In this case, advertising positioning campaigns or other services will be systematically refused.\n"
+"                        "
 
 #: templates/cgv.html:358
 msgid "Respect du CGV"
-msgstr ""
+msgstr "Compliance with Terms and Conditions"
 
 #: templates/cgv.html:360
 msgid ""
 "\n"
-"                        L'Annonceur s’engage aussi à respecter les "
+"                        L'Annonceur s'engage aussi à respecter les "
 "conditions générales de ventes de Peresbonheur.com.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The Advertiser also agrees to comply with the general terms and conditions of sale of Peresbonheur.com.\n"
+"                        "
 
 #: templates/cgv.html:364
 msgid "Authenticité visiteurs"
-msgstr ""
+msgstr "Visitor Authenticity"
 
 #: templates/cgv.html:366
 msgid ""
 "\n"
-"                        L'Annonceur s’engage à ne pas contester les rapports "
-"fournis par Peresbonheur.com concernant le comptage et l’authenticité des "
+"                        L'Annonceur s'engage à ne pas contester les rapports "
+"fournis par Peresbonheur.com concernant le comptage et l'authenticité des "
 "visiteurs. Le site de l'Annonceur doit comporter une version intégrale dans "
 "la langue des supports susceptibles d'être utilisés. Le site de l'Annonceur "
 "ne doit pas proposer de liens vers des contenus susceptibles d'enfreindre la "
 "loi ou de violer les droits d'un tiers du pays visé.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The Advertiser agrees not to dispute the reports provided by Peresbonheur.com regarding the counting and authenticity of visitors. The Advertiser's website must include a full version in the language of the media likely to be used. The Advertiser's website must not offer links to content likely to infringe the law or violate the rights of a third party in the targeted country.\n"
+"                        "
 
 #: templates/cgv.html:371
 msgid ""
@@ -3167,18 +3002,24 @@ msgid ""
 "sur 7).\n"
 "                        "
 msgstr ""
+"\n"
+"                        The website must mention all identification information required by the law of September 30, 1986 on freedom of communication, as amended by law 2000/719 of August 1, 2000. The site must have its own domain name; addresses from free hosting providers will not be accepted. The Advertiser's website must be accessible at all times (24 hours a day, 7 days a week).\n"
+"                        "
 
 #: templates/cgv.html:376
 msgid ""
 "\n"
 "                        Le contenu (textuel et graphique) du message "
-"publicitaire est à l'entière et seule responsabilité de l’Annonceur. Il est "
+"publicitaire est à l'entière et seule responsabilité de l'Annonceur. Il est "
 "tenu de respecter les lois et règlements en vigueur dans le pays de "
 "publication, et de se conformer aux prérogatives du droit à la Consommation. "
-"L’Annonceur, est tenu de respecter la réglementation en vigueur et "
+"L'Annonceur, est tenu de respecter la réglementation en vigueur et "
 "d'appliquer les recommandations du Bureau de Vérification de la Publicité.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The content (textual and graphic) of the advertising message is the sole and entire responsibility of the Advertiser. They are required to comply with the laws and regulations in force in the country of publication, and to conform to the prerogatives of Consumer Rights. The Advertiser is required to comply with current regulations and apply the recommendations of the Advertising Standards Authority.\n"
+"                        "
 
 #: templates/cgv.html:381
 msgid ""
@@ -3191,6 +3032,9 @@ msgid ""
 "l'encontre de la société Peresbonheur.com, de ce chef.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The Advertiser agrees to protect Peresbonheur.com from any liability action, claims and disputes that may result from any breach of these General Terms and Conditions of Sale, whether attributable to them or to the use of their account, and to intervene in any legal proceedings that may be brought against Peresbonheur.com on this basis.\n"
+"                        "
 
 #: templates/cgv.html:386
 msgid ""
@@ -3201,41 +3045,50 @@ msgid ""
 "mafia et autre actions illicites.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The Advertiser agrees not to distribute on Peresbonheur.com any banners, links, images, or messages that are contrary to good morals or that are related to money laundering, organized crime, or other illegal activities.\n"
+"                        "
 
 #: templates/cgv.html:390
 msgid "Suivi évolution commande"
-msgstr ""
+msgstr "Order Progress Tracking"
 
 #: templates/cgv.html:392
 msgid ""
 "\n"
-"                        L’Annonceur est tenu de suivre ses commandes via son "
+"                        L'Annonceur est tenu de suivre ses commandes via son "
 "espace professionnel.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The Advertiser is required to track their orders through their professional account.\n"
+"                        "
 
 #: templates/cgv.html:396
 msgid "Protection des données nominatives – cookies"
-msgstr ""
+msgstr "Protection of Personal Data – Cookies"
 
 #: templates/cgv.html:398
 msgid ""
 "\n"
 "                        Les données recueillies par Peresbonheur.com sur le "
-"site www.peresbonheur.com sont utilisées pour le traitement de l’Annonceur, "
-"pour l’informer sur les offres de Peresbonheur.com. Elles sont destinées aux "
+"site www.peresbonheur.com sont utilisées pour le traitement de l'Annonceur, "
+"pour l'informer sur les offres de Peresbonheur.com. Elles sont destinées aux "
 "services internes et aux prestataires de « Peresbonheur.com» pour "
 "l'exécution des commandes. Peresbonheur.com peut également être amenée à "
 "transmettre les coordonnées, des Annonceur s et Partenaires à d'autres "
 "sociétés du groupe Peresbonheur.com.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The data collected by Peresbonheur.com on the website www.peresbonheur.com is used for processing the Advertiser's information and to inform them about Peresbonheur.com's offers. It is intended for internal services and service providers of \"Peresbonheur.com\" for order execution. Peresbonheur.com may also transmit the contact details of Advertisers and Partners to other companies in the Peresbonheur.com group.\n"
+"                        "
 
 #: templates/cgv.html:403
 msgid ""
 "\n"
 "                        En raison des contraintes techniques et afin de "
-"faciliter la navigation sur le site www.peresbonheur.com, des “ cookies ” "
+"faciliter la navigation sur le site www.peresbonheur.com, des " cookies " "
 "sont également installés sur le site www.peresbonheur.com. Conformément à la "
 "directive du Parlement Européen et du Conseil du 24 octobre 1995 relative à "
 "la protection des personnes physiques à l'égard du traitement des données à "
@@ -3247,23 +3100,29 @@ msgid ""
 "de suppression, des informations nominatives le concernant.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Due to technical constraints and to facilitate navigation on the website www.peresbonheur.com, \"cookies\" are also installed on the site www.peresbonheur.com. In accordance with the European Parliament and Council Directive of October 24, 1995 on the protection of individuals with regard to the processing of personal data and on the free movement of such data, the Directive of December 15, 1997 concerning the processing of personal data and the protection of privacy in the telecommunications sector, and the French Data Protection Act of January 6, 1978, the Advertiser has the right to access, modify, rectify, and delete personal information concerning them.\n"
+"                        "
 
 #: templates/cgv.html:408
 msgid ""
 "\n"
-"                        L’Annonceur pourra exercer ce droit, dans le cas où "
+"                        L'Annonceur pourra exercer ce droit, dans le cas où "
 "toutes ses factures sont acquittées, en envoyant un courrier postal au "
-"service clientèle de la société Peresbonheur.com, à l’adresse suivante: "
-"Peresbonheur.com Service Administratif, Acajou 2 – Groupe Bois d’Inde Bât. 7 "
-"– BL 66 - 97232 LE LAMENTIN avec une photocopie de sa carte d’identité. "
+"service clientèle de la société Peresbonheur.com, à l'adresse suivante: "
+"Peresbonheur.com Service Administratif, Acajou 2 – Groupe Bois d'Inde Bât. 7 "
+"– BL 66 - 97232 LE LAMENTIN avec une photocopie de sa carte d'identité. "
 "Peresbonheur.com s'engage également à ce que ces informations ne soient ni "
 "échangées ni cédées.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The Advertiser may exercise this right, provided all their invoices have been paid, by sending a postal mail to the customer service of Peresbonheur.com, at the following address: Peresbonheur.com Administrative Service, Acajou 2 – Groupe Bois d'Inde Bât. 7 – BL 66 - 97232 LE LAMENTIN, with a photocopy of their ID card. Peresbonheur.com also commits that this information will neither be exchanged nor transferred.\n"
+"                        "
 
 #: templates/cgv.html:412
 msgid "Force majeure"
-msgstr ""
+msgstr "Force Majeure"
 
 #: templates/cgv.html:414
 msgid ""
@@ -3280,15 +3139,18 @@ msgid ""
 "inondations, dégâts des eaux, restrictions gouvernementales ou légales, "
 "modifications légales ou réglementaires des formes de commercialisation, "
 "pannes d'ordinateurs, blocages des télécommunications, y compris les réseaux "
-"PTT, panne d’hébergeur, guerre ou état de siège, et de tout évènement "
+"PTT, panne d'hébergeur, guerre ou état de siège, et de tout évènement "
 "indépendant, irrésistible et imprévisible empêchant l'exécution normale du "
 "contrat.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Initially, cases of force majeure will suspend the execution of the contract. If the cases of force majeure last for more than one month, the contract will be automatically terminated. Expressly considered as cases of force majeure or acts of God, in addition to those usually recognized by the jurisprudence of French courts and tribunals, are: total or partial strikes, internal or external to the company, lockouts, bad weather, epidemics, blockage of means of transport or supply for any reason whatsoever, earthquakes, fires, storms, floods, water damage, governmental or legal restrictions, legal or regulatory changes in forms of marketing, computer failures, telecommunications blockages, including PTT networks, hosting provider failures, war or state of siege, and any independent, irresistible and unforeseeable event preventing the normal execution of the contract.\n"
+"                        "
 
 #: templates/cgv.html:418
 msgid "Résiliation"
-msgstr ""
+msgstr "Termination"
 
 #: templates/cgv.html:420
 msgid ""
@@ -3296,79 +3158,97 @@ msgid ""
 "                        Faculté de résiliation anticipée\n"
 "                        "
 msgstr ""
+"\n"
+"                        Early termination option\n"
+"                        "
 
 #: templates/cgv.html:425
 msgid ""
 "\n"
-"                        L’Annonceur a la faculté de résilier sa commande "
-"dans l’hypothèse où Peresbonheur.com ne respecterait pas ses engagements en "
+"                        L'Annonceur a la faculté de résilier sa commande "
+"dans l'hypothèse où Peresbonheur.com ne respecterait pas ses engagements en "
 "termes de positionnement d'annonce et autres services, selon les conditions "
-"susvisées, pendant une durée de 7 jours, à compter de l’acceptation de la "
+"susvisées, pendant une durée de 7 jours, à compter de l'acceptation de la "
 "commande. Toutefois, l'Annonceur est seul à choisir son positionnement ou "
 "service. Dans le cas où l'Annonceur se tromperait de positionnement ou "
-"d’autres services, il ne peut y avoir aucun recours.\n"
+"d'autres services, il ne peut y avoir aucun recours.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The Advertiser has the option to cancel their order in the event that Peresbonheur.com does not fulfill its commitments in terms of ad positioning and other services, under the aforementioned conditions, for a period of 7 days from the acceptance of the order. However, the Advertiser is solely responsible for choosing their positioning or service. In the event that the Advertiser makes a mistake in positioning or other services, there can be no recourse.\n"
+"                        "
 
 #: templates/cgv.html:430
 msgid ""
 "\n"
 "                        Dans cette hypothèse, le client devra envoyer sa "
 "demande de résiliation par lettre recommandée avec accusé de réception à "
-"l’adresse suivante : Peresbonheur.com, Service résiliation – Acajou 2 – "
-"Groupe Bois d’Inde- Bât. 7 BL 66 - 97232 LE LAMENTIN. Une expertise amiable "
+"l'adresse suivante : Peresbonheur.com, Service résiliation – Acajou 2 – "
+"Groupe Bois d'Inde- Bât. 7 BL 66 - 97232 LE LAMENTIN. Une expertise amiable "
 "sera alors menée par des experts désignés par Peresbonheur.com afin de "
-"confirmer la position de l’Annonceur.\n"
+"confirmer la position de l'Annonceur.\n"
 "                        "
 msgstr ""
+"\n"
+"                        In this case, the client must send their termination request by registered letter with acknowledgment of receipt to the following address: Peresbonheur.com, Termination Service – Acajou 2 – Groupe Bois d'Inde- Bât. 7 BL 66 - 97232 LE LAMENTIN. An amicable assessment will then be conducted by experts appointed by Peresbonheur.com to confirm the Advertiser's position.\n"
+"                        "
 
 #: templates/cgv.html:435
 msgid ""
 "\n"
-"                        Dans l’hypothèse d’un avis favorable rendu par "
-"l’Expert, la résiliation prendra effet après réception d’un courriel qui "
+"                        Dans l'hypothèse d'un avis favorable rendu par "
+"l'Expert, la résiliation prendra effet après réception d'un courriel qui "
 "sera envoyé au client par Peresbonheur.com, dans un délai de 8 jours à "
-"compter de la réception de l’avis définitif, rendu dans le cadre de cette "
+"compter de la réception de l'avis définitif, rendu dans le cadre de cette "
 "expertise amiable.\n"
 "                        "
 msgstr ""
+"\n"
+"                        In the event of a favorable opinion given by the Expert, the termination will take effect after receipt of an email that will be sent to the client by Peresbonheur.com, within 8 days of receiving the final opinion, rendered as part of this amicable assessment.\n"
+"                        "
 
 #: templates/cgv.html:439
 msgid "Autres hypothèses de résiliation du contrat"
-msgstr ""
+msgstr "Other scenarios for contract termination"
 
 #: templates/cgv.html:441
 #, python-format
 msgid ""
 "\n"
-"                        Dans tous les cas où l’Annonceur souhaite résilier "
+"                        Dans tous les cas où l'Annonceur souhaite résilier "
 "sa commande pour quelque raison que ce soit (à moins d'un manquement des "
-"obligations de Peresbonheur.com qui fera office d'expertise), l’Annonceur "
+"obligations de Peresbonheur.com qui fera office d'expertise), l'Annonceur "
 "sera dans l'obligation de régler les packs de campagnes souscrits ou autres "
 "services ainsi que 20%% du solde à payer. Une fois l'ordre d'insertion "
-"souscrit par l’Annonceur, les packs de campagnes ou autres services sont "
+"souscrit par l'Annonceur, les packs de campagnes ou autres services sont "
 "alors engagés par Peresbonheur.com et dus par le client et aucune demande de "
 "remboursement ne pourra être prise en compte.\n"
 "                        "
 msgstr ""
+"\n"
+"                        In all cases where the Advertiser wishes to cancel their order for any reason (unless there is a breach of Peresbonheur.com's obligations which will serve as an assessment), the Advertiser will be obligated to pay for the subscribed campaign packages or other services as well as 20%% of the remaining balance. Once the insertion order is subscribed by the Advertiser, the campaign packages or other services are then committed by Peresbonheur.com and owed by the client, and no refund request can be considered.\n"
+"                        "
 
 #: templates/cgv.html:446
 #, python-format
 msgid ""
 "\n"
-"                        En cas de demande de résiliation par l’Annonceur "
+"                        En cas de demande de résiliation par l'Annonceur "
 "après l'achat des packs de campagnes, seuls 20%% du solde restant à payer "
 "sera à régler par le client afin que la résiliation prenne effet. Aucune "
-"résiliation ne pourra être effective si l’Annonceur ne s'est pas acquitté "
+"résiliation ne pourra être effective si l'Annonceur ne s'est pas acquitté "
 "des frais de résiliation susmentionnés.\n"
 "                        "
 msgstr ""
+"\n"
+"                        In case of a termination request by the Advertiser after the purchase of campaign packages, only 20%% of the remaining balance will be payable by the client for the termination to take effect. No termination can be effective if the Advertiser has not paid the aforementioned termination fees.\n"
+"                        "
 
 #: templates/cgv.html:450 templates/cgv.html:451
 #, fuzzy
 #| msgid "Syndication"
 msgid "Modifications"
-msgstr "Syndication"
+msgstr "Modifications"
 
 #: templates/cgv.html:453
 msgid ""
@@ -3378,91 +3258,108 @@ msgid ""
 "dans les Conditions Générales de Vente en ligne.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Peresbonheur.com company may rightfully modify its service without any other formality than to include these modifications in the online General Terms and Conditions of Sale.\n"
+"                        "
 
 #: templates/cgv.html:457
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 #: templates/cgv.html:459
 msgid ""
 "\n"
 "                        La configuration logicielle et matérielle nécessaire "
 "pour utiliser le site Peresbonheur.com et devenir Annonceur est précisée "
-"dans les présentes conditions générales d’utilisation du site Peresbonheur."
+"dans les présentes conditions générales d'utilisation du site Peresbonheur."
 "com. La charge technique et financière de cette configuration logicielle "
 "ainsi que les coûts de télécommunications liés à l'exécution des prestations "
-"prévues aux présentes conditions générales sont à la charge de l’Annonceur.\n"
+"prévues aux présentes conditions générales sont à la charge de l'Annonceur.\n"
 "                        "
 msgstr ""
+"\n"
+"                        The software and hardware configuration necessary to use the Peresbonheur.com website and become an Advertiser is specified in these general terms of use of the Peresbonheur.com website. The technical and financial responsibility for this software configuration as well as the telecommunication costs related to the execution of the services provided for in these general conditions are the responsibility of the Advertiser.\n"
+"                        "
 
 #: templates/cgv.html:464
 msgid ""
 "\n"
 "                        La responsabilité de la société Peresbonheur.com ne "
-"saurait être engagée au titre d’éventuelles difficultés d'accès ou de "
+"saurait être engagée au titre d'éventuelles difficultés d'accès ou de "
 "fonctionnement liés à la configuration matérielle ou logicielle de "
-"l’Annonceur. L'Annonceur déclare disposer des compétences ainsi que des "
-"moyens informatiques et de télécommunications lui permettant d’utiliser "
+"l'Annonceur. L'Annonceur déclare disposer des compétences ainsi que des "
+"moyens informatiques et de télécommunications lui permettant d'utiliser "
 "correctement les services du site www.peresbonheur.com.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Peresbonheur.com company cannot be held responsible for any access or operational difficulties related to the Advertiser's hardware or software configuration. The Advertiser declares that they have the skills as well as the computer and telecommunications means allowing them to correctly use the services of the www.peresbonheur.com website.\n"
+"                        "
 
 #: templates/cgv.html:468
 msgid "Reddition de comptes"
-msgstr ""
+msgstr "Accounting"
 
 #: templates/cgv.html:470
 msgid ""
 "\n"
 "                        Conformément aux dispositions édictées par la loi "
 "Sapin n° 93-122 du 29 janvier 1993, la Société Peresbonheur.com fournira à "
-"l’achèvement des prestations réalisées pour le compte de l’Annonceur un "
+"l'achèvement des prestations réalisées pour le compte de l'Annonceur un "
 "document auquel sera annexé les justificatifs de paiement fournis par "
 "PERESBONHEUR.COM.\n"
 "                        "
 msgstr ""
+"\n"
+"                        In accordance with the provisions set out by the Sapin Law No. 93-122 of January 29, 1993, Peresbonheur.com Company will provide, upon completion of the services performed on behalf of the Advertiser, a document to which will be attached the payment receipts provided by PERESBONHEUR.COM.\n"
+"                        "
 
 #: templates/cgv.html:474
 msgid "Droit applicable et litiges"
-msgstr ""
+msgstr "Applicable Law and Disputes"
 
 #: templates/cgv.html:476
 msgid ""
 "\n"
 "                        Les présentes conditions générales sont soumises à "
-"la Loi française. Tout litige susceptible de s’élever entre les parties "
-"relatif à la formation, l’exécution et/ou de l’interprétation des présentes "
+"la Loi française. Tout litige susceptible de s'élever entre les parties "
+"relatif à la formation, l'exécution et/ou de l'interprétation des présentes "
 "conditions générales de vente sera de la compétence exclusive du Tribunal de "
 "Commerce de FORT-DE-FRANCE.\n"
 "                        "
 msgstr ""
+"\n"
+"                        These general conditions are subject to French Law. Any dispute that may arise between the parties relating to the formation, execution and/or interpretation of these general terms and conditions of sale will be under the exclusive jurisdiction of the Commercial Court of FORT-DE-FRANCE.\n"
+"                        "
 
 #: templates/evolution.html:27
 msgid "Découvrez l'évolution du père Noël "
-msgstr ""
+msgstr "Discover the evolution of Santa Claus"
 
 #: templates/evolution.html:42
-msgid "La renaissance d’une Légende "
-msgstr ""
+msgid "La renaissance d'une Légende "
+msgstr "The rebirth of a Legend"
 
 #: templates/evolution.html:43
 msgid ""
-"Le mythe naît d’un conte et il n’est point facile de le faire évoluer, "
-"lorsqu’il est déjà bien ancré dans les coutumes. Ainsi, l’auteure et "
+"Le mythe naît d'un conte et il n'est point facile de le faire évoluer, "
+"lorsqu'il est déjà bien ancré dans les coutumes. Ainsi, l'auteure et "
 "innovatrice, Lyllah ROZ, contribue à le faire évoluer sous sa plume, tout "
-"comme l’a fait le pasteur Clément Clarke Moore en offrant aux enfants ainsi "
-"qu’aux adultes un conte en trois tomes.  "
+"comme l'a fait le pasteur Clément Clarke Moore en offrant aux enfants ainsi "
+"qu'aux adultes un conte en trois tomes.  "
 msgstr ""
+"The myth is born from a tale and it is not easy to make it evolve when it is already well-established in customs. Thus, the author and innovator, Lyllah ROZ, contributes to its evolution through her writing, just as Pastor Clement Clarke Moore did by offering children and adults a three-volume tale."
 
 #: templates/evolution.html:44
 msgid ""
-" Ce conte permet d’inclure les voitures électriques volantes, les drones, "
-"les vaisseaux spatiaux et biens d’autres éléments et personnages "
-"fantastiques dans la Légende. À travers ces contes, l’auteure associe "
-"l’imagerie du personnage fantastique au réel. Cette métamorphose permet "
-"d’ouvrir un segment de marché de différents produits (tenues, voitures, "
+" Ce conte permet d'inclure les voitures électriques volantes, les drones, "
+"les vaisseaux spatiaux et biens d'autres éléments et personnages "
+"fantastiques dans la Légende. À travers ces contes, l'auteure associe "
+"l'imagerie du personnage fantastique au réel. Cette métamorphose permet "
+"d'ouvrir un segment de marché de différents produits (tenues, voitures, "
 "drones et autres produits dérivés). "
 msgstr ""
+"This tale allows for the inclusion of flying electric cars, drones, spaceships, and many other fantastic elements and characters in the Legend. Through these tales, the author associates the imagery of the fantastic character with reality. This metamorphosis opens up a market segment for various products (outfits, cars, drones, and other merchandise)."
 
 #: templates/evolution.html:45
 msgid ""
@@ -3470,61 +3367,62 @@ msgid ""
 "production cinématographique et les jeux vidéo pour occuper les tout petits "
 "et leur tenir compagnie."
 msgstr ""
+"As for the fantastic characters and settings, they have been designed for film production and video games to entertain and keep company with young children."
 
 #: templates/footer.html:8 templates/gallerie.html:74
 #: templates/gallerie.html:199 templates/layouts/comicstyle.html:90
 #: templates/licences/licences/list.html:74 templates/nav.html:36
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: templates/footer.html:13 templates/gallerie.html:204
 msgid "reseaux sociaux/"
-msgstr ""
+msgstr "social networks/"
 
 #: templates/footer.html:18 templates/gallerie.html:209
 msgid "Liens"
-msgstr ""
+msgstr "Links"
 
 #: templates/footer.html:28 templates/gallerie.html:218
 msgid "Gallerie Photo"
-msgstr ""
+msgstr "Photo Gallery"
 
 #: templates/footer.html:51 templates/gallerie.html:242
 msgid "Mails"
-msgstr ""
+msgstr "Emails"
 
 #: templates/footer.html:52 templates/gallerie.html:243
 msgid "Envoyer-nous un petit email"
-msgstr ""
+msgstr "Send us a quick email"
 
 #: templates/footer.html:55 templates/gallerie.html:246
 msgid "SignUp"
-msgstr ""
+msgstr "Sign Up"
 
 #: templates/gallerie.html:58 templates/nav.html:18
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: templates/gallerie.html:59 templates/nav.html:19
 msgid "Boutique "
-msgstr ""
+msgstr "Shop"
 
 #: templates/gallerie.html:64
 msgid "Pourquoi 2 Pères noël?"
-msgstr ""
+msgstr "Why 2 Santas?"
 
 #: templates/gallerie.html:66 templates/nav.html:29
 msgid "Evolution du père noël"
-msgstr ""
+msgstr "Evolution of Santa Claus"
 
 #: templates/gallerie.html:72 templates/licences/licences/list.html:174
 #: templates/nav.html:34
 msgid "Licence"
-msgstr ""
+msgstr "License"
 
 #: templates/index.html:35
 msgid "PERES BONHEUR"
-msgstr ""
+msgstr "HAPPINESS FATHERS"
 
 #: templates/index.html:37
 msgid ""
@@ -3534,9 +3432,14 @@ msgid ""
 "technologies et à notre ère\n"
 "                                "
 msgstr ""
+"\n"
+"                                 The Marketplace that allows sellers to become accustomed to the Renaissance of the Legend adapted to new technologies and our era\n"
+"                                "
 
 #: templates/index.html:102
 msgid "Découvrez"
+msgstr "Discover"
+
 msgstr ""
 
 #: templates/index.html:103 templates/marketplace/products/list.html:42

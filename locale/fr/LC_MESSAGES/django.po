@@ -87,6 +87,785 @@ msgstr ""
 
 #: les2peresnoel/accounting/management/commands/load_configuration.py:7
 msgid "Loads the default configuration"
+msgstr "Charge la configuration par défaut"
+
+#: les2peresnoel/accounting/models.py:14
+msgid "Journée comptable"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:15
+msgid "Journées comptables"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:64
+msgid "Plan comptable"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:65
+msgid "Plan comptables"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:83
+msgid "Compte"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:84
+msgid "Comptes"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:117
+msgid "Transaction"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:118
+msgid "Transactions"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:135
+msgid "Journal"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:136
+msgid "Journaux"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:146
+msgid "Entrée de journal"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:147
+msgid "Entrées de journal"
+msgstr ""
+
+#: les2peresnoel/accounting/models.py:149
+msgid "Debit"
+msgstr "Débit"
+
+#: les2peresnoel/accounting/models.py:150
+msgid "Credit"
+msgstr "Crédit"
+
+#: les2peresnoel/core/views.py:19 les2peresnoel/core/views.py:26
+#: les2peresnoel/core/views.py:52 les2peresnoel/core/views.py:58
+#: les2peresnoel/core/views.py:64 les2peresnoel/core/views.py:70
+#: les2peresnoel/core/views.py:76 les2peresnoel/core/views.py:83
+#: les2peresnoel/core/views.py:112 les2peresnoel/core/views.py:135
+#: les2peresnoel/core/views.py:160 les2peresnoel/core/views.py:183
+#: les2peresnoel/core/views.py:189
+msgid "Hello, world!"
+msgstr "Bonjour, monde !"
+
+#: les2peresnoel/core/views.py:237
+msgid "Vous avez été déconnecté avec succès."
+msgstr ""
+
+#: les2peresnoel/core/views.py:247
+msgid "Votre message a été envoyé avex succès !"
+msgstr ""
+
+#: les2peresnoel/core/views.py:252
+msgid ""
+"Une erreur est survenue lors de l'envoi du message. Veuillez réessayer !"
+msgstr ""
+
+#: les2peresnoel/core/views.py:257
+msgid "Une erreur est survenue lors de l'envoi du message."
+msgstr ""
+
+#: les2peresnoel/licences/forms.py:22 les2peresnoel/licences/models.py:66
+#: templates/licences/licences/list.html:75
+#: templates/licences/licences/list.html:185
+#: templates/payments/pay_order.html:65
+msgid "Date d'expiration"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:18 les2peresnoel/providers/models.py:14
+#: templates/licences/licences/list.html:73
+#: templates/licences/licences/list.html:182
+#: templates/licences/requests/details.html:51
+#: templates/licences/requests/list.html:83
+msgid "Nom de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:19 les2peresnoel/providers/models.py:16
+#: templates/licences/requests/details.html:55
+msgid "Adresse de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:19 les2peresnoel/providers/models.py:16
+msgid "Adresse complète de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:20 les2peresnoel/providers/models.py:17
+#: templates/licences/requests/details.html:59
+msgid "Téléphone de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:20 les2peresnoel/providers/models.py:18
+msgid "Numéro de téléphone de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:21 les2peresnoel/providers/models.py:20
+#: templates/licences/requests/details.html:63
+msgid "Email de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:22 les2peresnoel/providers/models.py:22
+#: templates/licences/requests/details.html:67
+msgid "Site web de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:23 les2peresnoel/providers/models.py:24
+msgid "Logo de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:25 les2peresnoel/providers/models.py:27
+msgid "Numéro d'identification fiscale"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:25 les2peresnoel/providers/models.py:27
+#: templates/licences/requests/details.html:76
+msgid "Numéro d'identification fiscale de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:27 les2peresnoel/providers/models.py:29
+#: templates/licences/requests/details.html:80
+msgid "Description de l'entreprise"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:28 templates/layouts/comicstyle.html:367
+#, fuzzy
+#| msgid "Messages"
+msgid "Message"
+msgstr "Messages"
+
+#: les2peresnoel/licences/models.py:28
+#: templates/licences/requests/details.html:84
+msgid "Message à l'attention de MPERESBONHEUR"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:53
+msgid "Pièce jointe"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:54 les2peresnoel/marketplace/models.py:162
+#: les2peresnoel/marketplace/models.py:198
+#: les2peresnoel/marketplace/models_abstract.py:6
+#: templates/marketplace/checkout.html:34
+#: templates/marketplace/simple_checkout.html:34
+msgid "Nom"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:54
+msgid "Nom de la pièce jointe"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:55
+#: les2peresnoel/marketplace/models_abstract.py:7
+#: templates/marketplace/products/detail.html:143
+msgid "Description"
+msgstr ""
+
+#: les2peresnoel/licences/models.py:55
+msgid "Description de l'attachement"
+msgstr ""
+
+#: les2peresnoel/licences/views.py:29 les2peresnoel/licences/views.py:34
+msgid "Votre demande de licence a été soumise avec succès."
+msgstr ""
+
+#: les2peresnoel/licences/views.py:62
+msgid "Votre demande de licence a été modifiée avec succès."
+msgstr ""
+
+#: les2peresnoel/licences/views.py:75
+msgid "Votre demande de licence a été supprimée avec succès."
+msgstr ""
+
+#: les2peresnoel/licences/views.py:114
+msgid "Votre demande de licence a été acceptée avec succès."
+msgstr ""
+
+#: les2peresnoel/licences/views.py:121
+msgid "Votre demande de licence a été rejetée avec succès."
+msgstr ""
+
+#: les2peresnoel/licences/views.py:140 les2peresnoel/licences/views.py:145
+msgid "Votre licence a été créée avec succès."
+msgstr ""
+
+#: les2peresnoel/licences/views.py:160
+msgid "Licence mise à jour avec succès."
+msgstr ""
+
+#: les2peresnoel/licences/views.py:177
+msgid "Votre licence a été activée avec succès."
+msgstr ""
+
+#: les2peresnoel/licences/views.py:186
+msgid "Votre licence a été désactivée avec succès."
+msgstr ""
+
+#: les2peresnoel/marketplace/forms.py:26 les2peresnoel/marketplace/models.py:71
+#: les2peresnoel/marketplace/models.py:302
+#: templates/marketplace/checkout.html:156
+#: templates/marketplace/simple_checkout.html:155
+msgid "Quantité"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:30
+#: les2peresnoel/marketplace/models.py:69
+#: templates/marketplace/products/detail.html:109
+msgid "Catégorie"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:31
+#: templates/marketplace/checkout.html:161 templates/marketplace/home.html:83
+#: templates/marketplace/index.html:134
+#: templates/marketplace/simple_checkout.html:160
+msgid "Catégories"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:37
+#: les2peresnoel/marketplace/models.py:84
+msgid "Supprimé ?"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:63
+#: les2peresnoel/marketplace/models.py:299
+#: templates/stores/products/list.html:66
+msgid "Produit"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:64 templates/layouts/admin.html:47
+#: templates/marketplace/index.html:166 templates/stores/products/list.html:11
+msgid "Produits"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:67
+#: les2peresnoel/marketplace/models.py:301 templates/marketplace/home.html:95
+#: templates/stores/products/list.html:67
+msgid "Prix"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:72
+msgid "Lien de dropshipping"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:79
+msgid "Couverture"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:81
+msgid "Média"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:146
+msgid "Lien externe"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:163
+#: templates/marketplace/checkout.html:38
+#: templates/marketplace/simple_checkout.html:38
+msgid "Prénom(s)"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:164
+msgid "Adresse"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:165
+#: templates/marketplace/checkout.html:67
+#: templates/marketplace/simple_checkout.html:67
+msgid "Ville"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:166
+#: templates/marketplace/checkout.html:80
+#: templates/marketplace/simple_checkout.html:80
+msgid "Code Postal"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:167
+msgid "Country"
+msgstr "Pays"
+
+#: les2peresnoel/marketplace/models.py:169
+#: les2peresnoel/marketplace/models.py:200 templates/account/login.html:35
+#: templates/layouts/comicstyle.html:363 templates/marketplace/checkout.html:42
+#: templates/marketplace/simple_checkout.html:42
+#: templates/payments/list.html:41
+msgid "Adresse E-mail"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:172
+msgid "Numero de téléphone"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:181
+#: templates/marketplace/checkout.html:99
+#: templates/marketplace/simple_checkout.html:99
+msgid "Méthode de paiement"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:187
+msgid "Adresse PayPal"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:193
+#: les2peresnoel/marketplace/models.py:287 les2peresnoel/payments/models.py:13
+#: les2peresnoel/payments/models.py:36 les2peresnoel/payments/models.py:41
+#: templates/cgv.html:238 templates/marketplace/checkout.html:25
+#: templates/marketplace/simple_checkout.html:25
+#: templates/payments/list.html:42
+msgid "Commande"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:194 templates/cgv.html:31
+#: templates/layouts/admin.html:65 templates/marketplace/orders/list.html:11
+msgid "Commandes"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:199
+msgid "Prénoms"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:201
+msgid "Total Hors-Taxe"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:202
+#: templates/marketplace/orders/list.html:75
+msgid "Total TTC"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:203 templates/payments/pay_order.html:97
+msgid "Total TVA"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:205
+msgid "Frais de livraison"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:209
+msgid "Checkout"
+msgstr "Paiement"
+
+#: les2peresnoel/marketplace/models.py:215
+msgid "Redevance générée ?"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:218
+msgid "N° de suivi"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:222
+#: templates/marketplace/orders/list.html:73 templates/payments/list.html:40
+msgid "Client"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:282
+msgid "Produit de commande"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:283
+msgid "Produits de commande"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:294 les2peresnoel/payments/models.py:30
+msgid "Fournisseur"
+msgstr ""
+
+#: les2peresnoel/marketplace/models.py:303
+msgid "Total"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:109
+msgid ""
+"Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le "
+"même panier"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:171
+#: les2peresnoel/marketplace/views.py:199
+#: les2peresnoel/marketplace/views.py:234
+msgid "Erreur dans la création de la catégorie"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:188
+msgid "Catégorie créée"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:190
+msgid "La catégorie a bien été crée"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:223
+msgid "Catégorie mise à jour"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:225
+msgid "La catégorie a bien été mise à jour"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:284 les2peresnoel/stores/views.py:67
+#: les2peresnoel/stores/views.py:76
+msgid "Erreur dans la création du produit"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:300 les2peresnoel/stores/views.py:110
+msgid "Produit mis à jour"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:302 les2peresnoel/stores/views.py:112
+msgid "Le produit a bien été mis à jour"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:311 les2peresnoel/stores/views.py:121
+msgid "Erreur dans la mise à jour du produit"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:339
+msgid "Image ajoutée"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:341
+msgid "L'image a bien été ajoutée"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:350
+msgid "Erreur dans la création de l'image"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:452
+#: les2peresnoel/marketplace/views.py:580
+msgid "Votre commande a été enregistrée avec succès !"
+msgstr ""
+
+#: les2peresnoel/marketplace/views.py:460
+#: les2peresnoel/marketplace/views.py:588
+msgid "Une erreur s'est produite !"
+msgstr ""
+
+#: les2peresnoel/payments/hooks.py:46
+msgid ""
+"Un problème à malheureusement été détecté. Votre paiement n'as pas pu être "
+"validé. Veuillez patienter pendant que nous effectuons des vérifications."
+msgstr ""
+
+#: les2peresnoel/payments/models.py:17 les2peresnoel/payments/models.py:43
+#: templates/payments/list.html:43
+msgid "Montant"
+msgstr ""
+
+#: les2peresnoel/payments/models.py:20
+msgid "Payeur"
+msgstr ""
+
+#: les2peresnoel/payments/views.py:53 les2peresnoel/payments/views.py:105
+msgid "Paiement annulé !"
+msgstr ""
+
+#: les2peresnoel/payments/views.py:99
+msgid "Paiement réussi !"
+msgstr ""
+
+#: les2peresnoel/payments/views.py:121
+msgid "Cette requête a déjà été traitée"
+msgstr ""
+
+#: les2peresnoel/payments/views.py:127 les2peresnoel/payments/views.py:152
+msgid "Opération traitée avec succès !"
+msgstr ""
+
+#: les2peresnoel/users/admin.py:23
+msgid "Personal info"
+msgstr "Informations personnelles"
+
+#: les2peresnoel/users/admin.py:25
+msgid "Permissions"
+msgstr "Autorisations"
+
+#: les2peresnoel/users/admin.py:36
+msgid "Important dates"
+msgstr "Dates importantes"
+
+#: les2peresnoel/users/apps.py:9
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: les2peresnoel/users/forms.py:27 les2peresnoel/users/tests/test_forms.py:34
+msgid "This email has already been taken."
+msgstr "Cette adresse e-mail est déjà utilisée."
+
+#: les2peresnoel/users/models.py:20
+msgid "Name of User"
+msgstr "Nom de l'utilisateur"
+
+#: les2peresnoel/users/models.py:23
+#, fuzzy
+#| msgid "Enter a valid email address."
+msgid "email address"
+msgstr "Entrez une adresse e-mail valide."
+
+#: les2peresnoel/users/tests/test_views.py:69 les2peresnoel/users/views.py:21
+msgid "Information successfully updated"
+msgstr "Informations mises à jour avec succès"
+
+#: templates/about.html:27 templates/footer.html:19 templates/gallerie.html:61
+#: templates/gallerie.html:210 templates/nav.html:24
+msgid "A propos"
+msgstr ""
+
+#: templates/about.html:28
+msgid "NOBPRINT est une petite entreprise d'innovations diverses "
+msgstr ""
+
+#: templates/about.html:43 templates/gallerie.html:63 templates/nav.html:26
+msgid "Background du projet"
+msgstr ""
+
+#: templates/about.html:45
+msgid ""
+"Le site les2pèresnoel résout le problème du mensonge qui associe les fêtes "
+"de Noël à la nativité. Le site dévoile à travers l'histoire du Père noël ses "
+"vraies origines qui permettent de constater que l'histoire est laïque et non "
+"religieuse. Par ailleurs, les choses ayant évoluées, on ne peut plus "
+"raconter aux enfants qu'un vieux monsieur de 120 kilos passe par la cheminée "
+"d'autant plus que les immeubles et la plupart des nouvelles maisons n'ont "
+"plus de cheminée."
+msgstr ""
+
+#: templates/about.html:47
+msgid ""
+"En outre, les 2 pères noël actualisent le personnage à travers ses moyens de "
+"locomotion qui sont les voitures volantes, les drones, les vaisseaux "
+"spatiaux que l'on retrouve dans le tome 2 du conte Kovani qui s'intitule "
+"«Kovani et le vaisseau spatial»."
+msgstr ""
+
+#: templates/about.html:49
+msgid ""
+"Les 2 pères noël à travers leurs actions sociales durant toute l'année "
+"permettent d'apporter du bonheur dans les familles en difficulté car une "
+"fois les choses bien mises en place, une association sera constituée pour "
+"permettre de verser des sommes qui seront allouées aux familles en "
+"difficulté, là ou les organismes de l'état n'interviennent pas. A travers "
+"les contes et chansons vendus dans notre boutique les petits et adultes "
+"s'approprieront l'évolution du Père noël."
+msgstr ""
+
+#: templates/account/account_inactive.html:5
+#: templates/account/account_inactive.html:9
+msgid "Account Inactive"
+msgstr "Compte inactif"
+
+#: templates/account/account_inactive.html:12
+msgid "This account is inactive."
+msgstr "Ce compte est inactif."
+
+#: templates/account/base_reauthenticate.html:5
+#: templates/account/base_reauthenticate.html:9
+msgid "Confirm Access"
+msgstr "Confirmer l'accès"
+
+#: templates/account/base_reauthenticate.html:12
+msgid "Please reauthenticate to safeguard your account."
+msgstr "Veuillez vous réauthentifier pour sécuriser votre compte."
+
+#: templates/account/base_reauthenticate.html:19
+msgid "Alternative options"
+msgstr "Options alternatives"
+
+#: templates/account/confirm_login_code.html:5
+#: templates/account/confirm_login_code.html:27 templates/account/login.html:6
+#: templates/account/request_login_code.html:5
+#: templates/allauth/layouts/base.html:62
+msgid "Sign In"
+msgstr "Se connecter"
+
+#: templates/account/confirm_login_code.html:9
+msgid "Enter Sign-In Code"
+msgstr "Entrez le code de connexion"
+
+#: templates/account/confirm_login_code.html:15
+#, python-format
+msgid ""
+"We've sent a code to %(email_link)s. The code expires shortly, so please "
+"enter it soon."
+msgstr ""
+"Nous avons envoyé un code à %(email_link)s. Le code expire bientôt, veuillez "
+"donc le saisir rapidement."
+
+#: templates/account/confirm_login_code.html:34
+#: templates/account/request_login_code.html:31
+msgid "Other sign-in options"
+msgstr "Autres options de connexion"
+
+#: templates/account/email.html:4 templates/account/email.html:8
+msgid "Email Addresses"
+msgstr "Adresses e-mail"
+
+#: templates/account/email.html:12
+msgid "The following email addresses are associated with your account:"
+msgstr "Les adresses e-mail suivantes sont associées à votre compte :"
+
+#: templates/account/email.html:25
+msgid "Verified"
+msgstr "Vérifié"
+
+#: templates/account/email.html:29
+msgid "Unverified"
+msgstr "Non vérifié"
+
+#: templates/account/email.html:34
+msgid "Primary"
+msgstr "Principal"
+
+#: templates/account/email.html:44
+msgid "Make Primary"
+msgstr "Définir comme principal"
+
+#: templates/account/email.html:47 templates/account/email_change.html:37
+msgid "Re-send Verification"
+msgstr "Renvoyer la vérification"
+
+#: templates/account/email.html:50
+msgid "Remove"
+msgstr "Supprimer"
+
+#: templates/account/email.html:59
+msgid "Add Email Address"
+msgstr "Ajouter une adresse e-mail"
+
+#: templates/account/email.html:70
+msgid "Add Email"
+msgstr "Ajouter un e-mail"
+
+#: templates/account/email.html:79
+msgid "Do you really want to remove the selected email address?"
+msgstr "Voulez-vous vraiment supprimer l'adresse e-mail sélectionnée ?"
+
+#: templates/account/email/account_already_exists_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you or someone else tried to signup for "
+"an\n"
+"account using email address:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"However, an account using that email address already exists.  In case you "
+"have\n"
+"forgotten about this, please use the password forgotten procedure to "
+"recover\n"
+"your account:\n"
+"\n"
+"%(password_reset_url)s"
+msgstr ""
+"Vous recevez cet e-mail car vous ou quelqu'un d'autre a essayé de créer un\n"
+"compte en utilisant l'adresse e-mail :\n"
+"\n"
+"%(email)s\n"
+"\n"
+"Cependant, un compte utilisant cette adresse e-mail existe déjà. Si vous "
+"avez\n"
+"oublié cela, veuillez utiliser la procédure de mot de passe oublié pour "
+"récupérer\n"
+"votre compte :\n"
+"\n"
+"%(password_reset_url)s"
+
+#: templates/account/email/account_already_exists_subject.txt:3
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: templates/boutique.html:13 templates/boutique.html:26
+#: templates/layouts/marketplace.html:672
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-01 07:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: les2peresnoel/accounting/apps.py:7
+msgid "Comptabilité"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:42
+#: les2peresnoel/accounting/management/commands/load_configuration.py:13
+msgid "Plan comptable par défaut"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:44
+msgid "Créance client"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:46
+msgid "Banque"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:49
+msgid "Emprunts auprès d'établissements de crédit"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:52
+msgid "Charges d'intérêt"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:54
+msgid "Capital"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:57
+msgid "Achats de matières premières"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:60
+msgid "Matériel industriel"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:63
+msgid "Ventes de produits finis"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:65
+msgid "Dette fournisseur"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:68
+msgid "Commissions de vente"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:79
+msgid "Journal de transaction par défaut"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:129
+msgid "Avance"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:143
+msgid "Prélèvement de la commission de vente"
+msgstr ""
+
+#: les2peresnoel/accounting/helpers.py:157
+msgid "Reversement au fournisseurs"
+msgstr ""
+
+#: les2peresnoel/accounting/management/commands/load_configuration.py:7
+msgid "Loads the default configuration"
 msgstr ""
 
 #: les2peresnoel/accounting/models.py:14

@@ -19,7 +19,7 @@
         <section class="rounded-1 overflow-hidden mb-5"  data-bs-theme="light" style="background-image: url({% static 'img/pncourant.jpeg' %}); height: 40pc; background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="row align-items-center pt-5 g-0" style="">
                 <div class="col-md-6 offset-xl-1 text-center text-md-start">
-                    <div class="py-3 px-4 px-sm-5 pe-md-0 ps-xl-4 d-flex flex-column justify-content-center">
+                    <div class="py-3 px-4 px-sm-5 pe-md-0 ps-xl-4 d-flex flex-column justify-content-center sr-only">
                         <p class="text-body fs-xs text-uppercase mb-2">{% translate "Le marketplace du social" %}</p>
                         <h1 class="h2 pb-2"> {% blocktranslate %}
                            Bienvenue sur la marketplace des
@@ -187,16 +187,17 @@
                                         <span class="me-2">{{ product.price }}€</span>
                                         {% if product.price == 0 and product.media %}
                                             {% if product.media %}
-                                             <div class="nav ms-auto" data-bs-toggle="tooltip"
+                                            <div class="nav ms-auto" data-bs-toggle="tooltip"
                                                 data-bs-template="<div class='tooltip fs-xs' role='tooltip'><div class='tooltip-inner bg-light text-body-secondary p-0'></div></div>"
                                                 data-bs-placement="left" title="{% translate 'Télécharger' %}">
-                                                <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" href="#"
+                                                <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2"
                                                 aria-label="{% translate 'Télécharger' %}"
                                                 href="{{ product.media.url }}" download="{{ product.name }}">
                                                 <i class="ai-download"> </i>
-                                                {% translate " Télécharger" %}
+                                                {% translate "Télécharger" %}
                                                 </a>
-                                            {% endif %}
+                                            </div>
+                                             {% endif %}
                                         {% else %}
                                             <div class="nav ms-auto" data-bs-toggle="tooltip"
                                                 data-bs-template="<div class='tooltip fs-xs' role='tooltip'><div class='tooltip-inner bg-light text-body-secondary p-0'></div></div>"
