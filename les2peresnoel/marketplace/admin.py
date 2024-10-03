@@ -39,6 +39,11 @@ class CategoryAdmin(ModelAdmin):
 class ProductAdmin(ModelAdmin):
     list_display = ("name", "description", "price")
 
+    def save_model(self, request, obj, form, change):
+        if not change or not obj.owner:
+            obj.owner = request.user
+        super().save_model(request, obj, form, change)
+
 
 @admin.register(ProductImage, site=manager_admin_site)
 class ProductImageAdmin(ModelAdmin):
