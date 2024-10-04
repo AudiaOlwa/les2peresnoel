@@ -185,7 +185,7 @@
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <span class="me-2">{{ product.price }}€</span>
-                                        {% if product.price == 0 and product.media %}
+                                        {% if product.price == 0 %}
                                             {% if product.media %}
                                             <div class="nav ms-auto" data-bs-toggle="tooltip"
                                                 data-bs-template="<div class='tooltip fs-xs' role='tooltip'><div class='tooltip-inner bg-light text-body-secondary p-0'></div></div>"

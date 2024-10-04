@@ -70,17 +70,29 @@
                                             data-bs-template="<div class='tooltip fs-xs' role='tooltip'><div class='tooltip-inner bg-light text-body-secondary p-0'></div></div>"
                                             data-bs-placement="left" title="{% translate 'Ajouter au panier' %}">
                                             {% if product.media %}
-                                            <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" href="#"
-                                            aria-label="{% translate 'Ajouter au panier' %}"
-                                            hx-post="{% url 'marketplace:add_to_cart' product_id=product.pk %}"
-                                            hx-target="#cart-count"
-                                            hx-trigger="click" hx-swap="innerHTML">
-                                            <i class="ai-cart"> </i>
-                                            {% translate " Ajouter au panier" %}
-                                            </a>
+                                                {% if product.price == 0 %}
+                                                    <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" download="{{product.name}}" href="{{product.media.url}}"
+                                                    aria-label="{% translate 'Télécharger' %}"
+                                                    {% comment %} hx-post="{% url 'marketplace:add_to_cart' product_id=product.pk %}" {% endcomment %}
+                                                    {% comment %} hx-target="#cart-count" {% endcomment %}
+                                                    {% comment %} hx-trigger="click" hx-swap="innerHTML" {% endcomment %}
+                                                    >
+                                                    <i class="ai-download"> </i>
+                                                    {% translate "Télécharger" %}
+                                                    </a>
+                                                {% else %}
+                                                    <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" href="#"
+                                                    aria-label="{% translate 'Ajouter au panier' %}"
+                                                    hx-post="{% url 'marketplace:add_to_cart' product_id=product.pk %}"
+                                                    hx-target="#cart-count"
+                                                    hx-trigger="click" hx-swap="innerHTML">
+                                                    <i class="ai-cart"> </i>
+                                                    {% translate " Ajouter au panier" %}
+                                                    </a>
+                                                {% endif %}                                            
                                             {% else %}
                                             <a class="py-2 px-2 btn btn-sm btn-outline-primary w-100 w-lg-auto me-2" 
-                                            aria-label="{% translate 'Ajouter au panier' %}"
+                                            aria-label="{% translate 'Commander' %}"
                                             href="{% url 'marketplace:simple_checkout' product_id=product.pk %}">
                                             <i class="fa fa-shopping-bag"> </i>  &nbsp;
                                             {% translate "Commander" %}
