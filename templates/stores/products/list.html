@@ -131,7 +131,7 @@
                                                         <i class="feather-trash-2"></i> {% translate "Supprimer" %}
                                                     </a>
                                                 </li>
-                                                <li>
+                                                {% comment %} <li>
                                                     <a class="dropdown-item" href="#"
                                                        hx-get="{% url 'stores:product_details' product.id %}"
                                                        hx-target="#modal-content"
@@ -141,7 +141,7 @@
                                                         <i class="feather-eye"></i> 
                                                         {% translate "Détails" %}
                                                     </a>
-                                                </li>
+                                                </li> {% endcomment %}
                                                 {% endif %}
                                             </ul>
                                         </div>
@@ -156,7 +156,7 @@
                     <ul class="list-unstyled d-flex align-items-center gap-2 mb-0 pagination-common-style">
                         {% if products.has_previous %}
                             <li>
-                                <a href="j?page={{ products.previous_page_number }}"><i class="bi bi-arrow-left"></i></a>
+                                <a href="?page={{ products.previous_page_number }}"><i class="bi bi-arrow-left"></i></a>
                             </li>
                         {% endif %}
                         {% for num in products.paginator.page_range %}
