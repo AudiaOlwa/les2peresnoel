@@ -79,6 +79,14 @@ INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 USE_I18N = True
 USE_L10N = True
+
+MARKETPLACE_DOMAINS = [
+    "www.mperesbonheur.com",
+    "www.mfathersjoy.com",
+    "mperesbonheur.com",
+    "mfathersjoy.com",
+]
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     # "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -92,6 +100,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
+    "config.middleware.RedirectionMiddleware",
     # "config.middleware.CurrentRequestMiddleware",
 ]
 
