@@ -57,6 +57,7 @@ def create_categories_and_subcategories():
             "Tenues Mères Bonheur",
         ],
     }
+    from les2peresnoel.marketplace.models import Category
 
     for category_name, subcategories in categories_data.items():
         category, _ = Category.objects.get_or_create(name=category_name)
