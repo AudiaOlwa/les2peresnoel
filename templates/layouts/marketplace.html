@@ -45,7 +45,7 @@
         body{
             font-family: "Ysabeau Office", sans-serif !important;
         }
-        .page-loading {
+        {% comment %} .page-loading {
             position: fixed;
             top: 0;
             right: 0;
@@ -98,7 +98,7 @@
         [data-bs-theme="dark"] .page-loading-inner > span {
             color: #fff;
             opacity: .6;
-        }
+        } {% endcomment %}
 
         .page-spinner {
             display: inline-block;
@@ -151,7 +151,7 @@
     {#    <!-- Page loading styles -->#}
 
     <!-- Page loading scripts -->
-    <script>
+    {% comment %} <script>
         (function () {
             window.onload = function () {
                 const preloader = document.querySelector('.page-loading')
@@ -161,7 +161,7 @@
                 }, 1500)
             }
         })()
-    </script>
+    </script> {% endcomment %}
 
     <!-- Google Tag Manager -->
     {% comment %} <script>
@@ -192,12 +192,12 @@
 </noscript>
 
 <!-- Page loading spinner -->{% endcomment %}
-<div class="page-loading active">
+{% comment %} <div class="page-loading active">
     <div class="page-loading-inner">
         <div class="page-spinner"></div>
         <span>{% translate "Chargement" %} ...</span>
     </div>
-</div>
+</div> {% endcomment %}
 
 
 {% comment %}
