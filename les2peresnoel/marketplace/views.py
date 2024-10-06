@@ -74,7 +74,9 @@ def home(request):
         "categories": Category.objects.only("name", "cover_image", "slug").filter(
             slug__icontains="bonheur"
         ),
-        "all_categories": Category.objects.only("name", "cover_image", "slug"),
+        "all_categories": Category.objects.only("name", "cover_image", "slug").filter(
+            parent__isnull=True
+        ),
         "products": products,
         "filter_datas": {
             "min_price": int(min_price),
@@ -99,18 +101,39 @@ def add_product(request: HttpRequest, product_id: int, from_cart=False):
     # get the provider of the first product in cart
     # breakpoint()
     if cart.count > 0:
-        existing_provider = cart.products[0].owner
+        first_product = cart.products[0]
+        existing_provider = first_product.owner
     else:
-        existing_provider = None
-    if existing_provider and existing_provider != product.owner:
-        sweetify.toast(
+        existing_provider, first_product = None, None
+
+    if not first_product or (
+        (not first_product.media or not product.media)
+        and (first_product.media or product.media)
+    ):
+        sweetify.warning(
             request,
-            title=_("Erreur"),
-            icon="error",
+            title=_("Information"),
             text=_(
-                "Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le même panier"
+                "Vous ne pouvez pas mélanger les produits numériques et physiques dans le même panier \n"
             ),
-            timer=SWEETIFY_TOAST_TIMER,
+            button=_("Compris !"),
+            persistent=True,
+            icon="info",
+        )
+        return HttpResponseClientRedirect(reverse("marketplace:home"))
+    if existing_provider and existing_provider != product.owner:
+        sweetify.warning(
+            request,
+            # title=_("Erreur !"),
+            title=_("Information"),
+            icon="info",
+            text=_(
+                "Vous ne pouvez pas ajouter des produits de différents fournisseurs dans le même panier \n"
+                # "Terminer votre commande ou vider votre panier"
+            ),
+            button=_("Compris !"),
+            # timer=SWEETIFY_TOAST_TIMER,
+            persistent=True,
         )
         return HttpResponseClientRedirect(reverse("marketplace:home"))
     # else:
