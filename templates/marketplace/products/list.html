@@ -19,6 +19,7 @@
             </ol>
         </nav> 
 
+        {% if categories %}
         <div class="category-area2">
             <div class="container">
                 <h3 class="text-center">{% translate "Autres Catégories" %}</h3>
@@ -41,7 +42,7 @@
                 </div>
             </div>
         </div>
-
+        {% endif %}
         
         <h3 class="pb-2 pb-sm-3 text-center mt-5 mb-5">{% translate 'Nos produits' %}</h3>
         <section class="container">
@@ -51,7 +52,7 @@
                 <div class="d-flex align-items-start justify-content-between mb-4">
 
                 </div>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="product-list">
+                <div class="row container row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="product-list">
                     {% block product_list %}
                     {% for product in products %}
                         <div class="col pb-2 pb-sm-3 d-flex align-items-stretch" >
