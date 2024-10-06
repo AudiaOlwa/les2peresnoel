@@ -10,6 +10,11 @@
                 <li class="breadcrumb-item">
                     <a href="{% url 'marketplace:home' %}"> {% translate 'Accueil' %} </a>
                 </li>
+                {% if category  and category.parent %}
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'marketplace:list_product_by_category' category.parent.pk %}"> {{category.parent.name}} </a>
+                    </li>
+                {% endif %}
                 <li class="breadcrumb-item active" aria-current="page"> {{category.name}} </li>
             </ol>
         </nav> 

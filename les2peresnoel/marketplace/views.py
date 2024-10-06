@@ -530,7 +530,7 @@ def order_tracking(request, tracking_id):
 def list_product_by_category(request, pk):
     category = get_object_or_404(Category, pk=pk)
     products = Product.objects.filter(category=category)
-    _categories = Category.objects.all()
+    _categories = Category.objects.filter(parent=category)
     return render(
         request,
         "marketplace/products/list.html",
