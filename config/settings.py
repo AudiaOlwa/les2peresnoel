@@ -100,7 +100,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
-    "config.middleware.RedirectionMiddleware",
+    # "config.middleware.RedirectionMiddleware",
     # "config.middleware.CurrentRequestMiddleware",
 ]
 
