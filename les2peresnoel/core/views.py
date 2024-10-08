@@ -23,31 +23,12 @@ def signup(request):
 
 
 def index(request):
-    # message = _("Hello, world!")
-    activate("fr")
     url_complete = request.build_absolute_uri()
     if any(domain in url_complete for domain in settings.MARKETPLACE_DOMAINS):
         return redirect("marketplace:home")
-    # try:
-    #     product_book_all = Product.objects.filter(type="L")
-    #     random_books = random.sample(list(product_book_all), 3)
-
-    #     product_video_all = Product.objects.filter(type="V")
-    #     random_video = random.sample(list(product_video_all), 1)
-
-    #     product_musik_all = Product.objects.filter(type="M")
-    #     random_musik = random.sample(list(product_musik_all), 1)
-    # except Exception as e:
-    #     ...
-
     return render(
         request,
         "index.html",
-        # {
-        #     "random_books": random_books,
-        #     "random_video": random_video,
-        #     "random_musik": random_musik,
-        # },
     )
 
 
