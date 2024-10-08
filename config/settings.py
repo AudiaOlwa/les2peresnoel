@@ -101,7 +101,7 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
     # "config.middleware.RedirectionMiddleware",
-    # "config.middleware.CurrentRequestMiddleware",
+    "config.middleware.CurrentRequestMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
