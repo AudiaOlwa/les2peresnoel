@@ -42,6 +42,5 @@ html5lib
 calmjs.parse
 csscompressor
 brotli
-
 redis
 django-redis
